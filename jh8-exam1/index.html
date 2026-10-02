@@ -750,20 +750,20 @@ const BGM={ctx:null,master:null,timer:null,playing:false,
 
 /* 交卷給老師引擎（段考模擬題／快問快答／分類挑戰／配對 都可交卷）。
    接在 template.html 的「音效＋工具」與 data.js 之後、app.js（導覽、首頁、動畫）之前。
-   換科時只改三個佔位：english8-1（例 chinese8-1）、english8（例 chinese8，須在試算表 classes 工作表註冊）。
+   換科時改三個佔位：https://script.google.com/macros/s/AKfycbzPt9-_BdRtHhH6f6GAuE9LLRXK8m3j7uavDxpm0xaaJCitl2KfOoYcviYgDZNdNjflLg/exec（段考闖關成績後端網址）、english8-1（例 chinese8-1）、英文 國二上第一次段考（分頁名稱）。不用班級碼。
    render() 要把 d.code、`${d.no} ${d.title}` 傳給 renderQuick/renderMCQ/renderMatch，並在畫分類前設定 SORTCTX={code,title}。 */
 /* ================= 交卷給老師（雲端） =================
    後端：老師既有的 Google Apps Script（班級碼＋檢視密鑰）。subject 固定 chinese8-1，和聽力／閱讀分開。
    round 編碼：單元代碼×10＋題型（0＝段考模擬題、1＝快問快答）；總測驗＝90。 */
 const CLOUD={
-  endpoint:'https://script.google.com/macros/s/AKfycbyr1JovSqvYEXjlLbTVoqhkAHTUbB0gDGz0UY_P30d77D6oJuYYTfxebbTadFZB46iO/exec',
+  endpoint:'https://script.google.com/macros/s/AKfycbzPt9-_BdRtHhH6f6GAuE9LLRXK8m3j7uavDxpm0xaaJCitl2KfOoYcviYgDZNdNjflLg/exec',   /* 段考闖關成績後端（assets/v2/backend/Code.gs），不用班級碼 */
   subject:'english8-1',
-  cls:'english8',   /* 班級碼固定，學生不用填 */
+  site:'英文 國二上第一次段考',   /* 試算表分頁名稱，例「英文 國二上第一次段考」 */
   get me(){try{const o=JSON.parse(localStorage.getItem('english8-1_student')||'null');return o&&o.name?o:null}catch(e){return null}},
   set me(o){try{localStorage.setItem('english8-1_student',JSON.stringify(o))}catch(e){}},
   upload(rec){
     const m=this.me;if(!m)return false;
-    const body=Object.assign({cls:this.cls,name:m.name,seat:'',subject:this.subject},rec);
+    const body=Object.assign({name:m.name,subject:this.subject,site:this.site},rec);
     try{fetch(this.endpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(body)})}catch(e){return false}
     try{const h=JSON.parse(localStorage.getItem('english8-1_history')||'[]');h.push({...rec,date:new Date().toISOString()});localStorage.setItem('english8-1_history',JSON.stringify(h.slice(-200)))}catch(e){}
     return true;
