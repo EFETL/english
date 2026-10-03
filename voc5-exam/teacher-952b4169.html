@@ -55,7 +55,7 @@ select{max-width:100%}
 </style>
 </head>
 <body>
-<header><div class="wrap"><h1>📊 高職英文段考闖關｜老師端</h1><p>龍騰高職第五冊 L1～L2｜高三上第一次期中考：學生交卷的姓名、分數與錯題（開啟即自動讀取）</p></div></header>
+<header><div class="wrap"><h1>📊 高職英文段考闖關｜老師端</h1><p>龍騰高職第五冊 L1～L4｜高三上第一、二次期中考：學生交卷的姓名、分數與錯題（開啟即自動讀取）</p></div></header>
 <main class="wrap">
   <div class="card"><div class="row"><button class="btn" id="load">🔄 讀取最新成績</button></div>
     <p class="muted" id="msg" style="margin:10px 0 0">讀取中…（約需 5～10 秒）</p></div>
@@ -65,7 +65,7 @@ select{max-width:100%}
 const ENDPOINT='https://script.google.com/macros/s/AKfycbzPt9-_BdRtHhH6f6GAuE9LLRXK8m3j7uavDxpm0xaaJCitl2KfOoYcviYgDZNdNjflLg/exec';
 const SUBJECT='voc5-mid';
 const KEY='qk-a24d325f02cc7da5';  /* 段考闖關成績後端的讀取密鑰（Code.gs 的 READ_KEY） */
-const UNIT={"1": "L1 All Aboard for Lady Liberty 自由女神", "2": "L2 The Day I Broke the Rules 打破規定的那天", "6": "句型特訓", "7": "克漏字＋閱讀"};
+const UNIT={"1": "L1 All Aboard for Lady Liberty 自由女神", "2": "L2 The Day I Broke the Rules 打破規定的那天", "3": "L3 Mythology in Famous Brands 名牌中的神話", "4": "L4 Mystery of the Disappearing Bees 消失的蜜蜂之謎", "6": "句型特訓", "7": "克漏字＋閱讀"};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
 let ROWS=[];
