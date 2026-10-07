@@ -228,7 +228,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:20px}
 <main><div class="wrap" id="app"></div></main>
 <footer><div class="wrap">
   <b>全民補習班 英文科</b>｜考點依據：臺中五權（114）、新北中正（114）、高雄楠梓（114）、彰化福興（113）、新北桃子腳（113）五校南一版第一次段考試卷，另比對全臺 59 校 114 上八年級英文段考的共通文法。模擬題與閱讀文章皆為原創改寫。<br>
-  單字與課文依南一版 B3 課本。發音使用瀏覽器內建語音。練習時可以開聲音，答對、答錯都有音效。背景音樂只在「動畫導覽」播放，可按右下角按鈕關閉。<br>
+  單字與課文依南一版 B3 課本。英文發音使用微軟 Neural 語音（en-US-Aria）預錄。練習時可以開聲音，答對、答錯都有音效。背景音樂只在「動畫導覽」播放，可按右下角按鈕關閉。<br>
   交卷時會把你的姓名、分數與錯題傳給老師，只有老師看得到。左下角 ✏️ 可以手寫、兩指縮放。<br>
   <details style="margin-top:8px"><summary>圖片來源與授權</summary>
   照片皆來自 Wikimedia Commons：Ofrenda or Day of the Dead Altar at Mission Marquee Plaza. (586908b4-40dd-4be5-bc53-ababb89291f1)：NPS Photo（公有領域）；Day of the Dead (Dia de los Muertos) procession in San Francisco, 2006：Al83tito（CC0）；Emerald Playground td (2021-03-31) 23 - Basketball Courts：Tdorante10（CC BY-SA 4.0）；Grandfather and grandson at the table：Marie-Sophie Mejan（CC BY 4.0）；Jogger in morning mist 7th Brigade Park Chermside P1060534：John Robert McPherson（CC BY-SA 4.0）；Tagetes erecta 30012013：Joydeep（CC BY-SA 3.0）；Girl dressed up as death in the parade in the Historic Center of Mexico City：AngieRomo27（CC BY-SA 4.0）；Studying：Gnarlycraig（公有領域）；Burning joss paper on the Tomb Sweeping Day：chia ying Yang（CC BY 2.0）；Taiwanese young woman reading in the bookstore：BoChengChou（CC BY 2.0）；Man harvesting and opening cocoa pods in vibrant tropical plantation：Abdulazeezabz（CC BY-SA 4.0）；Woman writing on a notebook with a pen：Kristin Hardwick（CC0）；Niger, Tillabéri, 2008 47：Lars Rosendahl Appelquist（CC BY-SA 4.0）；Ripe Cocoa Pods Ready for Harvesting：Unknown authorUnknown author（CC BY 4.0）；Niger school 040830：Tech. Sgt. Chance Babin（公有領域）。</details>
@@ -588,6 +588,7 @@ const RADAR={
 /* ================= 導覽 ================= */
 const TABS=[['home','🏠 考點雷達'],['l1','🕯️ L1 亡靈節'],['l2','📖 L2 特別的書'],['gram','⏰ 過去式特訓'],['mix','🧩 克漏字＋閱讀']];
 
+const AUDIO=new Set(["02d2b8aa", "0721ac9a", "0bd3a98b", "0bf7cb59", "0f4f17b0", "11e0224a", "15743f91", "16e2c1f2", "181eafc7", "18f40e39", "1c2ed509", "1cb0b961", "22657b24", "2281bd4b", "275ccfc9", "2acd4eca", "2be8f32f", "2c41499c", "2db6483e", "2ff4499c", "3044938a", "31e89243", "3641595a", "376ed5ab", "398ca88e", "3ce2519d", "3f32c75d", "3ff21de3", "406f344d", "4288e94c", "42ff537f", "46ff9c40", "48dfa0a5", "495bfbce", "4ae3d836", "4aff1df6", "518432e3", "540ca757", "5551ee80", "5584392f", "581bb82d", "59167492", "59baa942", "5ac84450", "5e227625", "5e5b9905", "5f7ab62d", "62bdfdb8", "63fe3327", "6404eeb8", "65d5776b", "666ccda7", "676401da", "67a9c9d2", "697299ee", "6b532a96", "6ee2f34e", "6ef6e45e", "6f1c080e", "6f6292f8", "6fda29b0", "7013d630", "734e1df1", "76c55440", "76da7e05", "784003d0", "7871306e", "793407f8", "806784fd", "814f7e68", "83cedb19", "84e9f1ae", "89eabb08", "8fdd765d", "911a6fea", "93c2a834", "994c2d1c", "9a78e4fa", "9b12d8e9", "9c0cdc8e", "a0de2c7a", "a2825d2f", "a4f844d4", "a6e857bf", "a9c9fc38", "aaed5069", "ab356625", "ac89ff19", "ad1fe37a", "ae184492", "afd071e5", "b7cbc712", "b98c6517", "b9e740b7", "bc03351c", "bd28bd4d", "be269f5c", "bf02aa70", "bf055208", "bfe99827", "bff162e2", "c0fd396a", "c2e52a80", "c35ce3d2", "c7eb512c", "c84b99e2", "c91c7e60", "c9648178", "cb532ae5", "cd3e9607", "cde034ab", "ced96b98", "d15caf72", "d1b10e58", "d8c76627", "dad42b23", "e0633d1f", "e18c56af", "e2befe92", "e330335b", "e383b8f9", "e5243301", "e90b99b6", "eaeb1c8f", "ed63e741", "ee4a05ee", "f0dfd78b", "f5ce03fb", "f769b433", "f835b7e2", "f944e95b", "fb7f6c5e", "fc82911d", "ff005670", "ff5ded4d"]);
 /* ================= 注釋配對 ================= */
 function renderMatch(el,pairs){
   const rounds=[];const sp=shuf(pairs);for(let k=0;k<sp.length;k+=5)rounds.push(sp.slice(k,k+5));
@@ -753,8 +754,8 @@ const BGM={ctx:null,master:null,timer:null,playing:false,
    換科時改三個佔位：https://script.google.com/macros/s/AKfycbzPt9-_BdRtHhH6f6GAuE9LLRXK8m3j7uavDxpm0xaaJCitl2KfOoYcviYgDZNdNjflLg/exec（段考闖關成績後端網址）、english8-1（例 chinese8-1）、英文 國二上第一次段考（分頁名稱）。不用班級碼。
    render() 要把 d.code、`${d.no} ${d.title}` 傳給 renderQuick/renderMCQ/renderMatch，並在畫分類前設定 SORTCTX={code,title}。 */
 /* ================= 交卷給老師（雲端） =================
-   後端：老師既有的 Google Apps Script（班級碼＋檢視密鑰）。subject 固定 chinese8-1，和聽力／閱讀分開。
-   round 編碼：單元代碼×10＋題型（0＝段考模擬題、1＝快問快答）；總測驗＝90。 */
+   後端：段考闖關成績（assets/v2/backend/Code.gs），不用班級碼；每個網站一個 subject、試算表一個分頁。
+   round 編碼：單元代碼×10＋題型（0＝段考模擬題、1＝快問快答、2＝分類、3＝配對）；總測驗＝90。 */
 const CLOUD={
   endpoint:'https://script.google.com/macros/s/AKfycbzPt9-_BdRtHhH6f6GAuE9LLRXK8m3j7uavDxpm0xaaJCitl2KfOoYcviYgDZNdNjflLg/exec',   /* 段考闖關成績後端（assets/v2/backend/Code.gs），不用班級碼 */
   subject:'english8-1',
@@ -956,9 +957,21 @@ function renderMatch(el,pairs,code,title){
 }
 
 
-/* ================= 發音（瀏覽器內建，iOS 需在點擊時呼叫） ================= */
+/* ================= 發音（微軟 Neural 語音預錄 mp3；沒有檔才退回瀏覽器語音） ================= */
 const isEN=s=>/^[A-Za-z][A-Za-z '’\-\/.…]*$/.test(s.trim());
-function say(t){try{const u=new SpeechSynthesisUtterance(t.replace(/…/g,' ').replace(/\//g,' or '));u.lang='en-US';u.rate=.85;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+const normSay=t=>t.replace(/<br\s*\/?>/gi,' ').replace(/<[^>]+>/g,'').replace(/[’‘]/g,"'").replace(/[“”]/g,'"').replace(/…/g,' ').replace(/___+/g,'blank').replace(/\s+/g,' ').trim();
+function akey(t){let h=0x811c9dc5;for(let i=0;i<t.length;i++){h^=t.charCodeAt(i);h=Math.imul(h,0x01000193)>>>0}return h.toString(16).padStart(8,'0')}
+let __au=null;
+function stopSay(){try{if(__au)__au.pause();speechSynthesis.cancel()}catch(e){}}
+function webSay(t){try{const u=new SpeechSynthesisUtterance(t.replace(/\//g,' or '));u.lang='en-US';u.rate=.9;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+function say(t){
+  const n=normSay(t),k=akey(n);stopSay();
+  if(typeof AUDIO!=='undefined'&&AUDIO.has(k)){
+    if(!__au)__au=new Audio();
+    __au.src='audio/'+k+'.mp3';const p=__au.play();if(p&&p.catch)p.catch(()=>webSay(n));
+  }else webSay(n);
+}
+
 
 let cur='home', curSub={};
 function drawTabs(){
