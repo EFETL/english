@@ -177,7 +177,7 @@ function csv(){
   rs.forEach(r=>lines.push([r.date.toLocaleString(),r.name,r.unit,r.kind,r.score,r.correct,r.total,r.blank,
     r.wrong.map(w=>`${w.q}｜${w.my}｜${w.a}`).join('\n')].map(q).join(',')));
   const blob=new Blob(['﻿'+lines.join('\n')],{type:'text/csv;charset=utf-8'});
-  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`段考闖關成績_國二國文.csv`;a.click();
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`段考闖關成績_國二英文南一.csv`;a.click();
 }
 load();
 </script>

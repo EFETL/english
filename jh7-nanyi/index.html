@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>國一英文段考闖關｜南一</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --main:#1d5c63; --main-2:#3aa39a; --accent:#f2a541; --accent-2:#e07a2f;
+  --bg:#f6f4ef; --card:#ffffff; --ink:#23303f; --muted:#6b7686; --line:#e3e0d8;
+  --ok:#2e9e6b; --ok-bg:#e3f5ec; --bad:#d9534f; --bad-bg:#fbe7e6; --hi:#fff4d6;
+  --shadow:0 4px 18px rgba(30,45,70,.08);
+}
+*{box-sizing:border-box}
+html{font-size:18px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC",system-ui,sans-serif;line-height:1.7}
+button{font-family:inherit;font-size:1rem;cursor:pointer}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header.hero{background:linear-gradient(135deg,#123c40 0%,#3aa39a 60%,#f6c453 140%);color:#fff;padding:40px 0 32px}
+.hero h1{margin:0 0 6px;font-size:1.9rem;font-weight:900;letter-spacing:.04em}
+.hero p{margin:0;opacity:.92}
+.hero .tag{display:inline-block;background:rgba(255,255,255,.18);padding:2px 12px;border-radius:99px;font-size:1rem;margin-bottom:10px}
+nav.tabs{position:sticky;top:0;z-index:20;background:rgba(246,244,239,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:10px;padding-bottom:10px}
+.tab{border:none;background:#fff;color:var(--ink);padding:8px 16px;border-radius:99px;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.06);font-weight:500}
+.tab.on{background:var(--main);color:#fff}
+.subtabs{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 16px}
+.sub{border:2px solid var(--line);background:#fff;padding:7px 14px;border-radius:12px;font-weight:500;color:var(--ink)}
+.sub.on{border-color:var(--accent);background:var(--hi)}
+main{padding:10px 0 60px}
+.card{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:22px;margin:0 0 20px}
+h2{font-size:1.45rem;margin:26px 0 4px;color:var(--main)}
+h3{font-size:1.15rem;margin:0 0 10px;color:var(--main)}
+.muted{color:var(--muted);font-size:1rem}
+.pill{display:inline-block;font-size:1rem;padding:1px 10px;border-radius:99px;background:var(--hi);color:#8a5a00;margin-right:6px;font-weight:700}
+.btn{border:none;background:var(--main);color:#fff;padding:9px 20px;border-radius:12px;font-weight:700}
+.btn.alt{background:var(--accent);color:#3b2600}
+.btn.ghost{background:#eef1f6;color:var(--main)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:760px){.grid2{grid-template-columns:1fr}.hero h1{font-size:1.5rem}}
+
+/* ---------- 考點雷達 ---------- */
+.bars .b{display:grid;grid-template-columns:150px 1fr 44px;gap:10px;align-items:center;margin:7px 0}
+.bars .track{background:#eef1f6;border-radius:99px;height:14px;overflow:hidden}
+.bars .fill{height:100%;background:linear-gradient(90deg,var(--main-2),var(--accent));border-radius:99px;width:0;transition:width 1s ease}
+@media(max-width:560px){.bars .b{grid-template-columns:100px 1fr 36px;font-size:1rem}}
+.chips span{display:inline-block;background:#eef1f6;border-radius:10px;padding:3px 10px;margin:4px 4px 0 0;font-size:1rem}
+.chips span b{color:var(--accent-2)}
+.lessoncards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+@media(max-width:860px){.lessoncards{grid-template-columns:1fr 1fr}}
+.lc{border-radius:16px;padding:18px;color:#fff;cursor:pointer;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow);transition:transform .2s}
+.lc:hover{transform:translateY(-3px)}
+.lc .n{font-size:1rem;opacity:.9}.lc .t{font-size:1.3rem;font-weight:900}.lc .d{font-size:1rem;opacity:.92}
+
+/* ---------- 動畫 ---------- */
+.stage{border-radius:16px;overflow:hidden;background:#0d1b33;position:relative}
+.stage svg{display:block;width:100%;height:auto}
+.caption{margin-top:14px}
+.caption .poem{background:#f3f6fb;border-left:5px solid var(--main-2);padding:10px 14px;border-radius:8px;font-size:1.05rem}
+.caption .key{background:var(--hi);border-left:5px solid var(--accent);padding:10px 14px;border-radius:8px;margin-top:10px}
+.steps{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.steps button{border:2px solid var(--line);background:#fff;border-radius:10px;padding:5px 12px}
+.steps button.on{border-color:var(--main);background:var(--main);color:#fff}
+/* L1 scene */
+#l1svg .sky{transition:fill 1.6s}
+#l1svg .sun{transition:transform 2.2s ease-in-out}
+#l1svg .sunspin{animation:spin 3s linear infinite;transform-origin:0 0}
+@keyframes spin{to{transform:rotate(360deg)}}
+#l1svg .fade{transition:opacity 1.4s}
+#l1svg .walker{transition:transform 3s ease-in-out,opacity 1s}
+#l1svg .zz{animation:zz 2.4s ease-in-out infinite}
+@keyframes zz{0%{opacity:0;transform:translateY(0)}50%{opacity:1}100%{opacity:0;transform:translateY(-18px)}}
+#l1svg .vine{stroke-dasharray:420;stroke-dashoffset:420;transition:stroke-dashoffset 4s ease}
+#l1svg.s3 .vine{stroke-dashoffset:0}
+#l1svg .river{stroke-dasharray:14 12;animation:flow 1.2s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-26}}
+#l1svg .fly{animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:.2}50%{opacity:1}}
+#l1svg .twk{animation:blink 2.2s ease-in-out infinite}
+/* L2 */
+#l2svg .top{transition:transform 1.2s ease;transform-box:view-box;transform-origin:530px 262px}
+#l2svg .fade{transition:opacity 1.2s}
+#l2svg .layer{transition:opacity .6s, r .6s}
+#l2svg .shine{animation:blink 1.8s ease-in-out infinite}
+#l2svg .grain{transition:transform 1.4s cubic-bezier(.5,0,.6,1.4)}
+/* L3 */
+#l3svg .fade{transition:opacity 1s}
+#l3svg .crank{animation:spin 1s linear infinite;transform-box:fill-box;transform-origin:center}
+#l3svg .flake{animation:fall 1.4s linear infinite}
+@keyframes fall{0%{transform:translateY(0);opacity:1}100%{transform:translateY(95px);opacity:.2}}
+#l3svg .pile{transform-box:fill-box;transform-origin:bottom center;animation:grow 6s ease-out infinite}
+@keyframes grow{0%{transform:scaleY(.1)}70%,100%{transform:scaleY(1)}}
+#l3svg .bike{animation:ride 7s linear infinite}
+@keyframes ride{0%{transform:translateX(-160px)}100%{transform:translateX(860px)}}
+#l3svg .ring{animation:blink .6s ease-in-out infinite}
+/* punct */
+.ps{font-size:1.5rem;letter-spacing:.12em;text-align:center;padding:18px 8px;background:#f3f6fb;border-radius:14px;line-height:2.2}
+.ps .p{color:var(--accent-2);font-weight:900;display:inline-block;animation:drop .5s ease}
+@keyframes drop{0%{transform:translateY(-30px);opacity:0}100%{transform:none;opacity:1}}
+.meaning{margin-top:12px;padding:12px 14px;border-radius:12px;background:var(--hi);min-height:52px}
+
+/* ---------- 快問快答 ---------- */
+.qz-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.timer{height:8px;background:#eef1f6;border-radius:99px;overflow:hidden;margin:12px 0 4px}
+.timer i{display:block;height:100%;background:var(--accent);width:100%}
+.qword{font-size:2.3rem;font-weight:900;text-align:center;margin:14px 0 6px;letter-spacing:.08em}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.opt{border:2px solid var(--line);background:#fff;border-radius:14px;padding:14px;font-size:1.3rem;font-weight:700;transition:transform .1s}
+.opt:active{transform:scale(.97)}
+.opt.ok{border-color:var(--ok);background:var(--ok-bg)}
+.opt.bad{border-color:var(--bad);background:var(--bad-bg)}
+.combo{font-weight:900;color:var(--accent-2)}
+.star{color:var(--accent-2);font-size:1rem;font-weight:700}
+
+/* ---------- 配對 ---------- */
+.mcols{display:grid;grid-template-columns:1fr 1.6fr;gap:14px}
+.mi{display:block;width:100%;text-align:left;border:2px solid var(--line);background:#fff;border-radius:12px;padding:10px 12px;margin:0 0 10px;font-size:1rem;min-height:48px}
+.mi.sel{border-color:var(--main-2);background:#e8effa}
+.mi.done{border-color:var(--ok);background:var(--ok-bg);color:#1c6b47;cursor:default}
+.mi.shake{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.mi.w{font-weight:900;font-size:1.15rem}
+
+/* ---------- 分類 ---------- */
+.sortcard{font-size:1.25rem;font-weight:700;text-align:center;background:#f3f6fb;border-radius:14px;padding:22px 12px;margin:10px 0 14px;min-height:90px;display:flex;align-items:center;justify-content:center}
+.buckets{display:grid;gap:10px}
+.bk{border:2px dashed var(--main-2);background:#fff;border-radius:14px;padding:12px;font-weight:700;color:var(--main)}
+.bk.ok{background:var(--ok-bg);border-style:solid;border-color:var(--ok)}
+.bk.bad{background:var(--bad-bg);border-style:solid;border-color:var(--bad)}
+.fb{min-height:28px;margin-top:10px}
+
+/* ---------- 選擇題 ---------- */
+.mq{border-top:1px solid var(--line);padding:16px 0}
+.mq:first-of-type{border-top:none}
+.mq .stem{font-weight:500;margin-bottom:8px}
+.mq .src{font-size:1rem;color:#fff;background:var(--main-2);border-radius:6px;padding:0 6px;margin-left:6px;vertical-align:2px}
+.mq .o{display:block;width:100%;text-align:left;border:2px solid var(--line);background:#fff;border-radius:12px;padding:9px 12px;margin:6px 0;font-size:1rem}
+.mq .o.ok{border-color:var(--ok);background:var(--ok-bg)}
+.mq .o.bad{border-color:var(--bad);background:var(--bad-bg)}
+.mq .ex{display:none;background:#fffaf0;border:1px solid #f2dfb5;border-radius:12px;padding:10px 14px;margin-top:8px}
+.mq.done .ex{display:block}
+.score{position:sticky;top:62px;z-index:5;background:#fff;border-radius:12px;padding:8px 14px;box-shadow:var(--shadow);display:inline-block;margin-bottom:8px;font-weight:700}
+
+/* ---------- 抓擬人 ---------- */
+.hunt p{font-size:1.2rem;line-height:2.2;margin:6px 0}
+.hunt span.c{cursor:pointer;border-radius:4px;padding:1px 0}
+.hunt span.c.found{background:#ffe08a;color:#7a4b00;font-weight:900}
+.hunt span.c.miss{background:var(--bad-bg);transition:background .6s}
+
+/* ---------- 翻卡 ---------- */
+.flips{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.flip{perspective:800px;height:150px;cursor:pointer}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.flip .f,.flip .bk2{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:var(--shadow)}
+.flip .f{background:#fff}
+.flip .f .sym{font-size:2rem;font-weight:900;color:var(--accent-2)}
+.flip .bk2{background:var(--main);color:#fff;transform:rotateY(180deg);font-size:1rem;line-height:1.5}
+
+
+/* 照片舞台 */
+.pstage{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#111}
+.ph{position:absolute;inset:0;background-position:center;background-repeat:no-repeat;background-size:cover;opacity:0;transition:opacity 1.2s ease}
+.ph.kb{animation:kb 9s ease-out forwards}
+@keyframes kb{0%{transform:scale(1.0)}100%{transform:scale(1.08)}}
+.split{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;gap:4px;opacity:0;transition:opacity 1s}
+.split .half{background-size:cover;background-position:center;position:relative}
+.split .half span,.ptag{position:absolute;left:12px;bottom:12px;background:rgba(0,0,0,.62);color:#fff;border-radius:10px;padding:6px 12px;font-size:1rem;line-height:1.5;max-width:calc(100% - 24px)}
+.ptag{transition:opacity .6s}
+.pai{position:absolute;right:10px;top:10px;background:rgba(255,255,255,.85);color:#555;border-radius:8px;padding:2px 10px;font-size:1rem;opacity:0;transition:opacity .6s}
+@media(max-width:560px){.pstage{aspect-ratio:4/3}}
+.bgm{position:fixed;right:14px;bottom:14px;z-index:30;border:none;background:#fff;color:var(--main);border-radius:99px;padding:8px 16px;box-shadow:var(--shadow);font-weight:700}
+/* 自學一 */
+.tstage{background:linear-gradient(135deg,#eef6e8,#fdf6e3);border-radius:16px;min-height:260px;display:flex;align-items:center;justify-content:center;padding:20px}
+.qcard{text-align:center;max-width:640px}
+.qe{font-size:3rem}.qq{font-size:1.4rem;font-weight:700;line-height:1.7;margin:8px 0;color:#2d4a22}.qw{color:var(--muted);font-size:1.05rem}
+.pop{animation:pop .6s ease}
+@keyframes pop{0%{opacity:0;transform:scale(.9) translateY(10px)}100%{opacity:1;transform:none}}
+.mx{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:620px}
+.mxc{border-radius:14px;padding:16px;color:#fff;display:flex;flex-direction:column;gap:4px;font-size:1.05rem}
+.mxc b{font-size:1.15rem}
+@media(max-width:560px){.tstage{padding:10px}.mxc{padding:12px}}.mxc.a{background:#d9534f}.mxc.b{background:#2e9e6b}.mxc.c{background:#f0ad4e}.mxc.d{background:#8a94a2}
+footer{background:#123c40;color:#dfe7f3;padding:28px 0;font-size:1rem}
+footer a{color:#ffd48a}
+
+.hero .me{margin-top:12px;display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.16);padding:4px 12px;border-radius:99px;font-size:1rem}
+.linkbtn{border:none;background:#fff;color:var(--main);border-radius:99px;padding:1px 12px;font-weight:700;font-size:1rem}
+.modal{position:fixed;inset:0;background:rgba(20,30,45,.55);z-index:50;display:flex;align-items:center;justify-content:center;padding:16px}
+.mbox{background:#fff;border-radius:18px;padding:22px;width:100%;max-width:420px;box-shadow:var(--shadow)}
+.mbox label{display:block;margin:10px 0;font-weight:500}
+.mbox input{display:block;width:100%;font-size:1.1rem;padding:9px 12px;border:2px solid var(--line);border-radius:10px;margin-top:4px;font-family:inherit}
+.mbox input:focus{outline:none;border-color:var(--main-2)}
+.btn:disabled{opacity:.7}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:20px}
+.mq .ex{font-size:1.12rem;line-height:1.75}
+.caption .key,.caption .poem{font-size:1.12rem}
+.fb{font-size:1.05rem}
+
+.qword.en{font-size:1.9rem;letter-spacing:0;word-break:break-word;font-family:"Nunito","Noto Sans TC",sans-serif}
+.say{border:0;background:#e6f3f1;border-radius:99px;width:48px;height:48px;font-size:1.3rem;vertical-align:middle;margin-left:6px}
+.opt{font-size:1.15rem;word-break:break-word}
+.en{font-family:"Nunito","Noto Sans TC",sans-serif}
+.hunt .en p{font-size:1.15rem;line-height:2;margin:4px 0}
+.hunt span.c.w{padding:2px 3px;border-radius:6px}
+.passage{background:#f3f8f7;border-radius:12px;padding:14px 16px;line-height:1.9;margin-bottom:10px}
+.passage .blank{color:var(--accent-2)}
+.flips.tr .flip{min-height:150px}
+.flips.tr .bk2{display:flex;flex-direction:column;gap:6px;justify-content:center}
+.flips.tr .bk2 .en{font-weight:700;font-size:1.05rem}
+.flips.tr .bk2 small{font-size:1rem;opacity:.85}
+.ps.en{letter-spacing:0;font-size:1.35rem;line-height:1.7}
+.ps.pop{animation:pop .45s ease}
+@keyframes pop{0%{transform:scale(.9);opacity:.3}100%{transform:scale(1);opacity:1}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <a href="../" style="color:#fff;opacity:.85;text-decoration:none;font-size:1rem;display:block;margin-bottom:8px">← 回英文選單</a><span class="tag">南一版 國一上（B1）｜ 第一次段考</span>
+    <h1>英文段考闖關｜Starter＋Lesson 1～2＋Review 1</h1>
+    <p>先看動畫弄懂課文，再用遊戲練熟單字、be 動詞與複數，最後做段考模擬題、交卷給老師。</p>
+    <div class="me" id="me"></div>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap" id="tabs"></div></nav>
+<main><div class="wrap" id="app"></div></main>
+<footer><div class="wrap">
+  <b>全民補習班 英文科</b>｜考點依據：臺北丹鳳、屏東中正、高雄左營、新北中正（皆 114）四校國一上第一次段考試卷（卷面未標版本，依題材推定為南一版；範圍依新北中正卷逐題標課推定為 Starter～Review 1），另比對全臺 59 校 114 上七年級英文段考的三版共同考點。<br>
+  <b>課文為依段考卷考點原創改寫，非課本原文</b>；模擬題、克漏字與閱讀文章皆為原創，不照抄考卷原題。英文發音使用微軟 Neural 語音（en-US-Aria）預錄。練習時可以開聲音，答對、答錯都有音效。背景音樂只在「動畫導覽」播放，可按右下角按鈕關閉。<br>
+  交卷時會把你的姓名、分數與錯題傳給老師，只有老師看得到。左下角 ✏️ 可以手寫、兩指縮放。<br>
+  <details style="margin-top:8px"><summary>圖片來源與授權</summary>
+  照片皆來自 Wikimedia Commons：Standing Alaskan Coastal Brown bear：Alan Vernon（CC BY 2.0）；Bigfoot Trails Statue, Cataloochee, NC (46721642951)：Warren LeMay from Cincinnati, OH, United（CC0）；Grover Krantz shows plaster casts of Bigfoot footprints：Alan King（公有領域）；Redwood National Park, fog in the forest：Michael Schweppe（CC BY-SA 2.0）；Machermo, Kyajo Ri, Mountains of Nepal：Vyacheslav Argenberg（CC BY 4.0）；House mouse (Mus musculus) 2808：Ahunt（CC0）；Hong Kong Gold Cup (trophy) 20260301：Will629（CC0）；Eric Shipton yeti footprint：Gardner Soule（公有領域）；Piece of chocolate cake on a white plate decorated with chocolate sauce：Daria YakovlevaMinor edits made by Subsi（CC0）；Cinderella Castle：Katie Rommel-Esham (contact via bdesham)（CC BY-SA 4.0）；Cashier counter at SM Supermarket (2024-01-27)：Wide Awake!（CC BY 4.0）；Hualien Taiwan Farmer-with-his-water-buffalo-01：CEphoto, Uwe Aranas（CC BY-SA 3.0）；Hippopotamus @ Barcelona zoo：Pedroserafin（公有領域）；Ferris wheel Nice Dec 2008 a：Cayambe（CC BY-SA 3.0）；WaltDisneyplansDisneylandDec1954：Orange County Archives（CC BY 2.0）；Walt disney portrait：NASA（公有領域）；Family eating meal：National Cancer Institute（公有領域）；Host Family & YES Exchange Students (33037766074)：Exchanges Photos（CC0）；Political Map of the World, 2013：Central Intelligence Agency（公有領域）；Postcards (receiving from travelers)：Pauloleong2002（CC BY-SA 4.0）；Classroom with students in Baozhong Junior High School 20130308：褒忠國中 雲端網（CC BY 2.0）；Close-up view of a public phone keypad：Shixart1985（CC BY 2.0）。</details>
+</div></footer>
+
+<script>
+/* ================= 音效 ================= */
+let AC=null;
+function tone(f,d=0.12,type='sine',v=0.15,delay=0){
+  try{
+    AC=AC||new (window.AudioContext||window.webkitAudioContext)();
+    const o=AC.createOscillator(),g=AC.createGain();
+    o.type=type;o.frequency.value=f;g.gain.value=v;
+    o.connect(g);g.connect(AC.destination);
+    const t=AC.currentTime+delay;
+    o.start(t);g.gain.exponentialRampToValueAtTime(0.001,t+d);o.stop(t+d+0.02);
+  }catch(e){}
+}
+const sOK=()=>{tone(660,.1);tone(990,.15,'sine',.15,.09)};
+const sBAD=()=>tone(180,.25,'square',.08);
+const sBELL=()=>{[1568,2093,1568,2093].forEach((f,i)=>tone(f,.18,'triangle',.08,i*.14))};
+
+/* ================= 工具 ================= */
+const $=(s,r=document)=>r.querySelector(s);
+const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const isZY=s=>/[ㄅ-ㄩ]/.test(s);
+
+/* ================= 資料 ================= */
+/* 快問快答：[題目, 正解, [3 個誘答], 高頻(≥2 校考過), 題型]
+   題型：e＝看英文選中文、c＝看中文選英文、s＝選出正確拼字、p＝選出正確的複數、g＝選出正確的字填入空格 */
+const ASK={e:'選出正確的中文意思',c:'選出正確的英文',s:'選出正確的拼字',p:'選出正確的複數形',g:'選出正確的字填入空格'};
+const L = {
+st:{
+  no:'Starter', code:1, title:'Welcome to the Game Show!', short:'問候與數字', color:'linear-gradient(135deg,#1d5c63,#3aa39a)',
+  desc:'打招呼｜電話號碼｜數字 1～100｜大小寫與標點',
+  quick:[
+    ['ready','準備好的',['忙碌的','快樂的','生氣的'],1,'e'],
+    ['show','節目；表演',['學校','遊戲','明星'],1,'e'],
+    ['game','遊戲；比賽',['名字','號碼','禮物'],0,'e'],
+    ['welcome','歡迎',['再見','謝謝','早安'],0,'e'],
+    ['tomorrow','明天',['今天','昨天','今晚'],0,'e'],
+    ['number','號碼；數字',['名字','電話','字母'],1,'e'],
+    ['name','名字',['號碼','遊戲','朋友'],0,'e'],
+    ['classmate','同學',['老師','朋友','家人'],0,'e'],
+    ['電話號碼','phone number',['phone name','home number','game number'],1,'c'],
+    ['明天見','See you tomorrow.',['Good morning.','Nice to meet you.','Thank you.'],0,'c'],
+    ['晚安（睡前道別）','Good night.',['Good evening.','Good morning.','Good afternoon.'],0,'c'],
+    ['很高興認識你','Nice to meet you.',['See you later.','How are you?','Thank you.'],0,'c'],
+    ['十三','thirteen',['thirty','three','thirdteen'],1,'c'],
+    ['三十','thirty',['thirteen','threety','thirdy'],1,'c'],
+    ['四十','forty',['fourty','fourteen','four'],0,'c'],
+    ['十五','fifteen',['fifty','fiveteen','five'],0,'c'],
+    ['十二','twelve',['twenty','eleven','twelf'],0,'c'],
+    ['十一','eleven',['twelve','seven','elevent'],1,'c'],
+    ['你準備好了嗎？','Are you ready?',['Is you ready?','Are you read?','You are ready?'],1,'c'],
+    ['歡迎來到…','welcome to',['welcome for','welcome at','welcome on'],0,'c'],
+    ['r _ _ d y（準備好的）','ready',['raedy','redy','reddy'],1,'s'],
+    ['t _ m _ r r _ w（明天）','tomorrow',['tommorow','tomorow','tommorrow'],0,'s'],
+    ['f _ r t y（四十）','forty',['fourty','forthy','farty'],0,'s'],
+    ['n _ m b _ r（號碼）','number',['numbr','nunber','namber'],0,'s'],
+    ['t w _ l v e（十二）','twelve',['twelf','twleve','twelv'],0,'s'],
+    ['w _ l c _ m e（歡迎）','welcome',['welcom','wellcome','walcome'],0,'s'],
+    ['Five and six ___ eleven.','is',['are','am','be'],1,'g'],
+  ],
+  words:[
+    ['phone number','電話號碼'],['See you tomorrow.','明天見。'],['Good night.','晚安。'],['Nice to meet you.','很高興認識你。'],
+    ['be ready for','為…做好準備'],['welcome to','歡迎來到'],['game show','遊戲節目'],['How are you?','你好嗎？'],
+    ['What\'s your name?','你叫什麼名字？'],['Thank you.','謝謝你。'],
+  ],
+  sorts:[
+    {title:'大小寫與標點：這樣寫對不對？',tip:'句首第一個字母大寫；I 永遠大寫；人名、地名第一個字母大寫；句尾要有標點（. ? !）',buckets:['正確 ✅','錯誤 ❌'],items:[
+      ['My name is Sally.',0],['my name is Sally.',1,'句首 my 要大寫成 My（丹鳳考過）。'],
+      ['I am from Taiwan.',0],['Ben and i are classmates.',1,'I（我）永遠大寫。'],
+      ['Are you ready for the game?',0],['Are you ready for the game.',1,'問句句尾要用問號 ?。'],
+      ['What is your phone number?',0],['she is my friend, Amy.',1,'句首 she 要大寫。'],
+      ['Welcome to the game show!',0],['This is ken.',1,'人名 Ken 要大寫。'],
+      ['See you tomorrow.',0],['nice to meet you.',1,'句首 nice 要大寫。']]},
+    {title:'數字分類：-teen 還是 -ty？',tip:'-teen（13～19）重音在後面；-ty（20、30…90）重音在前面。forty 沒有 u！',buckets:['13～19（-teen）','20～90（-ty）'],items:[
+      ['thirteen',0],['fourteen',0],['fifteen',0],['sixteen',0],['eighteen',0],['nineteen',0],
+      ['thirty',1],['forty',1,'four → forty，不是 fourty。'],['fifty',1],['sixty',1],['eighty',1],['ninety',1]]},
+  ],
+  mcq:[
+    {q:'A: What\'s your phone number? B: ___',o:['It\'s 2243-8607.','I\'m twelve.','My name is Ben.','It\'s a phone.'],a:0,src:'新北中正、左營 同類題',ex:'問電話號碼要回答號碼。I\'m twelve 是年齡，My name is… 是名字。'},
+    {q:'Welcome ___ the game show! Are you ready ___ the game?',o:['to; for','to; to','for; for','at; with'],a:0,src:'屏東中正 同類題',ex:'welcome to＋地方／活動；be ready for＋事情（為…做好準備）。'},
+    {q:'A: Goodbye, Mr. Lin. B: ___',o:['See you tomorrow.','Nice to meet you.','Good morning.','I\'m fine.'],a:0,src:'新北中正 同類題',ex:'道別時回 See you tomorrow.（明天見）。Nice to meet you 是第一次見面。'},
+    {q:'A: Good night, Mom. B: ___ Sleep well.',o:['Good night.','Good morning.','Good afternoon.','Hello.'],a:0,src:'原創',ex:'Good night 是晚上要睡覺或道別時說的；回答也用 Good night。'},
+    {q:'Five and six ___ eleven.',o:['is','are','am','be'],a:0,src:'屏東中正 同類題',ex:'數學算式當成一件事，用 is：Five and six is eleven.'},
+    {q:'A: How old is your brother? B: He is ___. He is a junior high school student.',o:['thirteen','thirty','three','forty'],a:0,src:'丹鳳 同類題',ex:'國中生大約 13 歲。thirteen（13）和 thirty（30）要分清楚。'},
+    {q:'「零九九三」的唸法是？',o:['zero-nine-nine-three','zero-ninety-three','oh-nine-ninety-three','nine-nine-three'],a:0,src:'丹鳳 同類題',ex:'電話號碼一個數字一個數字唸：zero-nine-nine-three（0 也可唸 oh）。'},
+    {q:'哪一個數字的拼字正確？',o:['forty','fourty','fivety','twelf'],a:0,src:'原創',ex:'40 是 forty（沒有 u）；50 是 fifty；12 是 twelve。'},
+    {q:'A: Hi, I\'m Ella. Nice to meet you. B: ___',o:['Nice to meet you, too.','See you tomorrow.','Good night.','Thank you, I\'m fine.'],a:0,src:'原創',ex:'對方說 Nice to meet you，回 Nice to meet you, too.'},
+    {q:'A: How are you? B: ___',o:['I\'m fine, thank you.','I\'m Ella.','I\'m twelve.','I\'m a student.'],a:0,src:'原創',ex:'How are you? 問「你好嗎」，回答心情或身體狀況 I\'m fine。'},
+    {q:'下列哪一句的大小寫與標點完全正確？',o:['My name is Sally.','my name is Sally.','My name is sally.','My name is Sally'],a:0,src:'丹鳳 同類題',ex:'句首大寫、人名大寫、句尾句點，三個都要有。'},
+    {q:'下列哪一句寫法正確？',o:['Ben and I are friends.','Ben and i are friends.','ben and I are friends.','Ben and I are friends'],a:0,src:'丹鳳、左營 同類題',ex:'I 永遠大寫、人名大寫、句尾加句點。'},
+    {q:'A: Are you ready? B: Yes, ___.',o:['I am','I\'m','you are','I is'],a:0,src:'屏東中正 同類題',ex:'簡答 Yes 句尾不能縮寫：Yes, I am.（不能說 Yes, I\'m.）'},
+    {q:'Twenty and twenty ___ forty.',o:['is','are','am','were'],a:0,src:'原創',ex:'算式用 is。20＋20＝40（forty）。'},
+    {q:'A: What\'s your name? B: ___',o:['My name is Kai.','I am fine.','It\'s 0912-345-678.','Nice to meet you.'],a:0,src:'原創',ex:'問名字就回答名字：My name is Kai. / I\'m Kai.'},
+    {q:'A: Thank you, Ms. Wu. B: ___',o:['You\'re welcome.','Welcome to Taiwan.','Good night.','I\'m ready.'],a:0,src:'原創',ex:'別人道謝回 You\'re welcome.（不客氣）。Welcome to… 是「歡迎來到…」。'},
+  ]
+},
+l1:{
+  no:'Lesson 1', code:2, title:'Who Am I?', short:'Bigfoot 與 Yeti', color:'linear-gradient(135deg,#2f6b3a,#6aa84f)',
+  desc:'猜猜我是誰｜Bigfoot／Yeti｜am / is / are｜Yes/No 簡答｜winner',
+  quick:[
+    ['hairy','多毛的',['生氣的','髒的','快樂的'],1,'e'],
+    ['footprint','腳印',['森林','手指','足球'],1,'e'],
+    ['forest','森林',['農場','山','花'],1,'e'],
+    ['angry','生氣的',['飢餓的','快樂的','年輕的'],1,'e'],
+    ['brown','棕色的',['黑色的','藍色的','綠色的'],1,'e'],
+    ['young','年輕的',['老的','強壯的','高的'],1,'e'],
+    ['clean','乾淨的',['髒的','困難的','小的'],1,'e'],
+    ['winner','優勝者',['老師','玩家','歌手'],1,'e'],
+    ['point','分數；點',['遊戲','錢','題目'],1,'e'],
+    ['strong','強壯的',['高的','長的','聰明的'],1,'e'],
+    ['mountain','山',['森林','城市','公園'],0,'e'],
+    ['熊','bear',['bird','beer','pear'],1,'c'],
+    ['猴子','monkey',['money','donkey','mouse'],1,'c'],
+    ['老鼠（單數）','mouse',['mice','mouth','house'],1,'c'],
+    ['青蛙','frog',['fog','dog','flag'],1,'c'],
+    ['大的','big',['bag','pig','small'],1,'c'],
+    ['髒的','dirty',['thirty','clean','dark'],1,'c'],
+    ['困難的','hard',['easy','heart','card'],1,'c'],
+    ['鑰匙','key',['kid','kite','keep'],0,'c'],
+    ['蛋','egg',['leg','bag','ego'],0,'c'],
+    ['h _ _ r y（多毛的）','hairy',['hairly','harry','hary'],1,'s'],
+    ['f _ _ t p r _ n t（腳印）','footprint',['footprient','foodprint','footprit'],1,'s'],
+    ['f _ r _ s t（森林）','forest',['forist','forrest','forset'],1,'s'],
+    ['a n g r _（生氣的）','angry',['angy','angery','angrry'],1,'s'],
+    ['w _ n n _ r（優勝者）','winner',['winer','wenner','winnar'],1,'s'],
+    ['m _ n k _ y（猴子）','monkey',['monky','mankey','monkee'],1,'s'],
+    ['I ___ brown and hairy.','am',['is','are','be'],1,'g'],
+    ['Those ___ my footprints.','are',['is','am','be'],1,'g'],
+  ],
+  words:[
+    ['brown and hairy','棕色又多毛'],['tall and strong','又高又壯'],['Who am I?','我是誰？'],['Look!','你看！'],
+    ['ten points','十分'],['Ten points for you!','你得十分！'],['the winner','優勝者'],['my good friend','我的好朋友'],
+    ['in the forest','在森林裡'],['on the mountain','在山上'],
+  ],
+  sorts:[
+    {title:'Bigfoot？Yeti？還是兩個都是？',tip:'本站原創故事：Bigfoot 住在北美的森林、棕色；Yeti 住在喜馬拉雅的雪山、白色。兩個都很高大、多毛。',buckets:['Bigfoot','Yeti','兩個都是'],items:[
+      ['My home is the forest.',0],['I am brown.',0],['I am in North America.',0],
+      ['I am white.',1],['The snowy mountains are my home.',1],['I am in the Himalayas.',1],
+      ['I am big and tall.',2],['I am hairy.',2],['My footprints are very big.',2],['I am not a bear.',2]]},
+    {title:'am、is 還是 are？',tip:'I → am；he / she / it / 單數名詞 → is；you / we / they / 複數名詞 → are',buckets:['am','is','are'],items:[
+      ['I ___ Bigfoot.',0],['I ___ not a bear.',0],
+      ['Yeti ___ my good friend.',1],['The forest ___ my home.',1],['It ___ a frog.',1],['My mom ___ young.',1],
+      ['Those ___ my footprints.',2],['You ___ the winner!',2],['We ___ hairy.',2],['The mice ___ small.',2,'mice 是 mouse 的複數。'],['Ben and Ella ___ friends.',2,'A and B 是兩個人 → are。']]},
+  ],
+  hunt:{label:'🔍 be 動詞抓抓樂',title:'找出故事裡的 be 動詞（am / is / are）',tip:'原創遊戲節目「Who Am I?」。縮寫 I\'m 裡也藏著 am，但這裡只找完整寫出來的 am / is / are。',lines:[
+    'Host: Welcome back to Who Am I? Here [is] our first mystery guest.',
+    'Guest: I [am] big and tall. I [am] brown and hairy, but I [am] not a bear.',
+    'The forest [is] my home. Look! Those [are] my footprints. They [are] very big.',
+    'Ella: [Are] you a monkey?',
+    'Guest: No, I\'m not.',
+    'Ben: You [are] Bigfoot!',
+    'Host: Ten points for you, Ben! You [are] the winner!',
+  ]},
+  mcq:[
+    {q:'I am brown and hairy, ___ I am not a bear.',o:['but','and','or','so'],a:0,src:'屏東中正、左營 同類題',ex:'前後意思相反（多毛像熊，卻不是熊）用 but。'},
+    {q:'A: Is the mountain Bigfoot\'s home? B: No, ___. The forest is his home.',o:['it isn\'t','he isn\'t','it is','they aren\'t'],a:0,src:'丹鳳 同類題',ex:'問句主詞 the mountain（物）→ 簡答用 it；後面說森林才是家，所以 No, it isn\'t.'},
+    {q:'Look! Those ___ my footprints. ___ are very big.',o:['are; They','is; It','are; It','is; They'],a:0,src:'屏東中正、新北中正 同類題',ex:'Those 是複數 → are；代替 footprints 用 They。'},
+    {q:'A: ___ you a monkey? B: No, I\'m not.',o:['Are','Is','Am','Do'],a:0,src:'左營 同類題',ex:'主詞 you → be 動詞用 Are。'},
+    {q:'A: Is that your frog? B: No, ___.',o:['it isn\'t','it\'s not frog','he isn\'t','I\'m not'],a:0,src:'新北中正 同類題',ex:'that（那個東西）在簡答中改成 it：No, it isn\'t.'},
+    {q:'Ten points for you! You are ___!',o:['the winner','a winner of','the win','winners'],a:0,src:'新北中正、左營',ex:'You are the winner! 你是優勝者。win 是動詞「贏」，winner 才是人。'},
+    {q:'I am tall and strong. I am not ___ elephant.',o:['an','a','the two','X'],a:0,src:'丹鳳、新北中正 同類題',ex:'elephant 開頭是母音 e 的音 → an elephant。'},
+    {q:'A: Is that ___ angry zebra? B: Yes, it is.',o:['an','a','two','X'],a:0,src:'丹鳳 同類題',ex:'angry 開頭是母音音 → an angry zebra。冠詞看「緊接在後的字」。'},
+    {q:'下列哪一個是 mouse 的正確複數？',o:['mice','mouses','mices','meese'],a:0,src:'四校都考',ex:'mouse → mice 是不規則複數，沒有 mouses。'},
+    {q:'A: Are those mice small? B: No, ___ are big.',o:['they','it','those mice is','he'],a:0,src:'屏東中正 同類題',ex:'mice 是複數 → 用 they。'},
+    {q:'Bigfoot is very ___. He has a lot of brown hair.',o:['hairy','hungry','happy','hard'],a:0,src:'四校都考',ex:'a lot of hair（很多毛）→ hairy 多毛的。'},
+    {q:'The forest is Bigfoot\'s ___. He lives there.',o:['home','school','game','show'],a:0,src:'丹鳳、屏東中正、左營',ex:'他住在那裡 → home（家）。'},
+    {q:'A: Is your brother angry? B: No, he isn\'t. He is ___.',o:['happy','angry','hairy','a farmer'],a:0,src:'左營 同類題',ex:'No, he isn\'t（不生氣）→ 後面要接相反的 happy。'},
+    {q:'A: What is that in your hand? B: ___ is my key.',o:['This','That','These','Those'],a:0,src:'新北中正 同類題',ex:'東西在「我」手上（近）→ 用 This 回答。對方問 that，因為離他遠。'},
+    {q:'Yeti is white, ___ Bigfoot is brown.',o:['but','and so','or','because of'],a:0,src:'原創',ex:'兩種顏色作對比 → but。'},
+    {q:'Which is TRUE about the story "Who Am I?"?',o:['Ben is the winner.','Bigfoot is a bear.','Ella gets ten points.','The forest is Yeti\'s home.'],a:0,src:'原創課文閱讀',ex:'主持人說 Ten points for you, Ben! You are the winner!；Bigfoot 說 I am not a bear；Yeti 住雪山。'},
+  ]
+},
+l2:{
+  no:'Lesson 2', code:3, title:'My Favorite Theme Park', short:'Walt Disney 與家人職業', color:'linear-gradient(135deg,#7a3e65,#c0607a)',
+  desc:'Walt Disney｜theme park｜a piece of cake｜家人職業｜Who / What 問句',
+  quick:[
+    ['favorite','最喜愛的',['有名的','很棒的','困難的'],1,'e'],
+    ['actress','女演員',['女服務生','女歌手','護理師'],1,'e'],
+    ['clerk','店員',['農夫','廚師','醫生'],1,'e'],
+    ['farmer','農夫',['店員','司機','作家'],1,'e'],
+    ['housewife','家庭主婦',['房子','妻子','女兒'],1,'e'],
+    ['founder','創辦人',['發現者','父親','玩家'],1,'e'],
+    ['late','遲到的',['早的','晚安','最後的'],1,'e'],
+    ['place','地方',['遊戲','計畫','公園'],1,'e'],
+    ['theme park','主題樂園',['國家公園','停車場','動物園'],1,'e'],
+    ['cartoon','卡通',['電腦','照相機','蛋糕'],0,'e'],
+    ['女兒','daughter',['doctor','dancer','son'],1,'c'],
+    ['兒子','son',['sun','sister','daughter'],1,'c'],
+    ['丈夫','husband',['housewife','hungry','wife'],1,'c'],
+    ['妻子','wife',['wise','life','husband'],1,'c'],
+    ['河馬','hippo',['hippie','zebra','happy'],1,'c'],
+    ['朋友','friend',['fried','fruit','family'],1,'c'],
+    ['小事一樁；很簡單','a piece of cake',['a cup of tea','a big cake','a smart cookie'],1,'c'],
+    ['國中生','junior high school student',['senior high school student','elementary school student','junior high school teacher'],1,'c'],
+    ['容易的','easy',['hard','busy','early'],0,'c'],
+    ['d _ _ g h t _ r（女兒）','daughter',['doughter','daugher','daughtor'],1,'s'],
+    ['f _ v _ r _ t e（最喜愛的）','favorite',['favorit','faverite','favourit'],1,'s'],
+    ['a c t r _ s s（女演員）','actress',['actres','acteress','actriss'],1,'s'],
+    ['h _ s b _ n d（丈夫）','husband',['husbend','hasband','husbant'],1,'s'],
+    ['c l _ r k（店員）','clerk',['clark','clerck','clerc'],1,'s'],
+    ['h _ _ s e w i f e（家庭主婦）','housewife',['housewive','hosewife','housewief'],1,'s'],
+    ['My mom works at home. She is ___ housewife.','a',['an','the two','many'],1,'g'],
+    ['Is it hard? No, it\'s ___ piece of cake.','a',['an','the two','one of'],1,'g'],
+  ],
+  words:[
+    ['a piece of cake','小事一樁'],['theme park','主題樂園'],['Walt Disney World','迪士尼世界'],['the founder of','…的創辦人'],
+    ['the father of','…之父'],['cartoon star','卡通明星'],['a wonderful place for all','適合大家的好地方'],['be late for','…遲到'],
+    ['work at home','在家工作'],['junior high school student','國中生'],
+  ],
+  sorts:[
+    {title:'這是什麼職業？',tip:'看描述猜職業。注意 actress 是「女」演員；housewife 在家照顧家人。',buckets:['farmer','clerk','actress','housewife'],items:[
+      ['She works at home and cooks for her family.',3],['He works in the rice field.',0],['She is in movies and on TV.',2],
+      ['He works in a store.',1],['She sells things to people in a shop.',1],['He grows fruit and rice.',0],
+      ['She is a famous movie star.',2],['She takes care of the house.',3]]},
+    {title:'Who？What？還是 Where？',tip:'問「人」用 Who；問「東西／職業」用 What；問「地點／來自哪裡」用 Where',buckets:['Who','What','Where'],items:[
+      ['___ is that man on the postcard? — He\'s Walt Disney.',0],['___ is that girl? — She\'s my sister, Amy.',0],
+      ['___ is that? — It\'s a theme park.',1],['___ is your father? — He\'s a farmer.',1,'問職業可以用 What is your father?'],['___ are those? — They\'re hippos.',1],
+      ['___ is Walt Disney World? — It\'s in Florida.',2],['___ are you from? — I\'m from Taiwan.',2],['___ is my key? — It\'s in your bag.',2]]},
+  ],
+  hunt:{label:'🔍 所有格抓抓樂',title:'找出所有格（my / your / his / her / its / our / their）',tip:'所有格表示「…的」，後面一定接名詞：my mom、its mouth。It\'s＝It is，不是所有格！',lines:[
+    'Ella: Look at [my] photo. This is [my] favorite theme park, Walt Disney World.',
+    'Ben: Who\'s that man? Is he [your] uncle?',
+    'Ella: No, he isn\'t. He\'s Walt Disney. [His] cartoon stars are famous all over the world.',
+    'Ben: Wow! And who\'s that woman? It\'s a nice photo.',
+    'Ella: She\'s [my] mom. [Her] job is fun. She\'s an actress.',
+    'Ben: Look at that hippo! [Its] mouth is so big!',
+    'Ella: [Our] family loves this place. It\'s a wonderful place for all.',
+  ]},
+  mcq:[
+    {q:'Walt Disney World is my ___ theme park. I love it very much.',o:['favorite','hard','late','angry'],a:0,src:'四校都考',ex:'I love it very much → 最喜愛的 favorite。'},
+    {q:'A: Is the English test hard? B: No. It\'s ___.',o:['a piece of cake','a piece of paper','a cup of tea','a big cake'],a:0,src:'屏東中正、左營、新北中正',ex:'a piece of cake＝很簡單、小事一樁，不是真的蛋糕。'},
+    {q:'Walt Disney is the ___ of Walt Disney World.',o:['founder','winner','farmer','clerk'],a:0,src:'左營、新北中正',ex:'founder＝創辦人。'},
+    {q:'A: Who\'s that man on the postcard? B: ___',o:['He\'s Walt Disney.','It\'s a postcard.','He\'s fine.','It\'s in Florida.'],a:0,src:'左營 同類題',ex:'Who 問「人」，回答是誰：He\'s Walt Disney.'},
+    {q:'My mom works at home. She is ___.',o:['a housewife','an housewife','a clerk','a farmer'],a:0,src:'屏東中正、左營、新北中正',ex:'在家工作照顧家 → housewife；h 是子音，用 a。'},
+    {q:'My aunt is in many movies. She is ___.',o:['an actress','a actress','an actor','a farmer'],a:0,src:'屏東中正、左營、新北中正',ex:'女演員 actress；母音開頭用 an。actor 通常指男演員。'},
+    {q:'Mr. Wang sells things in a store. He is a ___.',o:['clerk','farmer','singer','doctor'],a:0,src:'丹鳳、左營、新北中正',ex:'在商店賣東西的人是店員 clerk。'},
+    {q:'Mr. and Mrs. Lin have a son and a ___. The girl is ten.',o:['daughter','husband','brother','son'],a:0,src:'四校都考',ex:'The girl → 女兒 daughter。'},
+    {q:'Mrs. Lin is Mr. Lin\'s wife. Mr. Lin is Mrs. Lin\'s ___.',o:['husband','wife','son','daughter'],a:0,src:'丹鳳、屏東中正、左營',ex:'妻子的另一半是丈夫 husband。'},
+    {q:'A: Sorry, I am ___ for my dance class. See you tomorrow. B: Bye!',o:['late','late to','early in','favorite'],a:0,src:'丹鳳 同類題',ex:'be late for＋活動＝…遲到。'},
+    {q:'Walt Disney is the father of many cartoon ___.',o:['stars','star','starses','a star'],a:0,src:'新北中正、屏東中正',ex:'many 後面接複數名詞：stars。'},
+    {q:'A: Who is she? B: ___',o:['She is his daughter.','She is ten.','She is tall.','She is fine.'],a:0,src:'屏東中正 同類題',ex:'Who 問「她是誰（身分）」，回答身分，不是年齡或外表。'},
+    {q:'Walt Disney World is a wonderful place ___ all.',o:['for','of','at','in'],a:0,src:'屏東中正 同類題',ex:'a wonderful place for all＝適合所有人的好地方。'},
+    {q:'A: Are you a junior high school student? B: Yes, ___.',o:['I am','I\'m','you are','he is'],a:0,src:'左營、新北中正 同類題',ex:'Are you…? → Yes, I am.（Yes 簡答不可縮寫）'},
+    {q:'Look at the ___! Its mouth is very big.',o:['hippo','hippos','mice','actress'],a:0,src:'丹鳳、新北中正',ex:'Its（單數的所有格）→ 單數 hippo。'},
+    {q:'A: What is your father? B: ___',o:['He is a farmer.','He is my father.','He is fine.','He is in Taipei.'],a:0,src:'左營 同類題',ex:'What is your father? 問「職業」，回答 He is a farmer.'},
+  ]
+},
+r1:{
+  no:'Review 1', code:4, title:'Postcards from All Over the World', short:'明信片與交換生', color:'linear-gradient(135deg,#8a5a12,#d39b2a)',
+  desc:'Postcrossing 明信片｜交換生與寄宿家庭｜famous / wonderful｜What is that?',
+  quick:[
+    ['postcard','明信片',['郵票','信封','照片'],1,'e'],
+    ['famous','有名的',['最喜愛的','很棒的','有趣的'],1,'e'],
+    ['wonderful','很棒的',['奇怪的','美麗的','有名的'],1,'e'],
+    ['world','世界',['文字','工作','城市'],1,'e'],
+    ['star','明星；星星',['商店','故事','學生'],1,'e'],
+    ['cartoon','卡通',['紙箱','車','照片'],0,'e'],
+    ['beautiful','美麗的',['可愛的','乾淨的','強壯的'],1,'e'],
+    ['country','國家',['城市','鄉村音樂','家庭'],0,'e'],
+    ['international','國際的',['國內的','有名的','有趣的'],0,'e'],
+    ['大象','elephant',['element','hippo','eleven'],1,'c'],
+    ['全世界','all over the world',['all the world over','all over world','over the all world'],1,'c'],
+    ['卡通明星','cartoon star',['movie star','cartoon stair','car star'],0,'c'],
+    ['家庭；家人','family',['farmer','famous','familiar'],0,'c'],
+    ['學生','student',['studio','teacher','study'],1,'c'],
+    ['日本','Japan',['Japanese','China','Korea'],0,'c'],
+    ['美國','the USA',['the UK','Canada','England'],1,'c'],
+    ['照片','photo',['phone','postcard','picture book'],0,'c'],
+    ['f _ m _ u s（有名的）','famous',['famus','fameous','faimous'],1,'s'],
+    ['p _ s t c _ r d（明信片）','postcard',['postcar','poscard','postkard'],1,'s'],
+    ['w _ n d _ r f u l（很棒的）','wonderful',['wonderfull','wanderful','wonderfal'],1,'s'],
+    ['e l _ p h _ n t（大象）','elephant',['elefant','elephent','alephant'],1,'s'],
+    ['b _ _ u t i f u l（美麗的）','beautiful',['beautifull','beatiful','butiful'],1,'s'],
+    ['c _ r t _ _ n（卡通）','cartoon',['cartton','carton','cartun'],0,'s'],
+    ['What ___ those? They are elephants.','are',['is','am','be'],1,'g'],
+    ['What is that? It is ___ postcard.','a',['an','two','many'],1,'g'],
+    ['Nina is ___ international student.','an',['a','two','many'],1,'g'],
+  ],
+  words:[
+    ['all over the world','全世界'],['a postcard from…','一張來自…的明信片'],['be from','來自'],['international student','國際學生；交換生'],
+    ['host family','寄宿家庭'],['very famous and beautiful','非常有名又美麗'],['What is that?','那是什麼？'],['What are those?','那些是什麼？'],
+    ['Sounds great!','聽起來很棒！'],['How about you?','那你呢？'],
+  ],
+  sorts:[
+    {title:'What is…? 還是 What are…?',tip:'this / that ＋ is；these / those ＋ are。回答單數用 It is，複數用 They are。',buckets:['What is…?','What are…?'],items:[
+      ['___ that on the postcard?',0],['___ those on the postcard?',1],['___ this in your hand?',0],['___ these?',1],
+      ['___ that? — It\'s an elephant.',0],['___ those? — They\'re elephants.',1],['___ those animals?',1],['___ your name?',0]]},
+    {title:'這是誰？Kai、Lily 還是 Nina？',tip:'本站原創：Kai 在臺灣用 Postcrossing 寄明信片；Lily 是他的筆友（美國）；Nina 是在加拿大的臺灣交換生。',buckets:['Kai','Lily','Nina'],items:[
+      ['He is from Taiwan and loves postcards.',0],['He has postcards from all over the world.',0],
+      ['She is from the USA.',1],['Her postcard is of Walt Disney World.',1],
+      ['She is an international student.',2],['She lives with a host family in Canada.',2],['Her host family has a big dog.',2]]},
+  ],
+  hunt:{label:'🔍 複數名詞抓抓樂',title:'找出所有的「複數名詞」',tip:'複數名詞通常加 -s / -es，但也有不規則的：mouse → mice、child → children。',lines:[
+    'Kai: Look at my [postcards]! They are from all over the world.',
+    'Lily: Wow! What is that on this postcard?',
+    'Kai: It\'s Walt Disney World. It\'s very famous and beautiful.',
+    'Lily: And what are those?',
+    'Kai: They are [elephants] from Thailand. Those little [mice] are from Japan.',
+    'Lily: Who are your [friends] on Postcrossing?',
+    'Kai: They are [students] and [children] from many [countries].',
+  ]},
+  mcq:[
+    {q:'A: What is that on the postcard? B: ___',o:['It\'s Walt Disney World.','He\'s Walt Disney.','They\'re postcards.','It\'s from Lily.'],a:0,src:'丹鳳 同類題',ex:'What 問東西，單數用 It\'s…。問「從哪來」才答 from Lily。'},
+    {q:'Walt Disney World is very ___. Many people know it.',o:['famous','late','hairy','angry'],a:0,src:'四校都考',ex:'很多人知道 → 有名的 famous。'},
+    {q:'Kai has friends from all ___ the world.',o:['over','of','in','on'],a:0,src:'左營、新北中正',ex:'all over the world＝全世界。'},
+    {q:'A: What are those? B: ___',o:['They are elephants.','It is an elephant.','They are an elephant.','Those is elephants.'],a:0,src:'新北中正 同類題',ex:'What are those? 複數 → They are elephants.'},
+    {q:'Nina Chen is ___ international student from Taiwan.',o:['an','a','the two','X'],a:0,src:'新北中正 同類題',ex:'international 以母音 i 開頭 → an。'},
+    {q:'A: Where is Nina from? B: ___',o:['She is from Taiwan.','She is a student.','She is fine.','She is twelve.'],a:0,src:'新北中正 同類題',ex:'Where…from? 問「來自哪裡」。'},
+    {q:'A: Where are David and Jeff from? B: ___ from the USA.',o:['They are','He is','They is','We are'],a:0,src:'丹鳳 同類題',ex:'David and Jeff 兩個人 → They are。'},
+    {q:'Is the postcard for ___? Is it for Kai?',o:['him','he','his','he\'s'],a:0,src:'丹鳳、屏東中正、左營',ex:'介系詞 for 後接受格 him。'},
+    {q:'These are ___.',o:['wonderful watches','wonderfuls watch','wonderful watchs','watches wonderful'],a:0,src:'丹鳳 同類題',ex:'形容詞不加 s，放在名詞前；watch → watches。'},
+    {q:'A: Are those students from the USA? B: No, ___ are from Japan.',o:['they','it','those students is','he'],a:0,src:'左營 同類題',ex:'students 複數 → they。'},
+    {q:'Mickey Mouse is a famous cartoon ___.',o:['star','stars','starts','a star'],a:0,src:'左營、新北中正',ex:'a famous cartoon star（單數，前面已有 a）。'},
+    {q:'A: Let\'s write postcards to our friends. B: ___',o:['Sounds great!','I\'m sorry.','Good night.','You\'re welcome.'],a:0,src:'左營 同類題',ex:'對提議表示贊成：Sounds great!'},
+    {q:'A: I like elephants. How about you? B: ___',o:['I like hippos.','I am fine.','I\'m from Taiwan.','It\'s a postcard.'],a:0,src:'左營 同類題',ex:'How about you? 是「那你呢？」，要回答同一件事（喜歡什麼動物）。'},
+    {q:'Which is TRUE about Kai in the story?',o:['He has postcards from all over the world.','He is from the USA.','He is an international student.','He has a host family in Canada.'],a:0,src:'原創課文閱讀',ex:'Kai 來自臺灣、收集各國明信片。來自美國的是 Lily；交換生是 Nina。'},
+    {q:'Nina\'s host family is very nice. ___ house is big and beautiful.',o:['Their','They','Them','They\'re'],a:0,src:'左營 同類題',ex:'後面接名詞 house → 所有格 Their。'},
+    {q:'___ name is Lily. She is my friend on Postcrossing.',o:['Her','She','Hers','She\'s'],a:0,src:'左營 同類題',ex:'句首、後接名詞 name → 所有格 Her，記得大寫。'},
+  ]
+},
+gram:{
+  no:'文法特訓', code:5, title:'be 動詞與名詞大魔王', short:'文法特訓', color:'linear-gradient(135deg,#b85c1e,#f2a541)',
+  desc:'be 動詞＋Yes/No 簡答｜a / an｜不規則複數｜A and B\'s｜It\'s / Its',
+  subs:[['anim','🎬 句型變身秀'],['quick','⚡ 文法快問快答'],['sort','🎯 分類挑戰'],['mcq','📝 文法模擬題']],
+  quick:[
+    ['mouse','mice',['mouses','mices','mouse'],1,'p'],
+    ['sheep','sheep',['sheeps','shoop','sheepes'],1,'p'],
+    ['goose','geese',['gooses','geeses','goose'],1,'p'],
+    ['child','children',['childs','childrens','childes'],1,'p'],
+    ['woman','women',['womans','womens','woman'],1,'p'],
+    ['man','men',['mans','mens','man'],0,'p'],
+    ['foot','feet',['foots','feets','footes'],0,'p'],
+    ['tooth','teeth',['tooths','teeths','toothes'],0,'p'],
+    ['ox','oxen',['oxes','oxs','oxens'],1,'p'],
+    ['wife','wives',['wifes','wivs','wive'],1,'p'],
+    ['housewife','housewives',['housewifes','housewivs','housewife'],1,'p'],
+    ['knife','knives',['knifes','knivs','knive'],0,'p'],
+    ['watch','watches',['watchs','watchies','watch'],1,'p'],
+    ['bus','buses',['buss','busies','bus'],1,'p'],
+    ['box','boxes',['boxs','boxen','boxies'],1,'p'],
+    ['city','cities',['citys','cityes','citis'],1,'p'],
+    ['toy','toys',['toies','toyes','toi'],0,'p'],
+    ['egg','eggs',['egges','eggies','egg'],1,'p'],
+    ['actress','actresses',['actresss','actresies','actress'],0,'p'],
+    ['I ___ a student.','am',['is','are','be'],1,'g'],
+    ['My family ___ big.','is',['are','am','be'],1,'g'],
+    ['___ an egg.','It\'s',['Its','It','Is'],1,'g'],
+    ['The dog wags ___ tail.','its',['it\'s','it','its\''],1,'g'],
+    ['I am ___ eleven-year-old boy.','an',['a','two','many'],1,'g'],
+    ['This is ___ uniform.','a',['an','two','many'],0,'g'],
+    ['Are you a farmer? Yes, I ___.','am',['are','is','\'m'],1,'g'],
+    ['Is Yuki from Japan? Yes, ___ is.','she',['he','it','her'],1,'g'],
+    ['Are they your boxes? Yes, they ___.','are',['\'re','is','do'],1,'g'],
+    ['Ben and Ella\'s mom ___ a clerk.','is',['are','am','be'],1,'g'],
+  ],
+  sorts:[
+    {title:'a 還是 an？',tip:'看「下一個字的第一個音」：母音音用 an。hour 的 h 不發音 → an hour；uniform 唸 you 開頭 → a uniform',buckets:['a','an'],items:[
+      ['___ egg',1],['___ elephant',1],['___ angry zebra',1,'看 angry，不看 zebra。'],['___ office worker',1],['___ eleven-year-old girl',1,'eleven 母音開頭；year 不加 s。'],
+      ['___ hour',1,'h 不發音，唸 [aʊr]。'],['___ old farmer',1],['___ actress',1],['___ eight-year-old boy',1,'eight 開頭是母音音。'],
+      ['___ mouse',0],['___ housewife',0],['___ junior high school student',0],['___ big hippo',0],['___ uniform',0,'u 唸 [ju]，是子音音。'],['___ clerk',0]]},
+    {title:'所有格寫對了嗎？',tip:'兩人共有 → 只在最後一人加 \'s：Ben and Ella\'s mom（同一個媽媽）；字尾是 s 的複數 → 只加 \'：the boys\' teacher；It\'s＝It is，Its＝它的',buckets:['正確 ✅','錯誤 ❌'],items:[
+      ['Ben and Ella\'s mom is a clerk.（兄妹同一個媽媽）',0],['Ben\'s and Ella\'s mom is a clerk.（兄妹同一個媽媽）',1,'共有只在最後一人加 \'s。'],
+      ['Miss Wu is the boys\' teacher.',0],['Miss Wu is the boys\'s teacher.',1,'boys 已經有 s，只加 \'。'],
+      ['These are the children\'s toys.',0,'children 不是 s 結尾，要加 \'s。'],['These are the childrens\' toys.',1,'children 本身就是複數，直接加 \'s。'],
+      ['It\'s a hippo. Its mouth is big.',0],['Its a hippo. It\'s mouth is big.',1,'It\'s＝It is；Its＝它的。剛好寫反了。'],
+      ['Tom\'s sister is ten.',0],['Tom sister is ten.',1,'「Tom 的」要寫 Tom\'s。']]},
+    {title:'Yes/No 簡答：對還是錯？',tip:'簡答要把名詞換成代名詞（he / she / it / they）；Yes 的簡答不能縮寫；be 動詞要跟著主詞變',buckets:['正確 ✅','錯誤 ❌'],items:[
+      ['Is Yuki from Japan? — Yes, she is.',0],['Is Yuki from Japan? — Yes, Yuki is.',1,'簡答要用代名詞 she。'],
+      ['Are they your boxes? — Yes, they are.',0],['Are they your boxes? — Yes, they\'re.',1,'Yes 的簡答不能縮寫。'],
+      ['Is that your frog? — No, it isn\'t.',0],['Is that your frog? — No, that isn\'t.',1,'that 在簡答中改成 it。'],
+      ['Are you and Ben classmates? — Yes, we are.',0],['Are you and Ben classmates? — Yes, you are.',1,'「你和 Ben」回答時是「我們」→ we。'],
+      ['Is your father a farmer? — No, he isn\'t.',0],['Is your mother a clerk? — No, he isn\'t.',1,'mother 是女生 → she。']]},
+  ],
+  mcq:[
+    {q:'A: Are you and Ben brothers? B: Yes, ___.',o:['we are','you are','they are','we\'re'],a:0,src:'三版共同必考',ex:'問「你和 Ben」，回答自己這一方 → we；Yes 簡答不縮寫。'},
+    {q:'A: Is your grandpa old? B: No, ___. He is only sixty.',o:['he isn\'t','he is','it isn\'t','she isn\'t'],a:0,src:'三版共同必考',ex:'grandpa 男生 → he；後面說只有 60 歲，所以 No, he isn\'t.'},
+    {q:'There are three ___ in the box. They are white.',o:['mice','mouses','mouse','mices'],a:0,src:'四校都考',ex:'three 後接複數；mouse → mice（不規則）。'},
+    {q:'Look at those ___ on the farm.',o:['sheep','sheeps','sheepes','a sheep'],a:0,src:'屏東中正、左營',ex:'sheep 單複數同形，沒有 sheeps。'},
+    {q:'The farmer has five ___.',o:['geese','gooses','goose','geeses'],a:0,src:'屏東中正',ex:'goose → geese（不規則複數）。'},
+    {q:'Mr. Lin and Mr. Chen are farmers. Their ___ are housewives.',o:['wives','wifes','wife','wive'],a:0,src:'屏東中正 同類題',ex:'wife → wives（f 變 v 加 es）。housewife → housewives 也一樣。'},
+    {q:'He is ___ eight-year-old boy.',o:['an','a','two','the two'],a:0,src:'屏東中正',ex:'eight 是母音音開頭 → an；複合形容詞 eight-year-old 的 year 不加 s。'},
+    {q:'Which is correct?',o:['an egg and a mouse','a egg and a mouse','an egg and an mouse','a egg and an mouse'],a:0,src:'新北中正',ex:'egg 母音開頭 → an；mouse 子音開頭 → a。'},
+    {q:'Amy and Ann are sisters. ___ mom is an actress.',o:['Amy and Ann\'s','Amy\'s and Ann\'s','Amy and Ann','Amy\'s and Ann'],a:0,src:'三版共同必考',ex:'兩人共有同一個媽媽 → 只在最後一人加 \'s。'},
+    {q:'Ms. Lee is those ___ English teacher.',o:['boys\'','boys\'s','boy\'s','boys'],a:0,src:'三版共同必考',ex:'those boys 複數、s 結尾 → 只加 \'：boys\'。'},
+    {q:'Look at the hippo. ___ big and ___ mouth is very big, too.',o:['It\'s; its','Its; it\'s','It\'s; it\'s','Its; its'],a:0,src:'丹鳳、屏東中正',ex:'It\'s＝It is（它是）；its＝它的（後接名詞）。'},
+    {q:'A: How old is your dog? B: ___',o:['It\'s one year old.','Its one year old.','It\'s one old.','It\'s one years old.'],a:0,src:'屏東中正',ex:'It\'s＝It is；一歲是 one year old（單數 year）。'},
+    {q:'My family ___ a family of four.',o:['is','are','am','be'],a:0,src:'三版共同',ex:'family 當「一個家庭」是單數 → is。'},
+    {q:'Ben\'s parents ___ farmers.',o:['are','is','am','be'],a:0,src:'丹鳳 同類題',ex:'parents 複數 → are。'},
+    {q:'___ his friends from the USA?',o:['Are','Is','Am','Do'],a:0,src:'左營',ex:'主詞 his friends 複數 → Are。'},
+    {q:'A: Isn\'t Amy your sister? B: ___, she is. She is my little sister.',o:['Yes','No','Not','Sure not'],a:0,src:'左營',ex:'否定疑問句照事實回答：是姊妹 → Yes, she is.'},
+    {q:'A: ___ is that tall boy? B: He is my friend, Kai.',o:['Who','What','Where','How'],a:0,src:'四校都考',ex:'回答「他是我朋友」→ 問「誰」用 Who。'},
+    {q:'Sara\'s father is forty years old. 針對畫線 forty years old 發問：',o:['How old is Sara\'s father?','How old Sara\'s father is?','How old is Sara father?','What old is Sara\'s father?'],a:0,src:'屏東中正、丹鳳',ex:'問年齡：How old is＋人？'},
+    {q:'___ name is Mike. He is a great player. We love ___.',o:['His; him','He; him','His; he','Him; his'],a:0,src:'左營',ex:'接名詞用所有格 His；love 後面用受格 him。'},
+    {q:'What is that? It is a sheep. 改成複數：',o:['What are those? They are sheep.','What are those? They are sheeps.','What is those? They are sheep.','What are that? It are sheep.'],a:0,src:'屏東中正',ex:'that → those、is → are、It → They；sheep 單複同形。'},
+    {q:'Is this show good? 下列哪一句的字序也正確？',o:['This is a good show.','This is a show good.','Is this good show?','This good is a show.'],a:0,src:'屏東中正',ex:'形容詞放名詞前：a good show；或放 be 動詞後：The show is good.'},
+    {q:'A: Are those your boxes? B: Yes, ___ are. They are ___ boxes.',o:['they; our','they; we','it; our','those; us'],a:0,src:'屏東中正',ex:'boxes 複數 → they；後接名詞用所有格 our。'},
+  ]
+},
+};
+
+/* 綜合頁：克漏字＋閱讀＋翻譯（全部原創改寫） */
+const CLOZE=[
+  {title:'克漏字 A｜A Letter from Bigfoot',text:'Hi! I __1__ Bigfoot. I am tall and strong. I am brown and hairy, __2__ I am not a bear. The forest is __3__ home. Look! Those are my footprints. __4__ are very big. Yeti is my good friend. He lives on __5__ snowy mountain. We are not angry. We are __6__ and friendly!',
+   qs:[
+    {q:'__1__',o:['am','is','are','be'],a:0,ex:'主詞 I → am。'},
+    {q:'__2__',o:['but','and','or','so'],a:0,ex:'多毛但不是熊，前後相反 → but。'},
+    {q:'__3__',o:['my','I','me','mine'],a:0,ex:'後面接名詞 home → 所有格 my。'},
+    {q:'__4__',o:['They','It','Its','There'],a:0,ex:'代替 footprints（複數）→ They。'},
+    {q:'__5__',o:['a','an','two','many'],a:0,ex:'snowy 以子音開頭 → a snowy mountain。'},
+    {q:'__6__',o:['happy','hairy','late','dirty'],a:0,ex:'We are not angry → 相對的「快樂的」happy。'},
+   ]},
+  {title:'克漏字 B｜Kai\'s Postcard',text:'Kai: Lily, what is __1__ on your postcard?\nLily: It\'s Walt Disney World. It\'s very famous and beautiful. It\'s my __2__ theme park.\nKai: Who\'s that man?\nLily: He\'s Walt Disney. He is the __3__ of Walt Disney World.\nKai: Wow! __4__ you from Florida?\nLily: No, I\'m not. I\'m from New York. And my friends on Postcrossing are from all over the __5__.\nKai: Is it hard to write a postcard in English?\nLily: No. It\'s a piece of __6__!',
+   qs:[
+    {q:'__1__',o:['that','those','these','they'],a:0,ex:'is 前面用單數 that。'},
+    {q:'__2__',o:['favorite','angry','hairy','late'],a:0,ex:'my favorite theme park＝我最喜愛的主題樂園。'},
+    {q:'__3__',o:['founder','winner','clerk','farmer'],a:0,ex:'the founder of…＝…的創辦人。'},
+    {q:'__4__',o:['Are','Is','Am','Do'],a:0,ex:'主詞 you → Are。'},
+    {q:'__5__',o:['world','word','work','walk'],a:0,ex:'all over the world＝全世界。'},
+    {q:'__6__',o:['cake','cookie','bread','pie'],a:0,ex:'a piece of cake＝小事一樁。'},
+   ]},
+];
+const READ=[
+  {title:'閱讀 A｜Nina in Canada',text:'Nina Chen is an international student from Taiwan. She is fourteen years old. Now she lives with the Green family in Canada. Mr. Green is a farmer, and Mrs. Green is a clerk at a bookstore. They have a son, Leo, and a daughter, Emma. Leo is sixteen, and Emma is ten. The family has a big brown dog. Its name is Lucky. Nina is happy in Canada. "My host family is wonderful," she says. "The Greens are my second family!"',
+   qs:[
+    {q:'Where is Nina from?',o:['Taiwan.','Canada.','Japan.','The USA.'],a:0,ex:'Nina Chen is an international student from Taiwan.'},
+    {q:'Who is a clerk?',o:['Mrs. Green.','Mr. Green.','Leo.','Nina.'],a:0,ex:'Mrs. Green is a clerk at a bookstore. 農夫是 Mr. Green。'},
+    {q:'Which is TRUE?',o:['Emma is Mr. and Mrs. Green\'s daughter.','Lucky is a cat.','Leo is ten years old.','Nina is sixteen years old.'],a:0,ex:'They have a son, Leo, and a daughter, Emma. Lucky 是狗；Leo 16 歲；Nina 14 歲。'},
+    {q:'What does "Its" in the passage mean?',o:['The dog\'s.','Nina\'s.','Emma\'s.','Canada\'s.'],a:0,ex:'Its name is Lucky.＝那隻狗的名字是 Lucky。'},
+   ]},
+  {title:'閱讀 B｜Animal Night at the Zoo',text:'Welcome to Animal Night at Sunny Zoo! Are you ready for the game? Here are three animal cards. Read them and guess.\nCard 1: I am big and gray. My mouth is very big. I am in the water all day. Who am I?\nCard 2: We are small and gray. We are not cats, but we love cheese. Who are we?\nCard 3: I am tall and yellow. My neck is very long. Who am I?\nGet three right, and you are the winner! The winner gets a T-shirt and ten points.',
+   qs:[
+    {q:'What animal is Card 1?',o:['A hippo.','A giraffe.','A mouse.','A bear.'],a:0,ex:'大、灰色、嘴巴很大、整天在水裡 → 河馬 hippo。'},
+    {q:'What animals are Card 2?',o:['Mice.','Cats.','Hippos.','Frogs.'],a:0,ex:'小、灰色、不是貓但愛起司，而且用 We → 老鼠的複數 mice。'},
+    {q:'What does the winner get?',o:['A T-shirt and ten points.','Three animal cards.','Some cheese.','A zoo ticket.'],a:0,ex:'最後一句：The winner gets a T-shirt and ten points.'},
+   ]},
+  {title:'閱讀 C｜Our Family Tree',text:'Hi, I\'m Tony. This is my family tree. My grandpa, Robert, is a farmer. My grandma, Sally, is a housewife. They have a son and a daughter. Their son, David, is my father. He is a clerk. Their daughter, Ivy, is my aunt. She is a famous actress! My mom, Tina, is a nurse. I have a sister, Amy. Amy and I are junior high school students. Amy is twelve, and I am thirteen.',
+   qs:[
+    {q:'Who is Ivy?',o:['Tony\'s aunt.','Tony\'s mom.','Tony\'s sister.','Tony\'s grandma.'],a:0,ex:'Their daughter, Ivy, is my aunt.'},
+    {q:'What is Tony\'s father?',o:['A clerk.','A farmer.','An actress.','A nurse.'],a:0,ex:'Their son, David, is my father. He is a clerk.'},
+    {q:'Which is TRUE?',o:['Robert and Sally are Amy\'s grandparents.','Tina is an actress.','Amy is thirteen.','Tony is an elementary school student.'],a:0,ex:'Robert、Sally 是 Tony 和 Amy 的祖父母。Tina 是護理師；Amy 12 歲；Tony 是國中生。'},
+   ]},
+];
+const TRANS=[
+  ['你的電話號碼是多少？','What is your phone number?','phone number 電話號碼；問句用問號'],
+  ['我棕色又多毛，但我不是熊。','I am brown and hairy, but I am not a bear.','but 表相反；a bear'],
+  ['看！那些是我的腳印。','Look! Those are my footprints.','Those 複數 → are；footprints'],
+  ['你得十分！你是優勝者！','Ten points for you! You are the winner!','points 複數；the winner'],
+  ['那是你的青蛙嗎？不，它不是。','Is that your frog? No, it isn\'t.','that 在簡答改成 it'],
+  ['迪士尼世界是我最喜愛的主題樂園。','Walt Disney World is my favorite theme park.','favorite 最喜愛的；theme park'],
+  ['這很難嗎？不，這是小事一樁。','Is it hard? No, it\'s a piece of cake.','a piece of cake 小事一樁'],
+  ['我媽媽在家工作。她是家庭主婦。','My mom works at home. She is a housewife.','a housewife（h 子音 → a）'],
+  ['那些是什麼？它們是大象。','What are those? They are elephants.','those → are；elephants 複數'],
+  ['她是來自臺灣的國際學生。','She is an international student from Taiwan.','an international；be from'],
+  ['我有來自全世界的朋友。','I have friends from all over the world.','all over the world 全世界'],
+  ['Ben 和 Ella 的媽媽是店員。','Ben and Ella\'s mom is a clerk.','共有所有格：只在最後一人加 \'s'],
+];
+
+/* 考點雷達（依各校段考卷統計） */
+const RADAR={
+  n:4,
+  schools:'臺北丹鳳、屏東中正、高雄左營、新北中正（皆 114 學年）',
+  topics:[['be 動詞 Yes/No 問句與簡答',4],['Who 問句',4],['大小寫與標點',3],['不規則複數（mice、sheep、geese）',3],['these / those',3],['形容詞的位置',3],['受格（for him）',3],['Where…from? 問國籍',3],['數字與電話號碼',3],['a / an',2],['How old 問年齡',2],['規則複數 -s / -es',2],['It\'s / Its',2],['連接詞 and / but',2]],
+  basics:[['be 動詞 am/is/are',4],['Yes/No 簡答',4],['Who / What / Where',4],['不規則複數',3],['these / those',3],['a / an',3],['his / him 所有格與受格',3],['How old',2]],
+  words:[['daughter',4],['famous',4],['farmer',4],['favorite',4],['hairy',4],['mouse → mice',4],['a piece of cake',3],['actress',3],['angry',3],['brown',3],['clean',3],['clerk',3],['dirty',3],['forest',3],['hippo',3],['housewife',3],['husband',3],['son',3],['young',3],['late',3],['postcard',3],['wonderful',3]],
+  nonmcq:[['字母大小寫互換',4],['翻譯（中翻英）',4],['文意字彙（首尾字母）',3],['冠詞 a/an＋單複數改寫',2],['依提示作答／依畫線造問句',1],['句子重組',1]],
+  cross:{n:59,items:[['be 動詞 Yes/No 問句與簡答',59],['不規則複數（mice、sheep、women…）',47],['Who 問句',46],['How old 問年齡',45],['所有格 my / his / its / their',43],['名詞所有格 \'s（A and B\'s）',37],['a / an',36],['these / those',34]]},
+};
+
+/* ================= 導覽 ================= */
+const TABS=[['home','🏠 考點雷達'],['st','👋 Starter'],['l1','👣 L1 Bigfoot'],['l2','🏰 L2 Walt Disney'],['r1','💌 R1 明信片'],['gram','🧠 文法特訓'],['mix','🧩 克漏字＋閱讀']];
+
+const AUDIO=new Set(["00313120", "00f0e6aa", "03285dfc", "04ac0721", "05537a1b", "05e9e040", "07c5bf96", "07cc25f4", "07cc2b2a", "0906d7a1", "0a0a25b5", "0ad0581b", "0ba65dd9", "0ba81191", "0c807952", "0dc48142", "0e6bf99a", "0edc8ae2", "15faef94", "18ae6c91", "1957b3a7", "1a956a35", "1b05cef8", "1bd670a0", "1f951fd4", "27db9c83", "27e17df3", "28cb3c32", "2ca135cd", "2d4873c8", "2d505a99", "2e2d5bb2", "3018bb65", "30be372f", "35e8dc9a", "37a3e893", "3a7f06b2", "3d1f5e07", "3ea07d7c", "4024f153", "406f344d", "4124f2e6", "4249d707", "49cbe0a2", "4c2dfe93", "4e388f15", "4f292a60", "506dff3e", "514c98f2", "521d0429", "53cacdb9", "557fef14", "559d6552", "57342012", "573511ed", "573f252c", "58446843", "5921168a", "592318c4", "597d11c6", "5a69615f", "5afecfa5", "5fb7b228", "5fd56df9", "6045f017", "605d486b", "63374a36", "660ec0f4", "67a9c9d2", "6815c86c", "6a164f08", "6cc7dde1", "6e957ec9", "70c67e32", "7183f6da", "719c6755", "7c3193ac", "7f323263", "7f42eafe", "808e8652", "80f867d9", "812716e3", "82db4d21", "8583378f", "87d96bf7", "89ba7561", "89cbe5d5", "8a29f33d", "8a524c53", "8b77447b", "8bdbdcda", "8d39bde6", "8e660e16", "8eb9ea3e", "8ff53680", "92e99ecd", "94e2dfef", "95150aa0", "9b3cf040", "9bcd89e7", "9d2ee900", "9f000e9b", "a070a5a9", "a108b658", "a28f44fb", "a2bf3a03", "a2fb5eed", "a31eda03", "a3d72107", "a59115d1", "a947e23c", "ac3c2a26", "aceae80c", "acefb2fe", "afd3aab4", "b010ea67", "b4bc6200", "b50aaefe", "bb357f55", "bb8324f1", "bfdbdb95", "c0b061df", "c2a805b8", "c3b76fbc", "c51f5d7a", "c8d632fc", "c944ea21", "c97160d1", "c9ad5a6b", "cba09f8d", "cd4e70b5", "ce5dfe9a", "d13b2f71", "d27adb64", "d91cad98", "defe7a94", "df04da84", "e0363a7b", "e2d79f84", "e382ff79", "e40c292c", "e4c35bdc", "e5a0205d", "e5f12404", "e61ccf6c", "e92df9e1", "e96898d5", "e9a2ff6f", "f5352bb4", "f95c4f58", "fb4544d2", "fe8c6573", "fec3a580", "fefb3906"]);
+/* ================= 注釋配對 ================= */
+function renderMatch(el,pairs){
+  const rounds=[];const sp=shuf(pairs);for(let k=0;k<sp.length;k+=5)rounds.push(sp.slice(k,k+5));
+  let r=0,miss=0;
+  function draw(){
+    const set=rounds[r];const rights=shuf(set);let sel=null,done=0;
+    el.innerHTML=`<div class="card"><div class="qz-top"><h3 style="margin:0">🔗 注釋配對　第 ${r+1} / ${rounds.length} 回</h3><span class="muted">先點左邊的詞，再點右邊的解釋</span></div>
+      <div class="mcols" style="margin-top:14px"><div>${set.map((p,k)=>`<button class="mi w" data-w="${k}">${esc(p[0])}</button>`).join('')}</div>
+      <div>${rights.map(p=>`<button class="mi" data-m="${set.indexOf(p)}">${esc(p[1])}</button>`).join('')}</div></div></div>`;
+    el.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>{if(b.classList.contains('done'))return;el.querySelectorAll('[data-w]').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');sel=b});
+    el.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{
+      if(!sel||b.classList.contains('done'))return;
+      if(sel.dataset.w===b.dataset.m){sOK();sel.classList.remove('sel');sel.classList.add('done');b.classList.add('done');sel=null;done++;
+        if(done===set.length)setTimeout(()=>{r++;if(r<rounds.length)draw();else fin()},600)}
+      else{sBAD();miss++;b.classList.add('shake');setTimeout(()=>b.classList.remove('shake'),400)}
+    });
+  }
+  function fin(){el.innerHTML=`<div class="card" style="text-align:center"><div style="font-size:3rem">${miss<=2?'🏆':'👍'}</div><h3>全部配對完成！</h3><p>配錯 ${miss} 次</p><button class="btn" id="ag">再玩一次（題目重新洗牌）</button></div>`;$('#ag',el).onclick=()=>renderMatch(el,pairs)}
+  draw();
+}
+
+/* ================= 分類 ================= */
+function renderSort(el,so){
+  let order=shuf(so.items),i=0,ok=0,wrongs=[];
+  function draw(){
+    if(i>=order.length){
+      el.innerHTML=`<h3>${so.title}</h3><div style="text-align:center"><div style="font-size:2.6rem">${ok===order.length?'🏆':'👍'}</div><p><b>${ok} / ${order.length}</b> 題正確</p>
+      ${wrongs.length?`<div style="text-align:left;background:#fffaf0;border-radius:12px;padding:10px 14px">${wrongs.map(w=>`「${esc(w[0])}」→ <b>${so.buckets[w[1]]}</b>${w[2]?'：'+esc(w[2]):''}`).join('<br>')}</div>`:''}
+      <button class="btn" style="margin-top:12px">再玩一次</button></div>`;
+      el.querySelector('.btn').onclick=()=>renderSort(el,so);return;
+    }
+    const it=order[i];
+    el.innerHTML=`<div class="qz-top"><h3 style="margin:0">${so.title}</h3><span class="muted">${i+1} / ${order.length}</span></div>
+      <p class="muted" style="margin:4px 0 0">💡 ${so.tip}</p>
+      <div class="sortcard">${esc(it[0])}</div>
+      <div class="buckets" style="grid-template-columns:repeat(${Math.min(so.buckets.length,5)},1fr)">${so.buckets.map((b,k)=>`<button class="bk" data-k="${k}">${b}</button>`).join('')}</div>
+      <div class="fb"></div>`;
+    if(window.innerWidth<560&&so.buckets.length>3) el.querySelector('.buckets').style.gridTemplateColumns='1fr 1fr';
+    el.querySelectorAll('.bk').forEach(b=>b.onclick=()=>{
+      el.querySelectorAll('.bk').forEach(x=>x.onclick=null);
+      const right=+b.dataset.k===it[1];
+      el.querySelector(`.bk[data-k="${it[1]}"]`).classList.add('ok');
+      if(right){sOK();ok++}else{sBAD();b.classList.add('bad');wrongs.push(it)}
+      el.querySelector('.fb').innerHTML=(right?'✅ 正確！':'❌ 應該是「'+so.buckets[it[1]]+'」')+(it[2]?'　'+esc(it[2]):'');
+      i++;setTimeout(draw,right?800:1900);
+    });
+  }
+  draw();
+}
+
+/* ================= 選擇題 ================= */
+function renderMCQ(el,qs){
+  let got=0,done=0;
+  const list=qs.map(q=>{const idx=shuf(q.o.map((_,k)=>k));return{...q,idx}});
+  el.innerHTML=`<div class="score" id="sc">已作答 0 / ${qs.length}　答對 0</div><div class="card">${list.map((q,n)=>`
+    <div class="mq" data-n="${n}"><div class="stem">${n+1}. ${esc(q.q)}<span class="src">${q.src}</span></div>
+    ${q.idx.map((k,j)=>`<button class="o" data-k="${k}">(${'ABCD'[j]}) ${esc(q.o[k])}</button>`).join('')}
+    <div class="ex">💡 <b>解析：</b>${esc(q.ex)}</div></div>`).join('')}
+    <div class="row" style="margin-top:12px"><button class="btn ghost" id="rs">重新作答（選項重新洗牌）</button></div></div>`;
+  el.querySelectorAll('.mq').forEach(box=>{
+    const q=list[+box.dataset.n];
+    box.querySelectorAll('.o').forEach(b=>b.onclick=()=>{
+      if(box.classList.contains('done'))return;box.classList.add('done');done++;
+      box.querySelector(`.o[data-k="${q.a}"]`).classList.add('ok');
+      if(+b.dataset.k===q.a){got++;sOK()}else{b.classList.add('bad');sBAD()}
+      $('#sc',el).textContent=`已作答 ${done} / ${qs.length}　答對 ${got}`+(done===qs.length?`　🎯 得分 ${Math.round(got/qs.length*100)}`:'');
+    });
+  });
+  $('#rs',el).onclick=()=>renderMCQ(el,qs);
+}
+
+/* ================= 翻卡 ================= */
+function renderCards(el,cards){
+  el.innerHTML=`<div class="card"><h3>🃏 十五種標點翻卡</h3><p class="muted">點卡片翻面看用法。重點：分號、破折號、引號、書名號、刪節號。</p>
+  <div class="flips">${cards.map(c=>`<div class="flip"><div class="in"><div class="f"><div class="sym">${esc(c[1])}</div><b>${c[0]}</b></div><div class="bk2">${esc(c[2])}</div></div></div>`).join('')}</div></div>`;
+  el.querySelectorAll('.flip').forEach(f=>f.onclick=()=>f.classList.toggle('on'));
+}
+
+/* ================= 動畫共用 ================= */
+function stepper(el,steps,apply,autoMs=5200){
+  let k=0,auto=null;
+  el.querySelector('.steps').innerHTML=steps.map((s,i)=>`<button data-i="${i}">${s.label}</button>`).join('')+`<button id="play">▶ 自動播放</button>`;
+  function set(i){k=i;el.querySelectorAll('.steps [data-i]').forEach(b=>b.classList.toggle('on',+b.dataset.i===i));
+    const s=steps[i];el.querySelector('.caption').innerHTML=`<div class="poem">${s.poem}</div><div class="key">🎯 <b>考點：</b>${s.key}</div>`;apply(i)}
+  el.querySelectorAll('.steps [data-i]').forEach(b=>b.onclick=()=>{stop();set(+b.dataset.i)});
+  const pb=el.querySelector('#play');
+  function stop(){clearInterval(auto);auto=null;pb.textContent='▶ 自動播放'}
+  pb.onclick=()=>{if(auto)return stop();pb.textContent='⏸ 暫停';set(0);auto=setInterval(()=>{if(k+1>=steps.length)return stop();set(k+1)},autoMs)};
+  set(0);
+}
+
+/* ================= 照片舞台（共用） ================= */
+const AI_IMG=f=>f.startsWith('ai_');
+function photoStage(){
+  return `<div class="pstage"><div class="ph" id="phA"></div><div class="ph" id="phB"></div>
+    <div class="split" id="phS"></div><div class="ptag" id="phT"></div><div class="pai" id="phAI">AI 示意圖</div></div>`;
+}
+let __cyc=null,__front='A';
+function showPhoto(step){
+  clearInterval(__cyc);
+  const S=$('#phS'),T=$('#phT'),AI=$('#phAI');
+  if(step.split){
+    $('#phA').style.opacity=0;$('#phB').style.opacity=0;
+    S.innerHTML=step.split.map(s=>`<div class="half" style="background-image:url(img/${s.img}.jpg)"><span>${s.tag}</span></div>`).join('');
+    S.style.opacity=1;T.style.opacity=0;AI.style.opacity=step.split.some(s=>AI_IMG(s.img))?1:0;return;
+  }
+  S.style.opacity=0;
+  const imgs=step.imgs;let k=0;
+  const put=()=>{
+    const it=imgs[k%imgs.length];
+    const next=__front==='A'?'B':'A',el=$('#ph'+next),old=$('#ph'+__front);
+    el.style.backgroundImage=`url(img/${it.img}.jpg)`;
+    el.style.backgroundSize=it.fit||'cover';el.style.backgroundColor=it.bg||'#111';
+    el.classList.remove('kb');void el.offsetWidth;el.classList.add('kb');
+    el.style.opacity=1;old.style.opacity=0;__front=next;
+    T.textContent=it.tag;T.style.opacity=1;AI.style.opacity=AI_IMG(it.img)?1:0;k++;
+  };
+  put();if(imgs.length>1)__cyc=setInterval(put,3400);
+}
+
+/* ================= 背景音樂（瀏覽器即時合成，只在動畫頁播放） ================= */
+const BGM={ctx:null,master:null,timer:null,playing:false,
+  get on(){try{return localStorage.getItem('bgm')!=='off'}catch(e){return true}},
+  set on(v){try{localStorage.setItem('bgm',v?'on':'off')}catch(e){}},
+  start(){
+    if(!this.on||this.playing)return;
+    try{
+      this.ctx=this.ctx||new (window.AudioContext||window.webkitAudioContext)();
+      if(this.ctx.state==='suspended')this.ctx.resume();
+      const c=this.ctx;this.master=c.createGain();this.master.gain.value=0;
+      const lp=c.createBiquadFilter();lp.type='lowpass';lp.frequency.value=1200;
+      this.master.connect(lp);lp.connect(c.destination);
+      this.master.gain.linearRampToValueAtTime(0.05,c.currentTime+2);
+      // 輕快版：約 100 BPM，C–G–Am–F 大調進行，撥弦琶音＋輕低音＋淡淡鋪底
+      const BEAT=0.6,prog=[[261.6,329.6,392],[196,246.9,293.7],[220,261.6,329.6],[174.6,220,261.6]];
+      const tone2=(f,t,dur,type,vol,att=.01)=>{const o=c.createOscillator(),g=c.createGain();o.type=type;o.frequency.value=f;
+        g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+att);g.gain.exponentialRampToValueAtTime(0.001,t+dur);
+        o.connect(g);g.connect(this.master);o.start(t);o.stop(t+dur+.05)};
+      const pat=[0,1,2,1,0,2,1,2];let bar=0;
+      const play=()=>{
+        const t0=c.currentTime+.05,ch=prog[bar%prog.length];
+        ch.forEach(f=>tone2(f,t0,BEAT*4,'sine',.07,.4));                       // 淡淡鋪底
+        tone2(ch[0]/2,t0,BEAT*1.2,'triangle',.22);tone2(ch[0]/2,t0+BEAT*2,BEAT*1.2,'triangle',.18); // 低音
+        pat.forEach((k,i)=>{const f=ch[k]*2;tone2(f,t0+i*BEAT/2,.35,'triangle',.16)}); // 撥弦琶音（八分音符）
+        if(bar%2===1)[0,1,2,3].forEach(i=>tone2([784,659.3,587.3,523.3,659.3][(bar+i)%5],t0+BEAT*2+i*BEAT/2,.5,'sine',.08)); // 小旋律
+        bar++;
+      };
+      play();this.timer=setInterval(play,2400);this.playing=true;
+    }catch(e){}
+    this.btn();
+  },
+  stop(){
+    clearInterval(this.timer);this.timer=null;
+    if(this.playing&&this.master&&this.ctx){const m=this.master,t=this.ctx.currentTime;m.gain.cancelScheduledValues(t);m.gain.setValueAtTime(m.gain.value,t);m.gain.linearRampToValueAtTime(0,t+1.2);setTimeout(()=>{try{m.disconnect()}catch(e){}},1500)}
+    this.playing=false;this.btn();
+  },
+  btn(){const b=document.getElementById('bgmBtn');if(b)b.textContent=this.on?'🎵 音樂：開':'🔇 音樂：關'}
+};
+
+
+/* 交卷給老師引擎（段考模擬題／快問快答／分類挑戰／配對 都可交卷）。
+   接在 template.html 的「音效＋工具」與 data.js 之後、app.js（導覽、首頁、動畫）之前。
+   換科時改三個佔位：https://script.google.com/macros/s/AKfycbzPt9-_BdRtHhH6f6GAuE9LLRXK8m3j7uavDxpm0xaaJCitl2KfOoYcviYgDZNdNjflLg/exec（段考闖關成績後端網址）、eng7-nanyi-1（例 chinese8-1）、英文 國一上第一次段考（南一）（分頁名稱）。不用班級碼。
+   render() 要把 d.code、`${d.no} ${d.title}` 傳給 renderQuick/renderMCQ/renderMatch，並在畫分類前設定 SORTCTX={code,title}。 */
+/* ================= 交卷給老師（雲端） =================
+   後端：段考闖關成績（assets/v2/backend/Code.gs），不用班級碼；每個網站一個 subject、試算表一個分頁。
+   round 編碼：單元代碼×10＋題型（0＝段考模擬題、1＝快問快答、2＝分類、3＝配對）；總測驗＝90。 */
+const CLOUD={
+  endpoint:'https://script.google.com/macros/s/AKfycbzPt9-_BdRtHhH6f6GAuE9LLRXK8m3j7uavDxpm0xaaJCitl2KfOoYcviYgDZNdNjflLg/exec',   /* 段考闖關成績後端（assets/v2/backend/Code.gs），不用班級碼 */
+  subject:'eng7-nanyi-1',
+  site:'英文 國一上第一次段考（南一）',   /* 試算表分頁名稱，例「英文 國二上第一次段考」 */
+  get me(){try{const o=JSON.parse(localStorage.getItem('eng7-nanyi-1_student')||'null');return o&&o.name?o:null}catch(e){return null}},
+  set me(o){try{localStorage.setItem('eng7-nanyi-1_student',JSON.stringify(o))}catch(e){}},
+  upload(rec){
+    const m=this.me;if(!m)return false;
+    const body=Object.assign({name:m.name,subject:this.subject,site:this.site},rec);
+    try{fetch(this.endpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(body)})}catch(e){return false}
+    try{const h=JSON.parse(localStorage.getItem('eng7-nanyi-1_history')||'[]');h.push({...rec,date:new Date().toISOString()});localStorage.setItem('eng7-nanyi-1_history',JSON.stringify(h.slice(-200)))}catch(e){}
+    return true;
+  }
+};
+function meChip(){
+  const m=CLOUD.me,el=$('#me');if(!el)return;
+  el.innerHTML=m?`👤 ${esc(m.name)}<button class="linkbtn" id="meEdit">修改</button>`:`👤 尚未填寫姓名 <button class="linkbtn" id="meEdit">填寫</button>`;
+  $('#meEdit').onclick=()=>enroll(()=>{});
+}
+/* 填寫姓名視窗（只要中文姓名）；成功後呼叫 then() */
+function enroll(then,force){
+  if(document.getElementById('enr'))return;
+  const m=CLOUD.me||{};
+  document.body.insertAdjacentHTML('beforeend',`<div class="modal" id="enr"><div class="mbox">
+    <h3>${force?'👋 歡迎！請先填姓名':'📝 交卷前先填姓名'}</h3><p class="muted">老師會用你的姓名收到成績和錯題。</p>
+    <label>中文姓名<input id="eName" value="${esc(m.name||'')}" autocomplete="off"></label>
+    <div class="fb" id="eMsg"></div>
+    <div class="row" style="justify-content:flex-end">${force?'':'<button class="btn ghost" id="eNo">取消</button>'}<button class="btn" id="eOk">確定</button></div></div></div>`);
+  const close=()=>$('#enr').remove();
+  if($('#eNo'))$('#eNo').onclick=close;
+  $('#eName').focus();
+  $('#eName').onkeydown=e=>{if(e.key==='Enter')$('#eOk').click()};
+  $('#eOk').onclick=()=>{
+    const name=$('#eName').value.trim();
+    if(!name){$('#eMsg').textContent='請填入你的中文姓名喔！';return}
+    if(!/^[\u4e00-\u9fff·．]{2,6}$/.test(name)){$('#eMsg').textContent='請填中文姓名（2～6 個字），老師才認得出你。';return}
+    CLOUD.me={name};close();meChip();then();
+  };
+}
+const KINDS=['段考模擬題','快問快答','分類挑戰','配對'];
+/* 交卷：rec={code,type,title,total,correct,blank,wrong:[{q,my,a}]} */
+function submitToTeacher(rec,btn){
+  const go=()=>{
+    const ok=CLOUD.upload({round:rec.code*10+rec.type,score:Math.round(rec.correct/rec.total*100),total:rec.total,correct:rec.correct,blank:rec.blank||0,
+      ans:[`【交卷】${rec.title}｜${KINDS[rec.type]}｜答對 ${rec.correct}/${rec.total}`,
+        ...rec.wrong.map(w=>`✗ 題目：${String(w.q).replace(/｜/g,'/')}｜學生答：${w.my}｜正解：${w.a}${w.u?'｜單元：'+w.u:''}`)]});
+    if(btn){btn.disabled=true;btn.textContent=ok?'✅ 已交給老師':'⚠️ 送出失敗，請再試一次';if(!ok)btn.disabled=false}
+  };
+  if(!CLOUD.me)return enroll(go);
+  go();
+}
+
+/* ================= 快問快答（交卷版） ================= */
+function renderQuick(el,items,d,code,title){
+  let order,i,score,combo,best,wrong,timer,left,round=0;
+  const TIME=10;
+  function start(list){order=shuf(list||items);i=0;score=0;combo=0;best=0;wrong=[];round++;next()}
+  function next(){
+    clearInterval(timer);
+    if(i>=order.length) return end();
+    const [q,a,ds,hot,ask0]=order[i];
+    const opts=shuf([a,...ds]);
+    const ask=ask0||(d&&d.quickAsk)||(isZY(a)?'選出「」內字的正確讀音':'選出「」內注音的正確國字');
+    el.innerHTML=`<div class="card">
+      <div class="qz-top"><b>第 ${i+1} / ${order.length} 題</b><span>得分 <b>${score}</b>　<span class="combo">${combo>=2?'🔥 連對 '+combo:''}</span></span></div>
+      <div class="timer"><i id="tb"></i></div>
+      <p class="muted" style="text-align:center;margin:8px 0 0">${ask} ${hot?`<span class="star">★${hot} 校考過</span>`:''}</p>
+      <div class="qword">${esc(q)}</div>
+      <div class="opts">${opts.map(o=>`<button class="opt" data-v="${esc(o)}">${esc(o)}</button>`).join('')}</div>
+    </div>`;
+    left=TIME;const tb=$('#tb',el);
+    timer=setInterval(()=>{left-=.1;tb.style.width=Math.max(0,left/TIME*100)+'%';if(left<=0){clearInterval(timer);pick(null)}},100);
+    el.querySelectorAll('.opt').forEach(b=>b.onclick=()=>pick(b));
+    function pick(b){
+      clearInterval(timer);
+      el.querySelectorAll('.opt').forEach(x=>{x.onclick=null;if(x.dataset.v===a)x.classList.add('ok')});
+      if(b&&b.dataset.v===a){sOK();combo++;best=Math.max(best,combo);score+=10+Math.round(left)+(combo>=3?5:0)}
+      else{sBAD();if(b)b.classList.add('bad');combo=0;wrong.push({item:order[i],my:b?b.dataset.v:'（超時）'})}
+      i++;setTimeout(next,b&&b.dataset.v===a?650:1400);
+    }
+  }
+  function end(){
+    const n=order.length,acc=Math.round((n-wrong.length)/n*100),full=true,retry=order.length!==items.length;
+    el.innerHTML=`<div class="card" style="text-align:center">
+      <div style="font-size:3rem">${acc>=90?'🏆':acc>=70?'👍':'💪'}</div>
+      <h3>完成！正確率 ${acc}%</h3><p>總分 <b>${score}</b>　最高連對 <b>${best}</b></p>
+      ${wrong.length?`<div style="text-align:left;background:#fffaf0;border-radius:12px;padding:12px 16px;margin:12px 0"><b>要再加強的：</b><br>${wrong.map(w=>`${esc(w.item[0])} → <b>${esc(w.item[1])}</b>（你選：${esc(w.my)}）`).join('<br>')}</div>`:''}
+      <div class="row" style="justify-content:center">
+        ${full?'<button class="btn alt" id="sub">📤 交卷給老師</button>':''}
+        ${wrong.length?'<button class="btn ghost" id="rw">只練錯的題目</button>':''}<button class="btn" id="ra">全部重來</button></div>
+      ${full?'<p class="muted" style="margin-top:8px">交卷會把你的姓名、分數和錯的題目傳給老師。</p>':''}</div>`;
+    $('#ra',el).onclick=()=>start();
+    const rw=$('#rw',el); if(rw) rw.onclick=()=>start(wrong.map(w=>w.item));
+    const sb=$('#sub',el); if(sb) sb.onclick=()=>submitToTeacher({code,type:1,title:title+(retry?'（只練錯題）':''),total:n,correct:n-wrong.length,
+      wrong:wrong.map(w=>({q:w.item[0],my:w.my,a:w.item[1]}))},sb);
+  }
+  el.innerHTML=`<div class="card" style="text-align:center"><div style="font-size:3rem">⚡</div><h3>${d&&d.quickAsk?'詞性＋量詞快問快答':'字音字形快問快答'}</h3>
+  <p>每題 10 秒，越快答對分數越高，連對 3 題以上有加分！<br>做完可以按「交卷給老師」。</p><button class="btn alt" id="go">開始挑戰（${items.length} 題）</button></div>`;
+  $('#go',el).onclick=()=>start();
+}
+
+/* ================= 選擇題（交卷版） ================= */
+function renderMCQ(el,qs,code,title,opt={}){
+  let got=0,done=0;
+  const list=qs.map(q=>{const idx=shuf(q.o.map((_,k)=>k));return{...q,idx,my:null}});
+  el.innerHTML=`<div class="score" id="sc">已作答 0 / ${qs.length}　答對 0</div><div class="card">${list.map((q,n)=>`
+    <div class="mq" data-n="${n}"><div class="stem">${n+1}. ${esc(q.q)}${q.src?`<span class="src">${esc(q.src)}</span>`:''}</div>
+    ${q.idx.map((k,j)=>`<button class="o" data-k="${k}">(${'ABCD'[j]}) ${esc(q.o[k])}</button>`).join('')}
+    <div class="ex">💡 <b>解析：</b>${esc(q.ex)}</div></div>`).join('')}
+    <div class="row" style="margin-top:14px">${code!=null?'<button class="btn alt" id="sub">📤 交卷給老師</button>':''}<button class="btn ghost" id="rs">重新作答（選項重新洗牌）</button></div>
+    ${code!=null?'<p class="muted" id="subtip">全部作答完再交卷；沒作答的題目會算成空白。</p>':''}</div>`;
+  el.querySelectorAll('.mq').forEach(box=>{
+    const q=list[+box.dataset.n];
+    box.querySelectorAll('.o').forEach(b=>b.onclick=()=>{
+      if(box.classList.contains('done'))return;box.classList.add('done');done++;
+      q.my=+b.dataset.k;
+      box.querySelector(`.o[data-k="${q.a}"]`).classList.add('ok');
+      if(q.my===q.a){got++;sOK()}else{b.classList.add('bad');sBAD()}
+      $('#sc',el).textContent=`已作答 ${done} / ${qs.length}　答對 ${got}`+(done===qs.length?`　🎯 得分 ${Math.round(got/qs.length*100)}`:'');
+    });
+  });
+  $('#rs',el).onclick=()=>renderMCQ(el,qs,code,title,opt);
+  const sb=$('#sub',el);
+  if(sb) sb.onclick=()=>{
+    const blank=list.filter(q=>q.my===null).length;
+    if(blank&&!confirm(`還有 ${blank} 題沒作答，確定要交卷嗎？`))return;
+    submitToTeacher({code,type:0,title,total:list.length,correct:got,blank,
+      wrong:list.filter(q=>q.my!==q.a).map(q=>({q:q.q,my:q.my===null?'（空白）':q.o[q.my],a:q.o[q.a],u:q.unit||undefined}))},sb);
+  };
+}
+
+
+/* ================= 分類挑戰（交卷版，覆蓋模板版本） ================= */
+let SORTCTX=null;   /* {code,title}：由 render() 在單元分類頁設定 */
+function renderSort(el,so){
+  const ctx=SORTCTX;
+  let order=shuf(so.items),i=0,ok=0,wrongs=[];
+  function draw(){
+    if(i>=order.length){
+      el.innerHTML=`<h3>${so.title}</h3><div style="text-align:center"><div style="font-size:2.6rem">${ok===order.length?'🏆':'👍'}</div><p><b>${ok} / ${order.length}</b> 題正確</p>
+      ${wrongs.length?`<div style="text-align:left;background:#fffaf0;border-radius:12px;padding:10px 14px">${wrongs.map(w=>`「${esc(w.it[0])}」→ <b>${so.buckets[w.it[1]]}</b>（你選：${esc(so.buckets[w.my])}）${w.it[2]?'：'+esc(w.it[2]):''}`).join('<br>')}</div>`:''}
+      <div class="row" style="justify-content:center;margin-top:12px">${ctx?'<button class="btn alt" data-sub>📤 交卷給老師</button>':''}<button class="btn" data-again>再玩一次</button></div></div>`;
+      el.querySelector('[data-again]').onclick=()=>{SORTCTX=ctx;renderSort(el,so)};
+      const sb=el.querySelector('[data-sub]');
+      if(sb) sb.onclick=()=>submitToTeacher({code:ctx.code,type:2,title:`${ctx.title}｜${so.title}`.replace(/｜/g,' ／ '),total:order.length,correct:ok,
+        wrong:wrongs.map(w=>({q:`「${w.it[0]}」屬於哪一類？`,my:so.buckets[w.my],a:so.buckets[w.it[1]]}))},sb);
+      return;
+    }
+    const it=order[i];
+    el.innerHTML=`<div class="qz-top"><h3 style="margin:0">${so.title}</h3><span class="muted">${i+1} / ${order.length}</span></div>
+      <p class="muted" style="margin:4px 0 0">💡 ${so.tip}</p>
+      <div class="sortcard">${esc(it[0])}</div>
+      <div class="buckets" style="grid-template-columns:repeat(${Math.min(so.buckets.length,5)},1fr)">${so.buckets.map((b,k)=>`<button class="bk" data-k="${k}">${b}</button>`).join('')}</div>
+      <div class="fb"></div>`;
+    if(window.innerWidth<560&&so.buckets.length>3) el.querySelector('.buckets').style.gridTemplateColumns='1fr 1fr';
+    el.querySelectorAll('.bk').forEach(b=>b.onclick=()=>{
+      el.querySelectorAll('.bk').forEach(x=>x.onclick=null);
+      const right=+b.dataset.k===it[1];
+      el.querySelector(`.bk[data-k="${it[1]}"]`).classList.add('ok');
+      if(right){sOK();ok++}else{sBAD();b.classList.add('bad');wrongs.push({it,my:+b.dataset.k})}
+      el.querySelector('.fb').innerHTML=(right?'✅ 正確！':'❌ 應該是「'+so.buckets[it[1]]+'」')+(it[2]?'　'+esc(it[2]):'');
+      i++;setTimeout(draw,right?800:1900);
+    });
+  }
+  draw();
+}
+
+
+/* ================= 配對（交卷版，覆蓋模板版本） ================= */
+function renderMatch(el,pairs,code,title){
+  const rounds=[];const sp=shuf(pairs);for(let k=0;k<sp.length;k+=5)rounds.push(sp.slice(k,k+5));
+  let r=0;const missed=new Map();   /* 詞 → {a:正解, my:[配錯的解釋]} */
+  function draw(){
+    const set=rounds[r];const rights=shuf(set);let sel=null,done=0;
+    el.innerHTML=`<div class="card"><div class="qz-top"><h3 style="margin:0">🔗 配對　第 ${r+1} / ${rounds.length} 回</h3><span class="muted">先點左邊的詞，再點右邊的解釋</span></div>
+      <div class="mcols" style="margin-top:14px"><div>${set.map((p,k)=>`<button class="mi w" data-w="${k}">${esc(p[0])}</button>`).join('')}</div>
+      <div>${rights.map(p=>`<button class="mi" data-m="${set.indexOf(p)}">${esc(p[1])}</button>`).join('')}</div></div></div>`;
+    el.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>{if(b.classList.contains('done'))return;el.querySelectorAll('[data-w]').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');sel=b});
+    el.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{
+      if(!sel||b.classList.contains('done'))return;
+      if(sel.dataset.w===b.dataset.m){sOK();sel.classList.remove('sel');sel.classList.add('done');b.classList.add('done');sel=null;done++;
+        if(done===set.length)setTimeout(()=>{r++;if(r<rounds.length)draw();else fin()},600)}
+      else{sBAD();const w=set[+sel.dataset.w],m=missed.get(w[0])||{a:w[1],my:[]};m.my.push(set[+b.dataset.m][1]);missed.set(w[0],m);
+        b.classList.add('shake');setTimeout(()=>b.classList.remove('shake'),400)}
+    });
+  }
+  function fin(){
+    const n=pairs.length,bad=[...missed.entries()];
+    el.innerHTML=`<div class="card" style="text-align:center"><div style="font-size:3rem">${bad.length<=2?'🏆':'👍'}</div><h3>全部配對完成！</h3>
+      <p>一次就配對成功 <b>${n-bad.length} / ${n}</b> 個</p>
+      ${bad.length?`<div style="text-align:left;background:#fffaf0;border-radius:12px;padding:12px 16px;margin:12px 0"><b>曾經配錯的：</b><br>${bad.map(([w,m])=>`${esc(w)} → <b>${esc(m.a)}</b>`).join('<br>')}</div>`:''}
+      <div class="row" style="justify-content:center">${code!=null?'<button class="btn alt" id="msub">📤 交卷給老師</button>':''}<button class="btn" id="ag">再玩一次（題目重新洗牌）</button></div></div>`;
+    $('#ag',el).onclick=()=>renderMatch(el,pairs,code,title);
+    const sb=$('#msub',el);
+    if(sb) sb.onclick=()=>submitToTeacher({code,type:3,title,total:n,correct:n-bad.length,
+      wrong:bad.map(([w,m])=>({q:`「${w}」的意思`,my:[...new Set(m.my)].join(' / '),a:m.a}))},sb);
+  }
+  draw();
+}
+
+
+/* ================= 發音（微軟 Neural 語音預錄 mp3；沒有檔才退回瀏覽器語音） ================= */
+const isEN=s=>/^[A-Za-z][A-Za-z '’\-\/.…]*$/.test(s.trim());
+const normSay=t=>t.replace(/<br\s*\/?>/gi,' ').replace(/<[^>]+>/g,'').replace(/[’‘]/g,"'").replace(/[“”]/g,'"').replace(/…/g,' ').replace(/___+/g,'blank').replace(/\s+/g,' ').trim();
+function akey(t){let h=0x811c9dc5;for(let i=0;i<t.length;i++){h^=t.charCodeAt(i);h=Math.imul(h,0x01000193)>>>0}return h.toString(16).padStart(8,'0')}
+let __au=null;
+function stopSay(){try{if(__au)__au.pause();speechSynthesis.cancel()}catch(e){}}
+function webSay(t){try{const u=new SpeechSynthesisUtterance(t.replace(/\//g,' or '));u.lang='en-US';u.rate=.9;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+function say(t){
+  const n=normSay(t),k=akey(n);stopSay();
+  if(typeof AUDIO!=='undefined'&&AUDIO.has(k)){
+    if(!__au)__au=new Audio();
+    __au.src='audio/'+k+'.mp3';const p=__au.play();if(p&&p.catch)p.catch(()=>webSay(n));
+  }else webSay(n);
+}
+
+
+let cur='home', curSub={};
+function drawTabs(){
+  $('#tabs').innerHTML=TABS.map(([k,t])=>`<button class="tab ${k===cur?'on':''}" data-k="${k}">${t}</button>`).join('');
+  $('#tabs').querySelectorAll('.tab').forEach(b=>b.onclick=()=>go(b.dataset.k));
+}
+function go(k,sub){cur=k;if(sub)curSub[k]=sub;drawTabs();render();window.scrollTo({top:document.querySelector('nav.tabs').offsetTop,behavior:'smooth'})}
+document.body.insertAdjacentHTML('beforeend','<button class="bgm" id="bgmBtn"></button>');
+$('#bgmBtn').onclick=()=>{BGM.on=!BGM.on;if(BGM.on&&isAnim())BGM.start();else BGM.stop();BGM.btn()};
+
+const ANIM={st:animST,l1:animL1,l2:animL2,r1:animR1,gram:animG};
+function isAnim(){return cur in L && (curSub[cur]||'anim')==='anim'}
+function render(){
+  const app=$('#app');
+  clearInterval(__cyc);
+  if(isAnim()) BGM.start(); else BGM.stop();
+  if(cur==='home') return renderHome(app);
+  if(cur==='mix') return renderMix(app);
+  const d=L[cur];
+  const subs = d.subs || [['anim','🎬 動畫導覽'],['quick','⚡ 單字快問快答'],['match','🔗 片語配對'],['sort','🎯 分類挑戰'],...(d.hunt?[['hunt',d.hunt.label]]:[]),['mcq','📝 段考模擬題']];
+  const s=curSub[cur]||'anim';
+  app.innerHTML=`<h2>${d.no}｜${d.title}</h2>
+  <div class="subtabs">${subs.map(([k,t])=>`<button class="sub ${k===s?'on':''}" data-s="${k}">${t}</button>`).join('')}</div>
+  <div id="panel"></div>`;
+  app.querySelectorAll('.sub').forEach(b=>b.onclick=()=>{curSub[cur]=b.dataset.s;render()});
+  const p=$('#panel');
+  if(s==='anim') ANIM[cur](p);
+  const title=`${d.no} ${d.short}`;
+  if(s==='quick') renderQuick(p,d.quick,d,d.code,title);
+  if(s==='match') renderMatch(p,d.words,d.code,title);
+  if(s==='sort'){p.innerHTML=d.sorts.map((_,i)=>`<div class="card" id="so${i}"></div>`).join('');d.sorts.forEach((so,i)=>{SORTCTX={code:d.code,title};renderSort($('#so'+i),so)});SORTCTX=null}
+  if(s==='hunt') renderHunt(p,d.hunt);
+  if(s==='mcq') renderMCQ(p,d.mcq,d.code,title);
+}
+
+/* ================= 首頁：考點雷達 ================= */
+function renderHome(app){
+  const N=RADAR.n;
+  const bar2=(arr,M)=>`<div class="bars">${arr.map(([n,v])=>`<div class="b"><span>${n}</span><div class="track"><div class="fill" data-w="${v/M*100}"></div></div><b>${v}/${M}</b></div>`).join('')}</div>`;
+  const bar=arr=>`<div class="bars">${arr.map(([n,v])=>`<div class="b"><span>${n}</span><div class="track"><div class="fill" data-w="${v/N*100}"></div></div><b>${v}/${N}</b></div>`).join('')}</div>`;
+  app.innerHTML=`
+  <h2>📡 第一次段考考點雷達</h2>
+  <p class="muted">整理 ${N} 所學校的國一上第一次段考卷：${RADAR.schools}。這 4 校卷面沒有寫版本，是依題材（Bigfoot、Walt Disney、Postcrossing）推定為南一版；範圍依新北中正卷逐題標課推定為 Starter＋L1～L2＋Review 1。</p>
+  <div class="lessoncards" style="margin:16px 0 24px">
+    ${['st','l1','l2','r1','gram'].map(k=>`<div class="lc" style="background:${L[k].color}" data-k="${k}"><div><div class="n">${L[k].no}</div><div class="t">${L[k].short}</div></div><div class="d">${L[k].desc}</div></div>`).join('')}
+    <div class="lc" style="background:linear-gradient(135deg,#3a4f7a,#6b86b8)" data-k="mix"><div><div class="n">綜合</div><div class="t">克漏字＋閱讀</div></div><div class="d">原創克漏字｜閱讀測驗｜翻譯翻翻卡</div></div>
+  </div>
+  <div class="card"><h3>選擇題最常考的主題（幾校考過）</h3>${bar(RADAR.topics)}
+  <p class="muted" style="margin-top:10px">⚠️ 四校都考：<b>be 動詞 Yes/No 簡答</b>、<b>Who 問句</b>。<br>⚠️ 題組最愛的主題：Walt Disney／主題樂園（4 校）、動物（4 校）、Bigfoot 自述（3 校）、Postcrossing 明信片（3 校）、家族樹與職業（3 校）。</p></div>
+  <div class="grid2">
+    <div class="card"><h3>文法必考點</h3><div class="chips">${RADAR.basics.map(([w,n])=>`<span>${w} <b>×${n}</b></span>`).join('')}</div>
+    <p class="muted" style="margin-top:12px">陷阱：簡答要換代名詞（Is Yuki…? → Yes, <b>she</b> is.）、Yes 簡答<b>不能縮寫</b>（<s>Yes, they're.</s>）、<b>an</b> eight-year-old boy。</p></div>
+    <div class="card"><h3>高頻單字片語</h3><div class="chips">${RADAR.words.map(([w,n])=>`<span>${w} <b>×${n}</b></span>`).join('')}</div>
+    <p class="muted" style="margin-top:12px">文意字彙會給首尾字母：h___y（hairy）、d_____r（daughter）。拼字一定要會！</p></div>
+  </div>
+  <div class="card"><h3>🌏 不分版本都考！（${RADAR.cross.n} 校七上第一次段考，含翰林、康軒）</h3>${bar2(RADAR.cross.items,RADAR.cross.n)}
+  <p class="muted" style="margin-top:10px">南一的樣本只有 4 校，所以也要看全臺 ${RADAR.cross.n} 校（翰林 36、康軒 19、南一 4）的共同考點：<b>be 動詞簡答</b>每校都考，<b>不規則複數</b>（mouse → mice、sheep、woman → women）、<b>A and B's</b>、<b>a / an</b> 也是三版必考。到「🧠 文法特訓」練到反射！</p></div>
+  <div class="card"><h3>✍️ 非選題考什麼？</h3><div class="chips">${RADAR.nonmcq.map(([w,n])=>`<span>${w} <b>×${n}</b></span>`).join('')}</div>
+  <p class="muted" style="margin-top:12px">四校都考<b>字母大小寫互換</b>（常用課外長字，全對才給分）和<b>翻譯</b>：I am brown and hairy, but I am not a bear.／Is it hard? No, it's a piece of cake. → 到「🧩 克漏字＋閱讀」用翻譯翻翻卡練，句首大寫、句尾標點別忘記。</p></div>
+  <div class="card"><h3>🧭 建議闖關順序</h3>
+  <p>① 每課先看 <b>🎬 動畫導覽</b>，弄懂課文在說什麼 → ② <b>⚡ 單字快問快答</b>、<b>🔗 片語配對</b>，練熟基本分 → ③ <b>🧠 文法特訓</b>，把 be 動詞、複數、所有格練到反射 → ④ <b>📝 段考模擬題</b>與 <b>🧩 克漏字＋閱讀</b>，檢查自己的程度。</p>
+  <p class="muted">各課課文與文章都是依段考卷考點原創改寫，不是課本原文；段考範圍請以自己學校公告為準。</p></div>`;
+  app.querySelectorAll('.lc').forEach(c=>c.onclick=()=>go(c.dataset.k,c.dataset.k==='mix'?undefined:'anim'));
+  requestAnimationFrame(()=>setTimeout(()=>app.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%'),60));
+}
+
+/* ================= 快問快答（英文版＋交卷） ================= */
+function renderQuick(el,items,d,code,title){
+  let order,i,score,combo,best,wrong,timer,left;
+  const TIME=10;
+  function start(list){order=shuf(list||items);i=0;score=0;combo=0;best=0;wrong=[];next()}
+  function next(){
+    clearInterval(timer);
+    if(i>=order.length) return end();
+    const [q,a,ds,hot,type]=order[i];
+    const opts=shuf([a,...ds]);
+    const canSay=isEN(q)&&type!=='s';
+    el.innerHTML=`<div class="card">
+      <div class="qz-top"><b>第 ${i+1} / ${order.length} 題</b><span>得分 <b>${score}</b>　<span class="combo">${combo>=2?'🔥 連對 '+combo:''}</span></span></div>
+      <div class="timer"><i id="tb"></i></div>
+      <p class="muted" style="text-align:center;margin:8px 0 0">${ASK[type]} ${hot?'<span class="star">★ 2 校以上考過</span>':''}</p>
+      <div class="qword en">${esc(q)}${canSay?' <button class="say" id="sayq" aria-label="播放發音">🔊</button>':''}</div>
+      <div class="opts">${opts.map(o=>`<button class="opt" data-v="${esc(o)}">${esc(o)}</button>`).join('')}</div>
+    </div>`;
+    if(canSay) $('#sayq',el).onclick=()=>say(q);
+    left=TIME;const tb=$('#tb',el);
+    timer=setInterval(()=>{left-=.1;tb.style.width=Math.max(0,left/TIME*100)+'%';if(left<=0){clearInterval(timer);pick(null)}},100);
+    el.querySelectorAll('.opt').forEach(b=>b.onclick=()=>pick(b));
+    function pick(b){
+      clearInterval(timer);
+      el.querySelectorAll('.opt').forEach(x=>{x.onclick=null;if(x.dataset.v===esc(a))x.classList.add('ok')});
+      const right=b&&b.dataset.v===esc(a);
+      if(right){sOK();combo++;best=Math.max(best,combo);score+=10+Math.round(left)+(combo>=3?5:0)}
+      else{sBAD();if(b)b.classList.add('bad');combo=0;wrong.push({item:order[i],my:b?b.textContent:'（超時）'})}
+      if(b&&isEN(a)&&type!=='e') say(a);
+      i++;setTimeout(next,right?900:1600);
+    }
+  }
+  function end(){
+    const n=order.length,acc=Math.round((n-wrong.length)/n*100),retry=n!==items.length;
+    el.innerHTML=`<div class="card" style="text-align:center">
+      <div style="font-size:3rem">${acc>=90?'🏆':acc>=70?'👍':'💪'}</div>
+      <h3>完成！正確率 ${acc}%</h3><p>總分 <b>${score}</b>　最高連對 <b>${best}</b></p>
+      ${wrong.length?`<div style="text-align:left;background:#fffaf0;border-radius:12px;padding:12px 16px;margin:12px 0"><b>要再加強的：</b><br>${wrong.map(w=>`${esc(w.item[0])} → <b>${esc(w.item[1])}</b>（你選：${esc(w.my)}）`).join('<br>')}</div>`:''}
+      <div class="row" style="justify-content:center">
+        ${code!=null?'<button class="btn alt" id="sub">📤 交卷給老師</button>':''}
+        ${wrong.length?'<button class="btn ghost" id="rw">只練錯的題目</button>':''}<button class="btn" id="ra">全部重來</button></div>
+      ${code!=null?'<p class="muted" style="margin-top:8px">交卷會把你的姓名、分數和錯的題目傳給老師。</p>':''}</div>`;
+    $('#ra',el).onclick=()=>start();
+    const rw=$('#rw',el); if(rw) rw.onclick=()=>start(wrong.map(w=>w.item));
+    const sb=$('#sub',el); if(sb) sb.onclick=()=>submitToTeacher({code,type:1,title:title+(retry?'（只練錯題）':''),total:n,correct:n-wrong.length,
+      wrong:wrong.map(w=>({q:`${w.item[0]}（${ASK[w.item[4]]}）`,my:w.my,a:w.item[1]}))},sb);
+  }
+  el.innerHTML=`<div class="card" style="text-align:center"><div style="font-size:3rem">⚡</div><h3>快問快答</h3>
+  <p>每題 10 秒，越快答對分數越高，連對 3 題以上有加分！<br><span class="star">★</span> 表示 2 所以上學校考過。按 🔊 可以聽發音。做完可以按「交卷給老師」。</p><button class="btn alt" id="go">開始挑戰（${items.length} 題）</button></div>`;
+  $('#go',el).onclick=()=>start();
+}
+
+/* ================= 抓抓樂（以「字」為單位） ================= */
+function renderHunt(el,h){
+  let total=0,found=0,miss=0,id=0;
+  const html=h.lines.map(line=>{
+    let out='';const re=/\[([^\]]+)\]|([A-Za-z'’\-]+)|([^A-Za-z\[]+)/g;let m;
+    while((m=re.exec(line))){
+      if(m[1]){id++;total++;out+=`<span class="c w" data-t="${id}">${esc(m[1])}</span>`}
+      else if(m[2]) out+=`<span class="c w">${esc(m[2])}</span>`;
+      else out+=esc(m[3]);
+    }
+    return `<p>${out}</p>`;
+  }).join('');
+  el.innerHTML=`<div class="card hunt"><div class="qz-top"><h3 style="margin:0">🔍 ${h.title}</h3><b id="hc">找到 0 / ${total}</b></div>
+    <p class="muted">${h.tip}</p><div class="en">${html}</div>
+    <div class="row" style="margin-top:10px"><button class="btn ghost" id="hs">公布答案</button><button class="btn ghost" id="hr">重來</button></div></div>`;
+  el.querySelectorAll('span.c').forEach(s=>s.onclick=()=>{
+    const t=s.dataset.t;
+    if(t){if(s.classList.contains('found'))return;s.classList.add('found');found++;sOK();say(s.textContent);
+      $('#hc',el).textContent=`找到 ${found} / ${total}`+(found===total?'　🏆 全部找到！（點錯 '+miss+' 次）':'')}
+    else{miss++;sBAD();s.classList.add('miss');setTimeout(()=>s.classList.remove('miss'),600)}
+  });
+  $('#hs',el).onclick=()=>{el.querySelectorAll('span.c[data-t]').forEach(g=>g.classList.add('found'));$('#hc',el).textContent=`答案：共 ${total} 個`};
+  $('#hr',el).onclick=()=>renderHunt(el,h);
+}
+
+/* ================= 綜合：克漏字＋閱讀＋翻譯 ================= */
+function renderMix(app){
+  const s=curSub.mix||'cloze';
+  const subs=[['cloze','🧩 課文改寫克漏字'],['read','📖 閱讀測驗'],['trans','🃏 翻譯翻翻卡']];
+  app.innerHTML=`<h2>🧩 克漏字＋閱讀＋翻譯</h2>
+  <p class="muted">四校都考克漏字（Bigfoot 自述、明信片對話最常見），閱讀愛考家族樹、動物、交換生；四校都考翻譯，句首大寫、句尾標點都要寫對。以下文章皆為原創改寫。</p>
+  <div class="subtabs">${subs.map(([k,t])=>`<button class="sub ${k===s?'on':''}" data-s="${k}">${t}</button>`).join('')}</div><div id="panel"></div>`;
+  app.querySelectorAll('.sub').forEach(b=>b.onclick=()=>{curSub.mix=b.dataset.s;render()});
+  const p=$('#panel');
+  if(s==='trans'){
+    p.innerHTML=`<div class="card"><h3>🃏 翻譯翻翻卡</h3><p class="muted">先在心裡（或紙上）翻成英文，再點卡片翻面對答案，按 🔊 聽整句。</p>
+    <div class="flips tr">${TRANS.map((c,k)=>`<div class="flip" data-k="${k}"><div class="in"><div class="f"><b>${esc(c[0])}</b></div><div class="bk2"><span class="en">${esc(c[1])}</span><small>${esc(c[2])}</small></div></div></div>`).join('')}</div></div>`;
+    p.querySelectorAll('.flip').forEach(f=>f.onclick=()=>{f.classList.toggle('on');if(f.classList.contains('on'))say(TRANS[+f.dataset.k][1])});
+    return;
+  }
+  const set=s==='cloze'?CLOZE:READ;
+  p.innerHTML=set.map((c,k)=>`<div class="card"><h3>${c.title}</h3><div class="passage en">${esc(c.text).replace(/\n/g,'<br>').replace(/__(\d)__/g,'<b class="blank">__$1__</b>')}</div><div id="cq${k}"></div></div>`).join('');
+  set.forEach((c,k)=>{const nm=c.title.split('｜')[1]||c.title;renderMCQ($('#cq'+k),c.qs.map(q=>({...q,src:'',q:/^__\d__$/.test(q.q)?`${nm} 第 ${q.q.replace(/_/g,'')} 格`:q.q})),7,`綜合 ${c.title.replace(/｜/g,' ')}`)});
+}
+
+/* ================= Starter 動畫 ================= */
+function animST(p){
+  p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
+  <div class="card"><h3>🗺️ 課文一張圖（原創改寫）</h3>
+  <p><span class="pill">開場</span>新學期第一天，Ella 和 Ben 認識彼此 → 交換<b>電話號碼</b></p>
+  <p><span class="pill">節目</span>班上辦「遊戲節目」：<b>Welcome to</b> the game show! Are you <b>ready for</b> the game?</p>
+  <p><span class="pill">基本功</span>數字 1～100（-teen / -ty）、大小寫與標點、Good night / See you tomorrow</p></div>`;
+  const steps=[
+    {label:'① 很高興認識你',imgs:[{img:'st_class',tag:'Hi! I\'m Ella. Nice to meet you.'}],poem:'Ella: Hi! I\'m Ella. What\'s your <b>name</b>?<br>Ben: My name is Ben. <b>Nice to meet you</b>.<br>Ella: Nice to meet you, <b>too</b>.',key:'對方說 Nice to meet you → 回 Nice to meet you, <b>too</b>。句首、人名第一個字母<b>大寫</b>（四校都考大小寫）。'},
+    {label:'② 電話號碼',imgs:[{img:'st_phone',tag:'What\'s your phone number?'}],poem:'Ben: What\'s your <b>phone number</b>, Ella?<br>Ella: It\'s 2243-8607.<br>Ben: Two-two-four-three, eight-six-zero-seven. OK!',key:'<b>What\'s your phone number?</b> → It\'s + 號碼（新北中正、左營考）。號碼要一個數字一個數字唸。'},
+    {label:'③ 遊戲節目開場',imgs:[{img:'st_class',tag:'Welcome to the game show!'}],poem:'Teacher: Hello, class! <b>Welcome to</b> the game <b>show</b>! Are you <b>ready for</b> the game?<br>Class: Yes, we <b>are</b>!',key:'welcome <b>to</b>＋活動；be ready <b>for</b>＋事情（屏東中正考介系詞）。Yes 簡答<b>不能縮寫</b>：Yes, we are.'},
+    {label:'④ 數字大考驗',imgs:[{img:'st_class',tag:'Five and six is eleven!'}],poem:'Teacher: What is five and six?<br>Ben: Five and six <b>is</b> eleven!<br>Teacher: Good! What is twenty and twenty?<br>Ella: It\'s <b>forty</b>!',key:'算式用 <b>is</b>。forty（40）<b>沒有 u</b>；thirteen（13）／thirty（30）要聽清楚重音。'},
+    {label:'⑤ 明天見',imgs:[{img:'st_class',tag:'See you tomorrow!'}],poem:'Ella: Goodbye, Ben. <b>See you tomorrow</b>!<br>Ben: See you!<br>（晚上）Mom: <b>Good night</b>, Ella.<br>Ella: Good night, Mom.',key:'道別說 See you tomorrow.；Good night 是晚上道別或睡前說的，<b>不是</b>「晚上好」（那是 Good evening）。'},
+  ];
+  stepper(p,steps,i=>showPhoto(steps[i]),8000);
+}
+
+/* ================= L1 動畫 ================= */
+function animL1(p){
+  p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
+  <div class="card"><h3>🗺️ 課文一張圖（原創改寫）</h3>
+  <p><span class="pill">節目</span>遊戲節目「Who Am I?」：神秘來賓描述自己，參賽者 Ella 和 Ben 用 Yes/No 問句猜</p>
+  <p><span class="pill">來賓 1</span>Bigfoot：又高又壯、<b>棕色又多毛</b>、不是熊、住在<b>森林</b>、<b>腳印</b>很大</p>
+  <p><span class="pill">來賓 2</span>Yeti：白色、多毛、住在喜馬拉雅的雪山，是 Bigfoot 的好朋友</p>
+  <p><span class="pill">文法</span>am / is / are ＋ Yes/No 簡答 ＋ this / that / these / those ＋ but</p></div>`;
+  const steps=[
+    {label:'① 我是誰？',imgs:[{img:'l1_bigfoot',tag:'Who am I?'}],poem:'Host: Welcome back to <b>Who Am I?</b> Here is our first mystery guest.<br>Guest: I <b>am</b> big and tall. I am brown and <b>hairy</b>, <b>but</b> I am not a bear.',key:'I → <b>am</b>；hairy＝多毛的（四校都考）；前後相反用 <b>but</b>（屏東中正、左營考）。'},
+    {label:'② 不是熊喔',split:[{img:'l1_bear',tag:'a bear 熊'},{img:'l1_bigfoot',tag:'Bigfoot 大腳怪'}],poem:'Ella: <b>Are</b> you a bear?<br>Guest: No, I\'m <b>not</b>. I am not a bear, and I am not a monkey.',key:'Are you…? → Yes, I am. ／ No, I\'m not.（Yes 不縮寫，No 可縮寫）'},
+    {label:'③ 森林與腳印',imgs:[{img:'l1_forest',tag:'The forest is my home.'},{img:'l1_foot',tag:'Look! Those are my footprints.'}],poem:'Guest: The <b>forest</b> is my home. Look! <b>Those are</b> my <b>footprints</b>. <b>They</b> are very big.',key:'Those 複數 → <b>are</b>，代替 footprints 用 <b>They</b>（新北中正、屏東中正考）。footprint 拼字常考。'},
+    {label:'④ 你得十分！',imgs:[{img:'l1_trophy',tag:'You are the winner!'}],poem:'Ben: You are <b>Bigfoot</b>!<br>Host: That\'s right! <b>Ten points</b> for you, Ben! You are <b>the winner</b>!',key:'points 是複數；<b>winner</b>＝優勝者（新北中正、左營考）。'},
+    {label:'⑤ 第二位來賓',imgs:[{img:'l1_yeti',tag:'1951 年在喜馬拉雅山拍到的「雪怪腳印」'},{img:'l1_himalaya',tag:'The snowy mountains are my home.'}],poem:'Guest 2: I am <b>white</b> and hairy, too. The snowy mountains <b>are</b> my home. Bigfoot <b>is</b> my good friend. Who am I?<br>Ella: You are <b>Yeti</b>!',key:'The snowy mountains（複數）→ <b>are</b>；Bigfoot（單數）→ <b>is</b>。'},
+    {label:'⑥ 那是你的嗎？',imgs:[{img:'l1_mouse',tag:'Is that your mouse? No, it isn\'t.'}],poem:'Host: Ben, is <b>that</b> your mouse?<br>Ben: No, <b>it isn\'t</b>. It\'s Ella\'s. And <b>those mice</b> are the host\'s!',key:'簡答把 that 換成 <b>it</b>；mouse → <b>mice</b>（四校都考的不規則複數）。'},
+  ];
+  stepper(p,steps,i=>showPhoto(steps[i]),8000);
+}
+
+/* ================= L2 動畫 ================= */
+function animL2(p){
+  p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
+  <div class="grid2">
+    <div class="card"><h3>💬 對話：Ella 的照片</h3><p><span class="pill">起</span>Ella 給 Ben 看她<b>最喜愛的主題樂園</b>照片</p><p><span class="pill">承</span>照片上的男人是 Walt Disney，迪士尼世界的<b>創辦人</b></p><p><span class="pill">轉</span>介紹家人：媽媽是<b>女演員</b>、爸爸是<b>店員</b></p><p><span class="pill">合</span>英文小考難嗎？<b>a piece of cake</b>！</p></div>
+    <div class="card"><h3>📖 短文：Walt Disney</h3><p><span class="pill">一</span>Walt Disney 是許多<b>卡通明星之父</b></p><p><span class="pill">二</span>Walt Disney World 是適合大家的好地方</p><p><span class="pill">三</span>職業單字：farmer、clerk、actress、housewife</p></div>
+  </div>`;
+  const steps=[
+    {label:'① 我最愛的樂園',imgs:[{img:'l2_castle',tag:'This is my favorite theme park.'},{img:'l2_park',tag:'theme park 主題樂園'}],poem:'Ella: Look at my photo. This is my <b>favorite theme park</b>, Walt Disney World.<br>Ben: Wow! It\'s beautiful.',key:'<b>favorite</b>（最喜愛的）四校都考，拼字注意 fav-o-rite；theme park＝主題樂園。'},
+    {label:'② 他是誰？',imgs:[{img:'l2_walt',tag:'He\'s Walt Disney.'}],poem:'Ben: <b>Who\'s</b> that man? Is he your uncle?<br>Ella: No, he isn\'t. He\'s Walt Disney. He is the <b>founder</b> of Walt Disney World.',key:'<b>Who</b> 問人（四校都考）；簡答 No, <b>he</b> isn\'t.；founder＝創辦人（左營、新北中正）。'},
+    {label:'③ 卡通明星之父',imgs:[{img:'l2_plan',tag:'Walt Disney and his park plan'}],poem:'Walt Disney is <b>the father of</b> many <b>cartoon stars</b>. <b>His</b> park is a wonderful place <b>for</b> all.',key:'many ＋ 複數 <b>stars</b>；接名詞用所有格 <b>His</b>；a wonderful place <b>for</b> all（屏東中正）。'},
+    {label:'④ 家人的職業',imgs:[{img:'l2_clerk',tag:'My dad is a clerk.'},{img:'l2_farmer',tag:'My grandpa is a farmer.'}],poem:'Ben: Who\'s that woman?<br>Ella: She\'s my mom. She\'s <b>an actress</b>. My dad is <b>a clerk</b>, and my grandpa is <b>a farmer</b>. My grandma works at home. She is <b>a housewife</b>.',key:'<b>an</b> actress（母音）／<b>a</b> housewife（h 子音）；這四個職業單字 3～4 校都考！'},
+    {label:'⑤ 河馬的大嘴',imgs:[{img:'l2_hippo',tag:'Its mouth is so big!'}],poem:'Ben: Look at that <b>hippo</b>! <b>Its</b> mouth is so big!<br>Ella: <b>It\'s</b> my little brother\'s favorite animal.',key:'<b>Its</b>＝它的（後接名詞）；<b>It\'s</b>＝It is。hippo 3 校考。'},
+    {label:'⑥ 小事一樁',imgs:[{img:'l2_cake',tag:'It\'s a piece of cake!'}],poem:'Ben: Oh no! I\'m <b>late for</b> the English quiz. Is it hard?<br>Ella: No. It\'s <b>a piece of cake</b>! See you tomorrow!',key:'<b>a piece of cake</b>＝很簡單（3 校考，不是真的蛋糕）；be late <b>for</b>＝…遲到（丹鳳）。'},
+  ];
+  stepper(p,steps,i=>showPhoto(steps[i]),8000);
+}
+
+/* ================= R1 動畫 ================= */
+function animR1(p){
+  p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
+  <div class="grid2">
+    <div class="card"><h3>💌 對話：Kai ＆ Lily</h3><p><span class="pill">起</span>Kai 在 Postcrossing 交到<b>全世界</b>的朋友</p><p><span class="pill">承</span>Lily（美國）寄來 Walt Disney World 明信片</p><p><span class="pill">轉</span>What is that? ／ What are those?</p><p><span class="pill">合</span>寫英文明信片？a piece of cake！</p></div>
+    <div class="card"><h3>📖 短文：Nina in Canada</h3><p><span class="pill">一</span>Nina 是來自臺灣的<b>國際學生</b></p><p><span class="pill">二</span>她住在加拿大的寄宿家庭（host family）</p><p><span class="pill">三</span>家人的職業、年齡、寵物——家族題組常考</p></div>
+  </div>`;
+  const steps=[
+    {label:'① 全世界的明信片',imgs:[{img:'r1_postcard',tag:'Postcards from all over the world'},{img:'r1_map',tag:'all over the world'}],poem:'Kai: Look at my <b>postcards</b>! They are from <b>all over the world</b>. My friends on Postcrossing send them to me.',key:'all <b>over</b> the world＝全世界（左營、新北中正）；postcard 拼字 3 校考。'},
+    {label:'② 那是什麼？',imgs:[{img:'l2_castle',tag:'What is that on the postcard?'}],poem:'Lily: <b>What is that</b> on this postcard?<br>Kai: <b>It\'s</b> Walt Disney World. It\'s very <b>famous</b> and beautiful.',key:'What is that? → <b>It\'s</b>…（丹鳳課文克漏字）；famous＝有名的（四校都考）。'},
+    {label:'③ 那些是什麼？',imgs:[{img:'r1_postcard',tag:'What are those?'}],poem:'Lily: And <b>what are those</b>?<br>Kai: <b>They are</b> elephants from Thailand. Those little <b>mice</b> are from Japan.',key:'What are those? → <b>They are</b> + 複數（新北中正）；an elephant → elephants。'},
+    {label:'④ 國際學生 Nina',imgs:[{img:'r1_host',tag:'Nina and her host family'}],poem:'Nina Chen is <b>an international student</b> from Taiwan. Now she lives with <b>a host family</b> in Canada. Mr. Green is a farmer, and Mrs. Green is a clerk.',key:'<b>an</b> international（母音）；Where is Nina <b>from</b>? — She is from Taiwan.（新北中正閱讀考 Where…from）'},
+    {label:'⑤ 我的第二個家',imgs:[{img:'r1_dinner',tag:'My host family is wonderful.'}],poem:'"My host family is <b>wonderful</b>," Nina says. "<b>Their</b> house is big, and <b>their</b> dog is cute. <b>Its</b> name is Lucky."',key:'wonderful 3 校考；所有格 <b>Their</b> / <b>Its</b> 後面一定接名詞。'},
+  ];
+  stepper(p,steps,i=>showPhoto(steps[i]),8000);
+}
+
+/* ================= 文法：句型變身秀 ================= */
+function animG(p){
+  const S=[
+    {raw:'Bigfoot is hairy.',tag:'be 動詞 is',v:[
+      {n:'肯定句',t:'Bigfoot <b>is</b> hairy.',m:'單數主詞 → <b>is</b>'},
+      {n:'否定句',t:'Bigfoot <b>isn\'t</b> hairy.',m:'be 動詞後面直接加 <b>not</b>：is not＝isn\'t'},
+      {n:'疑問句',t:'<b>Is</b> Bigfoot hairy?',m:'把 be 動詞<b>搬到句首</b>'},
+      {n:'簡答',t:'Yes, <b>he is</b>. ／ No, <b>he isn\'t</b>.',m:'名字換成代名詞；<b>Yes 簡答不能縮寫</b>'}]},
+    {raw:'Those are my footprints.',tag:'be 動詞 are',v:[
+      {n:'肯定句',t:'Those <b>are</b> my footprints.',m:'複數 → <b>are</b>'},
+      {n:'否定句',t:'Those <b>aren\'t</b> my footprints.',m:'are not＝<b>aren\'t</b>'},
+      {n:'疑問句',t:'<b>Are</b> those your footprints?',m:'my → <b>your</b>（問對方）'},
+      {n:'簡答',t:'Yes, <b>they are</b>. ／ No, <b>they aren\'t</b>.',m:'those / these 在簡答中改成 <b>they</b>'}]},
+    {raw:'That is a mouse.',tag:'單數 → 複數',v:[
+      {n:'單數',t:'That is <b>a</b> mouse.',m:'that ＋ is ＋ a ＋ 單數'},
+      {n:'複數',t:'Those are <b>mice</b>.',m:'that → those、is → are、a 拿掉、mouse → <b>mice</b>'},
+      {n:'再一題',t:'This is <b>an</b> egg. → These are <b>eggs</b>.',m:'egg 母音開頭用 <b>an</b>；複數加 s'},
+      {n:'不變的',t:'That is a sheep. → Those are <b>sheep</b>.',m:'sheep <b>單複數同形</b>'}]},
+    {raw:'Ben and Ella have a mom.',tag:'所有格 \'s',v:[
+      {n:'一個人',t:'This is <b>Ben\'s</b> mom.',m:'名字 ＋ <b>\'s</b>'},
+      {n:'兩人共有',t:'This is <b>Ben and Ella\'s</b> mom.',m:'同一個媽媽 → 只在<b>最後一人</b>加 \'s'},
+      {n:'複數 s 結尾',t:'She is the <b>boys\'</b> teacher.',m:'boys 已有 s → 只加 <b>\'</b>'},
+      {n:'It\'s / Its',t:'<b>It\'s</b> a hippo. <b>Its</b> mouth is big.',m:'It\'s＝It is；<b>Its</b>＝它的'}]},
+  ];
+  p.innerHTML=`<div class="card"><h3>🎬 句型變身秀：同一句話，變成否定、疑問、簡答！</h3>
+    <p class="muted">先選一句，再按下面的按鈕看它怎麼變身（會唸出來）。</p>
+    <div class="row" id="pk">${S.map((s,i)=>`<button class="sub" data-i="${i}">${s.tag}</button>`).join('')}</div>
+    <div class="ps en" id="ps" style="margin-top:14px"></div>
+    <div class="row" id="pv" style="margin-top:12px;justify-content:center"></div>
+    <div class="meaning" id="pm">👆 請按上面的按鈕</div></div>
+    <div class="card"><h3>🎯 必考速記（南一 4 校＋三版共同）</h3>
+    <p><span class="pill">am / is / are</span>I → am；he, she, it, 單數 → is；you, we, they, 複數 → are；<b>A and B</b> → are</p>
+    <p><span class="pill">簡答</span>名詞換代名詞：Is Yuki…? → Yes, <b>she</b> is.；Yes 不縮寫：<s>Yes, they're.</s> → Yes, they are.</p>
+    <p><span class="pill">a / an</span>看下一個字的<b>音</b>：<b>an</b> egg、<b>an</b> angry zebra、<b>an</b> eight-year-old boy、<b>a</b> housewife、<b>a</b> uniform</p>
+    <p><span class="pill">不規則複數</span>mouse → <b>mice</b>、goose → <b>geese</b>、sheep → <b>sheep</b>、woman → <b>women</b>、wife → <b>wives</b>、child → <b>children</b></p>
+    <p><span class="pill">所有格</span>Ben and Ella<b>'s</b> mom（共有）、the boys<b>'</b> teacher、<b>Its</b> mouth（它的）≠ <b>It's</b>（它是）</p>
+    <p><span class="pill">代名詞</span>He / <b>His</b> name / love <b>him</b>；for 後面接受格：for <b>him</b></p></div>`;
+  function show(i){
+    const s=S[i];p.querySelectorAll('#pk .sub').forEach(b=>b.classList.toggle('on',+b.dataset.i===i));
+    $('#ps').innerHTML=esc(s.raw);$('#pm').innerHTML='👆 請按變身按鈕';
+    $('#pv').innerHTML=s.v.map((v,k)=>`<button class="btn ${k%2?'alt':''}" data-k="${k}">${v.n}</button>`).join('');
+    $('#pv').querySelectorAll('button').forEach(b=>b.onclick=()=>{
+      const v=s.v[+b.dataset.k];
+      const ps=$('#ps');ps.innerHTML=v.t;ps.classList.remove('pop');void ps.offsetWidth;ps.classList.add('pop');
+      $('#pm').innerHTML='💡 '+v.m;say(ps.textContent);
+    });
+  }
+  p.querySelectorAll('#pk .sub').forEach(b=>b.onclick=()=>show(+b.dataset.i));
+  show(0);
+}
+
+meChip();drawTabs();render();
+if(!CLOUD.me)enroll(()=>{},true);
+
+/* ================= ✏️ 老師手寫 =================
+   畫在網頁上的筆跡記在「整頁座標」，會跟著畫面捲動；白板的筆跡另外存、不捲動。
+   書寫時：一指／觸控筆寫字、兩指捲動＋縮放（不鎖畫面）。✋ 捲動模式：筆跡照樣顯示，可以點題目。
+   縮放：把頁面內容包進 #penZoom 再用 transform:scale；筆跡存「內容座標」，縮放後仍黏在原來的字上。
+   用固定大小的畫布＋捲動時重畫（平板瀏覽器對超大畫布有尺寸限制）。 */
+(function(){
+  const css=`
+  #penBtn{position:fixed;left:14px;bottom:14px;z-index:60;border:none;background:#fff;color:#2b4c7e;border-radius:99px;padding:8px 16px;box-shadow:0 4px 18px rgba(30,45,70,.18);font-weight:700;font-size:1rem;font-family:inherit;cursor:pointer}
+  #penCv{position:fixed;inset:0;width:100vw;height:100vh;z-index:57;pointer-events:none;display:none}
+  #penHit{position:fixed;inset:0;z-index:58;display:none;touch-action:none;cursor:crosshair}
+  #penBoard{position:fixed;inset:0;z-index:56;background:#fff;display:none}
+  body.pen-on #penCv{display:block}
+  body.pen-on.pen-draw #penHit{display:block}
+  body.pen-board #penBoard{display:block}
+  #penBar{position:fixed;left:0;right:0;margin:0 auto;width:fit-content;bottom:12px;z-index:61;display:none;gap:6px;align-items:center;flex-wrap:wrap;justify-content:center;
+    background:rgba(255,255,255,.97);border-radius:16px;padding:8px 10px;box-shadow:0 6px 24px rgba(30,45,70,.22);max-width:calc(100vw - 24px)}
+  body.pen-top #penBar{bottom:auto;top:12px}
+  body.pen-on #penBar{display:flex}
+  #penBar button{border:2px solid #e3e0d8;background:#fff;border-radius:10px;min-width:44px;height:44px;font-size:1rem;font-family:inherit;font-weight:700;cursor:pointer;color:#23303f;padding:0 10px}
+  #penBar button.on{border-color:#2b4c7e;background:#e8effa}
+  #penBar button.mode{background:#2b4c7e;color:#fff;border-color:#2b4c7e}
+  #penBar .dot{width:44px;padding:0}
+  #penBar .dot i{display:block;width:22px;height:22px;border-radius:50%;margin:auto}
+  #penBar .sep{width:1px;height:30px;background:#e3e0d8;margin:0 2px}
+  body.pen-on #penBtn{display:none}
+  #penZoom{transform-origin:0 0}
+  html.pen-lock,html.pen-lock body{touch-action:manipulation;touch-action:pan-x pan-y}
+  #penBar,#penBar *,#penBtn{touch-action:manipulation;-webkit-user-select:none;user-select:none}
+  @media(max-width:640px){#penBar .t,#penBar .sep{display:none}#penBar{gap:4px;padding:6px}#penBar button{min-width:40px;height:40px;padding:0 6px}#penBar .dot{width:40px}}`;
+  const st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
+  const COLORS=['#d9342b','#1f5fbf','#1d1d1d','#1f9a55'];
+  const SIZES=[[3,'細'],[6,'中'],[12,'粗']];
+  let color=COLORS[0],size=6,erase=false,page=[],board=[],cur=null,boardOn=false;
+  document.body.insertAdjacentHTML('beforeend',`<button id="penBtn" title="老師手寫">✏️ 手寫</button>
+    <div id="penBoard"></div><canvas id="penCv"></canvas><div id="penHit"></div>
+    <div id="penBar">
+      <button class="mode" data-a="mode">✋<span class="t"> 捲動</span></button>
+      <span class="sep"></span>
+      ${COLORS.map((c,i)=>`<button class="dot${i?'':' on'}" data-c="${c}" title="顏色"><i style="background:${c}"></i></button>`).join('')}
+      <span class="sep"></span>
+      ${SIZES.map(([s,n])=>`<button data-s="${s}" class="${s===6?'on':''}">${n}</button>`).join('')}
+      <span class="sep"></span>
+      <button data-a="erase" title="橡皮擦">🧽<span class="t"> 橡皮擦</span></button><button data-a="undo" title="復原">↩️<span class="t"> 復原</span></button><button data-a="clear" title="清除">🗑️<span class="t"> 清除</span></button>
+      <button data-a="zout" title="縮小">－</button><button data-a="zoom" title="回到 1 倍">🔍<span class="z">1.0×</span></button><button data-a="zin" title="放大">＋</button><button data-a="board" title="白板">⬜<span class="t"> 白板</span></button><button data-a="move" title="移位">⇅<span class="t"> 移位</span></button><button data-a="close" title="關閉">✖<span class="t"> 關閉</span></button>
+    </div>`);
+  const Z=document.createElement('div');Z.id='penZoom';
+  const flow=[...document.body.children].filter(e=>/^(HEADER|NAV|MAIN|FOOTER)$/.test(e.tagName));
+  if(flow.length){flow[0].before(Z);flow.forEach(e=>Z.appendChild(e))}
+  let zoom=1;
+  const B=document.body,cv=document.getElementById('penCv'),hit=document.getElementById('penHit'),bar=document.getElementById('penBar'),ctx=cv.getContext('2d');
+  const list=()=>boardOn?board:page;
+  /* 螢幕座標＝內容座標×z＋(x,y)。白板不捲動不縮放；網頁筆跡跟著捲動與縮放 */
+  const off=()=>{if(boardOn)return{z:1,x:0,y:0};const r=Z.getBoundingClientRect();return{z:zoom,x:r.left,y:r.top}};
+  function fit(){const r=devicePixelRatio||1;cv.width=innerWidth*r;cv.height=innerHeight*r;ctx.setTransform(r,0,0,r,0,0);redraw()}
+  function seg(s,a,b,o){
+    ctx.globalCompositeOperation=s.erase?'destination-out':'source-over';
+    ctx.strokeStyle=s.color;ctx.lineCap='round';ctx.lineJoin='round';
+    ctx.lineWidth=(s.erase?s.size*4:s.size*(0.55+(b.p||0.5)*0.9))*o.z;
+    ctx.beginPath();ctx.moveTo(a.x*o.z+o.x,a.y*o.z+o.y);ctx.lineTo(b.x*o.z+o.x,b.y*o.z+o.y);ctx.stroke();
+  }
+  function draw(s,o){const P=s.pts;if(P.length===1)seg(s,P[0],{...P[0],x:P[0].x+.01},o);for(let i=1;i<P.length;i++)seg(s,P[i-1],P[i],o)}
+  function redraw(){ctx.clearRect(0,0,innerWidth,innerHeight);const o=off();
+    list().forEach(s=>{const ys=s.pts.map(p=>p.y*o.z+o.y);if(Math.max(...ys)<-50||Math.min(...ys)>innerHeight+50)return;draw(s,o)});
+    ctx.globalCompositeOperation='source-over'}
+  let raf=0;addEventListener('scroll',()=>{if(!B.classList.contains('pen-on')||boardOn||raf)return;raf=requestAnimationFrame(()=>{raf=0;redraw()})},{passive:true});
+  addEventListener('resize',()=>{if(B.classList.contains('pen-on')){fit();pad()}});
+  const pt=e=>{const o=off();return{x:(e.clientX-o.x)/o.z,y:(e.clientY-o.y)/o.z,p:e.pressure&&e.pointerType==='pen'?e.pressure:0.5}};
+  /* 以螢幕上的 at 點為中心縮放，讓內容點 c 落在 at（c 省略＝at 底下的內容點） */
+  const zBtn=()=>bar.querySelector('[data-a="zoom"] .z');
+  function setZoom(nz,at,c){
+    nz=Math.min(3,Math.max(1,nz));const o=off();c=c||{x:(at.x-o.x)/o.z,y:(at.y-o.y)/o.z};
+    zoom=nz;Z.style.transform=nz===1?'':`scale(${nz})`;
+    const r=Z.getBoundingClientRect(),ox=r.left+scrollX,oy=r.top+scrollY;
+    window.scrollTo(ox+c.x*nz-at.x,oy+c.y*nz-at.y);
+    zBtn().textContent=nz.toFixed(1)+'×';bar.querySelector('[data-a="zoom"]').classList.toggle('on',nz>1.01);redraw();
+  }
+  /* 一指／觸控筆＝寫字；兩指＝捲動＋縮放（書寫中不鎖畫面） */
+  const ptrs=new Map();let pan=null,hold=false;
+  const mid=()=>{const v=[...ptrs.values()];return{x:(v[0].x+v[1].x)/2,y:(v[0].y+v[1].y)/2}};
+  const dist=()=>{const v=[...ptrs.values()];return Math.hypot(v[0].x-v[1].x,v[0].y-v[1].y)||1};
+  function startPan(){const m=mid(),o=off();pan={d0:dist(),z0:zoom,c:{x:(m.x-o.x)/o.z,y:(m.y-o.y)/o.z},m}}
+  hit.addEventListener('pointerdown',e=>{e.preventDefault();hit.setPointerCapture(e.pointerId);ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    if(ptrs.size>=2){if(cur){const L=list(),i=L.indexOf(cur);if(i>=0)L.splice(i,1);cur=null;redraw()}startPan();hold=true;return}
+    if(hold)return;
+    cur={color,size,erase,pts:[pt(e)]};list().push(cur);draw(cur,off());ctx.globalCompositeOperation='source-over'});
+  hit.addEventListener('pointermove',e=>{
+    if(ptrs.has(e.pointerId))ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    if(pan&&ptrs.size>=2){e.preventDefault();const m=mid();
+      if(boardOn)return;
+      setZoom(pan.z0*dist()/pan.d0,m,pan.c);return}
+    if(!cur)return;e.preventDefault();const o=off();
+    (e.getCoalescedEvents?e.getCoalescedEvents():[e]).forEach(ev=>{const p=pt(ev),q=cur.pts[cur.pts.length-1];cur.pts.push(p);seg(cur,q,p,o)});ctx.globalCompositeOperation='source-over'});
+  const up=e=>{ptrs.delete(e.pointerId);if(ptrs.size<2)pan=null;else startPan();if(ptrs.size===0)hold=false;cur=null};
+  hit.addEventListener('pointerup',up);hit.addEventListener('pointercancel',up);
+  /* 滑鼠滾輪／觸控板在書寫層上也能捲動 */
+  /* 觸控板捏合／Ctrl＋滾輪＝縮放 */
+  hit.addEventListener('wheel',e=>{e.preventDefault();
+    if(e.ctrlKey&&!boardOn)setZoom(zoom*Math.exp(-e.deltaY*0.01),{x:e.clientX,y:e.clientY});else window.scrollBy(e.deltaX,e.deltaY)},{passive:false});
+  const modeBtn=bar.querySelector('[data-a="mode"]');
+  function setDraw(on){B.classList.toggle('pen-draw',on);modeBtn.innerHTML=on?'✋<span class="t"> 捲動</span>':'✏️<span class="t"> 書寫</span>';modeBtn.title=on?'切換成捲動畫面（筆跡保留）':'切換回寫字'}
+  /* 依工具列實際高度在頁面上／下留白，最後一題不會被擋住 */
+  function pad(){const on=B.classList.contains('pen-on'),top=B.classList.contains('pen-top'),h=on?bar.offsetHeight+24+'px':'';
+    B.style.paddingBottom=on&&!top?h:'';B.style.paddingTop=on&&top?h:''}
+  const VP=document.querySelector('meta[name=viewport]'),VP0=VP?VP.content:'';
+  function lockVP(on){if(VP)VP.content=on?'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no':VP0}
+  function resetNative(){if(!VP||!window.visualViewport||visualViewport.scale<=1.01)return;lockVP(true);setTimeout(()=>{VP.content='width=device-width, initial-scale=1, maximum-scale=1';setTimeout(()=>lockVP(B.classList.contains('pen-on')),300)},50)}
+  let kb=0;
+  function open(){lockVP(true);clearInterval(kb);kb=setInterval(keepBar,250);document.documentElement.classList.add('pen-lock');B.classList.add('pen-on');setDraw(true);fit();pad()}
+  function close(){clearInterval(kb);lockVP(false);if(zoom!==1)setZoom(1,{x:innerWidth/2,y:innerHeight/2});document.documentElement.classList.remove('pen-lock');bar.style.transform='';B.classList.remove('pen-on','pen-draw','pen-board');B.style.paddingBottom=B.style.paddingTop='';boardOn=false;bar.querySelector('[data-a="board"]').classList.remove('on')}
+  document.getElementById('penBtn').onclick=open;
+  modeBtn.onclick=()=>setDraw(!B.classList.contains('pen-draw'));
+  bar.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{color=b.dataset.c;erase=false;setDraw(true);
+    bar.querySelectorAll('[data-c]').forEach(x=>x.classList.toggle('on',x===b));bar.querySelector('[data-a="erase"]').classList.remove('on')});
+  bar.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{size=+b.dataset.s;setDraw(true);bar.querySelectorAll('[data-s]').forEach(x=>x.classList.toggle('on',x===b))});
+  bar.querySelector('[data-a="erase"]').onclick=function(){erase=!erase;setDraw(true);this.classList.toggle('on',erase)};
+  bar.querySelector('[data-a="undo"]').onclick=()=>{list().pop();redraw()};
+  bar.querySelector('[data-a="clear"]').onclick=()=>{list().length=0;redraw()};
+  bar.querySelector('[data-a="board"]').onclick=function(){boardOn=!boardOn;B.classList.toggle('pen-board',boardOn);this.classList.toggle('on',boardOn);if(boardOn)setDraw(true);redraw()};
+  /* ✋ 捲動模式：兩指捏合一樣交給自己的縮放（瀏覽器原生縮放已關閉，工具列不會被推出畫面） */
+  let tp=null;
+  const tDist=t=>Math.hypot(t[0].clientX-t[1].clientX,t[0].clientY-t[1].clientY)||1;
+  const tMid=t=>({x:(t[0].clientX+t[1].clientX)/2,y:(t[0].clientY+t[1].clientY)/2});
+  document.addEventListener('touchstart',e=>{if(!B.classList.contains('pen-on')||B.classList.contains('pen-draw')||boardOn||e.touches.length!==2)return;
+    const m=tMid(e.touches),o=off();tp={d0:tDist(e.touches),z0:zoom,c:{x:(m.x-o.x)/o.z,y:(m.y-o.y)/o.z}}},{passive:true});
+  document.addEventListener('touchmove',e=>{if(!tp||e.touches.length!==2)return;e.preventDefault();setZoom(tp.z0*tDist(e.touches)/tp.d0,tMid(e.touches),tp.c)},{passive:false});
+  document.addEventListener('touchend',e=>{if(e.touches.length<2)tp=null},{passive:true});
+  /* 保險：萬一瀏覽器還是放大了整頁，把工具列擺回看得到的地方並維持原本大小 */
+  function keepBar(){const v=window.visualViewport;if(!v)return;
+    if(v.scale<=1.01||!B.classList.contains('pen-on')){bar.style.transform='';bar.style.transformOrigin='';return}
+    const top=B.classList.contains('pen-top');
+    bar.style.transformOrigin=top?'center top':'center bottom';
+    const dx=v.offsetLeft+v.width/2-innerWidth/2,dy=top?v.offsetTop:v.offsetTop+v.height-innerHeight;
+    bar.style.transform=`translate(${dx}px,${dy}px) scale(${1/v.scale})`}
+  if(window.visualViewport){visualViewport.addEventListener('resize',keepBar);visualViewport.addEventListener('scroll',keepBar)}
+  const ctr=()=>({x:innerWidth/2,y:innerHeight/2});
+  bar.querySelector('[data-a="zoom"]').onclick=()=>{setZoom(1,ctr());resetNative();keepBar()};
+  bar.querySelector('[data-a="zin"]').onclick=()=>{if(!boardOn)setZoom(zoom*1.25,ctr())};
+  bar.querySelector('[data-a="zout"]').onclick=()=>{if(!boardOn)setZoom(zoom/1.25,ctr())};
+  bar.querySelector('[data-a="move"]').onclick=()=>{B.classList.toggle('pen-top');pad()};
+  bar.querySelector('[data-a="close"]').onclick=close;
+})();
+</script>
+</body>
+</html>

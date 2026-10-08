@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>國二英文段考闖關（翰林）</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --main:#1f4e8c; --main-2:#3a74c4; --accent:#f2a541; --accent-2:#e07a2f;
+  --bg:#f6f4ef; --card:#ffffff; --ink:#23303f; --muted:#6b7686; --line:#e3e0d8;
+  --ok:#2e9e6b; --ok-bg:#e3f5ec; --bad:#d9534f; --bad-bg:#fbe7e6; --hi:#fff4d6;
+  --shadow:0 4px 18px rgba(30,45,70,.08);
+}
+*{box-sizing:border-box}
+html{font-size:18px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC",system-ui,sans-serif;line-height:1.7}
+button{font-family:inherit;font-size:1rem;cursor:pointer}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header.hero{background:linear-gradient(135deg,#163a6b 0%,#3a74c4 60%,#f2a541 140%);color:#fff;padding:40px 0 32px}
+.hero h1{margin:0 0 6px;font-size:1.9rem;font-weight:900;letter-spacing:.04em}
+.hero p{margin:0;opacity:.92}
+.hero .tag{display:inline-block;background:rgba(255,255,255,.18);padding:2px 12px;border-radius:99px;font-size:1rem;margin-bottom:10px}
+nav.tabs{position:sticky;top:0;z-index:20;background:rgba(246,244,239,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:10px;padding-bottom:10px}
+.tab{border:none;background:#fff;color:var(--ink);padding:8px 16px;border-radius:99px;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.06);font-weight:500}
+.tab.on{background:var(--main);color:#fff}
+.subtabs{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 16px}
+.sub{border:2px solid var(--line);background:#fff;padding:7px 14px;border-radius:12px;font-weight:500;color:var(--ink)}
+.sub.on{border-color:var(--accent);background:var(--hi)}
+main{padding:10px 0 60px}
+.card{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:22px;margin:0 0 20px}
+h2{font-size:1.45rem;margin:26px 0 4px;color:var(--main)}
+h3{font-size:1.15rem;margin:0 0 10px;color:var(--main)}
+.muted{color:var(--muted);font-size:1rem}
+.pill{display:inline-block;font-size:1rem;padding:1px 10px;border-radius:99px;background:var(--hi);color:#8a5a00;margin-right:6px;font-weight:700}
+.btn{border:none;background:var(--main);color:#fff;padding:9px 20px;border-radius:12px;font-weight:700}
+.btn.alt{background:var(--accent);color:#3b2600}
+.btn.ghost{background:#eef1f6;color:var(--main)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:760px){.grid2{grid-template-columns:1fr}.hero h1{font-size:1.5rem}}
+
+/* ---------- 考點雷達 ---------- */
+.bars .b{display:grid;grid-template-columns:150px 1fr 44px;gap:10px;align-items:center;margin:7px 0}
+.bars .track{background:#eef1f6;border-radius:99px;height:14px;overflow:hidden}
+.bars .fill{height:100%;background:linear-gradient(90deg,var(--main-2),var(--accent));border-radius:99px;width:0;transition:width 1s ease}
+@media(max-width:560px){.bars .b{grid-template-columns:100px 1fr 36px;font-size:1rem}}
+.chips span{display:inline-block;background:#eef1f6;border-radius:10px;padding:3px 10px;margin:4px 4px 0 0;font-size:1rem}
+.chips span b{color:var(--accent-2)}
+.lessoncards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+@media(max-width:860px){.lessoncards{grid-template-columns:1fr 1fr}}
+.lc{border-radius:16px;padding:18px;color:#fff;cursor:pointer;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow);transition:transform .2s}
+.lc:hover{transform:translateY(-3px)}
+.lc .n{font-size:1rem;opacity:.9}.lc .t{font-size:1.3rem;font-weight:900}.lc .d{font-size:1rem;opacity:.92}
+
+/* ---------- 動畫 ---------- */
+.stage{border-radius:16px;overflow:hidden;background:#0d1b33;position:relative}
+.stage svg{display:block;width:100%;height:auto}
+.caption{margin-top:14px}
+.caption .poem{background:#f3f6fb;border-left:5px solid var(--main-2);padding:10px 14px;border-radius:8px;font-size:1.05rem}
+.caption .key{background:var(--hi);border-left:5px solid var(--accent);padding:10px 14px;border-radius:8px;margin-top:10px}
+.steps{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.steps button{border:2px solid var(--line);background:#fff;border-radius:10px;padding:5px 12px}
+.steps button.on{border-color:var(--main);background:var(--main);color:#fff}
+/* L1 scene */
+#l1svg .sky{transition:fill 1.6s}
+#l1svg .sun{transition:transform 2.2s ease-in-out}
+#l1svg .sunspin{animation:spin 3s linear infinite;transform-origin:0 0}
+@keyframes spin{to{transform:rotate(360deg)}}
+#l1svg .fade{transition:opacity 1.4s}
+#l1svg .walker{transition:transform 3s ease-in-out,opacity 1s}
+#l1svg .zz{animation:zz 2.4s ease-in-out infinite}
+@keyframes zz{0%{opacity:0;transform:translateY(0)}50%{opacity:1}100%{opacity:0;transform:translateY(-18px)}}
+#l1svg .vine{stroke-dasharray:420;stroke-dashoffset:420;transition:stroke-dashoffset 4s ease}
+#l1svg.s3 .vine{stroke-dashoffset:0}
+#l1svg .river{stroke-dasharray:14 12;animation:flow 1.2s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-26}}
+#l1svg .fly{animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:.2}50%{opacity:1}}
+#l1svg .twk{animation:blink 2.2s ease-in-out infinite}
+/* L2 */
+#l2svg .top{transition:transform 1.2s ease;transform-box:view-box;transform-origin:530px 262px}
+#l2svg .fade{transition:opacity 1.2s}
+#l2svg .layer{transition:opacity .6s, r .6s}
+#l2svg .shine{animation:blink 1.8s ease-in-out infinite}
+#l2svg .grain{transition:transform 1.4s cubic-bezier(.5,0,.6,1.4)}
+/* L3 */
+#l3svg .fade{transition:opacity 1s}
+#l3svg .crank{animation:spin 1s linear infinite;transform-box:fill-box;transform-origin:center}
+#l3svg .flake{animation:fall 1.4s linear infinite}
+@keyframes fall{0%{transform:translateY(0);opacity:1}100%{transform:translateY(95px);opacity:.2}}
+#l3svg .pile{transform-box:fill-box;transform-origin:bottom center;animation:grow 6s ease-out infinite}
+@keyframes grow{0%{transform:scaleY(.1)}70%,100%{transform:scaleY(1)}}
+#l3svg .bike{animation:ride 7s linear infinite}
+@keyframes ride{0%{transform:translateX(-160px)}100%{transform:translateX(860px)}}
+#l3svg .ring{animation:blink .6s ease-in-out infinite}
+/* punct */
+.ps{font-size:1.5rem;letter-spacing:.12em;text-align:center;padding:18px 8px;background:#f3f6fb;border-radius:14px;line-height:2.2}
+.ps .p{color:var(--accent-2);font-weight:900;display:inline-block;animation:drop .5s ease}
+@keyframes drop{0%{transform:translateY(-30px);opacity:0}100%{transform:none;opacity:1}}
+.meaning{margin-top:12px;padding:12px 14px;border-radius:12px;background:var(--hi);min-height:52px}
+
+/* ---------- 快問快答 ---------- */
+.qz-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.timer{height:8px;background:#eef1f6;border-radius:99px;overflow:hidden;margin:12px 0 4px}
+.timer i{display:block;height:100%;background:var(--accent);width:100%}
+.qword{font-size:2.3rem;font-weight:900;text-align:center;margin:14px 0 6px;letter-spacing:.08em}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.opt{border:2px solid var(--line);background:#fff;border-radius:14px;padding:14px;font-size:1.3rem;font-weight:700;transition:transform .1s}
+.opt:active{transform:scale(.97)}
+.opt.ok{border-color:var(--ok);background:var(--ok-bg)}
+.opt.bad{border-color:var(--bad);background:var(--bad-bg)}
+.combo{font-weight:900;color:var(--accent-2)}
+.star{color:var(--accent-2);font-size:1rem;font-weight:700}
+
+/* ---------- 配對 ---------- */
+.mcols{display:grid;grid-template-columns:1fr 1.6fr;gap:14px}
+.mi{display:block;width:100%;text-align:left;border:2px solid var(--line);background:#fff;border-radius:12px;padding:10px 12px;margin:0 0 10px;font-size:1rem;min-height:48px}
+.mi.sel{border-color:var(--main-2);background:#e8effa}
+.mi.done{border-color:var(--ok);background:var(--ok-bg);color:#1c6b47;cursor:default}
+.mi.shake{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.mi.w{font-weight:900;font-size:1.15rem}
+
+/* ---------- 分類 ---------- */
+.sortcard{font-size:1.25rem;font-weight:700;text-align:center;background:#f3f6fb;border-radius:14px;padding:22px 12px;margin:10px 0 14px;min-height:90px;display:flex;align-items:center;justify-content:center}
+.buckets{display:grid;gap:10px}
+.bk{border:2px dashed var(--main-2);background:#fff;border-radius:14px;padding:12px;font-weight:700;color:var(--main)}
+.bk.ok{background:var(--ok-bg);border-style:solid;border-color:var(--ok)}
+.bk.bad{background:var(--bad-bg);border-style:solid;border-color:var(--bad)}
+.fb{min-height:28px;margin-top:10px}
+
+/* ---------- 選擇題 ---------- */
+.mq{border-top:1px solid var(--line);padding:16px 0}
+.mq:first-of-type{border-top:none}
+.mq .stem{font-weight:500;margin-bottom:8px}
+.mq .src{font-size:1rem;color:#fff;background:var(--main-2);border-radius:6px;padding:0 6px;margin-left:6px;vertical-align:2px}
+.mq .o{display:block;width:100%;text-align:left;border:2px solid var(--line);background:#fff;border-radius:12px;padding:9px 12px;margin:6px 0;font-size:1rem}
+.mq .o.ok{border-color:var(--ok);background:var(--ok-bg)}
+.mq .o.bad{border-color:var(--bad);background:var(--bad-bg)}
+.mq .ex{display:none;background:#fffaf0;border:1px solid #f2dfb5;border-radius:12px;padding:10px 14px;margin-top:8px}
+.mq.done .ex{display:block}
+.score{position:sticky;top:62px;z-index:5;background:#fff;border-radius:12px;padding:8px 14px;box-shadow:var(--shadow);display:inline-block;margin-bottom:8px;font-weight:700}
+
+/* ---------- 抓擬人 ---------- */
+.hunt p{font-size:1.2rem;line-height:2.2;margin:6px 0}
+.hunt span.c{cursor:pointer;border-radius:4px;padding:1px 0}
+.hunt span.c.found{background:#ffe08a;color:#7a4b00;font-weight:900}
+.hunt span.c.miss{background:var(--bad-bg);transition:background .6s}
+
+/* ---------- 翻卡 ---------- */
+.flips{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.flip{perspective:800px;height:150px;cursor:pointer}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.flip .f,.flip .bk2{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:var(--shadow)}
+.flip .f{background:#fff}
+.flip .f .sym{font-size:2rem;font-weight:900;color:var(--accent-2)}
+.flip .bk2{background:var(--main);color:#fff;transform:rotateY(180deg);font-size:1rem;line-height:1.5}
+
+
+/* 照片舞台 */
+.pstage{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#111}
+.ph{position:absolute;inset:0;background-position:center;background-repeat:no-repeat;background-size:cover;opacity:0;transition:opacity 1.2s ease}
+.ph.kb{animation:kb 9s ease-out forwards}
+@keyframes kb{0%{transform:scale(1.0)}100%{transform:scale(1.08)}}
+.split{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;gap:4px;opacity:0;transition:opacity 1s}
+.split .half{background-size:cover;background-position:center;position:relative}
+.split .half span,.ptag{position:absolute;left:12px;bottom:12px;background:rgba(0,0,0,.62);color:#fff;border-radius:10px;padding:6px 12px;font-size:1rem;line-height:1.5;max-width:calc(100% - 24px)}
+.ptag{transition:opacity .6s}
+.pai{position:absolute;right:10px;top:10px;background:rgba(255,255,255,.85);color:#555;border-radius:8px;padding:2px 10px;font-size:1rem;opacity:0;transition:opacity .6s}
+@media(max-width:560px){.pstage{aspect-ratio:4/3}}
+.bgm{position:fixed;right:14px;bottom:14px;z-index:30;border:none;background:#fff;color:var(--main);border-radius:99px;padding:8px 16px;box-shadow:var(--shadow);font-weight:700}
+/* 自學一 */
+.tstage{background:linear-gradient(135deg,#eef6e8,#fdf6e3);border-radius:16px;min-height:260px;display:flex;align-items:center;justify-content:center;padding:20px}
+.qcard{text-align:center;max-width:640px}
+.qe{font-size:3rem}.qq{font-size:1.4rem;font-weight:700;line-height:1.7;margin:8px 0;color:#2d4a22}.qw{color:var(--muted);font-size:1.05rem}
+.pop{animation:pop .6s ease}
+@keyframes pop{0%{opacity:0;transform:scale(.9) translateY(10px)}100%{opacity:1;transform:none}}
+.mx{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:620px}
+.mxc{border-radius:14px;padding:16px;color:#fff;display:flex;flex-direction:column;gap:4px;font-size:1.05rem}
+.mxc b{font-size:1.15rem}
+@media(max-width:560px){.tstage{padding:10px}.mxc{padding:12px}}.mxc.a{background:#d9534f}.mxc.b{background:#2e9e6b}.mxc.c{background:#f0ad4e}.mxc.d{background:#8a94a2}
+footer{background:#163a6b;color:#dfe7f3;padding:28px 0;font-size:1rem}
+footer a{color:#ffd48a}
+
+.hero .me{margin-top:12px;display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.16);padding:4px 12px;border-radius:99px;font-size:1rem}
+.linkbtn{border:none;background:#fff;color:var(--main);border-radius:99px;padding:1px 12px;font-weight:700;font-size:1rem}
+.modal{position:fixed;inset:0;background:rgba(20,30,45,.55);z-index:50;display:flex;align-items:center;justify-content:center;padding:16px}
+.mbox{background:#fff;border-radius:18px;padding:22px;width:100%;max-width:420px;box-shadow:var(--shadow)}
+.mbox label{display:block;margin:10px 0;font-weight:500}
+.mbox input{display:block;width:100%;font-size:1.1rem;padding:9px 12px;border:2px solid var(--line);border-radius:10px;margin-top:4px;font-family:inherit}
+.mbox input:focus{outline:none;border-color:var(--main-2)}
+.btn:disabled{opacity:.7}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:20px}
+.mq .ex{font-size:1.12rem;line-height:1.75}
+.caption .key,.caption .poem{font-size:1.12rem}
+.fb{font-size:1.05rem}
+
+.qword.en{font-size:1.9rem;letter-spacing:0;word-break:break-word;font-family:"Nunito","Noto Sans TC",sans-serif}
+.say{border:0;background:#e7eef9;border-radius:99px;width:48px;height:48px;font-size:1.3rem;vertical-align:middle;margin-left:6px}
+.opt{font-size:1.15rem;word-break:break-word}
+.en{font-family:"Nunito","Noto Sans TC",sans-serif}
+.hunt .en p{font-size:1.15rem;line-height:2;margin:4px 0}
+.hunt span.c.w{padding:2px 3px;border-radius:6px}
+.passage{background:#f2f6fc;border-radius:12px;padding:14px 16px;line-height:1.9;margin-bottom:10px}
+.passage .blank{color:var(--accent-2)}
+.flips.tr .flip{min-height:150px}
+.flips.tr .bk2{display:flex;flex-direction:column;gap:6px;justify-content:center}
+.flips.tr .bk2 .en{font-weight:700;font-size:1.05rem}
+.flips.tr .bk2 small{font-size:1rem;opacity:.85}
+.ps.en{letter-spacing:0;font-size:1.35rem;line-height:1.7}
+.ps.pop{animation:pop .45s ease}
+@keyframes pop{0%{transform:scale(.9);opacity:.3}100%{transform:scale(1);opacity:1}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <a href="../" style="color:#fff;opacity:.85;text-decoration:none;font-size:1rem;display:block;margin-bottom:8px">← 回英文選單</a><span class="tag">翰林版 國二上（B3）｜ 第一次段考</span>
+    <h1>英文段考闖關｜Unit 1～2＋Review 1</h1>
+    <p>先看動畫弄懂課文，再用遊戲練熟單字與五大文法，最後做段考模擬題、交卷給老師。</p>
+    <div class="me" id="me"></div>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap" id="tabs"></div></nav>
+<main><div class="wrap" id="app"></div></main>
+<footer><div class="wrap">
+  <b>全民補習班 英文科</b>｜考點依據：新北三和、新北光榮、臺中向上、臺北誠正、臺南中山、高雄右昌、嘉義玉山、新北崇林、高雄文府、新北中平、新北忠孝、新北新莊、新北板橋、新北桃子腳（114）、新北永和、新北江翠、新北福和、新北新泰、桃園大有、高雄民族、臺東卑南、花蓮宜昌、高雄英明、新北錦和、高雄獅甲、高雄龍華、高雄鳳甲、新北鷺江 共 28 校翰林版 114 上第一次段考試卷，另比對全臺 59 校八年級英文段考的共通文法。模擬題與閱讀文章皆為原創改寫，不照抄考卷原題。<br>
+  <b>課文為依段考卷考點原創改寫，非課本原文。</b>英文發音使用微軟 Neural 語音（en-US-Aria）預錄。練習時可以開聲音，答對、答錯都有音效。背景音樂只在「動畫導覽」播放，可按右下角按鈕關閉。<br>
+  交卷時會把你的姓名、分數與錯題傳給老師，只有老師看得到。左下角 ✏️ 可以手寫、兩指縮放。<br>
+  <details style="margin-top:8px"><summary>圖片來源與授權</summary>
+  照片皆來自 Wikimedia Commons：Leather gloves and ear warmers：Kristin from Oslo, Norway（CC BY 2.0）；UK Constitution books：Coolcaesar at English Wikipedia（CC BY-SA 3.0）；Lost and Found Box (6947296049)：Paul Gorbould（CC BY 2.0）；Young snowboarder on the slope of a ski resort, with a panoramic view of the mountains, at sunset：Aleda12（CC BY-SA 4.0）；Folding umbrella 01：Kritzolina（CC BY-SA 4.0）；Autumn leaves, Dumitru Rascanu park：Iurie Nistor（CC0）；Cookies (6672151563)：Moyan Brenn from Italy（CC BY 2.0）；Hot chocolate drink (2025)：Gpkp（CC BY-SA 4.0）；Forester kangaroo (Macropus giganteus tasmaniensis) juvenile hopping Esk Valley：Charles J. Sharp（CC BY-SA 4.0）；Sydney Opera House and Harbour Bridge, southeast view 20230224 1：DXR（CC BY-SA 4.0）；Souvenir.london.arp.750pix：Arpingstone at English Wikipedia（公有領域）；Pedestrians crossing a snowy street in Quebec City at night：Wilfredor（CC0）；Super Typhoon Kent ENE of Luzon and threatening Taiwan (2268-433)：NOAA（公有領域）；People with Umbrellas Walking into Hanzhong Street, Taipei 20160610：玄史生（CC0）；Information Fair for Student Clubs & Activities, 2024 Robotics Club (54028941591)：Gary Todd from Xinzheng, China（公有領域）；Students at a school in Bangalore, India learning to code on Progate：Nayakyashraj（CC BY-SA 4.0）；Vicenza Mako Sharks first swim meet (5000611)：U.S. Army USAG-V by Laura Kreider（公有領域）；A typical game development company in India：Red Apple Learning（CC BY-SA 4.0）；Magician doing a card trick：Find Your Feet（CC BY 2.0）；Girl on bike at payphone：Ana_Cotta（CC BY 2.0）；World's Largest Swimming Lesson 2014 (14542831582)：PoolSafely（CC BY 2.0）。</details>
+</div></footer>
+
+<script>
+/* ================= 音效 ================= */
+let AC=null;
+function tone(f,d=0.12,type='sine',v=0.15,delay=0){
+  try{
+    AC=AC||new (window.AudioContext||window.webkitAudioContext)();
+    const o=AC.createOscillator(),g=AC.createGain();
+    o.type=type;o.frequency.value=f;g.gain.value=v;
+    o.connect(g);g.connect(AC.destination);
+    const t=AC.currentTime+delay;
+    o.start(t);g.gain.exponentialRampToValueAtTime(0.001,t+d);o.stop(t+d+0.02);
+  }catch(e){}
+}
+const sOK=()=>{tone(660,.1);tone(990,.15,'sine',.15,.09)};
+const sBAD=()=>tone(180,.25,'square',.08);
+const sBELL=()=>{[1568,2093,1568,2093].forEach((f,i)=>tone(f,.18,'triangle',.08,i*.14))};
+
+/* ================= 工具 ================= */
+const $=(s,r=document)=>r.querySelector(s);
+const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const isZY=s=>/[ㄅ-ㄩ]/.test(s);
+
+/* ================= 資料（翰林版 B3 U1～U2＋Review 1；課文為依段考卷考點原創改寫，非課本原文） ================= */
+/* 快問快答：[題目, 正解, [3 個誘答], 高頻(≥2 校考過), 題型]
+   題型：e＝看英文選中文、c＝看中文選英文、s＝選出正確拼字、p＝選出正確過去式、g＝文法填空 */
+const ASK={e:'選出正確的中文意思',c:'選出正確的英文',s:'選出正確的拼字',p:'選出正確的過去式',g:'選出最適合填入空格的答案'};
+const L = {
+u1:{
+  no:'Unit 1', code:1, title:'How Was Your Trip to Australia?', short:'澳洲明信片', color:'linear-gradient(135deg,#1f4e8c,#3a74c4)',
+  desc:'天氣與季節｜澳洲明信片｜Aussie English｜What\'s the weather like?',
+  quick:[
+    ['heavy','重的；（雨）大的',['奇怪的','可愛的','溫暖的'],1,'e'],
+    ['strange','奇怪的',['陌生人','有趣的','困難的'],1,'e'],
+    ['postcard','明信片',['郵票','護照','卡車'],1,'e'],
+    ['season','季節',['理由','假期','天氣'],1,'e'],
+    ['lovely','可愛的；美好的',['孤單的','活潑的','愛人'],1,'e'],
+    ['vacation','假期',['車站','節慶','季節'],1,'e'],
+    ['typhoon','颱風',['地震','暴風雪','洪水'],1,'e'],
+    ['shower','陣雨',['颱風','冰雹','乾旱'],1,'e'],
+    ['mean','意思是',['生氣','記得','想念'],1,'e'],
+    ['order','點（餐）',['付錢','打包','排隊'],1,'e'],
+    ['雨傘','umbrella',['uniform','under','unhappy'],1,'c'],
+    ['相機','camera',['cinema','camel','corner'],1,'c'],
+    ['寄送','send',['sand','spend','sell'],1,'c'],
+    ['秋天（英式／美式）','autumn / fall',['spring / summer','winter / snow','season / weather'],1,'c'],
+    ['下雪的','snowy',['snowman','snows','sunny'],1,'c'],
+    ['風大的','windy',['window','wind','wing'],1,'c'],
+    ['多雲的','cloudy',['cloud','crowded','cloudly'],1,'c'],
+    ['討厭','hate',['heat','hat','hit'],1,'c'],
+    ['旅行','trip',['tip','trap','ship'],1,'c'],
+    ['說（語言）','speak',['spike','speech','spark'],1,'c'],
+    ['錯誤的','wrong',['wring','long','strong'],1,'c'],
+    ['p _ s t c _ r d（明信片）','postcard',['poscard','postcrad','postcart'],1,'s'],
+    ['s t r _ n g e（奇怪的）','strange',['strenge','stange','strang'],1,'s'],
+    ['h _ _ v y（重的）','heavy',['havy','heavey','hevy'],1,'s'],
+    ['u m b r _ l l _（雨傘）','umbrella',['umbralla','umbrela','unbrella'],1,'s'],
+    ['v _ c _ t _ o n（假期）','vacation',['vacasion','vecation','vacaton'],1,'s'],
+    ['a u t _ m n（秋天）','autumn',['autum','autunm','autoumn'],1,'s'],
+    ['s _ _ s o n（季節）','season',['seson','sesaon','seasen'],1,'s'],
+    ['Does it ___ a lot in Taipei in June?','rain',['rains','rainy','raining'],1,'g'],
+    ['There ___ a lot of snow here in winter.','is',['are','has','have'],1,'g'],
+    ['What\'s the weather ___ in Sydney?','like',['how','about','for'],1,'g'],
+    ['It ___ cold, and it snowed for a few days.','was',['is','did','were'],1,'g'],
+  ],
+  words:[
+    ['hold on','（電話中）稍等'],['have a good time','玩得愉快'],['have fun','玩得開心'],['be on vacation','度假中'],
+    ['coming right up','馬上來'],['wrong number','打錯電話'],['rain cats and dogs','下傾盆大雨'],['in fact','事實上'],
+    ['What\'s … like?','…怎麼樣？'],['How was your trip?','你的旅行如何？'],
+  ],
+  sorts:[
+    {title:'天氣字：名詞？形容詞？還是動詞？',tip:'形容詞多半是「名詞＋y」：sun → sunny、wind → windy；當動詞時前面是 It，後面常有 a lot（It rains a lot.）',buckets:['名詞 n.','形容詞 adj.','動詞 v.'],items:[
+      ['sun',0],['cloud',0],['wind',0],['typhoon',0],['season',0],['shower',0,'shower 在這課是「陣雨」。'],
+      ['sunny',1],['cloudy',1],['windy',1],['rainy',1],['snowy',1],['heavy',1,'heavy rain＝大雨。'],
+      ['It often rains here. → rains',2,'主詞 It＋rains，是動詞。'],['It snowed for a few days. → snowed',2],['It didn\'t rain last week. → rain',2,'didn\'t 後面接原形動詞。']]},
+    {title:'澳洲英語 vs 一般說法',tip:'澳洲人很愛把字縮短再加 -ie：biscuit → bikkie、chocolate → chokkie',buckets:['澳洲英語 Aussie English','一般說法'],items:[
+      ['bikkies',0,'＝cookies（餅乾）'],['hot chokkie',0,'＝hot chocolate（熱巧克力）'],['G\'day',0,'＝Good day（聽起來像 go die！）'],['arvo',0,'＝afternoon（下午）'],['brekkie',0,'＝breakfast（早餐）'],
+      ['cookies',1],['hot chocolate',1],['Hello',1],['afternoon',1],['breakfast',1]]},
+    {title:'臺灣和澳洲：季節相反！',tip:'澳洲在南半球，季節和臺灣相反：臺灣 7 月是夏天，澳洲 7 月是冬天',buckets:['臺灣夏天、澳洲冬天','臺灣冬天、澳洲夏天'],items:[
+      ['June',0],['July',0,'Judy 七月去澳洲，那裡正冷、山上還下雪。'],['August',0],['December',1],['January',1],['February',1]]},
+  ],
+  hunt:{label:'🔍 天氣字抓抓樂',title:'找出 Judy 明信片裡「描述天氣」的字',tip:'只抓跟天氣、氣溫有關的字（季節、冷熱、晴雨雪風）。jacket、umbrella 是物品，不算！',lines:[
+    'Dear Zac,',
+    'Greetings from Melbourne! I am on vacation with my family.',
+    'It is July, but it is [winter] here. The seasons in Australia are different from ours.',
+    'Yesterday it was very [cold], and it [snowed] in the mountains.',
+    'Today it is [windy] and [cloudy], so I am wearing my heavy jacket.',
+    'This morning I ordered cookies and hot chocolate in a small shop.',
+    'The clerk said, "Bikkies and hot chokkie, coming right up!" How strange!',
+    'Then a man smiled at me and said "G\'day." It sounded like "go die"!',
+    'In fact, it means "good day." I am having a good time here.',
+    'There will be [heavy] [rain] tomorrow, so I will take my umbrella.',
+    'See you soon! Judy',
+  ]},
+  mcq:[
+    {q:'A: What\'s the weather ___ in Okinawa in winter? B: It\'s cool with some wind.',o:['like','about','for','with'],a:0,src:'三和、光榮 同類題',ex:'What\'s the weather like…?＝天氣怎麼樣？like 不能漏。'},
+    {q:'A: ___ was your trip to India? B: I had a good time there.',o:['How','What','Where','Who'],a:0,src:'新北忠孝、花蓮宜昌 同類題',ex:'How was your trip?＝旅行如何？回答感受（had a good time）。'},
+    {q:'A: Does it rain a lot in Taipei in spring? B: Yes, ___.',o:['there\'s a lot of rain','they have a lot of rain','there are a lot of rains','it is a lot of rain'],a:0,src:'三和、台南中山 同類題',ex:'rain 當名詞不可數 → There is (there\'s) a lot of rain。主詞不可用 they；rain 不加 s。'},
+    {q:'Everything is white outside. It\'s ___ today.',o:['snowy','sunny','windy','rainy'],a:0,src:'台中向上 同類題',ex:'外面一片白 → 下雪的 snowy。'},
+    {q:'I ___ you a postcard from Australia last week. Did you get it?',o:['sent','send','sends','sended'],a:0,src:'桃園大有、鷺江 同類題',ex:'last week → 過去式；send 的過去式是 sent，沒有 sended。'},
+    {q:'哪一句和 "I sent you a postcard." 意思相同？',o:['I sent a postcard to you.','I sent a postcard for you.','I sent to you a postcard.','I sent you to a postcard.'],a:0,src:'桃園大有 同類題',ex:'send 人 物 ＝ send 物 to 人。send 搭配 to，不是 for。'},
+    {q:'The weather was cold, so Judy ___ cookies and hot chocolate.',o:['ordered','ordering','orders','order'],a:0,src:'新北新莊、桃子腳 同類題',ex:'was → 過去，order（點餐）也用過去式 ordered。'},
+    {q:'A man said "go die" to me, but in fact, he ___ "good day."',o:['meant','means','mean','meaned'],a:0,src:'錦和 同類題',ex:'mean（意思是）過去式是 meant；said 是過去，所以用 meant。'},
+    {q:'A: Hello. May I speak to Judy? B: ___ I\'ll get her.',o:['Hold on.','Hang out.','Come on.','Go on.'],a:0,src:'英明、高雄獅甲 同類題',ex:'電話中「請稍等」＝Hold on.（14 校考過）'},
+    {q:'A: Is Tina there? B: Sorry, you have the ___ number. There\'s no Tina here.',o:['wrong','strong','long','same'],a:0,src:'台中向上、桃子腳 同類題',ex:'wrong number＝打錯電話。'},
+    {q:'It ___ a lot in London last winter. It was dry.',o:['didn\'t snow','didn\'t snowed','wasn\'t snow','doesn\'t snow'],a:0,src:'新北江翠、新北忠孝 同類題',ex:'last winter → 過去；didn\'t 後面接原形 snow。'},
+    {q:'"It\'s raining cats and dogs outside." 這句話的意思是？',o:['雨下得非常大','貓狗在外面玩','外面在下小雨','天氣很好'],a:0,src:'新北福和、臺東卑南 同類題',ex:'rain cats and dogs＝下傾盆大雨。'},
+    {q:'In Australia, July is in ___. It\'s cold there, and it sometimes snows in the mountains.',o:['winter','summer','spring','autumn'],a:0,src:'原創',ex:'澳洲在南半球，季節和臺灣相反：7 月是冬天。'},
+    {q:'A: What\'s the weather like in Kaohsiung in summer? B: ___',o:['It\'s hot, and it often rains in the afternoon.','It\'s like a typhoon.','Yes, it is hot.','I like summer very much.'],a:0,src:'崇林、光榮 同類題',ex:'問天氣怎麼樣 → 用 It\'s＋天氣形容詞回答。這裡的 like 是「像」，不是「喜歡」。'},
+    {q:'A: How was the weather there? B: It ___ hot, and it ___ a lot.',o:['was; rained','is; rains','was; rainy','were; rained'],a:0,src:'台中向上、新泰 同類題',ex:'How was → 過去；It was hot；rain 當動詞用過去式 rained（a lot 修飾動詞）。'},
+    {q:'Ken hates summer in Taiwan. It\'s hot, and there are often ___ in August and September.',o:['typhoons','postcards','seasons','gloves'],a:0,src:'原創（新北中平、鷺江 颱風情境）',ex:'臺灣夏天常有颱風 typhoons。'},
+  ]
+},
+u2:{
+  no:'Unit 2', code:2, title:'Join Now or Miss Out!', short:'選社團', color:'linear-gradient(135deg,#17766b,#36a89a)',
+  desc:'電玩設計社｜水上運動社｜電話用語｜sign up for／make up one\'s mind',
+  quick:[
+    ['club','社團',['課程','比賽','科目'],1,'e'],
+    ['engineer','工程師',['設計師','科學家','魔術師'],1,'e'],
+    ['difficult','困難的',['不同的','有趣的','免費的'],1,'e'],
+    ['subject','科目',['課程','社團','學期'],1,'e'],
+    ['design','設計',['決定','描述','簽名'],1,'e'],
+    ['free','免費的；空閒的',['昂貴的','忙碌的','困難的'],1,'e'],
+    ['another','另一個',['其他全部','任何一個','兩者都'],1,'e'],
+    ['interesting','有趣的',['感興趣的','重要的','困難的'],1,'e'],
+    ['own','自己的',['擁有者','其他的','唯一的'],1,'e'],
+    ['magic','魔術',['音樂','數學','機器'],1,'e'],
+    ['festival','節慶',['假期','比賽','季節'],1,'e'],
+    ['科學','science',['scene','silence','scissors'],1,'c'],
+    ['健康','health',['heavy','heart','wealth'],1,'c'],
+    ['機器人','robot',['robber','rabbit','rocket'],1,'c'],
+    ['歷史','history',['story','mystery','hobby'],1,'c'],
+    ['選擇（名詞）','choice',['choose','chose','voice'],1,'c'],
+    ['完成','finish',['fish','fix','find'],1,'c'],
+    ['課程','lesson',['listen','lemon','less'],1,'c'],
+    ['游泳者','swimmer',['singer','winner','swimming'],1,'c'],
+    ['小提琴','violin',['piano','guitar','drum'],1,'c'],
+    ['生氣的','mad',['mud','made','mat'],1,'c'],
+    ['e n g _ n _ e r（工程師）','engineer',['enginner','engineor','enginear'],1,'s'],
+    ['d _ f f _ c u l t（困難的）','difficult',['dificult','diffcult','difficalt'],1,'s'],
+    ['s u b j _ c t（科目）','subject',['subjet','sabject','subjeck'],1,'s'],
+    ['s c _ _ n c e（科學）','science',['sceince','sciense','scinece'],1,'s'],
+    ['i n t _ r _ s t i n g（有趣的）','interesting',['intresting','interasting','intersting'],1,'s'],
+    ['f e s t _ v _ l（節慶）','festival',['festivel','festval','fastival'],1,'s'],
+    ['I can\'t make up my ___. All the clubs are fun.','mind',['minds','mine','head'],1,'g'],
+    ['Did you sign up ___ any clubs?','for',['to','with','on'],1,'g'],
+    ['After he ___ the lessons, he designed his own game.','finished',['finishes','finish','finishing'],1,'g'],
+    ['Join now, or you will miss ___.','out',['off','up','away'],1,'g'],
+  ],
+  words:[
+    ['sign up for','報名參加'],['make up one\'s mind','下定決心'],['miss out','錯過（好機會）'],['pull one\'s leg','開某人玩笑'],
+    ['hear about','聽說'],['in fact','事實上'],['call … back','回電'],['join the club','我也一樣（同病相憐）'],
+    ['think of','想到'],['think about','考慮'],['at the end of','在…的最後'],['for free','免費'],
+    ['on cloud nine','非常開心'],['be poor at','不擅長'],['swim like a fish','游得像魚一樣好'],
+  ],
+  sorts:[
+    {title:'電話用語：打電話的人說？還是接電話的人說？',tip:'找人：May I speak to…? ／ Is … there?；接電話：Hold on. ／ Who\'s calling? ／ This is she (he).（我就是）',buckets:['打電話的人','接電話的人'],items:[
+      ['Hello. May I speak to Yuki?',0],['Is Cody there?',0],['Hi, this is Cody.',0,'打電話時自我介紹用 This is…，不說 I am…。'],['Can I leave a message?',0],
+      ['Who\'s calling, please?',1],['Hold on, please.',1],['This is she.',1,'對方要找的人就是自己：This is she / he.＝我就是。'],['Sorry, she\'s not in.',1],['You have the wrong number.',1],['Can I take a message?',1]]},
+    {title:'慣用語大挑戰：哪一個情境配哪一句？',tip:'這些片語不能照字面翻！on cloud nine 不是在第九朵雲上，pull one\'s leg 也不是拉腿',buckets:['on cloud nine','pull one\'s leg','join the club','under the weather'],items:[
+      ['考了一百分，開心到飛上天',0],['收到偶像的簽名，超開心',0],
+      ['朋友說他明天要去月球——騙人的吧',1],['弟弟說老師取消考試，其實是開玩笑',1],
+      ['「我也忘了帶作業！」',2],['「我也熬夜寫功課，好累。」',2],
+      ['感冒了，有點不舒服',3],['頭痛發燒，今天不想打球',3]]},
+    {title:'Shin 的故事：加入水上運動社之前？之後？',tip:'看連接詞抓抓樂那篇：a year ago 是「以前」，at the end of the year 是「後來」',buckets:['加入之前','加入之後'],items:[
+      ['He was a poor swimmer.',0],['He always swallowed water in the pool.',0],['He never wanted to swim.',0],['He couldn\'t swim 25 meters.',0],
+      ['He did warm-up exercises before every lesson.',1],['He could swim like a fish.',1],['He made many new friends.',1],['His friends asked, "Are you pulling my leg?"',1]]},
+  ],
+  hunt:{label:'🔍 連接詞抓抓樂',title:'找出文章裡的連接詞 before / after / when / because / so',tip:'連接詞連接兩個句子。注意 at the end of 的 end、like a fish 的 like 都不是連接詞！',lines:[
+    'A year ago, Shin was a poor swimmer.',
+    '[When] he jumped into the pool, he always swallowed water.',
+    'His friends laughed, [so] he never wanted to swim.',
+    'One day, he heard about the water sports club. In fact, the lessons were for free.',
+    '"Join now or miss out!" the poster said.',
+    'Shin thought about it for a long time, and then he made up his mind.',
+    'He signed up for the club [after] he talked with the coach.',
+    '[Before] every lesson, he did some warm-up exercises.',
+    'He practiced hard [because] he wanted to swim like his friends.',
+    'At the end of the year, he could swim like a fish.',
+    '"Are you pulling my leg?" his friends asked [when] they saw him.',
+  ]},
+  mcq:[
+    {q:'Cody: Did you sign up ___ any clubs? Yuki: Yes, I joined the magic club.',o:['for','to','at','of'],a:0,src:'民族、花蓮宜昌 同類題',ex:'sign up for＝報名參加（24 校考過）。'},
+    {q:'I can\'t make up my ___ because all the clubs are interesting.',o:['mind','minds','head','heart'],a:0,src:'臺東卑南、英明 同類題',ex:'make up one\'s mind＝下定決心；my 後面用單數 mind。'},
+    {q:'A: May I speak to Yuki? B: ___ Who\'s calling, please?',o:['Hold on.','Go ahead.','Take care.','Help yourself.'],a:0,src:'台南中山、錦和 同類題',ex:'請對方稍等：Hold on.'},
+    {q:'A: Hi, may I speak to Meg? B: ___',o:['This is she.','I am Meg.','She is me.','Here is Meg.'],a:0,src:'電話用語 同類題',ex:'接電話的人就是 Meg 本人 → This is she.（我就是）。電話中不說 I am…。'},
+    {q:'Can I think about it and call you ___?',o:['back','up','out','down'],a:0,src:'英明、桃園大有 同類題',ex:'call … back＝回電。'},
+    {q:'Shin was a poor swimmer, but ___ the end of the year, he could swim like a fish.',o:['at','in','on','by'],a:0,src:'崇林、台南中山 同類題',ex:'at the end of…＝在…的最後。'},
+    {q:'A: I joined the basketball team. B: Are you pulling my ___? You hate sports!',o:['leg','arm','hand','foot'],a:0,src:'臺東卑南、桃園大有 同類題',ex:'pull one\'s leg＝開某人玩笑。'},
+    {q:'A: I stayed up late for my homework last night. B: Join the ___. I only slept for five hours.',o:['club','team','party','class'],a:0,src:'三和、鷺江 同類題',ex:'Join the club!＝我也一樣（同病相憐），不是真的叫你加入社團。'},
+    {q:'The game lessons are ___ free, so you don\'t need to pay.',o:['for','in','at','with'],a:0,src:'三和、崇林 同類題',ex:'for free＝免費。'},
+    {q:'Computer science is my favorite ___. I want to be a game ___ in the future.',o:['subject; engineer','subject; engine','club; engineer','lesson; engine'],a:0,src:'桃子腳、新北江翠 同類題',ex:'subject＝科目；engineer＝工程師（engine 是引擎）。'},
+    {q:'After the students ___ the lessons, they designed their own video games.',o:['finished','finish','finishing','will finish'],a:0,src:'原創（右昌、鳳甲 課文情境）',ex:'主要子句 designed 是過去式，after 子句也用過去式 finished。'},
+    {q:'Math is ___ for me. I can\'t do it well.',o:['difficult','easy','free','lovely'],a:0,src:'多校文意字彙 同類題',ex:'做不好 → 困難的 difficult。'},
+    {q:'When I heard about the swimming team, I ___ of you.',o:['thought','think','thinks','thinked'],a:0,src:'台南中山 同類題',ex:'heard 是過去，think 的過去式是 thought；think of＝想到。'},
+    {q:'"Join now or miss out!" 句中的 miss out 是什麼意思？',o:['錯過好機會','想念某人','趕不上公車','準時參加'],a:0,src:'新泰、英明 同類題',ex:'miss out＝錯過（好機會）。現在不加入就會錯過！'},
+    {q:'A: I won first prize in the game contest! B: Wow, you must be on cloud ___.',o:['nine','seven','ten','one'],a:0,src:'崇林、英明 同類題',ex:'on cloud nine＝非常開心。'},
+    {q:'根據 Shin 的文章，下列何者正確？',o:['He signed up for the club after he talked with the coach.','He was a good swimmer a year ago.','He paid a lot of money for the lessons.','His friends were on the swim team with him.'],a:0,src:'原創',ex:'文中：He signed up for the club after he talked with the coach. 課程是 for free（免費）。'},
+    {q:'Yuki ___ the magic club last year. She can do many card tricks now.',o:['joined','join','joins','was join'],a:0,src:'原創',ex:'last year → 過去式 joined；不能把 be 動詞和一般動詞放一起（was join）。'},
+  ]
+},
+r1:{
+  no:'Review 1', code:3, title:'Whose Snowboard Is This?', short:'借東西', color:'linear-gradient(135deg,#6a45a8,#9b74d6)',
+  desc:'borrow / lend｜Whose…?｜所有格代名詞 mine / yours / hers',
+  quick:[
+    ['borrow','借入',['借出','歸還','購買'],1,'e'],
+    ['lend','借出',['借入','租用','花費'],1,'e'],
+    ['glove','手套',['外套','襪子','圍巾'],1,'e'],
+    ['jacket','夾克',['毛衣','手套','帽子'],1,'e'],
+    ['snowboard','滑雪板',['衝浪板','溜冰鞋','雪人'],1,'e'],
+    ['kind','好心的；親切的',['生氣的','奇怪的','害羞的'],1,'e'],
+    ['whose','誰的',['誰','哪一個','在哪裡'],1,'e'],
+    ['aunt','姑姑；阿姨',['叔叔','表哥','祖母'],1,'e'],
+    ['show','給…看',['借給','寄送','告訴'],1,'e'],
+    ['我的（所有格代名詞）','mine',['my','me','I'],1,'c'],
+    ['你的（所有格代名詞）','yours',['your','you','you\'re'],1,'c'],
+    ['她的（所有格代名詞）','hers',['her','she','her\'s'],1,'c'],
+    ['他們的（所有格代名詞）','theirs',['their','them','there'],1,'c'],
+    ['我們的（所有格代名詞）','ours',['our','us','we'],1,'c'],
+    ['借入（過去式）','borrowed',['lent','lend','borrow'],1,'c'],
+    ['借出（過去式）','lent',['lended','borrowed','lend'],1,'c'],
+    ['身體不舒服','under the weather',['under the sea','on cloud nine','by the way'],1,'c'],
+    ['b _ r r _ w（借入）','borrow',['borow','barrow','borrew'],1,'s'],
+    ['g l _ v e（手套）','glove',['glov','grove','golve'],1,'s'],
+    ['j _ c k _ t（夾克）','jacket',['jaket','jackit','jecket'],1,'s'],
+    ['w h _ s e（誰的）','whose',['whos','whoes','hwose'],1,'s'],
+    ['s n _ w b _ a r d（滑雪板）','snowboard',['snowbord','snowbaord','snoeboard'],1,'s'],
+    ['Can I ___ your eraser?','borrow',['lend','borrowed','lent'],1,'g'],
+    ['Annie ___ me her umbrella yesterday.','lent',['borrowed','lend','borrow'],1,'g'],
+    ['This isn\'t my bag. It\'s ___.','yours',['your','you','your\'s'],1,'g'],
+    ['___ gloves are these? They\'re Shin\'s.','Whose',['Who\'s','Who','Which'],1,'g'],
+    ['I borrowed a camera ___ my cousin.','from',['to','for','of'],1,'g'],
+  ],
+  words:[
+    ['borrow A from B','向 B 借 A'],['lend A to B','把 A 借給 B'],['under the weather','身體不舒服'],['It\'s kind of you.','你人真好。'],
+    ['by the way','順便一提'],['look for','尋找'],['put on','穿上'],['give sb a hand','幫某人忙'],
+    ['take care of','照顧'],['lost and found','失物招領'],
+  ],
+  sorts:[
+    {title:'borrow 還是 lend？',tip:'borrow＝借「進來」（borrow…from 人）；lend＝借「出去」（lend 人 物＝lend 物 to 人）。lend 的過去式是 lent',buckets:['borrow / borrowed','lend / lent'],items:[
+      ['Can I ___ your pen?（我可以借你的筆嗎？）',0],['Could you ___ me your pen?（你可以借我筆嗎？）',1],
+      ['I ___ a book from the library.',0],['My aunt ___ me her gloves.',1],['Shin ___ a snowboard from his aunt.',0],
+      ['Tom ___ his ruler to me.',1],['May I ___ some money from you?',0],['Please ___ your camera to me.',1],
+      ['Amy wanted to ___ a camera from her cousin.',0],['Her cousin didn\'t want to ___ it to her.',1,'不想「借出」給她。']]},
+    {title:'my 型還是 mine 型？',tip:'my / your / her / their 後面一定接名詞；mine / yours / hers / theirs 自己就代表「…的東西」，後面不接名詞',buckets:['my / your / her…（後接名詞）','mine / yours / hers…（不接名詞）'],items:[
+      ['This is ___ bike.（我的）',0,'bike 是名詞 → my bike'],['This bike is ___.（我的）',1,'後面沒有名詞 → mine'],
+      ['___ is not here.（我的）',1,'當主詞也用 Mine；Mine is…（單數）。'],['Is that ___ jacket?（你的）',0],
+      ['The jacket isn\'t ___.（你的）',1],['The notebook is his, not ___.（她的）',1],
+      ['___ sister\'s bag is big.（我的）',0],['Whose turn is it? Not ___!（我的）',1],
+      ['They\'re ___ gloves.（他們的）',0],['These gloves are ___.（他們的）',1]]},
+    {title:'Whose？Who\'s？還是 Who？',tip:'Whose＝誰的（後面常接名詞）；Who\'s＝Who is；Who＝誰（當主詞或後面接 is）',buckets:['Whose','Who\'s','Who'],items:[
+      ['___ snowboard is this?',0],['___ turn is it?',0],['___ are these gloves?',0,'問「這些手套是誰的」→ Whose are these gloves?'],
+      ['___ the girl? She\'s my cousin.',1],['___ calling, please?',1],['___ your English teacher?',1,'後面沒有 is → 用 Who\'s（＝Who is）。'],
+      ['___ lent you the gloves? My aunt did.',2],['___ broke the window?',2],['___ is your English teacher?',2,'後面已有 is → 用 Who。']]},
+  ],
+  hunt:{label:'🔍 所有格代名詞抓抓樂',title:'找出對話裡的所有格代名詞（mine / yours / hers / ours / theirs…）',tip:'her gloves 的 her 後面有名詞，是所有格形容詞，不算！brother\'s 是名詞所有格，也不算。',lines:[
+    'Zac: Wow, nice snowboard! Is it [yours], Shin?',
+    'Shin: No, it isn\'t [mine]. I borrowed it from my aunt.',
+    'She also lent me her gloves. These are [hers], too.',
+    'Zac: Whose jacket is that? Is it your brother\'s?',
+    'Shin: No, my brother\'s jacket is blue. That red one is [ours]. My sister and I share it.',
+    'Zac: I want to go snowboarding, too, but I don\'t have a snowboard.',
+    'Shin: My cousins have two. Maybe you can borrow [theirs].',
+    'Zac: That\'s so kind of them!',
+  ]},
+  mcq:[
+    {q:'I didn\'t have a snowboard, so I ___ one from my aunt.',o:['borrowed','lent','lend','borrow'],a:0,src:'桃子腳、光榮 同類題',ex:'from my aunt → 向姑姑「借入」borrow；過去式 borrowed。'},
+    {q:'My aunt also ___ me her gloves.',o:['lent','borrowed','lended','borrows'],a:0,src:'崇林、錦和 同類題',ex:'姑姑把手套「借出」給我 → lend 人 物；過去式 lent（沒有 lended）。'},
+    {q:'A: ___ camera is this? B: It\'s mine.',o:['Whose','Who\'s','Who','Which'],a:0,src:'新北板橋 同類題',ex:'回答 It\'s mine（我的）→ 問「誰的」用 Whose＋名詞。'},
+    {q:'A: Is this your umbrella? B: No, it\'s not ___. ___ is blue.',o:['mine; Mine','my; My','mine; My','me; Mine'],a:0,src:'三和、文府 同類題',ex:'兩格後面都沒有名詞 → mine；Mine is blue（我的是藍色的）。'},
+    {q:'The comic book is ___, not ___.',o:['hers; theirs','her; their','hers; their','her; theirs'],a:0,src:'鳳甲 同類題',ex:'句尾沒有名詞，兩格都用所有格代名詞 hers、theirs。'},
+    {q:'These gloves aren\'t Tina\'s. They\'re ___.（我的）',o:['mine','my','me','I'],a:0,src:'嘉義玉山 同類題',ex:'後面沒有名詞 → mine。'},
+    {q:'A: Who\'s the boy over there? B: ___',o:['He\'s my cousin.','It\'s my cousin\'s.','Yes, he is.','His name is mine.'],a:0,src:'光榮 同類題',ex:'Who\'s＝Who is（他是誰），回答身分。It\'s my cousin\'s 是回答 Whose 的。'},
+    {q:'It\'s so kind ___ you to lend your camera to me.',o:['of','for','to','with'],a:0,src:'高雄獅甲 同類題',ex:'It\'s kind of＋人＝某人真好心。'},
+    {q:'A: Can I borrow your eraser? B: Sure. ___',o:['Here you are.','You\'re welcome.','Yes, I can.','No problem, I can\'t.'],a:0,src:'原創（向同學借東西情境）',ex:'把東西遞給對方：Here you are.（拿去吧）。'},
+    {q:'Amy wants to borrow a camera ___ her cousin, but her cousin doesn\'t want to lend it ___ her.',o:['from; to','to; from','from; from','to; to'],a:0,src:'文府 同類題',ex:'borrow…from 人；lend…to 人。'},
+    {q:'I couldn\'t find my pen, so my brother gave ___ to me.',o:['his','him','he','he\'s'],a:0,src:'錦和 同類題',ex:'his＝他的（筆），後面沒有名詞當所有格代名詞。'},
+    {q:'A: Whose gloves are these? B: ___',o:['They\'re Sarah\'s.','They\'re Sarah.','It\'s Sarah\'s.','Sarah is.'],a:0,src:'問手套是誰的 同類題',ex:'gloves 複數 → They\'re；Sarah\'s＝Sarah 的（名詞所有格）。'},
+    {q:'Eric is under the weather today, so he can\'t play basketball with us. "under the weather" 是什麼意思？',o:['身體不舒服','在下雨天','心情很好','在室外'],a:0,src:'三和、英明 同類題',ex:'under the weather＝身體不舒服，跟天氣無關。'},
+    {q:'My bike is old. ___ is new.（你的腳踏車）',o:['Yours','Your','You','Your\'s'],a:0,src:'所有格代名詞 多校同類題',ex:'Yours＝your bike，當主詞。沒有 your\'s 這種寫法。'},
+    {q:'Our classroom is big, but ___ is small.（他們的教室）',o:['theirs','their','them','there'],a:0,src:'原創',ex:'theirs＝their classroom。there 是「那裡」。'},
+    {q:'"Can you lend me your notebook?" 和哪一句意思相同？',o:['Can I borrow your notebook?','Can you borrow my notebook?','Can I lend you my notebook?','Can you buy me a notebook?'],a:0,src:'borrow / lend 改寫 多校同類題',ex:'你借（出）我＝我向你借（入）：Can I borrow your notebook?'},
+  ]
+},
+gram:{
+  no:'文法特訓', code:4, title:'五大必考文法', short:'文法特訓', color:'linear-gradient(135deg,#b85c1e,#f2a541)',
+  desc:'before / after / when｜雙受詞｜所有格代名詞｜天氣 It / There｜borrow / lend',
+  subs:[['anim','🎬 句型變身秀'],['quick','⚡ 文法快問快答'],['sort','🎯 分類挑戰'],['mcq','📝 文法模擬題']],
+  quick:[
+    ['send','sent',['sended','sanded','send'],1,'p'],
+    ['lend','lent',['lended','borrowed','lant'],1,'p'],
+    ['hear','heard',['heared','hear','hard'],1,'p'],
+    ['think','thought',['thinked','taught','thank'],1,'p'],
+    ['mean','meant',['meaned','mint','ment'],1,'p'],
+    ['buy','bought',['buyed','brought','boughted'],1,'p'],
+    ['teach','taught',['teached','thought','tought'],1,'p'],
+    ['swim','swam',['swimmed','swum','swimed'],0,'p'],
+    ['make','made',['maked','mad','maden'],1,'p'],
+    ['give','gave',['gived','given','gaved'],1,'p'],
+    ['snow','snowed',['snew','snowwed','snowd'],1,'p'],
+    ['sign','signed',['signned','singed','signd'],1,'p'],
+    ['Ben can\'t play video games ___ he cleans his room.','before',['after','so','but'],1,'g'],
+    ['___ it rains, I don\'t have basketball practice.','When',['So','But','Or'],1,'g'],
+    ['I took a shower after I ___ home.','got',['get','gets','getting'],1,'g'],
+    ['Lisa bought a kite ___ me.','for',['to','of','with'],1,'g'],
+    ['I gave the book ___ her.','to',['for','of','at'],1,'g'],
+    ['Can you give ___?（把它給我）','it to me',['me it','it me','to me it'],1,'g'],
+    ['There ___ a lot of rain last week.','was',['were','had','is'],1,'g'],
+    ['It ___ a lot in the mountains yesterday.','snowed',['snowy','snows','was snow'],1,'g'],
+    ['___ is very windy today.','It',['There','They','We'],1,'g'],
+    ['___ was too much rain this summer.','There',['It','They','Weather'],1,'g'],
+    ['How ___ the weather yesterday?','was',['did','is','were'],1,'g'],
+    ['This pen is ___, not yours.','mine',['my','me','I'],1,'g'],
+    ['___ turn is it? Not mine!','Whose',['Who\'s','Who','What'],1,'g'],
+    ['I ___ a pen from Amy.','borrowed',['lent','lend','borrow'],1,'g'],
+    ['She ___ her gloves to me.','lent',['borrowed','lend','borrows'],1,'g'],
+    ['Show ___ your photos, please.','me',['to me','mine','my'],1,'g'],
+  ],
+  sorts:[
+    {title:'天氣主詞大考驗：It？There？還是 We / They？',tip:'It＋rains / snows / is cold；There is＋rain / snow（不可數，用 is / was）；We / They have＋rain（說「某地的人」）',buckets:['It','There','We / They'],items:[
+      ['___ rains a lot in Taipei.',0],['___ is a lot of rain in Taipei.',1,'rain 當名詞不可數 → There is。'],['___ have a lot of rain in Taipei.',2],
+      ['___ snowed for a few days.',0],['___ was heavy rain last night.',1],['___\'s cold and windy today.',0],
+      ['___ are many typhoons in summer.',1,'typhoons 可數複數 → There are。'],['___ often have typhoons in Taiwan.',2],
+      ['Does ___ snow in Hehuanshan in winter?',0],['Is ___ any snow on the mountain?',1]]},
+    {title:'雙受詞換位置：to 還是 for？',tip:'「給出去、傳過去」用 to：give, send, lend, show, teach, tell, write, pass；「為某人做、買」用 for：buy, make, cook, get, find',buckets:['…to 人','…for 人'],items:[
+      ['give',0],['send',0],['lend',0],['show',0],['teach',0],['write',0],['tell',0],['pass',0],
+      ['buy',1],['make',1],['cook',1],['get',1],['find',1]]},
+    {title:'before 還是 after？看事情先後',tip:'before＋「後做的事」；after＋「先做的事」。想一想哪件事先發生！',buckets:['before','after'],items:[
+      ['Wash your hands ___ you eat.',0],['Put on your shoes ___ you go out.',0],['Look both ways ___ you cross the street.',0],
+      ['Turn off the lights ___ you leave the room.',0],['Think carefully ___ you make up your mind.',0],
+      ['You can watch TV ___ you finish your homework.',1],['He was very tired ___ he ran ten kilometers.',1],
+      ['I signed up for the club ___ Shin told me about it.',1],['She felt better ___ she took the medicine.',1]]},
+    {title:'抓錯大作戰：這句文法對不對？',tip:'代名詞當直接受詞不能放後面（give me it ✗）；rain 不可數；How 不配 like；my 後要接名詞；borrow 和 lend 方向相反',buckets:['正確 ✅','錯誤 ❌'],items:[
+      ['Can you give me it?',1,'要說 give it to me。'],['She bought a kite for me.',0],['I sent a postcard to you from Australia.',0],
+      ['There are a lot of rain here.',1,'rain 不可數 → There is a lot of rain.'],['It rains a lot in summer.',0],
+      ['How is the weather like?',1,'How\'s the weather? 或 What\'s the weather like?，How 和 like 不能一起用。'],['What\'s the weather like?',0],
+      ['This bag is my.',1,'後面沒名詞 → mine。'],['Mine is on the desk.',0],
+      ['I lent a book from the library.',1,'向圖書館借入 → borrowed。'],['Can you lend me your camera?',0],
+      ['After he finished his homework, he played games.',0],['Before I go to bed, I brushed my teeth yesterday.',1,'yesterday → 兩個子句都用過去式：Before I went to bed…'],
+      ['When I heard about the club, I thought of you.',0]]},
+  ],
+  mcq:[
+    {q:'A: I was hungry during the test. B: Didn\'t you eat lunch ___ the test started?',o:['before','after','when','so'],a:0,src:'台中向上 同類題',ex:'考試「之前」沒吃午餐，所以考試時很餓 → before。'},
+    {q:'You can\'t play basketball ___ you finish your homework. Homework first!',o:['before','after','so','but'],a:0,src:'嘉義玉山 同類題',ex:'功課優先：寫完功課「之前」不能打球 → before。'},
+    {q:'___ I heard about the swimming team, I thought of you.',o:['When','Before','So','Or'],a:0,src:'台南中山 同類題',ex:'「當我聽說…時」→ When。'},
+    {q:'Eric ate dinner ___ he practiced soccer at school. He was hungry after practice.',o:['after','before','so','but'],a:0,src:'鳳甲 同類題',ex:'先練球、後吃飯 → ate dinner after he practiced。'},
+    {q:'Before Amy ___ out this morning, she checked the weather report.',o:['went','goes','going','will go'],a:0,src:'時態一致 多校同類題',ex:'checked 是過去式、this morning 已過去 → before 子句也用過去式 went。'},
+    {q:'Please call me after you ___ home tonight.',o:['get','will get','got','getting'],a:0,src:'before / after 子句用現在式表未來（多校）',ex:'時間子句（after / before / when）講未來時用現在式代替未來式：after you get home。'},
+    {q:'Her father bought these shoes ___ her.',o:['for','to','of','with'],a:0,src:'光榮 同類題',ex:'buy 物 for 人。'},
+    {q:'Joseph took many photos on his trip, and he showed ___ to his friends.',o:['them','they','their','theirs'],a:0,src:'嘉義玉山 同類題',ex:'show 物 to 人；photos 複數，受格用 them。'},
+    {q:'A: Can you give me the robot? B: Sure. I\'ll give ___.',o:['it to you','you it','to you it','it you'],a:0,src:'台北誠正 同類題',ex:'代名詞 it 當直接受詞時，要用「give it to 人」，不能說 give you it。'},
+    {q:'Flora wrote her sister a letter. ＝ Flora wrote a letter ___ her sister.',o:['to','for','of','at'],a:0,src:'嘉義玉山 同類題',ex:'write 物 to 人。'},
+    {q:'Mom cooked a big dinner ___ us last night.',o:['for','to','of','at'],a:0,src:'原創',ex:'cook 物 for 人。'},
+    {q:'A: Is this Tom\'s jacket? B: No, it isn\'t ___. ___ is black.',o:['his; His','he; His','his; He','him; His'],a:0,src:'所有格代名詞 多校同類題',ex:'his 既是所有格形容詞也是所有格代名詞；His (jacket) is black。'},
+    {q:'The notebook is ___, not ___. My sister\'s is very big.',o:['his; hers','him; her','his; her','he; she'],a:0,src:'台北誠正 同類題',ex:'兩格後面都沒有名詞 → his、hers。'},
+    {q:'Your shoes are white, and ___ are black.（我的鞋子）',o:['mine','my','me','I\'m'],a:0,src:'所有格代名詞 多校同類題',ex:'mine＝my shoes。'},
+    {q:'A: Does it rain a lot in Taiwan? B: Yes, ___ heavy rain here in summer.',o:['there\'s','it\'s','they have','there are'],a:0,src:'三和 同類題',ex:'rain 是不可數名詞 → there\'s (there is) heavy rain。they 指不明確，不能當這裡的主詞。'},
+    {q:'It ___ a lot last night. The streets were all wet this morning.',o:['rained','rainy','rains','was rain'],a:0,src:'光榮、崇林 同類題',ex:'rain 當動詞，last night → rained；a lot 修飾動詞。'},
+    {q:'A: ___ was the weather in Sapporo? B: It was cold and snowy.',o:['How','What','Which','Whose'],a:0,src:'花蓮宜昌 同類題',ex:'How was the weather? ＝ What was the weather like?（What 要配 like）'},
+    {q:'A: What was the weather ___ in Australia? B: It was cold, and it snowed for a few days.',o:['like','how','about','for'],a:0,src:'新北永和、英明 同類題',ex:'What was the weather like? like 不能漏。'},
+    {q:'A: ___ is this umbrella? B: I think it\'s Amy\'s.',o:['Whose','Who\'s','Who','What'],a:0,src:'Whose 問句 多校同類題',ex:'回答 Amy\'s（Amy 的）→ 問「誰的」：Whose is this umbrella?'},
+    {q:'It rained after school yesterday, so I ___ an umbrella from my classmate.',o:['borrowed','lent','lend','borrow'],a:0,src:'新北忠孝 同類題',ex:'from my classmate → borrowed。'},
+    {q:'Tom has two rulers. He can ___ one to me.',o:['lend','borrow','borrows','lent'],a:0,src:'borrow / lend 多校同類題',ex:'can＋原形；to me → 借「出」給我 lend。'},
+    {q:'I can\'t make up my mind ___ all the clubs are interesting.',o:['because','so','but','before'],a:0,src:'台中向上、英明 同類題',ex:'「所有社團都有趣」是無法決定的原因 → because。'},
+    {q:'下列哪一句正確？',o:['There is a lot of rain this week.','There are a lot of rain this week.','It has a lot of rain this week.','They are a lot of rain this week.'],a:0,src:'光榮 同類題',ex:'rain 不可數 → There is a lot of rain。'},
+    {q:'下列哪一句正確？',o:['Lisa sent a postcard to me.','Lisa sent to me a postcard.','Lisa sent me it.','Lisa sent me to a postcard.'],a:0,src:'雙受詞 多校同類題',ex:'send 物 to 人 ＝ send 人 物；代名詞 it 不能放在人後面。'},
+  ]
+},
+};
+
+/* 綜合頁：克漏字＋閱讀＋翻譯（全部原創改寫） */
+const CLOZE=[
+  {title:'克漏字 A｜Lisa\'s Winter Trip',text:'Last January, my cousin Lisa came to Taiwan from Sydney. It was summer in Australia, but it was winter here. On the first day, __1__ rained all day, and Lisa didn\'t bring a jacket. My mom bought a warm jacket __2__ her. A week __3__ Lisa went back home, she wrote a postcard and sent it __4__ us. "Thank you for the jacket. I had a good time in Taiwan. Can I __5__ your hiking boots next year? I want to climb Hehuanshan and see the __6__!"',
+   qs:[
+    {q:'__1__',o:['it','there','they','we'],a:0,ex:'天氣動詞 rain 的主詞用 it：it rained all day。'},
+    {q:'__2__',o:['for','to','of','with'],a:0,ex:'buy 物 for 人。'},
+    {q:'__3__',o:['after','before','so','because'],a:0,ex:'她已經「玩得很愉快」（had a good time），回家一週「後」寫明信片：a week after。'},
+    {q:'__4__',o:['to','for','of','at'],a:0,ex:'send 物 to 人。'},
+    {q:'__5__',o:['borrow','lend','lent','borrowed'],a:0,ex:'Can I＋原形；我向你「借入」→ borrow。'},
+    {q:'__6__',o:['snow','snowy','sun','typhoon'],a:0,ex:'冬天去合歡山看「雪」：see the snow（名詞）。'},
+   ]},
+  {title:'克漏字 B｜Join the Robot Club',text:'Maggie called Tony last night. "Hi, Tony. This is Maggie. Did you sign up __1__ a club?" "Not yet. I can\'t make up my __2__," said Tony. "Then join the robot club with me! __3__ we finish the lessons, we can build our own robots." "Sounds fun! But I don\'t have a camera. We need to take photos of our robots, right?" "Don\'t worry. My brother has two cameras. He can lend one __4__ you." "That\'s so kind __5__ him. OK, I\'ll join. I don\'t want to miss __6__!"',
+   qs:[
+    {q:'__1__',o:['for','to','on','with'],a:0,ex:'sign up for＝報名。'},
+    {q:'__2__',o:['mind','minds','heart','mine'],a:0,ex:'make up one\'s mind＝下定決心。'},
+    {q:'__3__',o:['After','Before','So','Because'],a:0,ex:'上完課「之後」才能做自己的機器人 → After。'},
+    {q:'__4__',o:['to','for','from','of'],a:0,ex:'lend 物 to 人。'},
+    {q:'__5__',o:['of','for','to','at'],a:0,ex:'It\'s kind of＋人＝某人真好心。'},
+    {q:'__6__',o:['out','up','off','away'],a:0,ex:'miss out＝錯過（好機會）。'},
+   ]},
+];
+const READ=[
+  {title:'閱讀 A｜Four Cities in July',text:'Here is the weather in four cities in July.\nTaipei: hot, 34°C. There are showers almost every afternoon.\nSydney: cool, 17°C. It is winter there, but it is sunny and dry.\nLondon: warm, 22°C. It is often cloudy, and it rains a little.\nSapporo: warm, 26°C. It is sunny, and it is great for hiking.\nAmy wants to go to a cool place in July, but she hates rain. Ken loves hiking in warm and sunny weather.',
+   qs:[
+    {q:'Which city is the best for Amy?',o:['Sydney.','Taipei.','London.','Sapporo.'],a:0,ex:'Amy 想去涼爽、不下雨的地方：Sydney 17°C、sunny and dry。'},
+    {q:'Why is Sydney cool in July?',o:['Because it is winter in Australia then.','Because there are typhoons.','Because it rains every afternoon.','Because it is in the mountains.'],a:0,ex:'澳洲在南半球，7 月是冬天。'},
+    {q:'Where will Ken probably go?',o:['Sapporo.','Taipei.','London.','Sydney.'],a:0,ex:'Ken 喜歡在溫暖晴朗的天氣健行：Sapporo 26°C、sunny、great for hiking。'},
+   ]},
+  {title:'閱讀 B｜Club Day Posters',text:'Game Design Club: Mondays, 4:00–5:30 p.m. A real game engineer teaches you. After you finish the lessons, you can design your own video game. It\'s free!\nMagic Club: Tuesdays, 4:00–5:00 p.m. Learn card tricks and make a ball disappear. NT$200 a month.\nHistory Club: Wednesdays, 3:30–5:00 p.m. Visit old streets and temples in our city. Bring your own camera.\nHealth Club: Fridays, 4:00–5:00 p.m. Cook healthy food and do yoga. NT$100 a month.\nSign up at the school office before September 20th. Join now or miss out!',
+   qs:[
+    {q:'Which club doesn\'t cost any money?',o:['The Game Design Club.','The Magic Club.','The Health Club.','All of them.'],a:0,ex:'Game Design Club：It\'s free!'},
+    {q:'Rick is busy on Mondays, but he loves old buildings and taking photos. Which club is good for him?',o:['The History Club.','The Game Design Club.','The Magic Club.','The Health Club.'],a:0,ex:'History Club：參觀老街、廟宇，自備相機，週三上課。'},
+    {q:'What does "Join now or miss out!" want students to do?',o:['Sign up for a club soon.','Miss their friends.','Go out after school.','Stop joining clubs.'],a:0,ex:'現在不報名就會錯過 → 要大家快報名（9 月 20 日前）。'},
+   ]},
+  {title:'閱讀 C｜A Thank-You Email',text:'Dear Aunt Mei,\nThank you for lending me your snowboard and gloves last weekend. I had a great time in Hokkaido. It snowed a lot on the first day, so the snow was soft and deep. But I have bad news. On the last day, I lost one of your gloves! I looked for it everywhere. In fact, I almost cried. Then a hotel worker found it in the lost and found box. What good luck! By the way, my friend Zac wants to go snowboarding next month. Can he borrow your snowboard? He promises to take good care of it.\nLove,\nShin',
+   qs:[
+    {q:'What did Shin borrow from his aunt?',o:['A snowboard and gloves.','A camera and a jacket.','Only a snowboard.','An umbrella.'],a:0,ex:'Thank you for lending me your snowboard and gloves.'},
+    {q:'Where was the lost glove?',o:['In the lost and found box.','In the snow.','In Shin\'s bag.','At Zac\'s house.'],a:0,ex:'a hotel worker found it in the lost and found box。'},
+    {q:'Why did Shin write "By the way"?',o:['He wanted to talk about something new.','He wanted to say sorry again.','He wanted to end the email.','He wanted to talk about the weather.'],a:0,ex:'by the way＝順便一提，用來換新話題（Zac 想借滑雪板）。'},
+   ]},
+];
+const TRANS=[
+  ['我從澳洲寄了一張明信片給你。','I sent you a postcard from Australia.','send 過去式 sent；＝I sent a postcard to you from Australia.'],
+  ['那裡的天氣怎麼樣？','What\'s the weather like there?','What\'s…like? like 不能漏；＝How\'s the weather there?'],
+  ['天氣很冷，而且下了幾天雪。','It was cold, and it snowed for a few days.','天氣主詞用 it；snow 當動詞過去式 snowed'],
+  ['臺灣夏天常下大雨。','There is often heavy rain in Taiwan in summer.','rain 不可數 → There is；heavy rain＝大雨'],
+  ['你的旅行如何？我玩得很愉快。','How was your trip? I had a good time.','How was…?；have a good time'],
+  ['我可以考慮一下再回電給你嗎？','Can I think about it and call you back?','think about 考慮；call … back 回電'],
+  ['我無法下定決心，因為所有社團都很有趣。','I can\'t make up my mind because all the clubs are interesting.','make up one\'s mind；interesting 有趣的'],
+  ['在 Shin 告訴我那個社團之後，我就報名了。','I signed up for the club after Shin told me about it.','sign up for；after 子句用過去式'],
+  ['到了年底，他游得像魚一樣好。','At the end of the year, he could swim like a fish.','at the end of；swim like a fish'],
+  ['我向姑姑借了滑雪板，她還借給我她的手套。','I borrowed a snowboard from my aunt. She also lent me her gloves.','borrow…from 人；lend 人 物（過去式 lent）'],
+  ['這是誰的相機？是我的。','Whose camera is this? It\'s mine.','Whose＋名詞；mine 所有格代名詞'],
+  ['這把傘是我的，不是你的。','This umbrella is mine, not yours.','mine / yours 後面不接名詞'],
+];
+
+/* 考點雷達（依翰林版 28 校段考卷統計：analysis/stats_by_publisher.json） */
+const RADAR={
+  n:28,
+  schools:'新北三和、新北光榮、臺中向上、臺北誠正、臺南中山、高雄右昌、嘉義玉山、新北崇林、高雄文府、新北中平、新北忠孝、新北新莊、新北板橋、新北桃子腳（114）、新北永和、新北江翠、新北福和、新北新泰、桃園大有、高雄民族、臺東卑南、花蓮宜昌、高雄英明、新北錦和、高雄獅甲、高雄龍華、高雄鳳甲、新北鷺江',
+  topics:[['社團主題（sign up for、make up one\'s mind）',28],['連接詞 before / after / when',27],['雙受詞 give / buy＋人＋物（to / for）',27],['所有格代名詞 mine / yours…',26],['天氣 It / There 主詞',25],['What\'s the weather like? / How was…?',25],['過去式動詞變化',25],['borrow / lend 借東西',24],['Whose 問句',22],['電話用語',15],['旅遊與明信片',15],['because / so',11],['澳洲英語',8],['慣用語（under the weather、join the club）',8]],
+  basics:[['before / after / when',27],['雙受詞 to / for',27],['mine / yours / hers',26],['It / There 天氣主詞',25],['What\'s … like?',25],['過去式',25],['Whose…?',22],['borrow / lend',18],['電話用語',15],['because / so',11]],
+  words:[['borrow',26],['sign up for',24],['lend',20],['make up one\'s mind',20],['club',19],['engineer',19],['difficult',18],['heavy',18],['postcard',18],['science',18],['subject',17],['strange',16],['miss out',16],['glove',15],['order',15],['snow',15],['umbrella',15],['pull one\'s leg',15],['hold on',14],['hear about',14],['in fact',14],['camera',14]],
+  nonmcq:[['翻譯',22],['文意字彙（首字母提示）',19],['句型改寫／依提示',13],['看圖作答',4],['拼字',2]],
+  cross:{n:59,items:[['過去式（任一）',58],['過去式動詞變化（規則／不規則）',57],['because / so',39],['was / were',33],['時間副詞決定時態',32],['did / didn\'t 問句與簡答',26],['依提示合併／改寫句',22],['Why…? 問句',21]]},
+};
+
+/* ================= 導覽 ================= */
+const TABS=[['home','🏠 考點雷達'],['u1','🌦️ U1 澳洲明信片'],['u2','🎮 U2 選社團'],['r1','🧤 R1 借東西'],['gram','📐 文法特訓'],['mix','🧩 克漏字＋閱讀']];
+
+const AUDIO=new Set(["012a4052", "021e3a39", "02c65ebd", "0906d7a1", "0a7f32f2", "0be7cf36", "0cbc8ba4", "100e165b", "119f9d40", "123764b8", "16e2c1f2", "1af8295a", "1b6e7dc9", "1b7d7c5b", "1c4a263b", "1c90ef81", "1d1a14a2", "21336843", "2202451a", "22377de8", "22657b24", "23176214", "245a50ba", "255e0fd1", "25a2cf5e", "28693c05", "2dbc1605", "31235d2b", "3158c1f9", "31bf4417", "33a5937c", "373b886d", "37babd60", "3845ff3e", "3a5679bc", "3af0b561", "3d1c0ea2", "3f6964cc", "42454824", "42521417", "42f6cd71", "46e8d230", "47ff1525", "4a7181df", "4e388f15", "51ed6965", "543b679b", "581bb82d", "59167492", "5ea746fd", "6208a3a3", "6261af7f", "65950d80", "65d5776b", "682e2aa7", "688b3781", "6b98ed8f", "6bc68a00", "6d072a8d", "6ec5b9f7", "6ef6e45e", "709433ea", "71da140d", "7255ca76", "7261c8af", "732c1097", "73ae75e9", "79ca8529", "7cc7ca5b", "7d856172", "7e3ebd7e", "7e89edb6", "7f778519", "7f89ef49", "848317f2", "8830cf03", "891cfe4f", "89a3b5d3", "8d4ea641", "8f735a56", "917807f0", "95cd8075", "994c2d1c", "99b3eedb", "9c3dd718", "9ca4bd3e", "9ebe984e", "9ede2954", "a05af244", "a2780a89", "a515afbf", "a947e23c", "a95e8fe6", "ab1a365f", "acf38390", "ad9ffecf", "ade176a3", "b2519610", "b5712015", "bf771c16", "c4bb620c", "c5e12a13", "c683123d", "c9d23be5", "cc628958", "ce1430df", "ced71285", "d0637606", "d144ef5b", "d1b10e58", "d599e703", "d64fcee2", "d913e243", "e18c56af", "e29c4bb5", "e330335b", "e3bd009c", "e4eb258c", "e5d24623", "e5f5ec36", "e7252e76", "ea44dd0f", "eb2a5652", "eb9b70dd", "f368cd1e", "f3a30f2d", "f3a3fcda", "f590e1e5", "f77550a9", "f90cbb4b", "f947bb8c", "f9819f36", "f9efa80a", "fb31c5cf", "fdf06c27", "feaa0cb3"]);
+/* ================= 注釋配對 ================= */
+function renderMatch(el,pairs){
+  const rounds=[];const sp=shuf(pairs);for(let k=0;k<sp.length;k+=5)rounds.push(sp.slice(k,k+5));
+  let r=0,miss=0;
+  function draw(){
+    const set=rounds[r];const rights=shuf(set);let sel=null,done=0;
+    el.innerHTML=`<div class="card"><div class="qz-top"><h3 style="margin:0">🔗 注釋配對　第 ${r+1} / ${rounds.length} 回</h3><span class="muted">先點左邊的詞，再點右邊的解釋</span></div>
+      <div class="mcols" style="margin-top:14px"><div>${set.map((p,k)=>`<button class="mi w" data-w="${k}">${esc(p[0])}</button>`).join('')}</div>
+      <div>${rights.map(p=>`<button class="mi" data-m="${set.indexOf(p)}">${esc(p[1])}</button>`).join('')}</div></div></div>`;
+    el.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>{if(b.classList.contains('done'))return;el.querySelectorAll('[data-w]').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');sel=b});
+    el.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{
+      if(!sel||b.classList.contains('done'))return;
+      if(sel.dataset.w===b.dataset.m){sOK();sel.classList.remove('sel');sel.classList.add('done');b.classList.add('done');sel=null;done++;
+        if(done===set.length)setTimeout(()=>{r++;if(r<rounds.length)draw();else fin()},600)}
+      else{sBAD();miss++;b.classList.add('shake');setTimeout(()=>b.classList.remove('shake'),400)}
+    });
+  }
+  function fin(){el.innerHTML=`<div class="card" style="text-align:center"><div style="font-size:3rem">${miss<=2?'🏆':'👍'}</div><h3>全部配對完成！</h3><p>配錯 ${miss} 次</p><button class="btn" id="ag">再玩一次（題目重新洗牌）</button></div>`;$('#ag',el).onclick=()=>renderMatch(el,pairs)}
+  draw();
+}
+
+/* ================= 分類 ================= */
+function renderSort(el,so){
+  let order=shuf(so.items),i=0,ok=0,wrongs=[];
+  function draw(){
+    if(i>=order.length){
+      el.innerHTML=`<h3>${so.title}</h3><div style="text-align:center"><div style="font-size:2.6rem">${ok===order.length?'🏆':'👍'}</div><p><b>${ok} / ${order.length}</b> 題正確</p>
+      ${wrongs.length?`<div style="text-align:left;background:#fffaf0;border-radius:12px;padding:10px 14px">${wrongs.map(w=>`「${esc(w[0])}」→ <b>${so.buckets[w[1]]}</b>${w[2]?'：'+esc(w[2]):''}`).join('<br>')}</div>`:''}
+      <button class="btn" style="margin-top:12px">再玩一次</button></div>`;
+      el.querySelector('.btn').onclick=()=>renderSort(el,so);return;
+    }
+    const it=order[i];
+    el.innerHTML=`<div class="qz-top"><h3 style="margin:0">${so.title}</h3><span class="muted">${i+1} / ${order.length}</span></div>
+      <p class="muted" style="margin:4px 0 0">💡 ${so.tip}</p>
+      <div class="sortcard">${esc(it[0])}</div>
+      <div class="buckets" style="grid-template-columns:repeat(${Math.min(so.buckets.length,5)},1fr)">${so.buckets.map((b,k)=>`<button class="bk" data-k="${k}">${b}</button>`).join('')}</div>
+      <div class="fb"></div>`;
+    if(window.innerWidth<560&&so.buckets.length>3) el.querySelector('.buckets').style.gridTemplateColumns='1fr 1fr';
+    el.querySelectorAll('.bk').forEach(b=>b.onclick=()=>{
+      el.querySelectorAll('.bk').forEach(x=>x.onclick=null);
+      const right=+b.dataset.k===it[1];
+      el.querySelector(`.bk[data-k="${it[1]}"]`).classList.add('ok');
+      if(right){sOK();ok++}else{sBAD();b.classList.add('bad');wrongs.push(it)}
+      el.querySelector('.fb').innerHTML=(right?'✅ 正確！':'❌ 應該是「'+so.buckets[it[1]]+'」')+(it[2]?'　'+esc(it[2]):'');
+      i++;setTimeout(draw,right?800:1900);
+    });
+  }
+  draw();
+}
+
+/* ================= 選擇題 ================= */
+function renderMCQ(el,qs){
+  let got=0,done=0;
+  const list=qs.map(q=>{const idx=shuf(q.o.map((_,k)=>k));return{...q,idx}});
+  el.innerHTML=`<div class="score" id="sc">已作答 0 / ${qs.length}　答對 0</div><div class="card">${list.map((q,n)=>`
+    <div class="mq" data-n="${n}"><div class="stem">${n+1}. ${esc(q.q)}<span class="src">${q.src}</span></div>
+    ${q.idx.map((k,j)=>`<button class="o" data-k="${k}">(${'ABCD'[j]}) ${esc(q.o[k])}</button>`).join('')}
+    <div class="ex">💡 <b>解析：</b>${esc(q.ex)}</div></div>`).join('')}
+    <div class="row" style="margin-top:12px"><button class="btn ghost" id="rs">重新作答（選項重新洗牌）</button></div></div>`;
+  el.querySelectorAll('.mq').forEach(box=>{
+    const q=list[+box.dataset.n];
+    box.querySelectorAll('.o').forEach(b=>b.onclick=()=>{
+      if(box.classList.contains('done'))return;box.classList.add('done');done++;
+      box.querySelector(`.o[data-k="${q.a}"]`).classList.add('ok');
+      if(+b.dataset.k===q.a){got++;sOK()}else{b.classList.add('bad');sBAD()}
+      $('#sc',el).textContent=`已作答 ${done} / ${qs.length}　答對 ${got}`+(done===qs.length?`　🎯 得分 ${Math.round(got/qs.length*100)}`:'');
+    });
+  });
+  $('#rs',el).onclick=()=>renderMCQ(el,qs);
+}
+
+/* ================= 翻卡 ================= */
+function renderCards(el,cards){
+  el.innerHTML=`<div class="card"><h3>🃏 十五種標點翻卡</h3><p class="muted">點卡片翻面看用法。重點：分號、破折號、引號、書名號、刪節號。</p>
+  <div class="flips">${cards.map(c=>`<div class="flip"><div class="in"><div class="f"><div class="sym">${esc(c[1])}</div><b>${c[0]}</b></div><div class="bk2">${esc(c[2])}</div></div></div>`).join('')}</div></div>`;
+  el.querySelectorAll('.flip').forEach(f=>f.onclick=()=>f.classList.toggle('on'));
+}
+
+/* ================= 動畫共用 ================= */
+function stepper(el,steps,apply,autoMs=5200){
+  let k=0,auto=null;
+  el.querySelector('.steps').innerHTML=steps.map((s,i)=>`<button data-i="${i}">${s.label}</button>`).join('')+`<button id="play">▶ 自動播放</button>`;
+  function set(i){k=i;el.querySelectorAll('.steps [data-i]').forEach(b=>b.classList.toggle('on',+b.dataset.i===i));
+    const s=steps[i];el.querySelector('.caption').innerHTML=`<div class="poem">${s.poem}</div><div class="key">🎯 <b>考點：</b>${s.key}</div>`;apply(i)}
+  el.querySelectorAll('.steps [data-i]').forEach(b=>b.onclick=()=>{stop();set(+b.dataset.i)});
+  const pb=el.querySelector('#play');
+  function stop(){clearInterval(auto);auto=null;pb.textContent='▶ 自動播放'}
+  pb.onclick=()=>{if(auto)return stop();pb.textContent='⏸ 暫停';set(0);auto=setInterval(()=>{if(k+1>=steps.length)return stop();set(k+1)},autoMs)};
+  set(0);
+}
+
+/* ================= 照片舞台（共用） ================= */
+const AI_IMG=f=>f.startsWith('ai_');
+function photoStage(){
+  return `<div class="pstage"><div class="ph" id="phA"></div><div class="ph" id="phB"></div>
+    <div class="split" id="phS"></div><div class="ptag" id="phT"></div><div class="pai" id="phAI">AI 示意圖</div></div>`;
+}
+let __cyc=null,__front='A';
+function showPhoto(step){
+  clearInterval(__cyc);
+  const S=$('#phS'),T=$('#phT'),AI=$('#phAI');
+  if(step.split){
+    $('#phA').style.opacity=0;$('#phB').style.opacity=0;
+    S.innerHTML=step.split.map(s=>`<div class="half" style="background-image:url(img/${s.img}.jpg)"><span>${s.tag}</span></div>`).join('');
+    S.style.opacity=1;T.style.opacity=0;AI.style.opacity=step.split.some(s=>AI_IMG(s.img))?1:0;return;
+  }
+  S.style.opacity=0;
+  const imgs=step.imgs;let k=0;
+  const put=()=>{
+    const it=imgs[k%imgs.length];
+    const next=__front==='A'?'B':'A',el=$('#ph'+next),old=$('#ph'+__front);
+    el.style.backgroundImage=`url(img/${it.img}.jpg)`;
+    el.style.backgroundSize=it.fit||'cover';el.style.backgroundColor=it.bg||'#111';
+    el.classList.remove('kb');void el.offsetWidth;el.classList.add('kb');
+    el.style.opacity=1;old.style.opacity=0;__front=next;
+    T.textContent=it.tag;T.style.opacity=1;AI.style.opacity=AI_IMG(it.img)?1:0;k++;
+  };
+  put();if(imgs.length>1)__cyc=setInterval(put,3400);
+}
+
+/* ================= 背景音樂（瀏覽器即時合成，只在動畫頁播放） ================= */
+const BGM={ctx:null,master:null,timer:null,playing:false,
+  get on(){try{return localStorage.getItem('bgm')!=='off'}catch(e){return true}},
+  set on(v){try{localStorage.setItem('bgm',v?'on':'off')}catch(e){}},
+  start(){
+    if(!this.on||this.playing)return;
+    try{
+      this.ctx=this.ctx||new (window.AudioContext||window.webkitAudioContext)();
+      if(this.ctx.state==='suspended')this.ctx.resume();
+      const c=this.ctx;this.master=c.createGain();this.master.gain.value=0;
+      const lp=c.createBiquadFilter();lp.type='lowpass';lp.frequency.value=1200;
+      this.master.connect(lp);lp.connect(c.destination);
+      this.master.gain.linearRampToValueAtTime(0.05,c.currentTime+2);
+      // 輕快版：約 100 BPM，C–G–Am–F 大調進行，撥弦琶音＋輕低音＋淡淡鋪底
+      const BEAT=0.6,prog=[[261.6,329.6,392],[196,246.9,293.7],[220,261.6,329.6],[174.6,220,261.6]];
+      const tone2=(f,t,dur,type,vol,att=.01)=>{const o=c.createOscillator(),g=c.createGain();o.type=type;o.frequency.value=f;
+        g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+att);g.gain.exponentialRampToValueAtTime(0.001,t+dur);
+        o.connect(g);g.connect(this.master);o.start(t);o.stop(t+dur+.05)};
+      const pat=[0,1,2,1,0,2,1,2];let bar=0;
+      const play=()=>{
+        const t0=c.currentTime+.05,ch=prog[bar%prog.length];
+        ch.forEach(f=>tone2(f,t0,BEAT*4,'sine',.07,.4));                       // 淡淡鋪底
+        tone2(ch[0]/2,t0,BEAT*1.2,'triangle',.22);tone2(ch[0]/2,t0+BEAT*2,BEAT*1.2,'triangle',.18); // 低音
+        pat.forEach((k,i)=>{const f=ch[k]*2;tone2(f,t0+i*BEAT/2,.35,'triangle',.16)}); // 撥弦琶音（八分音符）
+        if(bar%2===1)[0,1,2,3].forEach(i=>tone2([784,659.3,587.3,523.3,659.3][(bar+i)%5],t0+BEAT*2+i*BEAT/2,.5,'sine',.08)); // 小旋律
+        bar++;
+      };
+      play();this.timer=setInterval(play,2400);this.playing=true;
+    }catch(e){}
+    this.btn();
+  },
+  stop(){
+    clearInterval(this.timer);this.timer=null;
+    if(this.playing&&this.master&&this.ctx){const m=this.master,t=this.ctx.currentTime;m.gain.cancelScheduledValues(t);m.gain.setValueAtTime(m.gain.value,t);m.gain.linearRampToValueAtTime(0,t+1.2);setTimeout(()=>{try{m.disconnect()}catch(e){}},1500)}
+    this.playing=false;this.btn();
+  },
+  btn(){const b=document.getElementById('bgmBtn');if(b)b.textContent=this.on?'🎵 音樂：開':'🔇 音樂：關'}
+};
+
+
+/* 交卷給老師引擎（段考模擬題／快問快答／分類挑戰／配對 都可交卷）。
+   接在 template.html 的「音效＋工具」與 data.js 之後、app.js（導覽、首頁、動畫）之前。
+   換科時改三個佔位：https://script.google.com/macros/s/AKfycbzPt9-_BdRtHhH6f6GAuE9LLRXK8m3j7uavDxpm0xaaJCitl2KfOoYcviYgDZNdNjflLg/exec（段考闖關成績後端網址）、eng8-hanlin-1（例 chinese8-1）、英文 國二上第一次段考（翰林）（分頁名稱）。不用班級碼。
+   render() 要把 d.code、`${d.no} ${d.title}` 傳給 renderQuick/renderMCQ/renderMatch，並在畫分類前設定 SORTCTX={code,title}。 */
+/* ================= 交卷給老師（雲端） =================
+   後端：段考闖關成績（assets/v2/backend/Code.gs），不用班級碼；每個網站一個 subject、試算表一個分頁。
+   round 編碼：單元代碼×10＋題型（0＝段考模擬題、1＝快問快答、2＝分類、3＝配對）；總測驗＝90。 */
+const CLOUD={
+  endpoint:'https://script.google.com/macros/s/AKfycbzPt9-_BdRtHhH6f6GAuE9LLRXK8m3j7uavDxpm0xaaJCitl2KfOoYcviYgDZNdNjflLg/exec',   /* 段考闖關成績後端（assets/v2/backend/Code.gs），不用班級碼 */
+  subject:'eng8-hanlin-1',
+  site:'英文 國二上第一次段考（翰林）',   /* 試算表分頁名稱，例「英文 國二上第一次段考」 */
+  get me(){try{const o=JSON.parse(localStorage.getItem('eng8-hanlin-1_student')||'null');return o&&o.name?o:null}catch(e){return null}},
+  set me(o){try{localStorage.setItem('eng8-hanlin-1_student',JSON.stringify(o))}catch(e){}},
+  upload(rec){
+    const m=this.me;if(!m)return false;
+    const body=Object.assign({name:m.name,subject:this.subject,site:this.site},rec);
+    try{fetch(this.endpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(body)})}catch(e){return false}
+    try{const h=JSON.parse(localStorage.getItem('eng8-hanlin-1_history')||'[]');h.push({...rec,date:new Date().toISOString()});localStorage.setItem('eng8-hanlin-1_history',JSON.stringify(h.slice(-200)))}catch(e){}
+    return true;
+  }
+};
+function meChip(){
+  const m=CLOUD.me,el=$('#me');if(!el)return;
+  el.innerHTML=m?`👤 ${esc(m.name)}<button class="linkbtn" id="meEdit">修改</button>`:`👤 尚未填寫姓名 <button class="linkbtn" id="meEdit">填寫</button>`;
+  $('#meEdit').onclick=()=>enroll(()=>{});
+}
+/* 填寫姓名視窗（只要中文姓名）；成功後呼叫 then() */
+function enroll(then,force){
+  if(document.getElementById('enr'))return;
+  const m=CLOUD.me||{};
+  document.body.insertAdjacentHTML('beforeend',`<div class="modal" id="enr"><div class="mbox">
+    <h3>${force?'👋 歡迎！請先填姓名':'📝 交卷前先填姓名'}</h3><p class="muted">老師會用你的姓名收到成績和錯題。</p>
+    <label>中文姓名<input id="eName" value="${esc(m.name||'')}" autocomplete="off"></label>
+    <div class="fb" id="eMsg"></div>
+    <div class="row" style="justify-content:flex-end">${force?'':'<button class="btn ghost" id="eNo">取消</button>'}<button class="btn" id="eOk">確定</button></div></div></div>`);
+  const close=()=>$('#enr').remove();
+  if($('#eNo'))$('#eNo').onclick=close;
+  $('#eName').focus();
+  $('#eName').onkeydown=e=>{if(e.key==='Enter')$('#eOk').click()};
+  $('#eOk').onclick=()=>{
+    const name=$('#eName').value.trim();
+    if(!name){$('#eMsg').textContent='請填入你的中文姓名喔！';return}
+    if(!/^[\u4e00-\u9fff·．]{2,6}$/.test(name)){$('#eMsg').textContent='請填中文姓名（2～6 個字），老師才認得出你。';return}
+    CLOUD.me={name};close();meChip();then();
+  };
+}
+const KINDS=['段考模擬題','快問快答','分類挑戰','配對'];
+/* 交卷：rec={code,type,title,total,correct,blank,wrong:[{q,my,a}]} */
+function submitToTeacher(rec,btn){
+  const go=()=>{
+    const ok=CLOUD.upload({round:rec.code*10+rec.type,score:Math.round(rec.correct/rec.total*100),total:rec.total,correct:rec.correct,blank:rec.blank||0,
+      ans:[`【交卷】${rec.title}｜${KINDS[rec.type]}｜答對 ${rec.correct}/${rec.total}`,
+        ...rec.wrong.map(w=>`✗ 題目：${String(w.q).replace(/｜/g,'/')}｜學生答：${w.my}｜正解：${w.a}${w.u?'｜單元：'+w.u:''}`)]});
+    if(btn){btn.disabled=true;btn.textContent=ok?'✅ 已交給老師':'⚠️ 送出失敗，請再試一次';if(!ok)btn.disabled=false}
+  };
+  if(!CLOUD.me)return enroll(go);
+  go();
+}
+
+/* ================= 快問快答（交卷版） ================= */
+function renderQuick(el,items,d,code,title){
+  let order,i,score,combo,best,wrong,timer,left,round=0;
+  const TIME=10;
+  function start(list){order=shuf(list||items);i=0;score=0;combo=0;best=0;wrong=[];round++;next()}
+  function next(){
+    clearInterval(timer);
+    if(i>=order.length) return end();
+    const [q,a,ds,hot,ask0]=order[i];
+    const opts=shuf([a,...ds]);
+    const ask=ask0||(d&&d.quickAsk)||(isZY(a)?'選出「」內字的正確讀音':'選出「」內注音的正確國字');
+    el.innerHTML=`<div class="card">
+      <div class="qz-top"><b>第 ${i+1} / ${order.length} 題</b><span>得分 <b>${score}</b>　<span class="combo">${combo>=2?'🔥 連對 '+combo:''}</span></span></div>
+      <div class="timer"><i id="tb"></i></div>
+      <p class="muted" style="text-align:center;margin:8px 0 0">${ask} ${hot?`<span class="star">★${hot} 校考過</span>`:''}</p>
+      <div class="qword">${esc(q)}</div>
+      <div class="opts">${opts.map(o=>`<button class="opt" data-v="${esc(o)}">${esc(o)}</button>`).join('')}</div>
+    </div>`;
+    left=TIME;const tb=$('#tb',el);
+    timer=setInterval(()=>{left-=.1;tb.style.width=Math.max(0,left/TIME*100)+'%';if(left<=0){clearInterval(timer);pick(null)}},100);
+    el.querySelectorAll('.opt').forEach(b=>b.onclick=()=>pick(b));
+    function pick(b){
+      clearInterval(timer);
+      el.querySelectorAll('.opt').forEach(x=>{x.onclick=null;if(x.dataset.v===a)x.classList.add('ok')});
+      if(b&&b.dataset.v===a){sOK();combo++;best=Math.max(best,combo);score+=10+Math.round(left)+(combo>=3?5:0)}
+      else{sBAD();if(b)b.classList.add('bad');combo=0;wrong.push({item:order[i],my:b?b.dataset.v:'（超時）'})}
+      i++;setTimeout(next,b&&b.dataset.v===a?650:1400);
+    }
+  }
+  function end(){
+    const n=order.length,acc=Math.round((n-wrong.length)/n*100),full=true,retry=order.length!==items.length;
+    el.innerHTML=`<div class="card" style="text-align:center">
+      <div style="font-size:3rem">${acc>=90?'🏆':acc>=70?'👍':'💪'}</div>
+      <h3>完成！正確率 ${acc}%</h3><p>總分 <b>${score}</b>　最高連對 <b>${best}</b></p>
+      ${wrong.length?`<div style="text-align:left;background:#fffaf0;border-radius:12px;padding:12px 16px;margin:12px 0"><b>要再加強的：</b><br>${wrong.map(w=>`${esc(w.item[0])} → <b>${esc(w.item[1])}</b>（你選：${esc(w.my)}）`).join('<br>')}</div>`:''}
+      <div class="row" style="justify-content:center">
+        ${full?'<button class="btn alt" id="sub">📤 交卷給老師</button>':''}
+        ${wrong.length?'<button class="btn ghost" id="rw">只練錯的題目</button>':''}<button class="btn" id="ra">全部重來</button></div>
+      ${full?'<p class="muted" style="margin-top:8px">交卷會把你的姓名、分數和錯的題目傳給老師。</p>':''}</div>`;
+    $('#ra',el).onclick=()=>start();
+    const rw=$('#rw',el); if(rw) rw.onclick=()=>start(wrong.map(w=>w.item));
+    const sb=$('#sub',el); if(sb) sb.onclick=()=>submitToTeacher({code,type:1,title:title+(retry?'（只練錯題）':''),total:n,correct:n-wrong.length,
+      wrong:wrong.map(w=>({q:w.item[0],my:w.my,a:w.item[1]}))},sb);
+  }
+  el.innerHTML=`<div class="card" style="text-align:center"><div style="font-size:3rem">⚡</div><h3>${d&&d.quickAsk?'詞性＋量詞快問快答':'字音字形快問快答'}</h3>
+  <p>每題 10 秒，越快答對分數越高，連對 3 題以上有加分！<br>做完可以按「交卷給老師」。</p><button class="btn alt" id="go">開始挑戰（${items.length} 題）</button></div>`;
+  $('#go',el).onclick=()=>start();
+}
+
+/* ================= 選擇題（交卷版） ================= */
+function renderMCQ(el,qs,code,title,opt={}){
+  let got=0,done=0;
+  const list=qs.map(q=>{const idx=shuf(q.o.map((_,k)=>k));return{...q,idx,my:null}});
+  el.innerHTML=`<div class="score" id="sc">已作答 0 / ${qs.length}　答對 0</div><div class="card">${list.map((q,n)=>`
+    <div class="mq" data-n="${n}"><div class="stem">${n+1}. ${esc(q.q)}${q.src?`<span class="src">${esc(q.src)}</span>`:''}</div>
+    ${q.idx.map((k,j)=>`<button class="o" data-k="${k}">(${'ABCD'[j]}) ${esc(q.o[k])}</button>`).join('')}
+    <div class="ex">💡 <b>解析：</b>${esc(q.ex)}</div></div>`).join('')}
+    <div class="row" style="margin-top:14px">${code!=null?'<button class="btn alt" id="sub">📤 交卷給老師</button>':''}<button class="btn ghost" id="rs">重新作答（選項重新洗牌）</button></div>
+    ${code!=null?'<p class="muted" id="subtip">全部作答完再交卷；沒作答的題目會算成空白。</p>':''}</div>`;
+  el.querySelectorAll('.mq').forEach(box=>{
+    const q=list[+box.dataset.n];
+    box.querySelectorAll('.o').forEach(b=>b.onclick=()=>{
+      if(box.classList.contains('done'))return;box.classList.add('done');done++;
+      q.my=+b.dataset.k;
+      box.querySelector(`.o[data-k="${q.a}"]`).classList.add('ok');
+      if(q.my===q.a){got++;sOK()}else{b.classList.add('bad');sBAD()}
+      $('#sc',el).textContent=`已作答 ${done} / ${qs.length}　答對 ${got}`+(done===qs.length?`　🎯 得分 ${Math.round(got/qs.length*100)}`:'');
+    });
+  });
+  $('#rs',el).onclick=()=>renderMCQ(el,qs,code,title,opt);
+  const sb=$('#sub',el);
+  if(sb) sb.onclick=()=>{
+    const blank=list.filter(q=>q.my===null).length;
+    if(blank&&!confirm(`還有 ${blank} 題沒作答，確定要交卷嗎？`))return;
+    submitToTeacher({code,type:0,title,total:list.length,correct:got,blank,
+      wrong:list.filter(q=>q.my!==q.a).map(q=>({q:q.q,my:q.my===null?'（空白）':q.o[q.my],a:q.o[q.a],u:q.unit||undefined}))},sb);
+  };
+}
+
+
+/* ================= 分類挑戰（交卷版，覆蓋模板版本） ================= */
+let SORTCTX=null;   /* {code,title}：由 render() 在單元分類頁設定 */
+function renderSort(el,so){
+  const ctx=SORTCTX;
+  let order=shuf(so.items),i=0,ok=0,wrongs=[];
+  function draw(){
+    if(i>=order.length){
+      el.innerHTML=`<h3>${so.title}</h3><div style="text-align:center"><div style="font-size:2.6rem">${ok===order.length?'🏆':'👍'}</div><p><b>${ok} / ${order.length}</b> 題正確</p>
+      ${wrongs.length?`<div style="text-align:left;background:#fffaf0;border-radius:12px;padding:10px 14px">${wrongs.map(w=>`「${esc(w.it[0])}」→ <b>${so.buckets[w.it[1]]}</b>（你選：${esc(so.buckets[w.my])}）${w.it[2]?'：'+esc(w.it[2]):''}`).join('<br>')}</div>`:''}
+      <div class="row" style="justify-content:center;margin-top:12px">${ctx?'<button class="btn alt" data-sub>📤 交卷給老師</button>':''}<button class="btn" data-again>再玩一次</button></div></div>`;
+      el.querySelector('[data-again]').onclick=()=>{SORTCTX=ctx;renderSort(el,so)};
+      const sb=el.querySelector('[data-sub]');
+      if(sb) sb.onclick=()=>submitToTeacher({code:ctx.code,type:2,title:`${ctx.title}｜${so.title}`.replace(/｜/g,' ／ '),total:order.length,correct:ok,
+        wrong:wrongs.map(w=>({q:`「${w.it[0]}」屬於哪一類？`,my:so.buckets[w.my],a:so.buckets[w.it[1]]}))},sb);
+      return;
+    }
+    const it=order[i];
+    el.innerHTML=`<div class="qz-top"><h3 style="margin:0">${so.title}</h3><span class="muted">${i+1} / ${order.length}</span></div>
+      <p class="muted" style="margin:4px 0 0">💡 ${so.tip}</p>
+      <div class="sortcard">${esc(it[0])}</div>
+      <div class="buckets" style="grid-template-columns:repeat(${Math.min(so.buckets.length,5)},1fr)">${so.buckets.map((b,k)=>`<button class="bk" data-k="${k}">${b}</button>`).join('')}</div>
+      <div class="fb"></div>`;
+    if(window.innerWidth<560&&so.buckets.length>3) el.querySelector('.buckets').style.gridTemplateColumns='1fr 1fr';
+    el.querySelectorAll('.bk').forEach(b=>b.onclick=()=>{
+      el.querySelectorAll('.bk').forEach(x=>x.onclick=null);
+      const right=+b.dataset.k===it[1];
+      el.querySelector(`.bk[data-k="${it[1]}"]`).classList.add('ok');
+      if(right){sOK();ok++}else{sBAD();b.classList.add('bad');wrongs.push({it,my:+b.dataset.k})}
+      el.querySelector('.fb').innerHTML=(right?'✅ 正確！':'❌ 應該是「'+so.buckets[it[1]]+'」')+(it[2]?'　'+esc(it[2]):'');
+      i++;setTimeout(draw,right?800:1900);
+    });
+  }
+  draw();
+}
+
+
+/* ================= 配對（交卷版，覆蓋模板版本） ================= */
+function renderMatch(el,pairs,code,title){
+  const rounds=[];const sp=shuf(pairs);for(let k=0;k<sp.length;k+=5)rounds.push(sp.slice(k,k+5));
+  let r=0;const missed=new Map();   /* 詞 → {a:正解, my:[配錯的解釋]} */
+  function draw(){
+    const set=rounds[r];const rights=shuf(set);let sel=null,done=0;
+    el.innerHTML=`<div class="card"><div class="qz-top"><h3 style="margin:0">🔗 配對　第 ${r+1} / ${rounds.length} 回</h3><span class="muted">先點左邊的詞，再點右邊的解釋</span></div>
+      <div class="mcols" style="margin-top:14px"><div>${set.map((p,k)=>`<button class="mi w" data-w="${k}">${esc(p[0])}</button>`).join('')}</div>
+      <div>${rights.map(p=>`<button class="mi" data-m="${set.indexOf(p)}">${esc(p[1])}</button>`).join('')}</div></div></div>`;
+    el.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>{if(b.classList.contains('done'))return;el.querySelectorAll('[data-w]').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');sel=b});
+    el.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{
+      if(!sel||b.classList.contains('done'))return;
+      if(sel.dataset.w===b.dataset.m){sOK();sel.classList.remove('sel');sel.classList.add('done');b.classList.add('done');sel=null;done++;
+        if(done===set.length)setTimeout(()=>{r++;if(r<rounds.length)draw();else fin()},600)}
+      else{sBAD();const w=set[+sel.dataset.w],m=missed.get(w[0])||{a:w[1],my:[]};m.my.push(set[+b.dataset.m][1]);missed.set(w[0],m);
+        b.classList.add('shake');setTimeout(()=>b.classList.remove('shake'),400)}
+    });
+  }
+  function fin(){
+    const n=pairs.length,bad=[...missed.entries()];
+    el.innerHTML=`<div class="card" style="text-align:center"><div style="font-size:3rem">${bad.length<=2?'🏆':'👍'}</div><h3>全部配對完成！</h3>
+      <p>一次就配對成功 <b>${n-bad.length} / ${n}</b> 個</p>
+      ${bad.length?`<div style="text-align:left;background:#fffaf0;border-radius:12px;padding:12px 16px;margin:12px 0"><b>曾經配錯的：</b><br>${bad.map(([w,m])=>`${esc(w)} → <b>${esc(m.a)}</b>`).join('<br>')}</div>`:''}
+      <div class="row" style="justify-content:center">${code!=null?'<button class="btn alt" id="msub">📤 交卷給老師</button>':''}<button class="btn" id="ag">再玩一次（題目重新洗牌）</button></div></div>`;
+    $('#ag',el).onclick=()=>renderMatch(el,pairs,code,title);
+    const sb=$('#msub',el);
+    if(sb) sb.onclick=()=>submitToTeacher({code,type:3,title,total:n,correct:n-bad.length,
+      wrong:bad.map(([w,m])=>({q:`「${w}」的意思`,my:[...new Set(m.my)].join(' / '),a:m.a}))},sb);
+  }
+  draw();
+}
+
+
+/* ================= 發音（微軟 Neural 語音預錄 mp3；沒有檔才退回瀏覽器語音） ================= */
+const isEN=s=>/^[A-Za-z][A-Za-z '’\-\/.…]*$/.test(s.trim());
+const normSay=t=>t.replace(/<br\s*\/?>/gi,' ').replace(/<[^>]+>/g,'').replace(/[’‘]/g,"'").replace(/[“”]/g,'"').replace(/…/g,' ').replace(/___+/g,'blank').replace(/\s+/g,' ').trim();
+function akey(t){let h=0x811c9dc5;for(let i=0;i<t.length;i++){h^=t.charCodeAt(i);h=Math.imul(h,0x01000193)>>>0}return h.toString(16).padStart(8,'0')}
+let __au=null;
+function stopSay(){try{if(__au)__au.pause();speechSynthesis.cancel()}catch(e){}}
+function webSay(t){try{const u=new SpeechSynthesisUtterance(t.replace(/\//g,' or '));u.lang='en-US';u.rate=.9;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+function say(t){
+  const n=normSay(t),k=akey(n);stopSay();
+  if(typeof AUDIO!=='undefined'&&AUDIO.has(k)){
+    if(!__au)__au=new Audio();
+    __au.src='audio/'+k+'.mp3';const p=__au.play();if(p&&p.catch)p.catch(()=>webSay(n));
+  }else webSay(n);
+}
+
+
+let cur='home', curSub={};
+function drawTabs(){
+  $('#tabs').innerHTML=TABS.map(([k,t])=>`<button class="tab ${k===cur?'on':''}" data-k="${k}">${t}</button>`).join('');
+  $('#tabs').querySelectorAll('.tab').forEach(b=>b.onclick=()=>go(b.dataset.k));
+}
+function go(k,sub){cur=k;if(sub)curSub[k]=sub;drawTabs();render();window.scrollTo({top:document.querySelector('nav.tabs').offsetTop,behavior:'smooth'})}
+document.body.insertAdjacentHTML('beforeend','<button class="bgm" id="bgmBtn"></button>');
+$('#bgmBtn').onclick=()=>{BGM.on=!BGM.on;if(BGM.on&&isAnim())BGM.start();else BGM.stop();BGM.btn()};
+
+const ANIM={u1:animU1,u2:animU2,r1:animR1,gram:animG};
+function isAnim(){return cur in L && (curSub[cur]||'anim')==='anim'}
+function render(){
+  const app=$('#app');
+  clearInterval(__cyc);
+  if(isAnim()) BGM.start(); else BGM.stop();
+  if(cur==='home') return renderHome(app);
+  if(cur==='mix') return renderMix(app);
+  const d=L[cur];
+  const subs = d.subs || [['anim','🎬 動畫導覽'],['quick','⚡ 單字快問快答'],['match','🔗 片語配對'],['sort','🎯 分類挑戰'],...(d.hunt?[['hunt',d.hunt.label]]:[]),['mcq','📝 段考模擬題']];
+  const s=curSub[cur]||'anim';
+  app.innerHTML=`<h2>${d.no}｜${d.title}</h2>
+  <div class="subtabs">${subs.map(([k,t])=>`<button class="sub ${k===s?'on':''}" data-s="${k}">${t}</button>`).join('')}</div>
+  <div id="panel"></div>`;
+  app.querySelectorAll('.sub').forEach(b=>b.onclick=()=>{curSub[cur]=b.dataset.s;render()});
+  const p=$('#panel');
+  if(s==='anim') ANIM[cur](p);
+  const title=`${d.no} ${d.short}`;
+  if(s==='quick') renderQuick(p,d.quick,d,d.code,title);
+  if(s==='match') renderMatch(p,d.words,d.code,title);
+  if(s==='sort'){p.innerHTML=d.sorts.map((_,i)=>`<div class="card" id="so${i}"></div>`).join('');d.sorts.forEach((so,i)=>{SORTCTX={code:d.code,title};renderSort($('#so'+i),so)});SORTCTX=null}
+  if(s==='hunt') renderHunt(p,d.hunt);
+  if(s==='mcq') renderMCQ(p,d.mcq,d.code,title);
+}
+
+/* ================= 首頁：考點雷達 ================= */
+function renderHome(app){
+  const N=RADAR.n;
+  const bar2=(arr,M)=>`<div class="bars">${arr.map(([n,v])=>`<div class="b"><span>${n}</span><div class="track"><div class="fill" data-w="${v/M*100}"></div></div><b>${v}/${M}</b></div>`).join('')}</div>`;
+  const bar=arr=>`<div class="bars">${arr.map(([n,v])=>`<div class="b"><span>${n}</span><div class="track"><div class="fill" data-w="${v/N*100}"></div></div><b>${v}/${N}</b></div>`).join('')}</div>`;
+  app.innerHTML=`
+  <h2>📡 第一次段考考點雷達</h2>
+  <p class="muted">整理 ${N} 所學校的翰林版國二上（B3）第一次段考卷：${RADAR.schools}，看哪些東西「幾乎每校都考」。</p>
+  <div class="lessoncards" style="margin:16px 0 24px">
+    ${['u1','u2','r1','gram'].map(k=>`<div class="lc" style="background:${L[k].color}" data-k="${k}"><div><div class="n">${L[k].no}</div><div class="t">${L[k].short}</div></div><div class="d">${L[k].desc}</div></div>`).join('')}
+    <div class="lc" style="background:linear-gradient(135deg,#3a4f7a,#6b86b8)" data-k="mix"><div><div class="n">綜合</div><div class="t">克漏字＋閱讀</div></div><div class="d">原創克漏字｜閱讀測驗｜翻譯翻翻卡</div></div>
+  </div>
+  <div class="card"><h3>最常考的主題（幾校考過）</h3>${bar(RADAR.topics)}
+  <p class="muted" style="margin-top:10px">⚠️ 閱讀測驗 27 校都有、合計 242 題，是分數最大宗；文章常借用課本主題（天氣、旅行明信片、社團招生、借東西）。<br>⚠️ 天氣主詞陷阱（It rains / There is rain，誘答 They have、There are）27 校都出現！</p></div>
+  <div class="grid2">
+    <div class="card"><h3>文法必考點</h3><div class="chips">${RADAR.basics.map(([w,n])=>`<span>${w} <b>×${n}</b></span>`).join('')}</div>
+    <p class="muted" style="margin-top:12px">四大天王：<b>before / after / when</b>、<b>雙受詞 to / for</b>、<b>mine / yours</b>、<b>天氣 It / There</b>，每一個都超過 25 校考。</p></div>
+    <div class="card"><h3>高頻單字片語</h3><div class="chips">${RADAR.words.map(([w,n])=>`<span>${w} <b>×${n}</b></span>`).join('')}</div>
+    <p class="muted" style="margin-top:12px"><b>borrow</b>（26 校）、<b>lend</b>（20 校）是翰林最高頻單字；文意字彙常給首字母：e______r（engineer）、d_______t（difficult）。</p></div>
+  </div>
+  <div class="card"><h3>🌏 不分版本都考！（${RADAR.cross.n} 校八上第一次段考，含南一、康軒）</h3>${bar2(RADAR.cross.items,RADAR.cross.n)}
+  <p class="muted" style="margin-top:10px">全臺 ${RADAR.cross.n} 校 114 上八年級第一次段考（南一 5、翰林 28、康軒 26）：<b>過去式</b>幾乎每校都考。翰林版 U1～U2 的句子也大量用過去式（sent、heard、thought、lent），動詞變化一定要熟！</p></div>
+  <div class="card"><h3>✍️ 非選題考什麼？</h3><div class="chips">${RADAR.nonmcq.map(([w,n])=>`<span>${w} <b>×${n}</b></span>`).join('')}</div>
+  <p class="muted" style="margin-top:12px">翻譯最愛考：「我從澳洲寄了一張明信片給你」「我無法下定決心，因為所有社團都很有趣」「我向姑姑借了滑雪板」→ 到「🧩 克漏字＋閱讀」用翻譯翻翻卡練。</p></div>
+  <div class="card"><h3>🧭 建議闖關順序</h3>
+  <p>① 每課先看 <b>🎬 動畫導覽</b>，弄懂課文情境 → ② <b>⚡ 單字快問快答</b>、<b>🔗 片語配對</b>，練熟基本分 → ③ <b>📐 文法特訓</b>，把五大文法練到反射 → ④ <b>📝 段考模擬題</b>與 <b>🧩 克漏字＋閱讀</b>，檢查自己的程度。</p>
+  <p class="muted">段考範圍各校略有不同：有的學校加考 LiveABC／空中美語雜誌或 2000 單字，請依自己學校的公告準備。本站課文為依段考卷考點原創改寫，非課本原文。</p></div>`;
+  app.querySelectorAll('.lc').forEach(c=>c.onclick=()=>go(c.dataset.k,c.dataset.k==='mix'?undefined:'anim'));
+  requestAnimationFrame(()=>setTimeout(()=>app.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%'),60));
+}
+
+/* ================= 快問快答（英文版＋交卷） ================= */
+function renderQuick(el,items,d,code,title){
+  let order,i,score,combo,best,wrong,timer,left;
+  const TIME=10;
+  function start(list){order=shuf(list||items);i=0;score=0;combo=0;best=0;wrong=[];next()}
+  function next(){
+    clearInterval(timer);
+    if(i>=order.length) return end();
+    const [q,a,ds,hot,type]=order[i];
+    const opts=shuf([a,...ds]);
+    const canSay=isEN(q)&&type!=='s';
+    el.innerHTML=`<div class="card">
+      <div class="qz-top"><b>第 ${i+1} / ${order.length} 題</b><span>得分 <b>${score}</b>　<span class="combo">${combo>=2?'🔥 連對 '+combo:''}</span></span></div>
+      <div class="timer"><i id="tb"></i></div>
+      <p class="muted" style="text-align:center;margin:8px 0 0">${ASK[type]} ${hot?'<span class="star">★ 2 校以上考過</span>':''}</p>
+      <div class="qword en">${esc(q)}${canSay?' <button class="say" id="sayq" aria-label="播放發音">🔊</button>':''}</div>
+      <div class="opts">${opts.map(o=>`<button class="opt" data-v="${esc(o)}">${esc(o)}</button>`).join('')}</div>
+    </div>`;
+    if(canSay) $('#sayq',el).onclick=()=>say(q);
+    left=TIME;const tb=$('#tb',el);
+    timer=setInterval(()=>{left-=.1;tb.style.width=Math.max(0,left/TIME*100)+'%';if(left<=0){clearInterval(timer);pick(null)}},100);
+    el.querySelectorAll('.opt').forEach(b=>b.onclick=()=>pick(b));
+    function pick(b){
+      clearInterval(timer);
+      el.querySelectorAll('.opt').forEach(x=>{x.onclick=null;if(x.dataset.v===esc(a))x.classList.add('ok')});
+      const right=b&&b.dataset.v===esc(a);
+      if(right){sOK();combo++;best=Math.max(best,combo);score+=10+Math.round(left)+(combo>=3?5:0)}
+      else{sBAD();if(b)b.classList.add('bad');combo=0;wrong.push({item:order[i],my:b?b.textContent:'（超時）'})}
+      if(b&&isEN(a)&&type!=='e') say(a);
+      i++;setTimeout(next,right?900:1600);
+    }
+  }
+  function end(){
+    const n=order.length,acc=Math.round((n-wrong.length)/n*100),retry=n!==items.length;
+    el.innerHTML=`<div class="card" style="text-align:center">
+      <div style="font-size:3rem">${acc>=90?'🏆':acc>=70?'👍':'💪'}</div>
+      <h3>完成！正確率 ${acc}%</h3><p>總分 <b>${score}</b>　最高連對 <b>${best}</b></p>
+      ${wrong.length?`<div style="text-align:left;background:#fffaf0;border-radius:12px;padding:12px 16px;margin:12px 0"><b>要再加強的：</b><br>${wrong.map(w=>`${esc(w.item[0])} → <b>${esc(w.item[1])}</b>（你選：${esc(w.my)}）`).join('<br>')}</div>`:''}
+      <div class="row" style="justify-content:center">
+        ${code!=null?'<button class="btn alt" id="sub">📤 交卷給老師</button>':''}
+        ${wrong.length?'<button class="btn ghost" id="rw">只練錯的題目</button>':''}<button class="btn" id="ra">全部重來</button></div>
+      ${code!=null?'<p class="muted" style="margin-top:8px">交卷會把你的姓名、分數和錯的題目傳給老師。</p>':''}</div>`;
+    $('#ra',el).onclick=()=>start();
+    const rw=$('#rw',el); if(rw) rw.onclick=()=>start(wrong.map(w=>w.item));
+    const sb=$('#sub',el); if(sb) sb.onclick=()=>submitToTeacher({code,type:1,title:title+(retry?'（只練錯題）':''),total:n,correct:n-wrong.length,
+      wrong:wrong.map(w=>({q:`${w.item[0]}（${ASK[w.item[4]]}）`,my:w.my,a:w.item[1]}))},sb);
+  }
+  el.innerHTML=`<div class="card" style="text-align:center"><div style="font-size:3rem">⚡</div><h3>快問快答</h3>
+  <p>每題 10 秒，越快答對分數越高，連對 3 題以上有加分！<br><span class="star">★</span> 表示 2 所以上學校考過。按 🔊 可以聽發音。做完可以按「交卷給老師」。</p><button class="btn alt" id="go">開始挑戰（${items.length} 題）</button></div>`;
+  $('#go',el).onclick=()=>start();
+}
+
+/* ================= 過去式抓抓樂（以「字」為單位） ================= */
+function renderHunt(el,h){
+  let total=0,found=0,miss=0,id=0;
+  const html=h.lines.map(line=>{
+    let out='';const re=/\[([^\]]+)\]|([A-Za-z'’\-]+)|([^A-Za-z\[]+)/g;let m;
+    while((m=re.exec(line))){
+      if(m[1]){id++;total++;out+=`<span class="c w" data-t="${id}">${esc(m[1])}</span>`}
+      else if(m[2]) out+=`<span class="c w">${esc(m[2])}</span>`;
+      else out+=esc(m[3]);
+    }
+    return `<p>${out}</p>`;
+  }).join('');
+  el.innerHTML=`<div class="card hunt"><div class="qz-top"><h3 style="margin:0">🔍 ${h.title}</h3><b id="hc">找到 0 / ${total}</b></div>
+    <p class="muted">${h.tip}</p><div class="en">${html}</div>
+    <div class="row" style="margin-top:10px"><button class="btn ghost" id="hs">公布答案</button><button class="btn ghost" id="hr">重來</button></div></div>`;
+  el.querySelectorAll('span.c').forEach(s=>s.onclick=()=>{
+    const t=s.dataset.t;
+    if(t){if(s.classList.contains('found'))return;s.classList.add('found');found++;sOK();say(s.textContent);
+      $('#hc',el).textContent=`找到 ${found} / ${total}`+(found===total?'　🏆 全部找到！（點錯 '+miss+' 次）':'')}
+    else{miss++;sBAD();s.classList.add('miss');setTimeout(()=>s.classList.remove('miss'),600)}
+  });
+  $('#hs',el).onclick=()=>{el.querySelectorAll('span.c[data-t]').forEach(g=>g.classList.add('found'));$('#hc',el).textContent=`答案：共 ${total} 個`};
+  $('#hr',el).onclick=()=>renderHunt(el,h);
+}
+
+/* ================= 綜合：克漏字＋閱讀＋翻譯 ================= */
+function renderMix(app){
+  const s=curSub.mix||'cloze';
+  const subs=[['cloze','🧩 原創克漏字'],['read','📖 閱讀測驗'],['trans','🃏 翻譯翻翻卡']];
+  app.innerHTML=`<h2>🧩 克漏字＋閱讀＋翻譯</h2>
+  <p class="muted">翰林 28 校中 27 校考閱讀、21 校考克漏字、22 校考翻譯；題材多是天氣預報、旅行明信片、社團招生、借東西。以下文章皆為原創改寫。</p>
+  <div class="subtabs">${subs.map(([k,t])=>`<button class="sub ${k===s?'on':''}" data-s="${k}">${t}</button>`).join('')}</div><div id="panel"></div>`;
+  app.querySelectorAll('.sub').forEach(b=>b.onclick=()=>{curSub.mix=b.dataset.s;render()});
+  const p=$('#panel');
+  if(s==='trans'){
+    p.innerHTML=`<div class="card"><h3>🃏 翻譯翻翻卡</h3><p class="muted">先在心裡（或紙上）翻成英文，再點卡片翻面對答案，按 🔊 聽整句。</p>
+    <div class="flips tr">${TRANS.map((c,k)=>`<div class="flip" data-k="${k}"><div class="in"><div class="f"><b>${esc(c[0])}</b></div><div class="bk2"><span class="en">${esc(c[1])}</span><small>${esc(c[2])}</small></div></div></div>`).join('')}</div></div>`;
+    p.querySelectorAll('.flip').forEach(f=>f.onclick=()=>{f.classList.toggle('on');if(f.classList.contains('on'))say(TRANS[+f.dataset.k][1])});
+    return;
+  }
+  const set=s==='cloze'?CLOZE:READ;
+  p.innerHTML=set.map((c,k)=>`<div class="card"><h3>${c.title}</h3><div class="passage en">${esc(c.text).replace(/\n/g,'<br>').replace(/__(\d)__/g,'<b class="blank">__$1__</b>')}</div><div id="cq${k}"></div></div>`).join('');
+  set.forEach((c,k)=>{const nm=c.title.split('｜')[1]||c.title;renderMCQ($('#cq'+k),c.qs.map(q=>({...q,src:'',q:/^__\d__$/.test(q.q)?`${nm} 第 ${q.q.replace(/_/g,'')} 格`:q.q})),7,`綜合 ${c.title.replace(/｜/g,' ')}`)});
+}
+
+/* ================= U1 動畫（課文為原創改寫） ================= */
+function animU1(p){
+  p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
+  <div class="card"><h3>🗺️ 課文一張圖</h3>
+  <p><span class="pill">對話</span>Zac 問剛從澳洲回來的 Judy：How was your trip? → 澳洲 7 月是<b>冬天</b>、很冷、山上下雪 → 臺灣夏天常有颱風和大雨</p>
+  <p><span class="pill">明信片</span>Judy 在店裡點餅乾和熱巧克力，店員說 <i>Bikkies and hot chokkie</i>，覺得好<b>奇怪</b>（strange）；G'day 聽起來像 go die</p>
+  <p><span class="pill">文法</span>What's the weather like? ／ It rains ＝ There is rain ／ send 人 物 ＝ send 物 to 人</p></div>`;
+  const steps=[
+    {label:'① 旅行回來了',imgs:[{img:'u1_opera',tag:'How was your trip to Australia?'},{img:'u1_kangaroo',tag:'I had a good time there.'}],poem:'Zac: Hi, Judy! <b>How was</b> your trip to Australia?<br>Judy: It was great. I <b>had a good time</b> there. I saw kangaroos and the Sydney Opera House!',key:'<b>How was your trip?</b> 回答用感受：I had a good time.／We had lots of fun.（新北忠孝、花蓮宜昌考過）。trip 是旅行，不要和 trap 搞混。'},
+    {label:'② 澳洲 7 月是冬天',imgs:[{img:'u1_snow',tag:'It was cold, and it snowed for a few days.'}],poem:'Zac: <b>What was the weather like</b> there?<br>Judy: It was July, but it was <b>winter</b> in Australia. It was cold, and it <b>snowed</b> for a few days in the mountains.',key:'What\'s the weather <b>like</b>? like 不能漏；＝How\'s the weather?（How 不配 like）。澳洲在南半球，<b>季節和臺灣相反</b>。「It was cold, and it snowed for a few days.」多校翻譯考過。'},
+    {label:'③ 臺灣的雨和颱風',imgs:[{img:'u1_umbrella',tag:'There is a lot of rain in summer.'},{img:'u1_typhoon',tag:'There are often typhoons in Taiwan.'}],poem:'Judy: Does it rain a lot in Taiwan in summer?<br>Zac: Yes, <b>there is</b> a lot of <b>rain</b>. And there are often <b>typhoons</b>. Don\'t forget your <b>umbrella</b>!',key:'天氣主詞陷阱（27 校）：<b>It rains</b> a lot ＝ <b>There is</b> a lot of rain ＝ <b>We have</b> a lot of rain。rain 不可數 → 不能用 There are；誘答 They have、Is it 要小心。'},
+    {label:'④ 寄明信片',imgs:[{img:'u1_postcard',tag:'I sent you a postcard from Australia.'}],poem:'Judy: By the way, I <b>sent you a postcard</b> from Australia. Did you get it?<br>Zac: Not yet. Maybe it\'s still on the way!',key:'翻譯必考：I <b>sent you</b> a postcard ＝ I sent a postcard <b>to you</b>。send 的過去式 <b>sent</b>；send / give / show 用 to。'},
+    {label:'⑤ Bikkies and chokkie',imgs:[{img:'u1_biscuit',tag:'Bikkies? That means cookies!'},{img:'u1_cocoa',tag:'Hot chokkie = hot chocolate'}],poem:'(明信片) The weather was cold, so I <b>ordered</b> cookies and hot chocolate in a small shop. The clerk said, "Bikkies and hot chokkie, <b>coming right up</b>!" How <b>strange</b>!',key:'<b>order</b>＝點餐（15 校拼字）；<b>strange</b>＝奇怪的（16 校）；coming right up＝馬上來。澳洲英語愛把字縮短加 -ie。'},
+    {label:'⑥ G\'day ＝ go die？',imgs:[{img:'u1_kangaroo',tag:'G\'day, mate!'},{img:'u1_autumn',tag:'autumn ＝ fall（秋天）'}],poem:'A man smiled and said "G\'day" to me. It sounded like "go die"! But <b>in fact</b>, he <b>meant</b> "good day." That\'s Australian English.',key:'in fact＝事實上（14 校）；mean 過去式 <b>meant</b>。英式 autumn ＝ 美式 fall（秋天）都要會拼。'},
+  ];
+  stepper(p,steps,i=>showPhoto(steps[i]),8000);
+}
+
+/* ================= U2 動畫 ================= */
+function animU2(p){
+  p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
+  <div class="grid2">
+    <div class="card"><h3>📞 對話：Cody ＆ Yuki</h3><p><span class="pill">起</span>Cody 打電話找 Yuki（May I speak to…? ／ Hold on.）</p><p><span class="pill">承</span>邀她一起報名<b>電玩設計社</b>：老師是 game engineer，免費</p><p><span class="pill">轉</span>Yuki 下不了決心：所有社團都好有趣</p><p><span class="pill">合</span>Can I think about it and <b>call you back</b>?</p></div>
+    <div class="card"><h3>📖 閱讀：Shin 和水上運動社</h3><p><span class="pill">一</span>Shin 以前很不會游泳（a poor swimmer）</p><p><span class="pill">二</span>聽說水上運動社，下定決心報名</p><p><span class="pill">三</span>每次課前暖身、努力練習</p><p><span class="pill">四</span>年底 swim like a fish；朋友：Are you pulling my leg?</p></div>
+  </div>`;
+  const steps=[
+    {label:'① 打電話',imgs:[{img:'u2_phone',tag:'May I speak to Yuki?'}],poem:'Cody: Hello. <b>May I speak to</b> Yuki?<br>Mom: Sure. <b>Hold on</b>, please.<br>Yuki: Hi, Cody. What\'s up?',key:'電話用語（15 校）：May I speak to…?／<b>Hold on</b>（稍等）／Who\'s calling?／<b>This is she.</b>（我就是）／wrong number（打錯）。'},
+    {label:'② 電玩設計社',imgs:[{img:'u2_gamedesign',tag:'A game engineer teaches the lessons.'},{img:'u2_coding',tag:'Design your own video games!'}],poem:'Cody: I <b>heard about</b> the video game design club. A real game <b>engineer</b> teaches the lessons. <b>After</b> we finish the lessons, we can <b>design</b> our own games. And it\'s <b>for free</b>!',key:'<b>engineer</b>（19 校首字母填空）、hear about（聽說）、for free（免費）。<b>after</b> 子句：先上完課，才設計遊戲。'},
+    {label:'③ 下不了決心',imgs:[{img:'u2_club',tag:'All the clubs are interesting!'},{img:'u2_magic',tag:'The magic club is fun, too.'}],poem:'Yuki: Sounds cool! But I can\'t <b>make up my mind</b> because all the clubs are <b>interesting</b>. The magic club is fun, too.<br>Cody: Well, computer <b>science</b> is my favorite <b>subject</b>, so I\'m going to <b>sign up for</b> it.',key:'「I can\'t make up my mind because all the clubs are interesting.」是<b>翻譯高頻句</b>（台中向上、臺東卑南、英明、桃子腳）。sign up for（24 校）、make up one\'s mind（20 校）。'},
+    {label:'④ 回電給你',imgs:[{img:'u2_phone',tag:'Can I think about it and call you back?'}],poem:'Yuki: Can I <b>think about</b> it and <b>call you back</b>?<br>Cody: Sure. But don\'t wait too long. Join now or <b>miss out</b>!',key:'think about＝考慮；think of＝想到。call … back＝回電。miss out＝錯過（16 校）。'},
+    {label:'⑤ 不會游泳的 Shin',imgs:[{img:'u2_swim',tag:'He heard about the water sports club.'}],poem:'A year ago, Shin was a <b>poor swimmer</b>. <b>When</b> he jumped into the pool, he always swallowed water. One day, he <b>heard about</b> the water sports club. He thought for a long time, and then he <b>made up his mind</b>.',key:'be poor at／a poor swimmer＝不會游泳。<b>When</b> he jumped…, he swallowed water：when 子句、主要子句都用過去式（時態一致）。'},
+    {label:'⑥ 游得像魚',imgs:[{img:'u2_fish',tag:'He could swim like a fish.'}],poem:'<b>Before</b> every lesson, he did warm-up exercises. <b>At the end of</b> the year, he could <b>swim like a fish</b>.<br>His friends: Are you <b>pulling my leg</b>? You were a poor swimmer!',key:'at the end of（5 校）；pull one\'s leg＝開玩笑（15 校）。慣用語家族：<b>on cloud nine</b>（超開心）、<b>join the club</b>（我也是）、<b>under the weather</b>（不舒服）。'},
+  ];
+  stepper(p,steps,i=>showPhoto(steps[i]),8000);
+}
+
+/* ================= R1 動畫 ================= */
+function animR1(p){
+  p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
+  <div class="card"><h3>🗺️ Review 1 一張圖</h3>
+  <p><span class="pill">借入</span>Shin <b>borrowed</b> a snowboard <b>from</b> his aunt.（borrow 物 from 人）</p>
+  <p><span class="pill">借出</span>His aunt <b>lent</b> him her gloves.（lend 人 物 ＝ lend 物 to 人；lend → lent）</p>
+  <p><span class="pill">誰的</span>Whose gloves are these? — They\'re <b>hers</b>. ／ It\'s <b>mine</b>, not <b>yours</b>.</p></div>`;
+  const steps=[
+    {label:'① 好酷的滑雪板',imgs:[{img:'r1_snowboard',tag:'Is it yours, Shin?'}],poem:'Zac: Wow, nice snowboard! Is it <b>yours</b>, Shin?<br>Shin: No, it isn\'t <b>mine</b>. I <b>borrowed</b> it <b>from</b> my aunt.',key:'borrow（26 校，翰林第一高頻字）＝借「進來」，搭配 <b>from</b>。yours / mine 後面不接名詞。'},
+    {label:'② 姑姑也借我手套',imgs:[{img:'r1_gloves',tag:'She also lent me her gloves.'}],poem:'Shin: She also <b>lent</b> me her <b>gloves</b>. These are <b>hers</b>, too. It\'s so <b>kind of</b> her!',key:'lend＝借「出去」，過去式 <b>lent</b>（沒有 lended）。lend 人 物 ＝ lend 物 <b>to</b> 人。It\'s kind of＋人（高雄獅甲）。'},
+    {label:'③ 這是誰的？',imgs:[{img:'r1_lostfound',tag:'Whose umbrella is this?'},{img:'r1_umbrella',tag:'It\'s mine, not yours.'}],poem:'Teacher: <b>Whose</b> umbrella is this? I found it in the lost and found box.<br>Amy: It\'s <b>mine</b>! Thank you.<br>Ben: No, it\'s not <b>yours</b>. <b>Yours</b> is red. This one is blue.',key:'<b>Whose</b>＝誰的；<b>Who\'s</b>＝Who is（11 校考 Whose vs Who\'s）。<b>Yours is red.</b> 所有格代名詞當主詞，動詞看它代表的名詞（單數 is）。'},
+    {label:'④ 向圖書館借書',imgs:[{img:'r1_library',tag:'I borrowed some books from the library.'}],poem:'I <b>borrowed</b> two books <b>from</b> the school library. My classmate didn\'t have one, so I <b>lent</b> one <b>to</b> him.',key:'同一句裡 borrow 和 lend 方向相反：從圖書館借「入」，再借「出」給同學。考試常把兩字放同一題當誘答（18 校）。'},
+  ];
+  stepper(p,steps,i=>showPhoto(steps[i]),8000);
+}
+
+/* ================= 文法：句型變身秀 ================= */
+function animG(p){
+  const S=[
+    {raw:'Shin told me about the club. I signed up for it.',tag:'before / after / when',v:[
+      {n:'after',t:'I signed up for the club <b>after</b> Shin told me about it.',m:'after＋<b>先</b>發生的事（Shin 先告訴我）'},
+      {n:'before',t:'Shin told me about the club <b>before</b> I signed up for it.',m:'before＋<b>後</b>發生的事'},
+      {n:'when',t:'<b>When</b> I heard about the club, I thought of you.',m:'when＝當…的時候；兩邊時態一致（heard / thought）'},
+      {n:'未來',t:'Please call me <b>after</b> you get home.',m:'講未來時，時間子句用<b>現在式</b>（不用 will get）'}]},
+    {raw:'I gave her the book.',tag:'雙受詞 to / for',v:[
+      {n:'人＋物',t:'I gave <b>her</b> the book.',m:'give＋人＋物'},
+      {n:'物＋to 人',t:'I gave the book <b>to</b> her.',m:'give / send / lend / show / teach 用 <b>to</b>'},
+      {n:'物＋for 人',t:'Lisa bought a kite <b>for</b> me.',m:'buy / make / cook / get 用 <b>for</b>'},
+      {n:'代名詞',t:'Can you give <b>it to me</b>?',m:'物是代名詞 it / them → 一定放前面，不能說 give me it'}]},
+    {raw:'This is my umbrella.',tag:'所有格代名詞',v:[
+      {n:'mine',t:'This umbrella is <b>mine</b>.',m:'mine＝my umbrella，後面不接名詞'},
+      {n:'yours',t:'It\'s mine, not <b>yours</b>.',m:'your＋名詞 ＝ yours'},
+      {n:'當主詞',t:'<b>Mine</b> is blue. <b>Hers</b> is red.',m:'所有格代名詞可以當主詞'},
+      {n:'Whose',t:'<b>Whose</b> umbrella is this? It\'s <b>hers</b>.',m:'問「誰的」用 Whose，不是 Who\'s'}]},
+    {raw:'It rains a lot in Taiwan.',tag:'天氣 It / There',v:[
+      {n:'It＋動詞',t:'<b>It rains</b> a lot in Taiwan.',m:'rain 當動詞，主詞用 It'},
+      {n:'There is',t:'<b>There is</b> a lot of rain in Taiwan.',m:'rain 當名詞，<b>不可數</b> → There is（不能 There are）'},
+      {n:'We have',t:'<b>We have</b> a lot of rain in Taiwan.',m:'說當地人，用 We / They have'},
+      {n:'過去',t:'It <b>rained</b> a lot. ＝ There <b>was</b> a lot of rain.',m:'時態跟著時間走'}]},
+    {raw:'My aunt has a snowboard.',tag:'borrow / lend',v:[
+      {n:'borrow',t:'I <b>borrowed</b> a snowboard <b>from</b> my aunt.',m:'borrow 物 from 人：借進來'},
+      {n:'lend',t:'My aunt <b>lent</b> me her snowboard.',m:'lend 人 物：借出去；過去式 lent'},
+      {n:'lend to',t:'My aunt <b>lent</b> her snowboard <b>to</b> me.',m:'lend 物 to 人'},
+      {n:'問句',t:'Can I <b>borrow</b> your gloves? ＝ Can you <b>lend</b> me your gloves?',m:'主詞換人，動詞就換'}]},
+  ];
+  p.innerHTML=`<div class="card"><h3>🎬 句型變身秀：同一個句型，看它怎麼變！</h3>
+    <p class="muted">先選一個文法，再按下面的按鈕看它怎麼變身（會唸出來）。</p>
+    <div class="row" id="pk">${S.map((s,i)=>`<button class="sub" data-i="${i}">${s.tag}</button>`).join('')}</div>
+    <div class="ps en" id="ps" style="margin-top:14px"></div>
+    <div class="row" id="pv" style="margin-top:12px;justify-content:center"></div>
+    <div class="meaning" id="pm">👆 請按上面的按鈕</div></div>
+    <div class="card"><h3>🎯 翰林 28 校必考速記</h3>
+    <p><span class="pill">before / after</span>after＋先做的事、before＋後做的事；講未來時子句用現在式</p>
+    <p><span class="pill">雙受詞</span>give / send / lend / show → <b>to</b>；buy / make / cook → <b>for</b>；<s>give me it</s> → give it to me</p>
+    <p><span class="pill">所有格代名詞</span>my bag ＝ <b>mine</b>；<s>This is my.</s>；Whose ≠ Who's</p>
+    <p><span class="pill">天氣主詞</span>It rains ＝ There is rain（<s>There are rain</s>）＝ We have rain</p>
+    <p><span class="pill">What's … like?</span>What's the weather <b>like</b>? ＝ How's the weather?（<s>How's the weather like?</s>）</p>
+    <p><span class="pill">borrow / lend</span>borrow 物 <b>from</b> 人；lend 物 <b>to</b> 人；lend → <b>lent</b></p></div>`;
+  function show(i){
+    const s=S[i];p.querySelectorAll('#pk .sub').forEach(b=>b.classList.toggle('on',+b.dataset.i===i));
+    $('#ps').innerHTML=esc(s.raw);$('#pm').innerHTML='👆 請按變身按鈕';
+    $('#pv').innerHTML=s.v.map((v,k)=>`<button class="btn ${k%2?'alt':''}" data-k="${k}">${v.n}</button>`).join('');
+    $('#pv').querySelectorAll('button').forEach(b=>b.onclick=()=>{
+      const v=s.v[+b.dataset.k];
+      const ps=$('#ps');ps.innerHTML=v.t;ps.classList.remove('pop');void ps.offsetWidth;ps.classList.add('pop');
+      $('#pm').innerHTML='💡 '+v.m;say(ps.textContent);
+    });
+  }
+  p.querySelectorAll('#pk .sub').forEach(b=>b.onclick=()=>show(+b.dataset.i));
+  show(0);
+}
+
+meChip();drawTabs();render();
+if(!CLOUD.me)enroll(()=>{},true);
+
+/* ================= ✏️ 老師手寫 =================
+   畫在網頁上的筆跡記在「整頁座標」，會跟著畫面捲動；白板的筆跡另外存、不捲動。
+   書寫時：一指／觸控筆寫字、兩指捲動＋縮放（不鎖畫面）。✋ 捲動模式：筆跡照樣顯示，可以點題目。
+   縮放：把頁面內容包進 #penZoom 再用 transform:scale；筆跡存「內容座標」，縮放後仍黏在原來的字上。
+   用固定大小的畫布＋捲動時重畫（平板瀏覽器對超大畫布有尺寸限制）。 */
+(function(){
+  const css=`
+  #penBtn{position:fixed;left:14px;bottom:14px;z-index:60;border:none;background:#fff;color:#2b4c7e;border-radius:99px;padding:8px 16px;box-shadow:0 4px 18px rgba(30,45,70,.18);font-weight:700;font-size:1rem;font-family:inherit;cursor:pointer}
+  #penCv{position:fixed;inset:0;width:100vw;height:100vh;z-index:57;pointer-events:none;display:none}
+  #penHit{position:fixed;inset:0;z-index:58;display:none;touch-action:none;cursor:crosshair}
+  #penBoard{position:fixed;inset:0;z-index:56;background:#fff;display:none}
+  body.pen-on #penCv{display:block}
+  body.pen-on.pen-draw #penHit{display:block}
+  body.pen-board #penBoard{display:block}
+  #penBar{position:fixed;left:0;right:0;margin:0 auto;width:fit-content;bottom:12px;z-index:61;display:none;gap:6px;align-items:center;flex-wrap:wrap;justify-content:center;
+    background:rgba(255,255,255,.97);border-radius:16px;padding:8px 10px;box-shadow:0 6px 24px rgba(30,45,70,.22);max-width:calc(100vw - 24px)}
+  body.pen-top #penBar{bottom:auto;top:12px}
+  body.pen-on #penBar{display:flex}
+  #penBar button{border:2px solid #e3e0d8;background:#fff;border-radius:10px;min-width:44px;height:44px;font-size:1rem;font-family:inherit;font-weight:700;cursor:pointer;color:#23303f;padding:0 10px}
+  #penBar button.on{border-color:#2b4c7e;background:#e8effa}
+  #penBar button.mode{background:#2b4c7e;color:#fff;border-color:#2b4c7e}
+  #penBar .dot{width:44px;padding:0}
+  #penBar .dot i{display:block;width:22px;height:22px;border-radius:50%;margin:auto}
+  #penBar .sep{width:1px;height:30px;background:#e3e0d8;margin:0 2px}
+  body.pen-on #penBtn{display:none}
+  #penZoom{transform-origin:0 0}
+  html.pen-lock,html.pen-lock body{touch-action:manipulation;touch-action:pan-x pan-y}
+  #penBar,#penBar *,#penBtn{touch-action:manipulation;-webkit-user-select:none;user-select:none}
+  @media(max-width:640px){#penBar .t,#penBar .sep{display:none}#penBar{gap:4px;padding:6px}#penBar button{min-width:40px;height:40px;padding:0 6px}#penBar .dot{width:40px}}`;
+  const st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
+  const COLORS=['#d9342b','#1f5fbf','#1d1d1d','#1f9a55'];
+  const SIZES=[[3,'細'],[6,'中'],[12,'粗']];
+  let color=COLORS[0],size=6,erase=false,page=[],board=[],cur=null,boardOn=false;
+  document.body.insertAdjacentHTML('beforeend',`<button id="penBtn" title="老師手寫">✏️ 手寫</button>
+    <div id="penBoard"></div><canvas id="penCv"></canvas><div id="penHit"></div>
+    <div id="penBar">
+      <button class="mode" data-a="mode">✋<span class="t"> 捲動</span></button>
+      <span class="sep"></span>
+      ${COLORS.map((c,i)=>`<button class="dot${i?'':' on'}" data-c="${c}" title="顏色"><i style="background:${c}"></i></button>`).join('')}
+      <span class="sep"></span>
+      ${SIZES.map(([s,n])=>`<button data-s="${s}" class="${s===6?'on':''}">${n}</button>`).join('')}
+      <span class="sep"></span>
+      <button data-a="erase" title="橡皮擦">🧽<span class="t"> 橡皮擦</span></button><button data-a="undo" title="復原">↩️<span class="t"> 復原</span></button><button data-a="clear" title="清除">🗑️<span class="t"> 清除</span></button>
+      <button data-a="zout" title="縮小">－</button><button data-a="zoom" title="回到 1 倍">🔍<span class="z">1.0×</span></button><button data-a="zin" title="放大">＋</button><button data-a="board" title="白板">⬜<span class="t"> 白板</span></button><button data-a="move" title="移位">⇅<span class="t"> 移位</span></button><button data-a="close" title="關閉">✖<span class="t"> 關閉</span></button>
+    </div>`);
+  const Z=document.createElement('div');Z.id='penZoom';
+  const flow=[...document.body.children].filter(e=>/^(HEADER|NAV|MAIN|FOOTER)$/.test(e.tagName));
+  if(flow.length){flow[0].before(Z);flow.forEach(e=>Z.appendChild(e))}
+  let zoom=1;
+  const B=document.body,cv=document.getElementById('penCv'),hit=document.getElementById('penHit'),bar=document.getElementById('penBar'),ctx=cv.getContext('2d');
+  const list=()=>boardOn?board:page;
+  /* 螢幕座標＝內容座標×z＋(x,y)。白板不捲動不縮放；網頁筆跡跟著捲動與縮放 */
+  const off=()=>{if(boardOn)return{z:1,x:0,y:0};const r=Z.getBoundingClientRect();return{z:zoom,x:r.left,y:r.top}};
+  function fit(){const r=devicePixelRatio||1;cv.width=innerWidth*r;cv.height=innerHeight*r;ctx.setTransform(r,0,0,r,0,0);redraw()}
+  function seg(s,a,b,o){
+    ctx.globalCompositeOperation=s.erase?'destination-out':'source-over';
+    ctx.strokeStyle=s.color;ctx.lineCap='round';ctx.lineJoin='round';
+    ctx.lineWidth=(s.erase?s.size*4:s.size*(0.55+(b.p||0.5)*0.9))*o.z;
+    ctx.beginPath();ctx.moveTo(a.x*o.z+o.x,a.y*o.z+o.y);ctx.lineTo(b.x*o.z+o.x,b.y*o.z+o.y);ctx.stroke();
+  }
+  function draw(s,o){const P=s.pts;if(P.length===1)seg(s,P[0],{...P[0],x:P[0].x+.01},o);for(let i=1;i<P.length;i++)seg(s,P[i-1],P[i],o)}
+  function redraw(){ctx.clearRect(0,0,innerWidth,innerHeight);const o=off();
+    list().forEach(s=>{const ys=s.pts.map(p=>p.y*o.z+o.y);if(Math.max(...ys)<-50||Math.min(...ys)>innerHeight+50)return;draw(s,o)});
+    ctx.globalCompositeOperation='source-over'}
+  let raf=0;addEventListener('scroll',()=>{if(!B.classList.contains('pen-on')||boardOn||raf)return;raf=requestAnimationFrame(()=>{raf=0;redraw()})},{passive:true});
+  addEventListener('resize',()=>{if(B.classList.contains('pen-on')){fit();pad()}});
+  const pt=e=>{const o=off();return{x:(e.clientX-o.x)/o.z,y:(e.clientY-o.y)/o.z,p:e.pressure&&e.pointerType==='pen'?e.pressure:0.5}};
+  /* 以螢幕上的 at 點為中心縮放，讓內容點 c 落在 at（c 省略＝at 底下的內容點） */
+  const zBtn=()=>bar.querySelector('[data-a="zoom"] .z');
+  function setZoom(nz,at,c){
+    nz=Math.min(3,Math.max(1,nz));const o=off();c=c||{x:(at.x-o.x)/o.z,y:(at.y-o.y)/o.z};
+    zoom=nz;Z.style.transform=nz===1?'':`scale(${nz})`;
+    const r=Z.getBoundingClientRect(),ox=r.left+scrollX,oy=r.top+scrollY;
+    window.scrollTo(ox+c.x*nz-at.x,oy+c.y*nz-at.y);
+    zBtn().textContent=nz.toFixed(1)+'×';bar.querySelector('[data-a="zoom"]').classList.toggle('on',nz>1.01);redraw();
+  }
+  /* 一指／觸控筆＝寫字；兩指＝捲動＋縮放（書寫中不鎖畫面） */
+  const ptrs=new Map();let pan=null,hold=false;
+  const mid=()=>{const v=[...ptrs.values()];return{x:(v[0].x+v[1].x)/2,y:(v[0].y+v[1].y)/2}};
+  const dist=()=>{const v=[...ptrs.values()];return Math.hypot(v[0].x-v[1].x,v[0].y-v[1].y)||1};
+  function startPan(){const m=mid(),o=off();pan={d0:dist(),z0:zoom,c:{x:(m.x-o.x)/o.z,y:(m.y-o.y)/o.z},m}}
+  hit.addEventListener('pointerdown',e=>{e.preventDefault();hit.setPointerCapture(e.pointerId);ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    if(ptrs.size>=2){if(cur){const L=list(),i=L.indexOf(cur);if(i>=0)L.splice(i,1);cur=null;redraw()}startPan();hold=true;return}
+    if(hold)return;
+    cur={color,size,erase,pts:[pt(e)]};list().push(cur);draw(cur,off());ctx.globalCompositeOperation='source-over'});
+  hit.addEventListener('pointermove',e=>{
+    if(ptrs.has(e.pointerId))ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    if(pan&&ptrs.size>=2){e.preventDefault();const m=mid();
+      if(boardOn)return;
+      setZoom(pan.z0*dist()/pan.d0,m,pan.c);return}
+    if(!cur)return;e.preventDefault();const o=off();
+    (e.getCoalescedEvents?e.getCoalescedEvents():[e]).forEach(ev=>{const p=pt(ev),q=cur.pts[cur.pts.length-1];cur.pts.push(p);seg(cur,q,p,o)});ctx.globalCompositeOperation='source-over'});
+  const up=e=>{ptrs.delete(e.pointerId);if(ptrs.size<2)pan=null;else startPan();if(ptrs.size===0)hold=false;cur=null};
+  hit.addEventListener('pointerup',up);hit.addEventListener('pointercancel',up);
+  /* 滑鼠滾輪／觸控板在書寫層上也能捲動 */
+  /* 觸控板捏合／Ctrl＋滾輪＝縮放 */
+  hit.addEventListener('wheel',e=>{e.preventDefault();
+    if(e.ctrlKey&&!boardOn)setZoom(zoom*Math.exp(-e.deltaY*0.01),{x:e.clientX,y:e.clientY});else window.scrollBy(e.deltaX,e.deltaY)},{passive:false});
+  const modeBtn=bar.querySelector('[data-a="mode"]');
+  function setDraw(on){B.classList.toggle('pen-draw',on);modeBtn.innerHTML=on?'✋<span class="t"> 捲動</span>':'✏️<span class="t"> 書寫</span>';modeBtn.title=on?'切換成捲動畫面（筆跡保留）':'切換回寫字'}
+  /* 依工具列實際高度在頁面上／下留白，最後一題不會被擋住 */
+  function pad(){const on=B.classList.contains('pen-on'),top=B.classList.contains('pen-top'),h=on?bar.offsetHeight+24+'px':'';
+    B.style.paddingBottom=on&&!top?h:'';B.style.paddingTop=on&&top?h:''}
+  const VP=document.querySelector('meta[name=viewport]'),VP0=VP?VP.content:'';
+  function lockVP(on){if(VP)VP.content=on?'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no':VP0}
+  function resetNative(){if(!VP||!window.visualViewport||visualViewport.scale<=1.01)return;lockVP(true);setTimeout(()=>{VP.content='width=device-width, initial-scale=1, maximum-scale=1';setTimeout(()=>lockVP(B.classList.contains('pen-on')),300)},50)}
+  let kb=0;
+  function open(){lockVP(true);clearInterval(kb);kb=setInterval(keepBar,250);document.documentElement.classList.add('pen-lock');B.classList.add('pen-on');setDraw(true);fit();pad()}
+  function close(){clearInterval(kb);lockVP(false);if(zoom!==1)setZoom(1,{x:innerWidth/2,y:innerHeight/2});document.documentElement.classList.remove('pen-lock');bar.style.transform='';B.classList.remove('pen-on','pen-draw','pen-board');B.style.paddingBottom=B.style.paddingTop='';boardOn=false;bar.querySelector('[data-a="board"]').classList.remove('on')}
+  document.getElementById('penBtn').onclick=open;
+  modeBtn.onclick=()=>setDraw(!B.classList.contains('pen-draw'));
+  bar.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{color=b.dataset.c;erase=false;setDraw(true);
+    bar.querySelectorAll('[data-c]').forEach(x=>x.classList.toggle('on',x===b));bar.querySelector('[data-a="erase"]').classList.remove('on')});
+  bar.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{size=+b.dataset.s;setDraw(true);bar.querySelectorAll('[data-s]').forEach(x=>x.classList.toggle('on',x===b))});
+  bar.querySelector('[data-a="erase"]').onclick=function(){erase=!erase;setDraw(true);this.classList.toggle('on',erase)};
+  bar.querySelector('[data-a="undo"]').onclick=()=>{list().pop();redraw()};
+  bar.querySelector('[data-a="clear"]').onclick=()=>{list().length=0;redraw()};
+  bar.querySelector('[data-a="board"]').onclick=function(){boardOn=!boardOn;B.classList.toggle('pen-board',boardOn);this.classList.toggle('on',boardOn);if(boardOn)setDraw(true);redraw()};
+  /* ✋ 捲動模式：兩指捏合一樣交給自己的縮放（瀏覽器原生縮放已關閉，工具列不會被推出畫面） */
+  let tp=null;
+  const tDist=t=>Math.hypot(t[0].clientX-t[1].clientX,t[0].clientY-t[1].clientY)||1;
+  const tMid=t=>({x:(t[0].clientX+t[1].clientX)/2,y:(t[0].clientY+t[1].clientY)/2});
+  document.addEventListener('touchstart',e=>{if(!B.classList.contains('pen-on')||B.classList.contains('pen-draw')||boardOn||e.touches.length!==2)return;
+    const m=tMid(e.touches),o=off();tp={d0:tDist(e.touches),z0:zoom,c:{x:(m.x-o.x)/o.z,y:(m.y-o.y)/o.z}}},{passive:true});
+  document.addEventListener('touchmove',e=>{if(!tp||e.touches.length!==2)return;e.preventDefault();setZoom(tp.z0*tDist(e.touches)/tp.d0,tMid(e.touches),tp.c)},{passive:false});
+  document.addEventListener('touchend',e=>{if(e.touches.length<2)tp=null},{passive:true});
+  /* 保險：萬一瀏覽器還是放大了整頁，把工具列擺回看得到的地方並維持原本大小 */
+  function keepBar(){const v=window.visualViewport;if(!v)return;
+    if(v.scale<=1.01||!B.classList.contains('pen-on')){bar.style.transform='';bar.style.transformOrigin='';return}
+    const top=B.classList.contains('pen-top');
+    bar.style.transformOrigin=top?'center top':'center bottom';
+    const dx=v.offsetLeft+v.width/2-innerWidth/2,dy=top?v.offsetTop:v.offsetTop+v.height-innerHeight;
+    bar.style.transform=`translate(${dx}px,${dy}px) scale(${1/v.scale})`}
+  if(window.visualViewport){visualViewport.addEventListener('resize',keepBar);visualViewport.addEventListener('scroll',keepBar)}
+  const ctr=()=>({x:innerWidth/2,y:innerHeight/2});
+  bar.querySelector('[data-a="zoom"]').onclick=()=>{setZoom(1,ctr());resetNative();keepBar()};
+  bar.querySelector('[data-a="zin"]').onclick=()=>{if(!boardOn)setZoom(zoom*1.25,ctr())};
+  bar.querySelector('[data-a="zout"]').onclick=()=>{if(!boardOn)setZoom(zoom/1.25,ctr())};
+  bar.querySelector('[data-a="move"]').onclick=()=>{B.classList.toggle('pen-top');pad()};
+  bar.querySelector('[data-a="close"]').onclick=close;
+})();
+</script>
+</body>
+</html>
