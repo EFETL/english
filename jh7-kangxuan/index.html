@@ -213,6 +213,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:20px}
 .ps.en{letter-spacing:0;font-size:1.35rem;line-height:1.7}
 .ps.pop{animation:pop .45s ease}
 @keyframes pop{0%{transform:scale(.9);opacity:.3}100%{transform:scale(1);opacity:1}}
+.bk{min-width:0;overflow-wrap:anywhere}
 </style>
 </head>
 <body>
@@ -228,10 +229,10 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:20px}
 <main><div class="wrap" id="app"></div></main>
 <footer><div class="wrap">
   <b>全民補習班 英文科</b>｜考點依據：台中崇德、台南中山、基隆銘傳、宜蘭中華、新北五峰、新北新莊、新北桃子腳、新北江翠、新北蘆洲、桃園、楠梓、民族、自強、花蓮美崙、高雄七賢、高雄三民（113）、高雄五甲、高雄五福、高雄正興，共 19 校康軒版七上第一次段考試卷（114 學年為主），另比對全臺 59 校七上英文段考的共通文法。<br>
-  <b>課文為依段考卷考點原創改寫，非課本原文。</b>模擬題、克漏字與閱讀文章皆為原創，只借用各校命題方向與陷阱。英文發音使用微軟 Neural 語音（en-US-Aria）預錄。練習時可以開聲音，答對、答錯都有音效。背景音樂只在「動畫導覽」播放，可按右下角按鈕關閉。<br>
+  <b>課文依康軒課本；模擬題與閱讀文章為原創</b>，只借用各校命題方向與陷阱。英文發音使用微軟 Neural 語音（en-US-Aria）預錄。練習時可以開聲音，答對、答錯都有音效。背景音樂只在「動畫導覽」播放，可按右下角按鈕關閉。<br>
   交卷時會把你的姓名、分數與錯題傳給老師，只有老師看得到。左下角 ✏️ 可以手寫、兩指縮放。<br>
   <details style="margin-top:8px"><summary>圖片來源與授權</summary>
-  照片皆來自 Wikimedia Commons：Adult alphabet blocks. (31907021871)：Billie Grace Ward from New York, USA（CC BY 2.0）；Suna rubber eraser (MONO)：Hakatanoshio117117（CC BY-SA 4.0）；VocaDi-School,Pencilcase：Compiled by chris 論 (for the individual （CC BY-SA 4.0）；Stationery Shop (5841175324)：Can Pac Swire from Toronto, Canada（CC BY-SA 2.0）；Classroom with students in Baozhong Junior High School 20130308：褒忠國中 雲端網（CC BY 2.0）；Visiting Chef Edward Lee prepares food in the White House Kitchen with Executive Chef Cristeta Comerford, Wednesday, April 26, 2023, before the official State Dinner for the Republic of Korea：The White House（公有領域）；Family photo Taiwan 1940s：Unknown authorUnknown author（公有領域）；Hualien Taiwan Farmer-with-his-water-buffalo-01：CEphoto, Uwe Aranas（CC BY-SA 3.0）；Taking blood pressure (SC 191775), National Museum of Health and Medicine (5201016091)：National Museum of  Health and Medicine（CC BY 2.0）；Teachers and students at Baozhong Junior High School 20121123 01：褒忠國中 雲端網（CC BY 2.0）；Huai Sheng Junior High School students playing basketball 20110520：li-penny（CC BY 2.0）；African bush elephants (Loxodonta africana) female with six-week-old baby：Charles J. Sharp（CC BY-SA 4.0）；Elephas maximus (Bandipur)：Yathin S Krishnappa（CC BY-SA 3.0）；House mouse (Mus musculus) 2808：Ahunt（CC0）；Ploughing paddy field with oxen, Umaria district, MP, India：Yann (talk)（CC BY-SA 4.0）；Heimtier 004 2023 08 26：Friedrich Haag（CC BY-SA 4.0）；Orange rooster crowing：GrinningIodize（CC BY-SA 4.0）；Flock of sheep in the meadows：Fabio Pani（CC BY-SA 4.0）；Bengal tiger (Panthera tigris tigris) female 3：Charles J. Sharp（CC BY-SA 4.0）；Funerary Sculpture of the Animals of the Twelve-Year Chinese Zodiac (Shengxiao) LACMA M.90.80a-l (12 of 12)：作者不詳（公有領域）；Cat and Dog in Vertis North：Aerous（CC BY-SA 4.0）；Piccadilly Cinema screen, Perth：Rob Chandler（CC BY 2.0）；Taipei Zoo Entrance：Yu tptw（CC BY-SA 4.0）。</details>
+  照片皆來自 Wikimedia Commons：Adult alphabet blocks. (31907021871)：Billie Grace Ward from New York, USA（CC BY 2.0）；Suna rubber eraser (MONO)：Hakatanoshio117117（CC BY-SA 4.0）；VocaDi-School,Pencilcase：Compiled by chris 論 (for the individual （CC BY-SA 4.0）；Stationery Shop (5841175324)：Can Pac Swire from Toronto, Canada（CC BY-SA 2.0）；Classroom with students in Baozhong Junior High School 20130308：褒忠國中 雲端網（CC BY 2.0）；Visiting Chef Edward Lee prepares food in the White House Kitchen with Executive Chef Cristeta Comerford, Wednesday, April 26, 2023, before the official State Dinner for the Republic of Korea：The White House（公有領域）；Family photo Taiwan 1940s：Unknown authorUnknown author（公有領域）；Hualien Taiwan Farmer-with-his-water-buffalo-01：CEphoto, Uwe Aranas（CC BY-SA 3.0）；Taking blood pressure (SC 191775), National Museum of Health and Medicine (5201016091)：National Museum of  Health and Medicine（CC BY 2.0）；Teachers and students at Baozhong Junior High School 20121123 01：褒忠國中 雲端網（CC BY 2.0）；Huai Sheng Junior High School students playing basketball 20110520：li-penny（CC BY 2.0）；African bush elephants (Loxodonta africana) female with six-week-old baby：Charles J. Sharp（CC BY-SA 4.0）；Elephas maximus (Bandipur)：Yathin S Krishnappa（CC BY-SA 3.0）；Goat eating grass, Kerala (2)：Gannu03（CC BY-SA 4.0）；Ploughing paddy field with oxen, Umaria district, MP, India：Yann (talk)（CC BY-SA 4.0）；Heimtier 004 2023 08 26：Friedrich Haag（CC BY-SA 4.0）；Brown rat (Rattus norvegicus) Drenthe 2：Charles J. Sharp（CC BY-SA 4.0）；Orange rooster crowing：GrinningIodize（CC BY-SA 4.0）；Bengal tiger (Panthera tigris tigris) female 3：Charles J. Sharp（CC BY-SA 4.0）；Funerary Sculpture of the Animals of the Twelve-Year Chinese Zodiac (Shengxiao) LACMA M.90.80a-l (12 of 12)：作者不詳（公有領域）；Cat and Dog in Vertis North：Aerous（CC BY-SA 4.0）；Piccadilly Cinema screen, Perth：Rob Chandler（CC BY 2.0）；Taipei Zoo Entrance：Yu tptw（CC BY-SA 4.0）。</details>
 </div></footer>
 
 <script>
@@ -263,8 +264,8 @@ const isZY=s=>/[ㄅ-ㄩ]/.test(s);
 const ASK={e:'選出正確的中文意思',c:'選出正確的英文',s:'選出正確的拼字',u:'選出正確的大小寫／字母順序',p:'選出正確的複數',g:'選出正確的寫法'};
 const L = {
 gr:{
-  no:'Get Ready', code:1, title:'Hello! Nice to Meet You', short:'問候與教室', color:'linear-gradient(135deg,#8a3b12,#c4682f)',
-  desc:'字母大小寫｜問候語｜What\'s this? It\'s an eraser.｜am / is / are',
+  no:'Get Ready', code:1, title:'Get Ready', short:'招呼・介紹・年齡', color:'linear-gradient(135deg,#8a3b12,#c4682f)',
+  desc:'字母與書寫原則｜招呼用語｜I am / He is｜my / his / her / its｜How old',
   quick:[
     ['classroom','教室',['班級','書桌','學校'],1,'e'],
     ['class','班級',['教室','玻璃','同學'],1,'e'],
@@ -278,6 +279,10 @@ gr:{
     ['thank','謝謝',['想','喝','那個'],1,'e'],
     ['brush','刷子',['畫','鳥','忙的'],1,'e'],
     ['book','書',['看','廚師','袋子'],1,'e'],
+    ['afternoon','下午',['早上','晚上','中午'],0,'e'],
+    ['evening','傍晚；晚上',['早上','下午','夜晚（睡前）'],0,'e'],
+    ['welcome','受歡迎的',['再見','謝謝','很好的'],0,'e'],
+    ['name','名字',['號碼','班級','年齡'],0,'e'],
     ['筆','pen',['pin','pan','pet'],1,'c'],
     ['鉛筆','pencil',['pen','pencil box','ruler'],1,'c'],
     ['祖父','grandfather',['grandmother','father','uncle'],1,'c'],
@@ -285,6 +290,11 @@ gr:{
     ['很高興認識你','Nice to meet you.',['Thank you.','See you.','How are you?'],1,'c'],
     ['不客氣','You\'re welcome.',['Thank you.','I\'m fine.','Nice to meet you, too.'],0,'c'],
     ['學生','student',['teacher','classmate','school'],0,'c'],
+    ['晚安（睡前、道別）','Good night.',['Good evening.','Good afternoon.','Goodbye.'],0,'c'],
+    ['再見','Goodbye.',['Good evening.','Thank you.','Hello!'],0,'c'],
+    ['十二','twelve',['twenty','eleven','twelfth'],0,'c'],
+    ['四十','forty',['fourty','fourteen','fortyteen'],0,'c'],
+    ['十五','fifteen',['fifty','fiveteen','fivteen'],0,'c'],
     ['書包','schoolbag',['school','pencil box','book'],0,'c'],
     ['c l _ s s r _ _ m（教室）','classroom',['clasroom','classrom','claasroom'],1,'s'],
     ['e r _ s _ r（橡皮擦）','eraser',['erasor','earser','erazer'],0,'s'],
@@ -299,7 +309,8 @@ gr:{
   words:[
     ['Nice to meet you.','很高興認識你。'],['Nice to meet you, too.','我也很高興認識你。'],['Thank you.','謝謝你。'],['You\'re welcome.','不客氣。'],
     ['What\'s this?','這是什麼？'],['It\'s an eraser.','它是一個橡皮擦。'],['How are you?','你好嗎？'],['I\'m fine.','我很好。'],
-    ['What\'s your name?','你叫什麼名字？'],['Good morning.','早安。'],
+    ['What\'s your name?','你叫什麼名字？'],['Good morning.','早安。'],['Good evening.','晚安（見面）。'],['Good night.','晚安（睡前）。'],
+    ['Who is that girl?','那個女孩是誰？'],['How old are you?','你幾歲？'],['three years old','三歲'],['Goodbye. / Bye.','再見。'],
   ],
   sorts:[
     {title:'a 還是 an？',tip:'看「後面那個字的第一個音」：母音音用 an；子音音用 a。uniform 的 u 唸 [ju]，是子音音 → a uniform',buckets:['a','an'],items:[
@@ -311,41 +322,43 @@ gr:{
       ['Nice to meet you.',0],['what\'s this?',1,'句首要大寫：What\'s。'],['This is Mr. Lee.',0],
       ['Is this your pen.',1,'問句結尾要用問號。'],['i am Ben.',1,'I（我）永遠大寫。'],['Ben and I are friends.',0],['She is ms. Wang.',1,'稱謂 Ms. 要大寫。']]},
     {title:'am、is 還是 are？',tip:'I → am；you、we、they、複數 → are；he、she、it、單數 → is',buckets:['am','is','are'],items:[
-      ['I ___ Mia.',0],['You ___ my friend.',2],['This ___ my pen.',1],['Ben ___ twelve.',1],['We ___ classmates.',2],
-      ['It ___ an eraser.',1],['They ___ my books.',2],['Ben and I ___ friends.',2,'Ben and I＝我們，複數 → are。'],['My name ___ Amy.',1]]},
+      ['I ___ Tony.',0],['You ___ Jerry.',2],['He ___ Peter.',1],['She ___ Shelly.',1],['It ___ Mike.',1],['I ___ twelve.',0],
+      ['How old ___ you?',2],['How old ___ Edward?',1],['Eddie and I ___ happy now.',2,'Eddie and I＝我們，複數 → are（課本書寫原則例句）。'],['My name ___ Joyce.',1]]},
   ],
-  hunt:{label:'🔍 be 動詞抓抓樂',title:'找出對話裡的 be 動詞（am / is / are）',tip:'be 動詞有三個：am、is、are（大寫開頭的 Are 也算）。點一下你找到的 be 動詞！',lines:[
-    'Mia: Hello! I [am] Mia. What [is] your name?',
-    'Ben: Hi, Mia. My name [is] Ben. Nice to meet you.',
-    'Mia: Nice to meet you, too. [Are] you in Class 701?',
-    'Ben: Yes, I [am]. We [are] classmates!',
-    'Mia: Great! What [is] this, Ben?',
-    'Ben: It [is] an eraser. It [is] from my grandfather.',
-    'Mia: The eraser [is] cute. Thank you.',
-    'Ben: You [are] welcome.',
+  hunt:{label:'🔍 be 動詞抓抓樂',title:'找出課本句子裡的 be 動詞（am / is / are）',tip:'be 動詞有三個：am、is、are（大寫開頭的 Is、Are 也算）。縮寫 I\'m、he\'s 裡的 be 動詞這裡先不點。句子都來自康軒 Get Ready。',lines:[
+    'I [am] Tony. You [are] Jerry.',
+    'He [is] Peter. She [is] Shelly. It [is] Mike.',
+    'Kiki: Who [is] that girl? Peter: She [is] Joyce.',
+    'What [is] your name? My name [is] Joyce.',
+    'How old [are] you? I [am] twelve.',
+    'How old [is] she? She [is] fifteen.',
+    'Hello, how [are] you? Eddie and I [are] happy now.',
   ]},
   mcq:[
-    {q:'A: Hello, I\'m Mia. Nice to meet you. B: ___',o:['Nice to meet you, too.','You\'re welcome.','I\'m fine. Thank you.','Yes, I am.'],a:0,src:'自強、正興 同類題',ex:'對方說 Nice to meet you.，回答要加 too：Nice to meet you, too.（我也很高興認識你）。'},
+    {q:'A: Hi, I\'m Rita. Nice to meet you. B: ___',o:['Nice to meet you, too.','You\'re welcome.','I\'m fine. Thank you.','Yes, I am.'],a:0,src:'自強、正興 同類題',ex:'對方說 Nice to meet you.，回答要加 too：Nice to meet you, too.（我也很高興認識你）。'},
     {q:'A: What\'s this? B: It\'s ___ eraser.',o:['an','a','two','these'],a:0,src:'新北新莊 同類題',ex:'eraser 開頭是母音音 → an eraser。two、these 後面要接複數名詞。'},
-    {q:'A: Thank you, Ben. B: ___',o:['You\'re welcome.','Thank you.','Nice to meet you.','I\'m fine.'],a:0,src:'新北蘆洲 同類題',ex:'別人道謝，回答「不客氣」：You\'re welcome.'},
+    {q:'A: Thank you, Nick. B: ___',o:['You\'re welcome.','Thank you.','Nice to meet you.','I\'m fine.'],a:0,src:'新北蘆洲 同類題',ex:'別人道謝，回答「不客氣」：You\'re welcome.'},
     {q:'A: How are you? B: ___',o:['I\'m fine. Thank you.','I\'m Ben.','Yes, I am.','It\'s a pen.'],a:0,src:'台中崇德 同類題',ex:'How are you? 問「你好嗎」，回答 I\'m fine.（我很好）。'},
-    {q:'Which sentence is correct?',o:['Ben and I are classmates.','ben and I are classmates.','Ben and i are classmates.','Ben and I are classmates'],a:0,src:'台中崇德 同類題',ex:'句首大寫、人名大寫、I 永遠大寫，句尾要有句點。'},
+    {q:'Which sentence is correct?',o:['Eddie and I are happy now.','eddie and I are happy now.','Eddie and i are happy now.','Eddie and I are happy now'],a:0,src:'台中崇德 同類題（課本書寫原則例句）',ex:'句首大寫、人名大寫、I 永遠大寫，句尾要有句點。'},
     {q:'把「WHO IS LISA?」改成正確的大小寫：',o:['Who is Lisa?','who is lisa?','Who Is Lisa?','Who is lisa?'],a:0,src:'新北五峰 同類題',ex:'只有句首和人名的第一個字母大寫：Who is Lisa?'},
     {q:'下列哪一組單字是照字母順序排列的？',o:['book, chair, desk, pen','chair, book, desk, pen','book, desk, chair, pen','pen, desk, chair, book'],a:0,src:'楠梓、高雄三民 同類題',ex:'看第一個字母：b → c → d → p。'},
-    {q:'A: ___ your name? B: My name is Ben.',o:['What\'s','Who\'s','How\'s','Where\'s'],a:0,src:'楠梓 同類題',ex:'問名字：What\'s your name?'},
+    {q:'A: ___ your name? B: My name is Joyce.',o:['What\'s','Who\'s','How\'s','Where\'s'],a:0,src:'楠梓 同類題',ex:'問名字：What\'s your name?'},
     {q:'A: Is this your pencil box? B: Yes, ___.',o:['it is','this is','it\'s','I am'],a:0,src:'桃園 同類題',ex:'this / that 問句，簡答要改成代名詞 it；而且 it\'s 不能放在句尾，要寫 Yes, it is.'},
     {q:'This is ___ old book.',o:['an','a','two','these'],a:0,src:'台南中山 同類題',ex:'緊接在後面的 old 是母音音開頭 → an old book。'},
     {q:'Which is NOT a thing in the classroom?',o:['grandfather','eraser','ruler','chair'],a:0,src:'原創',ex:'grandfather（祖父）是人，不是教室裡的物品。'},
     {q:'A: What are these? B: ___',o:['They\'re erasers.','It\'s an eraser.','They\'re eraser.','This is erasers.'],a:0,src:'宜蘭中華、新北江翠 同類題',ex:'these 是複數 → 回答用 They\'re＋複數名詞 erasers。'},
-    {q:'Good morning, Ms. Lin. This is ___ grandfather.',o:['my','I','me','I\'m'],a:0,src:'原創',ex:'名詞 grandfather 前面要用所有格 my（我的）。'},
+    {q:'Good morning, Bella. This is ___ grandfather.',o:['my','I','me','I\'m'],a:0,src:'原創',ex:'名詞 grandfather 前面要用所有格 my（我的）。'},
     {q:'I ___ a junior high school student.',o:['am','is','are','be'],a:0,src:'原創',ex:'主詞 I 搭配 am。'},
-    {q:'Ben: "Nice to meet you, Mia." 這句話通常在什麼時候說？',o:['第一次見面時','說再見時','向人道謝時','向人道歉時'],a:0,src:'原創',ex:'Nice to meet you. 是第一次認識別人時說的「很高興認識你」。'},
+    {q:'Rita: "Nice to meet you, Nick." 這句話通常在什麼時候說？',o:['第一次見面時','說再見時','向人道謝時','向人道歉時'],a:0,src:'原創',ex:'Nice to meet you. 是第一次認識別人時說的「很高興認識你」。'},
+    {q:'晚上要上床睡覺時，和家人說：',o:['Good night.','Good evening.','Good afternoon.','Hello!'],a:0,src:'課本 Get Ready 招呼用語',ex:'睡前、晚上道別說 Good night.；Good evening. 是晚上「見面」時的問候。'},
+    {q:'A: What\'s its name? B: ___ name is Gigi.',o:['Its','It\'s','It','His'],a:0,src:'課本 Get Ready Fill In',ex:'「牠的」名字 → Its；It\'s＝It is。'},
+    {q:'A: How old is Edward? B: He\'s three ___.',o:['years old','year old','years-old','old years'],a:0,src:'課本 Get Ready Read It',ex:'三歲 → three years old（year 要加 s、不加連字號）。'},
     {q:'大寫字母「Q」的小寫是哪一個？',o:['q','p','g','d'],a:0,src:'字母大小寫 11 校考',ex:'Q 的小寫是 q（尾巴往右下），不要和 p、g 搞混。'},
   ]
 },
 l1:{
-  no:'Lesson 1', code:2, title:'We\'re in the Same Class Again!', short:'又同班了', color:'linear-gradient(135deg,#9c4a1a,#d98b3a)',
-  desc:'新學期、老師與家人｜strict、energetic、senior｜Yes/No 簡答｜所有格',
+  no:'Lesson 1', code:2, title:'Who\'s That Young Man?', short:'那個年輕男子是誰', color:'linear-gradient(135deg,#9c4a1a,#d98b3a)',
+  desc:'新體育老師 Scott、又同班、林家人｜handsome、strict、cousin｜Yes/No 簡答｜Who 問句｜所有格',
   quick:[
     ['strict','嚴格的',['英俊的','年輕的','聰明的'],1,'e'],
     ['energetic','精力充沛的',['嚴格的','真的','美麗的'],1,'e'],
@@ -363,7 +376,17 @@ l1:{
     ['true','真的',['相同的','嚴格的','藍色的'],1,'e'],
     ['news','消息',['新的','報紙','名字'],1,'e'],
     ['young','年輕的',['老的','你的','高的'],1,'e'],
+    ['PE','體育',['物理','英文','數學'],0,'e'],
+    ['problem','問題',['寵物','新聞','教室'],1,'e'],
+    ['warm','溫暖的',['戰爭','可愛的','嚴格的'],1,'e'],
+    ['pet','寵物',['筆','豬','寵愛的'],1,'e'],
+    ['parent','雙親之一',['禮物','孩子','堂表親'],1,'e'],
     ['女兒','daughter',['son','doctor','father'],1,'c'],
+    ['女人','woman',['man','women','wife'],1,'c'],
+    ['孩子','child',['children','cousin','cute'],1,'c'],
+    ['可愛的','cute',['cut','nice','warm'],1,'c'],
+    ['祖母','grandmother',['grandfather','mother','aunt'],1,'c'],
+    ['真地','really',['ready','real','true'],1,'c'],
     ['年輕的','young',['old','tall','short'],1,'c'],
     ['老師','teacher',['student','cousin','farmer'],1,'c'],
     ['英俊的','handsome',['beautiful','strict','heavy'],1,'c'],
@@ -383,7 +406,8 @@ l1:{
     ['h u s b _ n d（丈夫）','husband',['husbend','hasband','husban'],1,'s'],
   ],
   words:[
-    ['in the same class','在同一班'],['again','再一次'],['good news','好消息'],['Is that true?','那是真的嗎？'],
+    ['Who\'s that young man?','那個年輕男子是誰？'],['tall and handsome','又高又帥'],['Really?','真的嗎？'],['What\'s the problem?','有什麼問題？'],
+    ['in the same class','在同一班'],['again','再一次'],['good news','好消息'],['Is that true?','那是真的嗎？'],['be from a warm family','來自溫暖的家庭'],['pet pig','寵物豬'],
     ['junior high school student','國中生'],['senior high school','高中'],['PE teacher','體育老師'],
     ['a picture of my family','我家人的照片'],['… years old','…歲'],['a family of five','五口之家'],
   ],
@@ -397,45 +421,46 @@ l1:{
       ['___ old farmer',1],['___ handsome man',0],['___ eleven-year-old girl',1,'eleven 開頭是母音音 → an。'],
       ['___ my cousin',2,'有所有格 my，就不能再加 a / an。'],['___ young doctor',0],['___ senior high school student',0],['___ uncle',1]]},
     {title:'is 還是 are？（看主詞是一個人還是很多人）',tip:'A and B\'s＋單數名詞＝兩人「共同」的一個 → is；A\'s and B\'s＋複數名詞＝各自的 → are',buckets:['is','are'],items:[
-      ['Mia and Ben ___ in the same class.',1],['My uncle and aunt\'s daughter ___ cute.',0,'uncle and aunt\'s＝兩人共同的女兒（一個）→ is。'],
+      ['Ann and Rita ___ in the same class.',1],['My uncle and aunt\'s daughter ___ cute.',0,'uncle and aunt\'s＝兩人共同的女兒（一個）→ is。'],
       ['Tom\'s and Ken\'s wives ___ nurses.',1,'各自的妻子，wives 是複數 → are。'],['My family ___ big.',0,'family 當一個整體 → is。'],
-      ['The women ___ teachers.',1,'women 是 woman 的複數。'],['Your cousin ___ energetic.',0],['His children ___ young.',1,'children 是 child 的複數。'],['Ms. Wang ___ strict.',0]]},
+      ['The women ___ teachers.',1,'women 是 woman 的複數。'],['Your cousin ___ energetic.',0],['His children ___ young.',1,'children 是 child 的複數。'],['Bella ___ strict.',0]]},
   ],
-  hunt:{label:'🔍 所有格抓抓樂',title:'找出對話裡的「所有格」',tip:'所有格：my、your、his、her、our、their、its，還有名詞＋\'s。A and B\'s 是兩人共同的，算一個所有格。',lines:[
-    'Mia: Good news, Ben! We are in the same class again!',
-    'Ben: Really? Is that true? Who is [our] English teacher?',
-    'Mia: Ms. Wang. She is strict, but she is nice.',
-    'Mia: Look! This is a picture of [my] family.',
-    'Mia: [My] father is a cook, and [my] mother is a nurse.',
-    'Ben: Is this handsome boy [your] brother?',
-    'Mia: Yes. [His] name is Sam. He is a senior high school student.',
-    'Ben: Is she [your] sister?',
-    'Mia: No, she isn\'t. She is [my] cousin, Tina. She is [my] [uncle and aunt\'s] daughter.',
-    'Mia: [Her] father is a farmer.',
+  hunt:{label:'🔍 所有格抓抓樂',title:'找出課文裡的「所有格」',tip:'所有格：my、your、his、her、our、their、its，還有名詞＋\'s（Bella\'s）。句子都來自康軒 L1 課文。',lines:[
+    'Ann: Nick, who\'s that young man? He\'s tall and handsome.',
+    'Nick: He\'s [our] new PE teacher.',
+    'Nick: Yes, he\'s [Bella\'s] friend, and [his] name is Scott.',
+    'Ann: Hi, Rita. This is Nick. He\'s [my] cousin. He\'s in Class 701.',
+    'Ann: Hey, Rita. Good news. Bella is [our] English teacher!',
+    '[My] grandfather is a farmer. [My] grandmother is a cook.',
+    'Paul is [my] father. Lily is [my] mother.',
+    'Bella is [my] sister. She is [my] English teacher, too.',
+    'Abby is [our] pet pig. She\'s cute.',
   ]},
   mcq:[
-    {q:'Good news! We are in the ___ class again.',o:['same','true','strict','again'],a:0,src:'宜蘭中華、楠梓 同類題',ex:'in the same class＝在同一班；same 前面一定要有 the（高雄五甲考過漏 the 的錯句）。'},
-    {q:'Ben and I are in the same class ___. We are happy.',o:['again','ago','very','true'],a:0,src:'高雄五福 同類題',ex:'again＝再一次；又同班了。'},
+    {q:'Rita: Ann, we\'re in the ___ class again!',o:['same','true','strict','again'],a:0,src:'宜蘭中華、楠梓 同類題',ex:'in the same class＝在同一班；same 前面一定要有 the（高雄五甲考過漏 the 的錯句）。'},
+    {q:'Ann and Rita are in the same class ___. They are happy.',o:['again','ago','very','true'],a:0,src:'高雄五福 同類題',ex:'again＝再一次；又同班了。'},
     {q:'A: Is she your mother? B: No, ___. She\'s my aunt.',o:['she isn\'t','she is','he isn\'t','it isn\'t'],a:0,src:'課文情境 同類題',ex:'問 she，答也用 she；後面說她是阿姨，所以是 No, she isn\'t.'},
-    {q:'Mr. Lee is our PE teacher. ___ is tall and energetic.',o:['He','His','Him','She'],a:0,src:'He/His/Him 陷阱 7 校',ex:'句子的主詞要用主格 He；His 是所有格、Him 是受格。'},
-    {q:'Ms. Wang is ___ English teacher. She is strict.',o:['an','a','two','these'],a:0,src:'基隆銘傳 同類題',ex:'English 開頭是母音音 → an English teacher。'},
-    {q:'Sam is ___ energetic senior high school student.',o:['an','a','two','these'],a:0,src:'宜蘭中華 同類題',ex:'冠詞看「緊接在後面」的字：energetic 是母音音 → an。'},
-    {q:'A: ___ is that tall man? B: He\'s my uncle.',o:['Who','What','How','Where'],a:0,src:'台南中山 同類題',ex:'回答是「他是我叔叔」（問人）→ Who。'},
+    {q:'Scott is our new PE teacher. ___ is tall and handsome.',o:['He','His','Him','She'],a:0,src:'He/His/Him 陷阱 7 校',ex:'句子的主詞要用主格 He；His 是所有格、Him 是受格。'},
+    {q:'Bella is ___ English teacher. She is strict.',o:['an','a','two','these'],a:0,src:'基隆銘傳 同類題',ex:'English 開頭是母音音 → an English teacher。'},
+    {q:'Eddie is ___ energetic senior high school student.',o:['an','a','two','these'],a:0,src:'宜蘭中華 同類題',ex:'冠詞看「緊接在後面」的字：energetic 是母音音 → an。'},
+    {q:'A: ___ is that young man? B: He\'s our new PE teacher.',o:['Who','What','How','Where'],a:0,src:'台南中山 同類題',ex:'回答是「他是我們新的體育老師」（問人）→ Who。課名就是 Who\'s That Young Man?'},
     {q:'Lucy and Lily\'s mother ___ a nurse.',o:['is','are','am','be'],a:0,src:'台南中山 同類題',ex:'Lucy and Lily\'s mother＝兩人共同的一位媽媽（單數）→ is。'},
     {q:'Tom\'s and Ken\'s wives ___ young.',o:['are','is','am','be'],a:0,src:'台南中山、宜蘭中華 同類題',ex:'Tom\'s and Ken\'s＝各自的；wives 是複數 → are。'},
-    {q:'This is ___ cousin. Her name is Tina.',o:['my','I','me','mine'],a:0,src:'所有格形容詞 16 校',ex:'名詞 cousin 前面要用所有格形容詞 my。'},
-    {q:'A: Is your brother a junior high school student? B: No, he isn\'t. He\'s a ___ high school student.',o:['senior','junior','same','true'],a:0,src:'新北新莊 同類題',ex:'不是國中生，那就是 senior high school student（高中生）。'},
-    {q:'A: Ms. Wang is our English teacher again! B: Really? Is that ___?',o:['true','same','again','news'],a:0,src:'台南中山、高雄正興 同類題',ex:'Is that true?＝那是真的嗎？用來確認消息。'},
-    {q:'Which is correct?',o:['Ben is a thirteen-year-old boy.','Ben is a thirteen-years-old boy.','Ben is a thirteen year old boy.','Ben is a thirteen-year-olds boy.'],a:0,src:'新北五峰、桃園 同類題',ex:'放在名詞前面當形容詞：thirteen-year-old（有連字號、year 不加 s）。'},
-    {q:'Mr. Lin is my father\'s brother. He is my ___.',o:['uncle','aunt','cousin','son'],a:0,src:'家族樹 17 校',ex:'爸爸的兄弟＝叔叔／伯伯 uncle。'},
-    {q:'My aunt\'s daughter is my ___.',o:['cousin','sister','mother','aunt'],a:0,src:'家族樹 17 校',ex:'阿姨的女兒＝表姊妹 cousin。'},
-    {q:'"Ms. Wang is strict." strict 是什麼意思？',o:['嚴格的','英俊的','精力充沛的','年輕的'],a:0,src:'11 校考',ex:'strict＝嚴格的；energetic＝精力充沛的；handsome＝英俊的。'},
-    {q:'A: Are Ben and Mia in the same class? B: Yes, ___.',o:['they are','they\'re','we are','he is'],a:0,src:'新北蘆洲 同類題',ex:'Ben and Mia → they；簡答肯定句不能縮寫在句尾，所以不能寫 Yes, they\'re.'},
+    {q:'This is Nick. He\'s ___ cousin.',o:['my','I','me','mine'],a:0,src:'所有格形容詞 16 校',ex:'名詞 cousin 前面要用所有格形容詞 my。'},
+    {q:'A: Is Eddie a junior high school student? B: No, he isn\'t. He\'s a ___ high school student.',o:['senior','junior','same','true'],a:0,src:'新北新莊 同類題',ex:'課文：Eddie is my brother. He\'s a senior high school student.（高中生）'},
+    {q:'A: Bella is our English teacher! B: Really? Is that ___?',o:['true','same','again','news'],a:0,src:'台南中山、高雄正興 同類題',ex:'Is that true?＝那是真的嗎？用來確認消息。'},
+    {q:'Which is correct?',o:['Nick is a thirteen-year-old boy.','Nick is a thirteen-years-old boy.','Nick is a thirteen year old boy.','Nick is a thirteen-year-olds boy.'],a:0,src:'新北五峰、桃園 同類題',ex:'放在名詞前面當形容詞：thirteen-year-old（有連字號、year 不加 s）。'},
+    {q:'Frank is Paul\'s brother. He is Nick\'s ___.',o:['uncle','aunt','cousin','son'],a:0,src:'家族樹 17 校（課本 Nick\'s Family）',ex:'爸爸的兄弟＝叔叔／伯伯 uncle。課本：Frank is Eddie\'s uncle.'},
+    {q:'Ann is Frank and Mia\'s daughter. She is Nick\'s ___.',o:['cousin','sister','mother','aunt'],a:0,src:'家族樹 17 校（課本 Nick\'s Family）',ex:'叔叔、嬸嬸的女兒＝堂姊妹 cousin。課文：This is Nick. He\'s my cousin.'},
+    {q:'"She\'s a strict teacher, too." strict 是什麼意思？',o:['嚴格的','英俊的','精力充沛的','年輕的'],a:0,src:'11 校考',ex:'strict＝嚴格的；energetic＝精力充沛的；handsome＝英俊的。'},
+    {q:'A: Are Ann and Rita in the same class? B: Yes, ___.',o:['they are','they\'re','we are','he is'],a:0,src:'新北蘆洲 同類題',ex:'Ann and Rita → they；簡答肯定句不能縮寫在句尾，所以不能寫 Yes, they\'re.'},
+    {q:'In the reading "The Lins," who is a doctor?',o:['Nick\'s mother.','Nick\'s father.','Nick\'s grandmother.','Nick\'s sister.'],a:0,src:'課本 Reading',ex:'Lily is my mother. … She is a doctor. 爸爸 Paul 是護理師、奶奶是廚師、姊姊 Bella 是英文老師。'},
+    {q:'Who is Eddie?',o:['He\'s Bella\'s brother.','He\'s Nick\'s father.','He\'s Paul\'s grandson.','He\'s Lily\'s grandfather.'],a:0,src:'課本 Reading Comprehension',ex:'Eddie 是 Nick 和 Bella 的哥哥／弟弟，所以是 Bella\'s brother；他是 Paul 的兒子（不是孫子）。'},
   ]
 },
 l2:{
-  no:'Lesson 2', code:3, title:'What\'s Your Animal Sign?', short:'十二生肖與大象', color:'linear-gradient(135deg,#6e3a1c,#b07a3c)',
-  desc:'animal sign｜非洲象 vs 亞洲象 different from｜ox → oxen、sheep｜It\'s / Its',
+  no:'Lesson 2', code:3, title:'What Are These?', short:'生肖與大象', color:'linear-gradient(135deg,#6e3a1c,#b07a3c)',
+  desc:'電影院聊生肖｜Asian vs. African elephants（3.2 m／2.75 m）｜What are these?｜ox → oxen、sheep',
   quick:[
     ['different','不同的',['困難的','相同的','可愛的'],1,'e'],
     ['elephant','大象',['斑馬','老虎','綿羊'],1,'e'],
@@ -452,7 +477,18 @@ l2:{
     ['zodiac','十二生肖',['動物園','斑馬','生肖年'],1,'e'],
     ['cute','可愛的',['剪','聰明的','不同的'],1,'e'],
     ['theater','戲院',['老師','劇本','座位'],1,'e'],
+    ['rat','大老鼠（生肖鼠）',['老鼠（小）','兔子','公雞'],1,'e'],
+    ['goat','山羊（生肖羊）',['綿羊','外套','公牛'],1,'e'],
+    ['fox','狐狸',['盒子','公牛','狼'],1,'e'],
+    ['zebra','斑馬',['老虎','大象','長頸鹿'],1,'e'],
+    ['size','尺寸',['六','身高','座位'],1,'e'],
+    ['only','僅僅；只',['一個','孤單的','也'],1,'e'],
     ['龍','dragon',['tiger','snake','horse'],1,'c'],
+    ['獅子','lion',['line','tiger','lemon'],1,'c'],
+    ['熊','bear',['beer','pear','deer'],1,'c'],
+    ['他們的；牠們的','their',['there','they','them'],1,'c'],
+    ['但是','but',['or','and','only'],1,'c'],
+    ['電影院','movie theater',['movie star','theater teacher','cinema ticket'],1,'c'],
     ['蛇','snake',['snack','sheep','smart'],1,'c'],
     ['猴子','monkey',['money','mouse','donkey'],1,'c'],
     ['馬','horse',['house','mouse','hose'],1,'c'],
@@ -473,8 +509,8 @@ l2:{
   ],
   words:[
     ['animal sign','生肖'],['birth year','出生年'],['What about you?','你呢？'],['no wonder','難怪'],['people person','人緣好的人'],
-    ['be different from','和…不同'],['nice and warm','親切又熱心'],['about three meters tall','大約三公尺高'],['Chinese zodiac','中國十二生肖'],
-    ['movie theater','電影院'],['No problem.','沒問題。'],
+    ['be different from','和…不同'],['nice and warm','親切又熱心'],['Chinese zodiac','中國十二生肖'],
+    ['movie theater','電影院'],['What are these?','這些是什麼？'],['smart and energetic','聰明又有活力'],['about 3.2 meters tall','大約 3.2 公尺高'],
   ],
   sorts:[
     {title:'複數怎麼變？',tip:'一般加 -s；s, x, sh, ch 結尾加 -es；ox→oxen、mouse→mice、child→children 要死背；sheep、deer、fish 單複數同形',buckets:['加 -s','加 -es','不規則變化','單複數同形'],items:[
@@ -482,23 +518,23 @@ l2:{
       ['fox',1],['brush',1],['watch',1],['box',1],
       ['ox',2,'ox → oxen（不是 oxes！）'],['mouse',2,'mouse → mice'],['child',2],['woman',2,'woman → women'],['wife',2,'wife → wives'],['man',2],
       ['sheep',3],['deer',3],['fish',3]]},
-    {title:'非洲象？亞洲象？還是兩種都是？',tip:'African elephants are different from Asian elephants：耳朵大小、身高、住的地方不同',buckets:['非洲象','亞洲象','兩種都是'],items:[
-      ['Their ears are very big.',0],['They are from Africa.',0],['They are about 3 to 4 meters tall.',0],
-      ['Their ears are small.',1],['They are from India and Thailand.',1],['They are about 2.5 to 3 meters tall.',1],
-      ['They are big and heavy.',2],['They are smart animals.',2],['Their lifespans are about 60 to 70 years.',2]]},
+    {title:'非洲象？亞洲象？還是兩種都是？',tip:'課文 Asian Elephants VS. African Elephants：非洲象很大、耳朵大、約 3.2 公尺、壽命約 70 年；亞洲象較小、耳朵短、約 2.75 公尺、壽命約 60 年',buckets:['非洲象','亞洲象','兩種都是'],items:[
+      ['They are very big, and their ears are big, too.',0],['An elephant is about 3.2 meters tall.',0],['Their lifespans are about 70 years.',0],
+      ['They are small, and their ears are short.',1],['An elephant is only about 2.75 meters tall.',1],['Their lifespans are about 60 years.',1],
+      ['They are elephants.',2],['They have long trunks.',2,'課本 Discuss：What can an elephant do with its trunk?'],['An elephant never forgets.',2,'Read Up 慣用語，說所有大象記性都好。']]},
     {title:'It\'s 還是 Its？',tip:'It\'s＝It is（它是）；Its＝它的（所有格，後面接名詞）',buckets:['It\'s','Its'],items:[
       ['___ my pet dog.',0],['___ name is Lucky.',1],['___ ears are big.',1],['___ a cute ox.',0],['___ tall and thin.',0],
       ['___ color is white.',1],['___ lifespan is about 60 years.',1],['___ not a mouse. It\'s a rat.',0],['___ an elephant.',0],['___ eyes are small.',1]]},
   ],
-  hunt:{label:'🔍 複數抓抓樂',title:'找出對話裡的「複數名詞」',tip:'注意不規則複數：oxen、mice；sheep 單複數同形，前面有 three 就是複數。單數的 ox、mouse 不要點！',lines:[
-    'Ben: Look at these [animals], Mia. Are they the Chinese zodiac animal [signs]?',
-    'Mia: Yes, they are. The ox is big, and the mouse is small.',
-    'Ben: Look! Two [oxen] and three [sheep] are in the picture.',
-    'Mia: And four [mice] are on the ox. How cute!',
-    'At the zoo, African [elephants] are different from Asian [elephants].',
-    'African [elephants] have big [ears]. Asian [elephants] have small [ears].',
-    'Their [lifespans] are about sixty [years].',
-    'They are about three [meters] tall.',
+  hunt:{label:'🔍 複數抓抓樂',title:'找出課文裡的「複數名詞」',tip:'複數名詞通常字尾有 s（dolls、signs）。單數的 elephant、rat、ox 不要點；elephants\' 是「所有格」，這裡也先不點。句子都來自康軒 L2 課文。',lines:[
+    'Bella: These [dolls] are cute.',
+    'Scott: What are these? Hey, aren\'t they the Chinese zodiac animal [signs]?',
+    'Bella: No, they aren\'t. The Chinese zodiac animal [signs] are the rat, ox, tiger, rabbit, dragon, snake, horse, goat, monkey, rooster, dog, and pig.',
+    'Are they Asian [elephants] or African [elephants]?',
+    'African [elephants] are different from Asian [elephants].',
+    'African [elephants] are very big, and their [ears] are big, too.',
+    'An African elephant is about 3.2 [meters] tall, but an Asian elephant is only about 2.75 [meters] tall.',
+    'Asian elephants\' [lifespans] are about 60 [years], but African elephants\' [lifespans] are about 70 [years].',
   ]},
   mcq:[
     {q:'A: What\'s your animal sign? B: ___',o:['I\'m a rooster.','I\'m thirteen.','It\'s 2013.','Yes, I am.'],a:0,src:'台中崇德、宜蘭中華 同類題',ex:'問生肖，回答 I\'m a＋動物：I\'m a rooster.（我屬雞）。'},
@@ -507,22 +543,24 @@ l2:{
     {q:'Look at the ___. They are big and strong.',o:['oxen','oxes','ox','oxs'],a:0,src:'台中崇德、台南中山 同類題',ex:'ox 的複數是不規則的 oxen；oxes 是最常見的誘答。'},
     {q:'Three ___ are under the tree.',o:['sheep','sheeps','sheepes','a sheep'],a:0,src:'14 校考 sheep',ex:'sheep 單複數同形：one sheep、three sheep。'},
     {q:'Two ___ are in the kitchen.',o:['mice','mouses','mices','mouse'],a:0,src:'基隆銘傳、高雄五福 同類題',ex:'mouse → mice（不規則）。'},
-    {q:'A: Aren\'t they the Chinese zodiac animal signs? B: ___, they are.',o:['Yes','No','Not','Sure not'],a:0,src:'宜蘭中華、高雄五福 同類題',ex:'否定疑問句照事實回答：「是」→ Yes, they are.'},
+    {q:'Scott: Aren\'t they the Chinese zodiac animal signs? Bella: ___ (玩偶裡有一隻大象)',o:['No, they aren\'t.','Yes, they are.','No, they are.','Yes, they aren\'t.'],a:0,src:'課文＋宜蘭中華、高雄五福 同類題',ex:'否定疑問句照事實回答：大象不是生肖 → No, they aren\'t.（課文原句）'},
     {q:'A: Isn\'t that a small mouse? B: No, it isn\'t. It\'s a big ___.',o:['rat','sheep','ox','elephant'],a:0,src:'台中崇德 同類題',ex:'mouse 是小老鼠，rat 是大老鼠；照事實回答 No, it isn\'t.'},
     {q:'"An Asian elephant\'s lifespan is about 60 years." lifespan 的意思是？',o:['壽命','身高','體重','耳朵'],a:0,src:'6 校考 lifespan',ex:'life（生命）＋span（一段長度）→ 壽命。'},
-    {q:'An African elephant is about 3.5 ___ tall.',o:['meters','meter','years','animals'],a:0,src:'高雄五福、新北新莊 同類題',ex:'3.5 大於 1，公尺用複數 meters；問身高用 How tall…?'},
+    {q:'An African elephant is about 3.2 ___ tall.',o:['meters','meter','years','animals'],a:0,src:'課文＋高雄五福、新北新莊 同類題',ex:'課文：非洲象約 3.2 公尺、亞洲象約 2.75 公尺；大於 1 用複數 meters；問身高用 How tall…?'},
     {q:'My birth year is 2014. I\'m a horse. What ___ you?',o:['about','are','is','do'],a:0,src:'高雄五福 同類題',ex:'What about you?＝那你呢？回問對方。'},
     {q:'___ my pet rabbit. ___ name is Snow.',o:['It\'s; Its','Its; It\'s','It\'s; It\'s','Its; Its'],a:0,src:'台中崇德 同類題',ex:'第一格＝It is（它是）→ It\'s；第二格＝它的名字 → Its。'},
     {q:'A: Are those your pets? B: Yes, ___.',o:['they are','those are','they\'re','it is'],a:0,src:'新北江翠 同類題',ex:'these / those 問句，簡答改用 they；肯定簡答不能縮寫成 they\'re。'},
-    {q:'Which is NOT an animal of the Chinese zodiac?',o:['cat','rooster','snake','dragon'],a:0,src:'高雄七賢 同類題',ex:'十二生肖沒有貓（傳說中貓被老鼠騙了，沒趕上比賽）。'},
+    {q:'Which is NOT an animal of the Chinese zodiac?',o:['elephant','rooster','snake','goat'],a:0,src:'課文＋高雄七賢 同類題',ex:'課文：the rat, ox, tiger, rabbit, dragon, snake, horse, goat, monkey, rooster, dog, and pig——沒有大象（也沒有貓）。'},
     {q:'Rabbits and sheep eat plants, ___ tigers don\'t.',o:['but','and','or','so'],a:0,src:'台南中山 同類題',ex:'前後意思相反（吃植物／不吃）→ but。'},
-    {q:'Ben is friendly and warm. He has many friends. He is a ___.',o:['people person','animal sign','birth year','movie theater'],a:0,src:'10 校考 people person',ex:'朋友很多、人緣好 → a people person。'},
+    {q:'Bella is nice and warm. She has many friends. She is a ___.',o:['people person','animal sign','birth year','movie theater'],a:0,src:'10 校考 people person',ex:'朋友很多、人緣好 → a people person。'},
     {q:'Is this a cute ox? 改成複數，正確的是：',o:['Are these cute oxen?','Is these cute oxen?','Are these cute oxes?','Are this cute oxen?'],a:0,src:'台南中山 同類題',ex:'Is→Are、this→these、ox→oxen，三個地方都要改。'},
+    {q:'Scott\'s birth year is 2000. What\'s his animal sign?',o:['A dragon.','A rabbit.','A rat.','A horse.'],a:0,src:'課本 Dialogue',ex:'Bella: Your birth year is 2000. You\'re a dragon.；Bella 1999 年屬兔；Abby 2024 年也屬龍。'},
+    {q:'Which is true about the reading "Asian Elephants VS. African Elephants"?',o:['African elephants\' lifespans are about 70 years.','Asian elephants are very big.','Asian elephants\' ears are big.','An African elephant is about 2.75 meters tall.'],a:0,src:'課本 Reading',ex:'非洲象壽命約 70 年、亞洲象約 60 年；亞洲象較小、耳朵短、約 2.75 公尺；非洲象約 3.2 公尺。'},
   ]
 },
 r1:{
-  no:'Review 1', code:4, title:'A Family Day', short:'綜合複習', color:'linear-gradient(135deg,#7a4b2a,#c49a5a)',
-  desc:'GR＋L1＋L2 大會合｜Who / What / How old｜簡答代名詞｜a / an',
+  no:'Review 1', code:4, title:'Review 1', short:'綜合複習', color:'linear-gradient(135deg,#7a4b2a,#c49a5a)',
+  desc:'GR＋L1＋L2 大會合｜How / Who / How old｜簡答代名詞｜a / an｜Animals and Their Food',
   quick:[
     ['vet','獸醫',['醫生','護士','網子'],1,'e'],
     ['baby','嬰兒',['寶藏','男孩','袋子'],1,'e'],
@@ -536,6 +574,12 @@ r1:{
     ['watch','手錶',['時鐘','洗','窗戶'],1,'e'],
     ['gift','禮物',['女孩','生日','娃娃'],1,'e'],
     ['picture','照片；圖片',['電影','家庭','顏色'],1,'e'],
+    ['actor','（男）演員',['醫生','作者','動物'],0,'e'],
+    ['strong','強壯的',['奇怪的','嚴格的','長的'],0,'e'],
+    ['hero','英雄',['這裡','她的','頭髮'],0,'e'],
+    ['plant','植物',['行星','計畫','盤子'],0,'e'],
+    ['other','其他的',['另一個','母親','我們的'],0,'e'],
+    ['food','食物',['腳','傻瓜','好的'],0,'e'],
     ['熊','bear',['beer','pear','deer'],1,'c'],
     ['獅子','lion',['tiger','line','lemon'],1,'c'],
     ['豬','pig',['pet','big','dog'],1,'c'],
@@ -557,41 +601,43 @@ r1:{
   ],
   sorts:[
     {title:'Yes 簡答：要用哪個代名詞？',tip:'男生 → he；女生 → she；一個東西／動物 → it；兩個以上（these / those / A and B）→ they。A and B\'s＋單數名詞仍然是一個 → 看那個名詞',buckets:['Yes, he is.','Yes, she is.','Yes, it is.','Yes, they are.'],items:[
-      ['Is your father a cook?',0],['Is Mr. Lee energetic?',0],['Is your aunt a nurse?',1],['Is Mia\'s mother young?',1,'問的是 mother → she。'],
-      ['Is this your eraser?',2],['Is that elephant big?',2],['Are those your mice?',3],['Are Ben and Mia classmates?',3],
+      ['Is your father a cook?',0],['Is Scott energetic?',0],['Is your aunt a nurse?',1],['Is Ann\'s mother young?',1,'問的是 mother → she。'],
+      ['Is this your eraser?',2],['Is that elephant big?',2],['Are those your mice?',3],['Are Ann and Rita classmates?',3],
       ['Are these sheep?',3,'these → they；sheep 這裡是複數。'],['Is Tom and Amy\'s dog cute?',2,'兩人共同的一隻狗 → it。'],
       ['Is your uncle\'s daughter a student?',1,'問的是 daughter → she。'],['Are your parents farmers?',3]]},
-    {title:'Who、What 還是 How old？',tip:'問「是誰」→ Who；問「是什麼／什麼生肖」→ What；問「幾歲」→ How old',buckets:['Who','What','How old'],items:[
+    {title:'Who、What 還是 How／How old？',tip:'問「是誰」→ Who；問「是什麼／什麼生肖」→ What；問「好不好」→ How；問「幾歲」→ How old',buckets:['Who','What','How / How old'],items:[
       ['___ is that boy? — He\'s my brother.',0],['___ is your sister? — She\'s ten.',2],['___ is this? — It\'s a ruler.',1],
       ['___ are they? — They\'re my cousins.',0],['___ are those? — They\'re oxen.',1],['___ is your animal sign? — I\'m a dragon.',1],
-      ['___ is Lucky? — It\'s two years old.',2],['___ is your English teacher? — Ms. Wang.',0]]},
+      ['___ is Lucky? — It\'s two years old.',2],['___ is your English teacher? — Bella.',0],['___ are you? — I\'m fine. Thank you.',2,'這題是 How：問好不好，不是問年齡（課本 Review 1 Read and Circle）。']]},
   ],
-  hunt:{label:'🔍 a / an 抓抓樂',title:'找出短文裡所有的 a 和 an',tip:'a＋子音音開頭（a two-year-old、a big），an＋母音音開頭（an elephant、an old、an English）。點一下你找到的 a / an！',lines:[
-    'Today is Saturday. Mia and her family are at the zoo.',
-    'Her cousin, Tina, is [a] two-year-old baby.',
-    'Mia: Look, Tina! That is [an] elephant. It is [an] African elephant.',
-    'Tina: Is it [a] big horse?',
-    'Mia: No, it isn\'t. Its ears are big. It is about three meters tall.',
-    'Mia\'s father is [a] cook, and her mother is [a] nurse.',
-    'Her uncle is [an] office worker, and her aunt is [an] English teacher.',
-    'In the evening, they are at [a] movie theater. It is [an] old theater, but it is nice.',
+  hunt:{label:'🔍 a / an 抓抓樂',title:'找出課本句子裡所有的 a 和 an',tip:'a＋子音音開頭（a farmer、a tall man），an＋母音音開頭（an actor、an African elephant）。句子取自 L1、L2、Review 1 課文。',lines:[
+    'Hi, I\'m Nick. I\'m [a] junior high school student. I\'m from [a] warm family.',
+    'My grandfather is [a] farmer. My grandmother is [a] cook.',
+    'Paul is my father. He is [a] tall man. He is [a] nurse.',
+    'Lily is my mother. She is [a] beautiful woman. She is [a] doctor.',
+    'Sam: He\'s Johnny. He is [an] actor.',
+    'Bella: You\'re [a] dragon. [A] dragon is smart and energetic.',
+    '[An] African elephant is about 3.2 meters tall, but [an] Asian elephant is only about 2.75 meters tall.',
   ]},
   mcq:[
     {q:'A: Who is that woman over there? B: ___',o:['She\'s my aunt.','She\'s fine.','She\'s thirty.','She\'s tall.'],a:0,src:'台南中山、基隆銘傳 同類題',ex:'Who 問「是誰」（和自己的關係或名字）→ She\'s my aunt.'},
     {q:'A: How old is your cousin? B: ___',o:['He\'s eleven.','He\'s a student.','He\'s tall.','He\'s my cousin.'],a:0,src:'16 校考 How old',ex:'How old 問年齡 → He\'s eleven (years old).'},
     {q:'Tina is ___ two-year-old baby.',o:['a','an','two','these'],a:0,src:'新北桃子腳 同類題',ex:'two 開頭是子音音 → a two-year-old baby。'},
-    {q:'Mia\'s uncle is ___ office worker.',o:['an','a','two','these'],a:0,src:'a / an 陷阱 9 校',ex:'office 開頭是母音音 → an office worker。'},
+    {q:'Rita\'s uncle is ___ office worker.',o:['an','a','two','these'],a:0,src:'a / an 陷阱 9 校',ex:'office 開頭是母音音 → an office worker。'},
     {q:'A: Is your father a cook? B: Yes, ___.',o:['he is','he\'s','it is','she is'],a:0,src:'簡答代名詞 8 校',ex:'father → he；肯定簡答不能縮寫：Yes, he is.'},
     {q:'A: Are these your puppies? B: No, ___. They\'re my cousin\'s.',o:['they aren\'t','these aren\'t','it isn\'t','they are'],a:0,src:'新北江翠 同類題',ex:'these → they；後面說是表哥的，所以是否定 No, they aren\'t.'},
     {q:'A: What are those? B: ___',o:['They\'re zebras.','It\'s a zebra.','Those are zebra.','They\'re zebra.'],a:0,src:'宜蘭中華 同類題',ex:'those 複數 → They\'re＋複數名詞。'},
-    {q:'Mr. and Mrs. Lin are husband and wife. ___ daughter is Mia.',o:['Their','They','Them','There'],a:0,src:'所有格形容詞 16 校',ex:'「他們的」女兒 → Their。'},
-    {q:'A: Aren\'t you Mia\'s brother? B: ___. I\'m her cousin.',o:['No, I\'m not','Yes, I am','Yes, I\'m not','No, I am'],a:0,src:'否定疑問句 11 校',ex:'照事實回答：不是哥哥 → No, I\'m not.'},
+    {q:'Paul and Lily are husband and wife. ___ daughter is Bella.',o:['Their','They','Them','There'],a:0,src:'所有格形容詞 16 校',ex:'「他們的」女兒 → Their。'},
+    {q:'A: Aren\'t you Ann\'s brother, Nick? B: ___. I\'m her cousin.',o:['No, I\'m not','Yes, I am','Yes, I\'m not','No, I am'],a:0,src:'否定疑問句 11 校',ex:'照事實回答：Nick 是 Ann 的堂哥，不是哥哥 → No, I\'m not.（課文 He\'s my cousin.）'},
     {q:'Look at the dog. ___ eyes are big, and ___ tail is short.',o:['Its; its','It\'s; it\'s','Its; it\'s','It\'s; its'],a:0,src:'It\'s / Its 8 校',ex:'兩個都是「它的」→ Its … its。'},
     {q:'A: ___ is your grandmother? B: She\'s fine. Thank you.',o:['How','Who','What','How old'],a:0,src:'台中崇德 同類題',ex:'How is…? 問「…好嗎」，回答 She\'s fine.'},
     {q:'Mr. Wu is ___ vet. ___ pets are cute.',o:['a; His','an; His','a; He','an; He'],a:0,src:'原創',ex:'vet 子音音 → a vet；「他的」寵物 → His pets。'},
     {q:'A: Is the movie theater big? B: No, it isn\'t. It\'s ___.',o:['small','big','tall','energetic'],a:0,src:'原創',ex:'否定回答後，要說出相反的情況：small。'},
     {q:'Those ___ are teachers. They are strict but nice.',o:['women','woman','womans','womens'],a:0,src:'不規則複數 13 校',ex:'Those、They are → 複數，woman → women。'},
     {q:'哪一句是正確的？',o:['My parents are farmers.','My parents is farmers.','My parent are farmers.','My parents are farmer.'],a:0,src:'主詞動詞一致',ex:'parents 複數 → are；後面的 farmers 也要複數。'},
+    {q:'A: Hi, Lucy. ___ are you? B: I am great, thanks. And you?',o:['How','How old','Who','What'],a:0,src:'課本 Review 1 Read and Circle',ex:'回答 I am great（我很好）→ 問 How are you?；How old 問年齡。'},
+    {q:'A: Who is that man? B: He\'s Johnny. He is ___ actor.',o:['an','a','two','these'],a:0,src:'課本 Review 1',ex:'actor 母音音開頭 → an actor。'},
+    {q:'Which animals are plant eaters?',o:['Horses, sheep, and rabbits.','Tigers and lions.','Leopards.','Owls.'],a:0,src:'課本 Review 1〈Animals and Their Food〉',ex:'Horses, sheep, rabbits, and elephants eat plants. 老虎、獅子、豹是 meat eaters。'},
   ]
 },
 gram:{
@@ -637,7 +683,7 @@ gram:{
       ['___ English book',1],['___ old ox',1],['___ ox',1],['___ sheep',0],['___ eleven-year-old boy',1],
       ['___ his eraser',2,'有所有格 his，不加 a / an。'],['___ oxen',2,'oxen 是複數，不加 a / an。'],['___ my mother',2]]},
     {title:'抓錯大作戰：這句文法對不對？',tip:'共同所有只在最後加 \'s；s 結尾的複數名詞所有格只加 \'；It\'s＝It is；Yes, I\'m. ✗',buckets:['正確 ✅','錯誤 ❌'],items:[
-      ['Ben and Mia\'s mother is a nurse.',0,'兩人共同的媽媽，最後加 \'s 就好。'],['Tom\'s and Ken\'s wives are teachers.',0],
+      ['Ken and Amy\'s mother is a nurse.',0,'兩人共同的媽媽，最後加 \'s 就好。'],['Tom\'s and Ken\'s wives are teachers.',0],
       ['Those boys\'s teacher is strict.',1,'boys 已經有 s，所有格只加 \'：boys\'。'],['The childrens\' teacher is nice.',1,'children 沒有 s 結尾 → children\'s。'],
       ['It\'s name is Lucky.',1,'「它的」要用 Its。'],['Its a cute dog.',1,'「它是」要用 It\'s。'],['She is an energetic girl.',0],
       ['He is a eleven-year-old boy.',1,'eleven 母音音 → an。'],['Ben is twelve-year-old.',1,'放句尾要寫 twelve years old。'],
@@ -645,11 +691,11 @@ gram:{
       ['Aren\'t you a student? Yes, I\'m.',1,'肯定簡答不能縮寫 → Yes, I am.'],['My family is big.',0]]},
     {title:'否定疑問句：回答 Yes 還是 No？',tip:'不管問句有沒有 not，只看「事實」：是 → Yes, … is/are；不是 → No, … isn\'t/aren\'t',buckets:['Yes','No'],items:[
       ['Isn\'t Ben your classmate?（他是）',0],['Aren\'t they oxen?（牠們是綿羊）',1],['Isn\'t your mother a cook?（她是護士）',1],
-      ['Aren\'t you thirteen?（我十三歲）',0],['Isn\'t that a mouse?（那是一隻大老鼠 rat）',1],['Isn\'t Ms. Wang strict?（她很嚴格）',0],
+      ['Aren\'t you thirteen?（我十三歲）',0],['Isn\'t that a mouse?（那是一隻大老鼠 rat）',1],['Isn\'t Bella strict?（她很嚴格）',0],
       ['Aren\'t those African elephants?（是亞洲象）',1],['Isn\'t it your pet?（是我的寵物）',0]]},
   ],
   mcq:[
-    {q:'A: Isn\'t Ms. Wang your English teacher? B: ___ She\'s our math teacher.',o:['No, she isn\'t.','Yes, she isn\'t.','Yes, she is.','No, she is.'],a:0,src:'楠梓、高雄正興 同類題',ex:'照事實：她是數學老師，不是英文老師 → No, she isn\'t.'},
+    {q:'A: Isn\'t Bella your math teacher? B: ___ She\'s our English teacher.',o:['No, she isn\'t.','Yes, she isn\'t.','Yes, she is.','No, she is.'],a:0,src:'楠梓、高雄正興 同類題',ex:'照事實：Bella 是英文老師，不是數學老師 → No, she isn\'t.'},
     {q:'A: Aren\'t you a junior high school student? B: Yes, ___.',o:['I am','I\'m','I\'m not','you are'],a:0,src:'宜蘭中華 同類題',ex:'肯定簡答不能縮寫在句尾：Yes, I am.（Yes, I\'m. ✗）'},
     {q:'___ Tom and Amy\'s mother a doctor?',o:['Is','Are','Am','Do'],a:0,src:'台南中山 同類題',ex:'Tom and Amy\'s mother＝共同的一位媽媽（單數）→ Is。'},
     {q:'___ Tom\'s and Ken\'s wives young?',o:['Are','Is','Am','Do'],a:0,src:'台南中山、宜蘭中華 同類題',ex:'各自的妻子 wives 是複數 → Are。'},
@@ -664,27 +710,27 @@ gram:{
     {q:'A: Is your uncle a farmer? B: No, ___ isn\'t. ___ is a vet.',o:['he; He','his; His','him; He','she; She'],a:0,src:'He/His/Him 7 校',ex:'uncle 是男生 → 主格 he / He。'},
     {q:'Mr. Lin is my teacher. ___ class is fun.',o:['His','He','Him','Her'],a:0,src:'He/His/Him 7 校',ex:'class 前面要用所有格「他的」→ His。'},
     {q:'Which sentence is correct?',o:['Two mice are under the desk.','Two mouses are under the desk.','Two mice is under the desk.','Two mouse are under the desk.'],a:0,src:'不規則複數 13 校',ex:'mouse → mice，複數主詞 → are。'},
-    {q:'These are ___ new books.（Ben 和 Mia 共有的書）',o:['Ben and Mia\'s','Ben\'s and Mia\'s','Ben and Mia','Ben\'s and Mia'],a:0,src:'台中崇德 同類題',ex:'共同擁有：只在最後一個人加 \'s → Ben and Mia\'s。'},
+    {q:'These are ___ new books.（Ken 和 Amy 共有的書）',o:['Ken and Amy\'s','Ken\'s and Amy\'s','Ken and Amy','Ken\'s and Amy'],a:0,src:'台中崇德 同類題',ex:'共同擁有：只在最後一個人加 \'s → Ken and Amy\'s。'},
     {q:'A: Who is that man? B: ___ my father.',o:['He\'s','His','Him','He'],a:0,src:'Who 問句 15 校',ex:'He\'s＝He is（他是）。'},
     {q:'This is an ox. 改成複數，正確的是：',o:['These are oxen.','These are oxes.','This are oxen.','These is oxen.'],a:0,src:'台南中山 同類題',ex:'This is → These are；an ox → oxen（去掉 an）。'},
     {q:'Is that a sheep? 改成複數，正確的是：',o:['Are those sheep?','Are those sheeps?','Is those sheep?','Are that sheep?'],a:0,src:'基隆銘傳 同類題',ex:'Is → Are、that → those、sheep 單複數同形。'},
     {q:'A: ___ is your brother? B: He\'s sixteen.',o:['How old','Who','What','How'],a:0,src:'How old 16 校',ex:'回答年齡 → 問 How old。'},
     {q:'Ms. Chen is a nurse. ___ husband is a cook.',o:['Her','She','His','He'],a:0,src:'所有格形容詞 16 校',ex:'「她的」丈夫 → Her husband。'},
-    {q:'Mia and I ___ in the same class.',o:['are','am','is','be'],a:0,src:'be 動詞變化 9 校',ex:'Mia and I＝我們（複數）→ are。'},
+    {q:'Rita and I ___ in the same class.',o:['are','am','is','be'],a:0,src:'be 動詞變化 9 校',ex:'Rita and I＝我們（複數）→ are。'},
   ]
 },
 };
 
-/* 綜合頁：克漏字＋閱讀＋翻譯（全部原創改寫） */
+/* 綜合頁：克漏字＋閱讀為原創（人物、數字與康軒課本一致）；翻譯優先用課本原句 */
 const CLOZE=[
-  {title:'克漏字 A｜Mia\'s New Class',text:'Hi! My name is Mia. I am __1__ junior high school student. This year, Ben and I are in the same class __2__. Our English teacher is Ms. Wang. __3__ is strict, but she is nice and warm. Our PE teacher, Mr. Lee, is young and __4__. He is always happy. Ben and I like __5__ classes. Ben\'s sister and brother are students, too. __6__ school is Hope Senior High School.',
+  {title:'克漏字 A｜Rita\'s New Class',text:'Hi! My name is Rita. I am __1__ junior high school student. This year, Ann and I are in the same class __2__. Our English teacher is Bella. __3__ is a great teacher, but she is strict, too. Our new PE teacher, Scott, is smart and __4__. He is tall and handsome. Ann and I like __5__ classes. Ann\'s cousin, Nick, is in Class 701. Bella and Nick are sister and brother. __6__ family name is Lin.',
    qs:[
     {q:'__1__',o:['a','an','two','these'],a:0,ex:'junior 開頭是子音音 → a junior high school student。'},
-    {q:'__2__',o:['again','ago','also','very'],a:0,ex:'in the same class again＝又同班了。'},
-    {q:'__3__',o:['She','Her','He','His'],a:0,ex:'Ms. Wang 是女生，當主詞 → She。'},
-    {q:'__4__',o:['energetic','heavy','sad','old'],a:0,ex:'young and energetic（年輕又有活力），後面又說他總是很開心。'},
-    {q:'__5__',o:['their','they','them','there'],a:0,ex:'「他們的」課（王老師和李老師的課）→ their classes。'},
-    {q:'__6__',o:['Their','They','Them','There'],a:0,ex:'Ben 的姊姊和哥哥「他們的」學校 → Their school。'},
+    {q:'__2__',o:['again','ago','also','very'],a:0,ex:'in the same class again＝又同班了（課文 Rita: we\'re in the same class again!）。'},
+    {q:'__3__',o:['She','Her','He','His'],a:0,ex:'Bella 是女生，當主詞 → She。'},
+    {q:'__4__',o:['energetic','heavy','sad','old'],a:0,ex:'Scott 2000 年生屬龍：A dragon is smart and energetic.（課文 L2）'},
+    {q:'__5__',o:['their','they','them','there'],a:0,ex:'「他們的」課（Bella 和 Scott 的課）→ their classes。'},
+    {q:'__6__',o:['Their','They','Them','There'],a:0,ex:'Bella 和 Nick「他們的」姓氏 → Their family name。課文標題 The Lins＝林家人。'},
    ]},
   {title:'克漏字 B｜Grandpa\'s Farm',text:'Hi, I\'m Ben. My birth year is 2014. I\'m a horse. What __1__ you? My grandparents are farmers. Their farm is big, and the animals __2__ like family to them. Look at this picture. These are two __3__. They are big and strong. Those white animals are __4__. Under the tree is my grandpa\'s dog. It is __5__ old dog. __6__ name is Lucky. My grandparents are nice and warm. No wonder all the animals love them!',
    qs:[
@@ -704,12 +750,12 @@ const READ=[
     {q:'Who is Nina?',o:['Kelly\'s cousin.','Kelly\'s sister.','Kelly\'s aunt.','Kelly\'s mother.'],a:0,ex:'Their daughter, Nina … She is my cousin.'},
     {q:'What is Paul\'s job?',o:['He is a vet.','He is a cook.','He is a nurse.','He is a farmer.'],a:0,ex:'He is a vet.（獸醫）'},
    ]},
-  {title:'閱讀 B｜Two Kinds of Elephants',text:'Elephants are big animals, but not all elephants are the same. African elephants are different from Asian elephants. African elephants are from Africa. They are about 3 to 4 meters tall. Their ears are very big. Asian elephants are from Asia, like India and Thailand. They are about 2.5 to 3 meters tall. Their ears are small and round. Are elephants smart? Yes, they are! Elephants have good memories. And their lifespans are long, about 60 to 70 years.',
+  {title:'閱讀 B｜Two Kinds of Elephants',text:'Elephants are big animals, but not all elephants are the same. African elephants are different from Asian elephants. African elephants are from Africa. They are very big, and their ears are big, too. An African elephant is about 3.2 meters tall. Asian elephants are from Asia, like India and Thailand. They are small, and their ears are short. An Asian elephant is only about 2.75 meters tall. Are elephants smart? Yes, they are! Elephants have good memories. People say, "An elephant never forgets." Asian elephants\' lifespans are about 60 years, but African elephants\' lifespans are about 70 years.',
    qs:[
-    {q:'Which is true about Asian elephants?',o:['Their ears are small.','They are from Africa.','They are about 4 meters tall.','Their ears are very big.'],a:0,ex:'Asian elephants … Their ears are small and round.'},
-    {q:'How tall is an African elephant?',o:['About 3 to 4 meters.','About 2.5 meters.','About 60 meters.','About 70 meters.'],a:0,ex:'African elephants … are about 3 to 4 meters tall.'},
-    {q:'What does "lifespan" mean in the reading?',o:['How many years an animal lives.','How tall an animal is.','How big an animal\'s ears are.','Where an animal is from.'],a:0,ex:'lifespan＝壽命；文中說 about 60 to 70 years。'},
-    {q:'What is the SAME about the two kinds of elephants?',o:['They are both smart.','Their ears are both big.','They are both from India.','They are both 4 meters tall.'],a:0,ex:'Are elephants smart? Yes, they are! 兩種都聰明；耳朵、產地、身高都不同。'},
+    {q:'Which is true about Asian elephants?',o:['Their ears are short.','They are from Africa.','They are about 3.2 meters tall.','Their lifespans are about 70 years.'],a:0,ex:'Asian elephants … are small, and their ears are short.'},
+    {q:'How tall is an African elephant?',o:['About 3.2 meters.','About 2.75 meters.','About 60 meters.','About 70 meters.'],a:0,ex:'An African elephant is about 3.2 meters tall.（和課本數字相同）'},
+    {q:'What does "lifespan" mean in the reading?',o:['How many years an animal lives.','How tall an animal is.','How big an animal\'s ears are.','Where an animal is from.'],a:0,ex:'lifespan＝壽命；亞洲象約 60 年、非洲象約 70 年。'},
+    {q:'What is the SAME about the two kinds of elephants?',o:['They are both smart.','Their ears are both big.','They are both from India.','Their lifespans are both 70 years.'],a:0,ex:'Are elephants smart? Yes, they are! 兩種都聰明；耳朵、產地、壽命都不同。'},
    ]},
   {title:'閱讀 C｜LOST DOG!',text:'LOST DOG!\nName: Bobo\nAge: two years old\nColor: black and white\nBobo is a small dog. Its ears are big, but its tail is short. It is very friendly. It likes children. Bobo is like family to us. Is Bobo in your neighborhood? Please call Mr. Wu: 0912-345-678. Thank you!',
    qs:[
@@ -719,18 +765,19 @@ const READ=[
    ]},
 ];
 const TRANS=[
-  ['我們又在同一班了。','We are in the same class again.','in the same class＋again'],
-  ['那是真的嗎？','Is that true?','確認消息'],
-  ['我的英文老師很嚴格。','My English teacher is strict.','strict 嚴格的'],
-  ['他哥哥是一個充滿活力的高中生。','His brother is an energetic senior high school student.','an＋energetic；senior high school 高中'],
-  ['她不是我的媽媽，她是我的阿姨。','She isn\'t my mother. She\'s my aunt.','be 動詞否定 isn\'t'],
-  ['你的生肖是什麼？','What\'s your animal sign?','animal sign 生肖'],
-  ['難怪你是個人緣很好的人。','No wonder you are a people person.','no wonder 難怪；people person'],
-  ['非洲象和亞洲象不同。','African elephants are different from Asian elephants.','be different from'],
-  ['牠們難道不是十二生肖動物嗎？','Aren\'t they the Chinese zodiac animals?','否定疑問句 Aren\'t'],
+  ['那個年輕男子是誰？他又高又帥。','Who\'s that young man? He\'s tall and handsome.','L1 課文；who\'s＝who is'],
+  ['我們又在同一班了！','We\'re in the same class again!','L1 課文；in the same class＋again'],
+  ['好消息。Bella 是我們的英文老師！','Good news. Bella is our English teacher!','L1 課文；news 不可數'],
+  ['她也是個嚴格的老師。','She\'s a strict teacher, too.','L1 課文；a＋形容詞＋名詞'],
+  ['我來自一個溫暖的家庭。','I\'m from a warm family.','L1 Reading；be from'],
+  ['他是高中生。','He\'s a senior high school student.','L1 Reading；senior high school'],
+  ['這些是什麼？','What are these?','L2 課文；these → are'],
+  ['它們不就是中國十二生肖嗎？','Aren\'t they the Chinese zodiac animal signs?','L2 課文；否定疑問句 Aren\'t'],
+  ['難怪妳人緣這麼好。','No wonder you are a people person.','L2 課文；no wonder、people person'],
+  ['非洲象和亞洲象不同。','African elephants are different from Asian elephants.','L2 Reading；be different from'],
+  ['一頭非洲象大約 3.2 公尺高。','An African elephant is about 3.2 meters tall.','L2 Reading；an African、meters'],
   ['Tom 和 Amy 的媽媽是護士。','Tom and Amy\'s mother is a nurse.','共同所有：最後加 \'s；單數 → is'],
   ['那些是綿羊。','Those are sheep.','sheep 單複數同形'],
-  ['我是一個十二歲的國中生。','I am a twelve-year-old junior high school student.','twelve-year-old 不加 s'],
 ];
 
 /* 考點雷達（依 19 校康軒版七上第一次段考卷統計） */
@@ -745,9 +792,9 @@ const RADAR={
 };
 
 /* ================= 導覽 ================= */
-const TABS=[['home','🏠 考點雷達'],['gr','🔤 Get Ready'],['l1','🏫 L1 又同班了'],['l2','🐘 L2 生肖與大象'],['r1','🔁 Review 1'],['gram','🧱 文法特訓'],['mix','🧩 克漏字＋閱讀']];
+const TABS=[['home','🏠 考點雷達'],['gr','🔤 Get Ready'],['l1','🏫 L1 Who\'s That Young Man?'],['l2','🐘 L2 What Are These?'],['r1','🔁 Review 1'],['gram','🧱 文法特訓'],['mix','🧩 克漏字＋閱讀']];
 
-const AUDIO=new Set(["0005e788", "00313120", "00f0e6aa", "03274595", "03285dfc", "067ab5b4", "07cc25f4", "0a0a25b5", "0a14a782", "0ba81191", "0cbc8ba4", "0d596aa2", "0e6f5bde", "1011c21b", "119f9d40", "11e9ed12", "15439498", "165985e3", "19ed5bcc", "1d36a018", "1dd8f4b8", "1f951fd4", "1ff02d95", "2166e5bd", "24c83574", "27db9c83", "2a62bdb5", "2d505a99", "2e1e30e5", "2fb89428", "312fd389", "34a56fca", "34aa5cdd", "35e314a5", "3799e184", "3ea07d7c", "4024f153", "406f344d", "4124f2e6", "45b1c069", "47308113", "48e4b143", "49fa4705", "4bc7bc46", "4bdfdfb3", "4c2dfe93", "4db211e5", "4e388f15", "4f399b8c", "514c98f2", "521d0429", "55f4f061", "561ae98b", "57342012", "573511ed", "573f252c", "575b1d3a", "58446843", "592318c4", "5a21721e", "5a69615f", "5afecfa5", "5cb49d8a", "5ce1a0f8", "5d1123c5", "5e3be416", "5f386b9b", "5fb7b228", "5fd56df9", "605d486b", "60e2ae30", "64e0e0f7", "67a9c9d2", "6840fb8f", "694b8a7e", "6a164f08", "6cc7dde1", "6f4b93f0", "6fa9dc52", "70c67e32", "7183f6da", "719c6755", "7499948f", "75fdac67", "77688e8b", "78627a04", "795735e5", "7a938ce6", "7bbee3c3", "7c1f1ea1", "7c305f10", "7c7c544b", "7c8fd531", "7f220ac3", "808e8652", "81fa6638", "82afede5", "830d0cf4", "863de901", "88d37956", "88dc3d73", "8a524c53", "8a7324ef", "8b030cb8", "8b77447b", "8bf7e817", "8bfb4d3e", "8d4ea641", "93afcc41", "963335ee", "9b8951a6", "9be98f95", "9d2ee900", "9dcfbd73", "a1f02512", "a2fb5eed", "a3d72107", "a6ad93e2", "a91a3339", "aa3a32cc", "ab3e0bff", "ab6ef9c2", "ac08838f", "acc272fa", "aceae80c", "ae97e7d2", "afad8963", "aff5e25b", "b010ea67", "b33fe54f", "b6f3934e", "b75ff566", "ba226bd5", "bb357f55", "bb8324f1", "bdeb87dc", "bef086ed", "bef81d14", "c1948a38", "c238e05d", "c4f6b883", "c52bb172", "c5611fe2", "c6759658", "c944ea21", "c97160d1", "c9ad5a6b", "cb619ce5", "cd0c4a3b", "d0705a83", "d397b280", "d4fd75b2", "dabea5eb", "de839654", "df845535", "e0363a7b", "e1b3ff42", "e236c7d8", "e37d27cc", "e382ff79", "e3d02375", "e40c292c", "e5a0205d", "e5f12404", "e96898d5", "e9a2ff6f", "eacdfcfd", "ed88e86a", "ed98d176", "ef3e2929", "efeb5a2c", "f270b0b8", "f2dead7f", "f4995ddc", "f79f39aa", "f810361e", "f85622bf", "fac46df3", "ff55af40", "ffd6230d"]);
+const AUDIO=new Set(["0005e788", "00313120", "03274595", "03285dfc", "067ab5b4", "07cc25f4", "07cc2b2a", "0a0a25b5", "0a14a782", "0ba81191", "0cbc8ba4", "0d596aa2", "0e6f5bde", "0e8cd7ba", "1011c21b", "119f9d40", "11e9ed12", "15439498", "165985e3", "19ed5bcc", "1b3b5c59", "1d36a018", "1dd8f4b8", "1f951fd4", "1ff02d95", "2166e5bd", "23a0d95c", "24c83574", "27db9c83", "27e17df3", "2a62bdb5", "2c0000fe", "2d505a99", "2fb89428", "312fd389", "34aa5cdd", "35e314a5", "3799e184", "3d5073c9", "3ea07d7c", "4024f153", "406f344d", "40d54106", "40ff0e38", "4124f2e6", "45b1c069", "47308113", "48e4b143", "49fa4705", "4bc7bc46", "4bdfdfb3", "4c2dfe93", "4db211e5", "4e388f15", "4f399b8c", "514c98f2", "521d0429", "55f4f061", "57342012", "573511ed", "575b1d3a", "58446843", "592318c4", "5a69615f", "5afecfa5", "5c378208", "5cb49d8a", "5d1123c5", "5e3be416", "5fb7b228", "5fd56df9", "60d56f8c", "60e2ae30", "64e0e0f7", "67a9c9d2", "6840fb8f", "694b8a7e", "6a164f08", "6cc7dde1", "6f4b93f0", "6fa9dc52", "70c67e32", "7183f6da", "719c6755", "7499948f", "75fdac67", "77688e8b", "78627a04", "795735e5", "7a938ce6", "7bbee3c3", "7c1f1ea1", "7c305f10", "7c7c544b", "7c8fd531", "7f220ac3", "808e8652", "81fa6638", "82afede5", "830d0cf4", "8583378f", "863de901", "88d37956", "88dc3d73", "89986d8a", "8a524c53", "8a7324ef", "8b030cb8", "8b77447b", "8bf7e817", "8bfb4d3e", "8d39bde6", "8d4ea641", "8fa76dad", "905952bb", "963335ee", "9918f4ae", "9b8951a6", "9be98f95", "9d2ee900", "9d9e89f7", "9dcfbd73", "a1f02512", "a3d72107", "a6ad93e2", "a8d3c244", "a91a3339", "a9b8bedf", "aa3a32cc", "ab3e0bff", "ac08838f", "ac247217", "acc272fa", "aceae80c", "ae97e7d2", "afad8963", "aff5e25b", "b010ea67", "b33fe54f", "b4bc6200", "b6f3934e", "b75ff566", "ba226bd5", "bb357f55", "bb8324f1", "bbcae592", "bde3a73f", "bdeb87dc", "bef086ed", "bef81d14", "c1948a38", "c238e05d", "c3b8342f", "c40bf6cc", "c4f6b883", "c51f5d7a", "c52bb172", "c5611fe2", "c6759658", "c87d8df5", "c944ea21", "c97160d1", "c9ad5a6b", "cb619ce5", "cbfd3c67", "cd0c4a3b", "d0705a83", "d1ca4aa5", "d397b280", "d4fd75b2", "dabea5eb", "de839654", "df845535", "e0363a7b", "e1b3ff42", "e236c7d8", "e37d27cc", "e382ff79", "e3d02375", "e40bbe3a", "e40c292c", "e5a0205d", "e5f12404", "e96898d5", "e9a2ff6f", "eacdfcfd", "ed98d176", "ef3e2929", "efeb5a2c", "f270b0b8", "f2dead7f", "f3dea268", "f4995ddc", "f5352bb4", "f7956f23", "f79f39aa", "f810361e", "f85622bf", "fac46df3", "fc911b7a", "fdd2b0cb", "ff4392ba", "ff55af40"]);
 /* ================= 注釋配對 ================= */
 function renderMatch(el,pairs){
   const rounds=[];const sp=shuf(pairs);for(let k=0;k<sp.length;k+=5)rounds.push(sp.slice(k,k+5));
@@ -1189,7 +1236,7 @@ function renderHome(app){
   <div class="card"><h3>🌏 不分版本都考！（${RADAR.cross.n} 校七上第一次段考，含翰林、南一）</h3>${bar2(RADAR.cross.items,RADAR.cross.n)}
   <p class="muted" style="margin-top:10px">翻遍全臺 ${RADAR.cross.n} 校 114 上七年級第一次段考（翰林 36、康軒 19、南一 4）：<b>be 動詞 Yes/No 簡答</b>每校都考，不規則複數、Who、How old、所有格也超過六成學校考。把「🧱 文法特訓」練熟最划算！</p></div>
   <div class="card"><h3>✍️ 非選題考什麼？</h3><div class="chips">${RADAR.nonmcq.map(([w,n])=>`<span>${w} <b>×${n}</b></span>`).join('')}</div>
-  <p class="muted" style="margin-top:12px">翻譯常考課文句型：We are in the same class again.／No wonder you are a people person.／African elephants are different from Asian elephants. → 到「🧩 克漏字＋閱讀」用翻譯翻翻卡練。字母大小寫互換常用課外長字，全對才給分，要細心。</p></div>
+  <p class="muted" style="margin-top:12px">翻譯常考課文句型（康軒課本原句）：We're in the same class again!／No wonder you are a people person.／African elephants are different from Asian elephants. → 到「🧩 克漏字＋閱讀」用翻譯翻翻卡練。字母大小寫互換常用課外長字，全對才給分，要細心。</p></div>
   <div class="card"><h3>🧭 建議闖關順序</h3>
   <p>① 每課先看 <b>🎬 動畫導覽</b>，弄懂課文在說什麼 → ② <b>⚡ 單字快問快答</b>、<b>🔗 片語配對</b>，練熟基本分 → ③ <b>🧱 文法特訓</b>，把 be 動詞、複數、所有格練到反射 → ④ <b>📝 段考模擬題</b>與 <b>🧩 克漏字＋閱讀</b>，檢查自己的程度。</p>
   <p class="muted">段考範圍各校略有不同：有的學校只考到第 2 課，有的加考 2000 單字，請依自己學校的公告準備。</p></div>`;
@@ -1279,7 +1326,7 @@ function renderMix(app){
   const s=curSub.mix||'cloze';
   const subs=[['cloze','🧩 克漏字'],['read','📖 閱讀測驗'],['trans','🃏 翻譯翻翻卡']];
   app.innerHTML=`<h2>🧩 克漏字＋閱讀＋翻譯</h2>
-  <p class="muted">19 校中 13 校考閱讀、12 校考克漏字、16 校考翻譯；文章常借用課本主題（新學期、家族樹、十二生肖、大象、寵物）。以下文章皆為依考點原創改寫。</p>
+  <p class="muted">19 校中 13 校考閱讀、12 校考克漏字、16 校考翻譯；文章常借用課本主題（新學期、家族樹、十二生肖、大象、寵物）。以下克漏字與閱讀文章為原創（人物、數字與康軒課本一致），翻譯翻翻卡優先採用課本原句。</p>
   <div class="subtabs">${subs.map(([k,t])=>`<button class="sub ${k===s?'on':''}" data-s="${k}">${t}</button>`).join('')}</div><div id="panel"></div>`;
   app.querySelectorAll('.sub').forEach(b=>b.onclick=()=>{curSub.mix=b.dataset.s;render()});
   const p=$('#panel');
@@ -1297,17 +1344,19 @@ function renderMix(app){
 /* ================= Get Ready 動畫 ================= */
 function animGR(p){
   p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
-  <div class="card"><h3>🗺️ Get Ready 一張圖</h3>
-  <p><span class="pill">字母</span>26 個字母的大小寫、字母順序（19 校中 11 校考大小寫互換，全對才給分）</p>
-  <p><span class="pill">問候</span>Hello／Nice to meet you.／Nice to meet you, too.／Thank you.／You're welcome.</p>
-  <p><span class="pill">教室</span>What's this? It's <b>a</b> pen／<b>an</b> eraser.　What are these? They're pencils.</p></div>`;
+  <div class="card"><h3>🗺️ Get Ready 一張圖（康軒課本）</h3>
+  <p><span class="pill">I 字母</span>26 個字母的大小寫、字母順序（19 校中 11 校考大小寫互換，全對才給分）</p>
+  <p><span class="pill">II 招呼</span>Hello! — Hi!／How are you? — I'm fine. Thank you.／Thank you. — You're welcome.／Good morning / afternoon / evening / night.</p>
+  <p><span class="pill">III 介紹</span>I am Tony. He is Peter. Who is that girl? — She is Joyce.　What is your name? — My name is Joyce.</p>
+  <p><span class="pill">IV 年齡</span>How old are you? — I am twelve.　數字 0–99（-teen／-ty）</p>
+  <p><span class="pill">V 書寫</span>句首大寫、人名地名大寫、I 一律大寫、句尾句點</p></div>`;
   const steps=[
-    {label:'① 開學第一天',imgs:[{img:'l1_class',tag:'Hello! I am Mia. What is your name?'}],poem:'Mia: Hello! I <b>am</b> Mia. What <b>is</b> your name?<br>Ben: Hi, Mia. My name <b>is</b> Ben. <b>Nice to meet you.</b><br>Mia: <b>Nice to meet you, too.</b>',key:'回答 Nice to meet you. 要加 <b>too</b>（自強、正興考過）。I → <b>am</b>；my name → <b>is</b>。'},
-    {label:'② 這是什麼？',imgs:[{img:'gr_eraser',tag:'It\'s an eraser.'},{img:'gr_pencil',tag:'What are these? They\'re pencils.'}],poem:'Mia: What\'s this, Ben?<br>Ben: It\'s <b>an</b> eraser. It\'s from my grandfather.<br>Mia: What are these? Ben: They\'re pencils.',key:'eraser 母音音開頭 → <b>an</b> eraser（新北新莊考過）；these → They\'re＋<b>複數</b>。'},
-    {label:'③ 教室用品',imgs:[{img:'gr_shop',tag:'pens, rulers, pencil boxes…'}],poem:'a pen・a ruler・a book・a chair・a desk・a pencil box・a brush・<b>an</b> English book・<b>an</b> umbrella',key:'冠詞看<b>後面那個字的第一個音</b>：a pencil box、<b>an</b> old desk、a <b>u</b>niform（[ju] 是子音音）。'},
-    {label:'④ 字母大小寫',imgs:[{img:'gr_abc',tag:'A a, B b, C c…'}],poem:'ELEPHANT → <b>elephant</b><br>qbslh → <b>QBSLH</b><br>h, q, b, s, l → <b>b, h, l, q, s</b>',key:'大小寫互換常用<b>課外長字</b>出題，全對才給分；小心 b／d、p／q、I（大寫 i）／l（小寫 L）。'},
-    {label:'⑤ 句首要大寫',imgs:[{img:'l1_teacher',tag:'Who is Lisa?'}],poem:'<s>who is lisa?</s> → <b>W</b>ho is <b>L</b>isa?<br><s>i am from taiwan.</s> → <b>I</b> am from <b>T</b>aiwan.',key:'句首、人名、地名、<b>I</b> 一定大寫；問句結尾用<b>問號</b>（台中崇德、新北五峰考過）。'},
-    {label:'⑥ 謝謝與不客氣',imgs:[{img:'l1_class',tag:'Thank you. — You\'re welcome.'}],poem:'Mia: The eraser is cute. <b>Thank you.</b><br>Ben: <b>You\'re welcome.</b><br>Ms. Wang: Good morning, class! How are you? — We\'re <b>fine</b>. Thank you.',key:'Thank you. → You\'re welcome.；How are you? → I\'m <b>fine</b>.（台中崇德考 How is your grandpa? — He\'s fine.）'},
+    {label:'① 招呼用語',imgs:[{img:'l1_class',tag:'Hello! — Hi!'}],poem:'Hello! — Hi!<br><b>How are you?</b> — <b>I\'m fine. Thank you.</b><br>Thank you. — <b>You\'re welcome.</b><br>Goodbye. — Bye.',key:'招呼都有<b>固定回應</b>：How are you? → I\'m fine.；Thank you. → You\'re welcome.（課本 II. 招呼用語）'},
+    {label:'② 早午晚安',imgs:[{img:'l1_class',tag:'Good morning. — Good morning.'}],poem:'Good <b>morning</b>. — Good morning.<br>Good <b>afternoon</b>. — Good afternoon.<br>Good <b>evening</b>. — Good evening.<br>Good <b>night</b>. — Good night.',key:'對方說什麼就回什麼。<b>Good evening</b> 是晚上「見面」，<b>Good night</b> 是「道別、睡前」。'},
+    {label:'③ 介紹自己與他人',imgs:[{img:'l1_teen',tag:'I am Tony. He is Peter.'}],poem:'I <b>am</b> Tony. You <b>are</b> Jerry.<br>He <b>is</b> Peter. She <b>is</b> Shelly. It <b>is</b> Mike.<br>Kiki: <b>Who</b> is that girl? — <b>She</b> is Joyce.',key:'I → am、you → are、he / she / it → is；縮寫 I\'m、you\'re、he\'s、she\'s、it\'s。問「人是誰」用 <b>Who</b>。'},
+    {label:'④ 你叫什麼名字？',imgs:[{img:'gr_pencil',tag:'What is your name? — My name is Joyce.'}],poem:'What is <b>your</b> name? — <b>My</b> name is Joyce.<br>What\'s <b>his</b> name? — His name is Peter.<br>What\'s <b>its</b> name? — <b>Its</b> name is Gigi.',key:'所有格：I → my、you → your、he → his、she → her、it → <b>its</b>（沒有撇號！it\'s＝it is）、Emma → Emma\'s。'},
+    {label:'⑤ 你幾歲？',imgs:[{img:'gr_abc',tag:'How old are you? — I am twelve.'}],poem:'<b>How old</b> are you? — I am <b>twelve</b>.<br>How old is Edward? — He\'s three <b>years old</b>.<br>15 fif<b>teen</b> ↔ 50 fif<b>ty</b>　40 <b>forty</b>（✗ fourty）',key:'How old 問年齡（16 校考）；13–19 是 <b>-teen</b>，20、30…是 <b>-ty</b>；98＝ninety-eight。'},
+    {label:'⑥ 英文書寫原則',imgs:[{img:'l1_teacher',tag:'Hello, how are you?'}],poem:'Hello<b>,</b> how are you<b>?</b><br>It\'s hot in <b>T</b>aiwan. <b>E</b>ddie and <b>I</b> are happy now.<br><s>my name is ken</s> → <b>M</b>y name is <b>K</b>en.',key:'句首、人名、地名、<b>I</b> 一定大寫；逗點後空一格；問句用問號（台中崇德、新北五峰考過）。'},
   ];
   stepper(p,steps,i=>showPhoto(steps[i]),8000);
 }
@@ -1315,17 +1364,18 @@ function animGR(p){
 /* ================= L1 動畫 ================= */
 function animL1(p){
   p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
-  <div class="card"><h3>🗺️ 課文一張圖（原創改寫）</h3>
-  <p><span class="pill">對話</span>Mia 和 Ben <b>又同班了</b>（in the same class again）→ 英文老師王老師很<b>嚴格</b>（strict）但很好 → 體育老師李老師年輕又<b>有活力</b>（energetic）</p>
-  <p><span class="pill">照片</span>Mia 介紹家人：爸爸是<b>廚師</b>、媽媽是<b>護士</b>、哥哥 Sam 是英俊又有活力的<b>高中生</b>、表妹 Tina 是叔叔和阿姨的<b>女兒</b></p>
-  <p><span class="pill">文法</span>be 動詞 Yes/No 問句與簡答＋Who 問句＋所有格（my / his / her、A and B's）</p></div>`;
+  <div class="card"><h3>🗺️ 課文一張圖（康軒 L1 Who's That Young Man?）</h3>
+  <p><span class="pill">對話 1</span>在學校，Ann 問 Nick：那個<b>又高又帥</b>的年輕男子是誰？→ 新的<b>體育老師 Scott</b>，是姊姊 Bella 的朋友</p>
+  <p><span class="pill">對話 2</span>Ann 和 Rita <b>又同班</b>了，Ann 介紹表哥 Nick（701 班）；英文老師是 <b>Bella</b>——Nick：她也很<b>嚴格</b>！</p>
+  <p><span class="pill">閱讀</span>The Lins：爺爺<b>農夫</b>、奶奶<b>廚師</b>、爸爸 Paul <b>護理師</b>、媽媽 Lily <b>醫生</b>、哥哥 Eddie <b>高中生</b>、寵物豬 Abby</p>
+  <p><span class="pill">文法</span>be 動詞否定／疑問／簡答＋形容詞位置（a young man）＋Who 問句＋所有格</p></div>`;
   const steps=[
-    {label:'① 好消息！',imgs:[{img:'l1_class',tag:'We\'re in the same class again!'}],poem:'Mia: <b>Good news</b>, Ben! We\'re <b>in the same class again</b>!<br>Ben: Really? <b>Is that true?</b> Great!',key:'in <b>the</b> same class（same 前面要有 the，高雄五甲考過漏 the 的錯句）；<b>again</b>＝再一次；Is that true? 確認消息。'},
-    {label:'② 嚴格的英文老師',imgs:[{img:'l1_teacher',tag:'She\'s strict, but she\'s nice.'}],poem:'Ben: <b>Who\'s</b> our English teacher?<br>Mia: Ms. Wang. She\'s <b>strict</b>, but she\'s nice.<br>Ben: Is she <b>an</b> old teacher? Mia: No, she <b>isn\'t</b>. She\'s young.',key:'<b>strict</b>（11 校考）；問人用 <b>Who</b>；<b>an</b> old teacher；簡答 No, she isn\'t.'},
-    {label:'③ 有活力的體育老師',imgs:[{img:'l1_teen',tag:'He\'s young and energetic.'}],poem:'Ben: Who\'s that <b>tall</b> man?<br>Mia: He\'s Mr. Lee, our <b>PE teacher</b>. He\'s <b>young</b> and <b>energetic</b>.',key:'<b>energetic</b>（13 校考）、young（12 校）、tall（11 校）；主詞用 <b>He</b>，不是 His／Him。'},
-    {label:'④ 我的家人',imgs:[{img:'l1_cook',tag:'My father is a cook.'},{img:'l1_nurse',tag:'My mother is a nurse.'}],poem:'Mia: Look! This is a picture of <b>my</b> family. We\'re a family of five.<br><b>My</b> father is a <b>cook</b>, and <b>my</b> mother is a <b>nurse</b>.',key:'cook 當名詞＝<b>廚師</b>；nurse、cook、farmer、doctor、vet 都是 L1 職業字（各 9～11 校考）。'},
-    {label:'⑤ 英俊的哥哥',imgs:[{img:'l1_teen',tag:'He\'s an energetic senior high school student.'}],poem:'Ben: Is this <b>handsome</b> boy your brother?<br>Mia: Yes, <b>he is</b>. <b>His</b> name is Sam. He\'s <b>an energetic senior high school student</b>. He\'s sixteen <b>years old</b>.',key:'<b>an</b> energetic（看緊接的字）；Yes, he is.（不能 Yes, he\'s.）；sixteen years old ↔ a sixteen-<b>year</b>-old boy。'},
-    {label:'⑥ 是妹妹嗎？',imgs:[{img:'l1_family',tag:'She\'s my uncle and aunt\'s daughter.'},{img:'l1_farmer',tag:'My uncle is a farmer.'}],poem:'Ben: Is she your sister?<br>Mia: No, she <b>isn\'t</b>. She\'s my <b>cousin</b>, Tina. She\'s my <b>uncle and aunt\'s</b> <b>daughter</b>. <b>Her</b> father is a <b>farmer</b>.',key:'<b>A and B\'s</b>＝兩人共同的（13 校考的陷阱）；uncle、aunt、cousin、daughter 是家族樹必考字。'},
+    {label:'① 那個年輕男子是誰？',imgs:[{img:'l1_teen',tag:'Who\'s that young man?'}],poem:'Ann: Good morning, Nick.<br>Nick: Good morning, Ann.<br>Ann: Nick, <b>who\'s</b> that <b>young man</b>? He\'s tall and <b>handsome</b>.',key:'<b>who\'s＝who is</b>，問人是誰；<b>young man</b>（man → men）；<b>handsome</b> 英俊的（13 校考）。'},
+    {label:'② 新的體育老師',imgs:[{img:'l1_teacher',tag:'He\'s our new PE teacher.'}],poem:'Nick: He\'s <b>our</b> new <b>PE teacher</b>.<br>Ann: <b>Really?</b><br>Nick: Yes, he\'s <b>Bella\'s</b> friend, and <b>his</b> name is Scott.',key:'<b>our</b>＝我們的（所有格後不加 a）；<b>Bella\'s</b> 名詞所有格；<b>his</b> name（✗ he\'s name）。'},
+    {label:'③ 又同班了！',imgs:[{img:'l1_class',tag:'We\'re in the same class again!'}],poem:'Rita: Ann, we\'re <b>in the same class again</b>!<br>Ann: Yeah, it\'s great! Hi, Rita. <b>This is</b> Nick. He\'s my <b>cousin</b>. He\'s in Class 701.<br>Rita: Nice to meet you, Nick. I\'m Rita.<br>Nick: Nice to meet you, <b>too</b>, Rita.',key:'in <b>the</b> same class（same 前要有 the）；介紹別人用 <b>This is…</b>；回應要加 <b>too</b>。'},
+    {label:'④ 好消息？',imgs:[{img:'l1_teacher',tag:'Bella is our English teacher!'}],poem:'Ann: Hey, Rita. <b>Good news</b>. Bella is our English teacher!<br>Nick: Oh, no. That\'s not good.<br>Ann: What\'s the <b>problem</b>? She\'s a great teacher.<br>Nick: Well… she\'s a <b>strict</b> teacher, <b>too</b>.<br>Bella: Nick!',key:'<b>news</b> 不可數（✗ a good news）；<b>strict</b> 嚴格的（11 校考）；a strict teacher：a＋形容詞＋名詞。'},
+    {label:'⑤ The Lins：爺爺奶奶和爸媽',imgs:[{img:'l1_farmer',tag:'My grandfather is a farmer.'},{img:'l1_cook',tag:'My grandmother is a cook.'},{img:'l1_nurse',tag:'He is a nurse. / She is a doctor.'}],poem:'Hi, I\'m Nick. I\'m <b>a junior high school student</b>. I\'m from a <b>warm</b> family. My grandfather is a <b>farmer</b>. My grandmother is a <b>cook</b>. They are nice. Paul is my father. He is a tall man. He is a <b>nurse</b>. Lily is my mother. She is a <b>beautiful woman</b>. She is a <b>doctor</b>.',key:'課本刻意讓<b>爸爸是護理師、媽媽是醫生</b>，閱讀題別憑印象作答！cook＝廚師（不是 cooker）；woman → <b>women</b>。'},
+    {label:'⑥ 姊姊、哥哥和寵物豬',imgs:[{img:'l1_family',tag:'The Lins'}],poem:'Bella is my sister. She is my English teacher, too. Eddie is my brother. He\'s a <b>senior high school</b> student. Abby is our <b>pet</b> pig. She\'s <b>cute</b>.',key:'<b>senior high school</b>＝高中、junior high school＝國中；Eddie is <b>Bella\'s brother</b>（課本閱讀題）。家族樹：Frank 是 Nick 的 <b>uncle</b>、Ann 是 Nick 的 <b>cousin</b>。'},
   ];
   stepper(p,steps,i=>showPhoto(steps[i]),8000);
 }
@@ -1334,16 +1384,16 @@ function animL1(p){
 function animL2(p){
   p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
   <div class="grid2">
-    <div class="card"><h3>💬 對話：十二生肖（原創改寫）</h3><p><span class="pill">起</span>What's your <b>animal sign</b>? Mia 2013 年生屬蛇，Ben 屬馬</p><p><span class="pill">承</span>一張十二生肖的圖：Aren't they the Chinese zodiac animal signs?</p><p><span class="pill">轉</span>Mia 的媽媽屬猴，聰明又熱心 → <b>No wonder</b> she's a <b>people person</b>!</p></div>
-    <div class="card"><h3>📖 短文：兩種大象</h3><p><span class="pill">一</span>African elephants are <b>different from</b> Asian elephants</p><p><span class="pill">二</span>非洲象耳朵大、約 3～4 公尺高；亞洲象耳朵小、約 2.5～3 公尺</p><p><span class="pill">三</span>兩種都很聰明，<b>lifespan</b> 約 60～70 年</p></div>
+    <div class="card"><h3>💬 對話：在電影院（康軒 L2）</h3><p><span class="pill">起</span>Bella：These dolls are cute. Scott：<b>What are these?</b> Aren't they the Chinese zodiac animal signs? → <b>No, they aren't.</b></p><p><span class="pill">承</span>Scott 2000 年生屬<b>龍</b>：smart and energetic</p><p><span class="pill">轉</span>Bella 1999 年生屬<b>兔</b>：nice and warm → <b>No wonder</b> you are a <b>people person</b>.</p><p><span class="pill">合</span>寵物豬 Abby 2024 年生也屬龍 → No wonder she's smart!</p></div>
+    <div class="card"><h3>📖 閱讀：Asian Elephants VS. African Elephants</h3><p><span class="pill">一</span>African elephants are <b>different from</b> Asian elephants</p><p><span class="pill">二</span>非洲象很大、耳朵大，約 <b>3.2 公尺</b>；亞洲象較小、耳朵短，只有約 <b>2.75 公尺</b></p><p><span class="pill">三</span><b>lifespan</b>：亞洲象約 60 年、非洲象約 70 年</p></div>
   </div>`;
   const steps=[
-    {label:'① 你屬什麼？',imgs:[{img:'l2_zodiac',tag:'What\'s your animal sign?'}],poem:'Ben: What\'s your <b>animal sign</b>, Mia?<br>Mia: My <b>birth year</b> is 2013. I\'m a <b>snake</b>. <b>What about you?</b><br>Ben: I\'m a <b>horse</b>.',key:'回答生肖：I\'m a＋動物（台中崇德、宜蘭中華考）；<b>What about you?</b>＝那你呢？'},
-    {label:'② 十二生肖',imgs:[{img:'l2_mouse',tag:'a mouse'},{img:'l2_ox',tag:'an ox'},{img:'l2_tiger',tag:'a tiger'},{img:'l2_rabbit',tag:'a rabbit'},{img:'l2_rooster',tag:'a rooster'}],poem:'Ben: Look at these animals. <b>Aren\'t they</b> the Chinese zodiac animal signs?<br>Mia: <b>Yes, they are.</b> A mouse, <b>an ox</b>, a tiger, a rabbit, a dragon, a snake, a horse, a sheep, a monkey, a rooster, a dog, and a pig.',key:'否定疑問句照<b>事實</b>回答：是 → Yes, they are.（宜蘭中華、五福考）；<b>an</b> ox。十二生肖裡<b>沒有貓</b>！'},
-    {label:'③ 不規則複數',imgs:[{img:'l2_ox',tag:'two oxen'},{img:'l2_sheep',tag:'many sheep'},{img:'l2_mouse',tag:'mouse → mice'}],poem:'Look! Two <b>oxen</b> and three <b>sheep</b> are in the picture. And four <b>mice</b> are on the ox!',key:'ox → <b>oxen</b>、mouse → <b>mice</b>、sheep → <b>sheep</b>（18 校考；oxes、sheeps 都是錯的）。'},
-    {label:'④ 人緣好的人',imgs:[{img:'l1_class',tag:'No wonder she\'s a people person!'}],poem:'Mia: My mom is a monkey. She\'s <b>smart</b>, <b>nice and warm</b>. She has many friends.<br>Ben: <b>No wonder</b> she\'s a <b>people person</b>!',key:'<b>No wonder</b>…＝難怪…；<b>people person</b>＝人緣好的人（各 10 校考，翻譯常考整句）。'},
-    {label:'⑤ 非洲象 vs 亞洲象',split:[{img:'l2_african',tag:'African elephants：耳朵大'},{img:'l2_asian',tag:'Asian elephants：耳朵小'}],poem:'African elephants <b>are different from</b> Asian elephants. African elephants\' ears are very big. Asian elephants\' ears are small.',key:'<b>be different from</b>（different 17 校考，全卷第一高頻字！）；elephants\' 是複數名詞所有格，只加 <b>\'</b>。'},
-    {label:'⑥ 身高與壽命',imgs:[{img:'l2_african',tag:'about 3 to 4 meters tall'},{img:'l2_asian',tag:'lifespan: about 60 to 70 years'}],poem:'An African elephant is about 3 to 4 <b>meters</b> tall. An Asian elephant is about 2.5 to 3 meters tall. Both are smart. Their <b>lifespans</b> are about 60 to 70 years.',key:'<b>meter</b>（8 校）、<b>lifespan</b>（6 校）；問身高 <b>How tall</b> is an elephant?（新北新莊考過）'},
+    {label:'① 這些是什麼？',imgs:[{img:'l2_zodiac',tag:'What are these?'}],poem:'(In a <b>movie theater</b>)<br>Bella: <b>These dolls are</b> cute.<br>Scott: <b>What are these?</b> Hey, <b>aren\'t they</b> the Chinese zodiac animal signs?<br>Bella: <b>No, they aren\'t.</b>',key:'these＋複數名詞＋<b>are</b>；否定疑問句照<b>事實</b>回答：玩偶裡有大象，不是生肖 → No, they aren\'t.'},
+    {label:'② 十二生肖',imgs:[{img:'l2_rat',tag:'rat 鼠'},{img:'l2_ox',tag:'ox 牛（複數 oxen）'},{img:'l2_tiger',tag:'tiger 虎'},{img:'l2_rabbit',tag:'rabbit 兔'},{img:'l2_rooster',tag:'rooster 雞'}],poem:'The Chinese zodiac animal signs are the <b>rat</b>, <b>ox</b>, tiger, <b>rabbit</b>, <b>dragon</b>, <b>snake</b>, <b>horse</b>, <b>goat</b>, monkey, <b>rooster</b>, dog, and pig.',key:'生肖鼠是 <b>rat</b>（大老鼠）、生肖羊是 <b>goat</b>（山羊）；ox → <b>oxen</b>。十二生肖裡沒有貓、也沒有大象！'},
+    {label:'③ 你屬什麼？',imgs:[{img:'l2_zodiac',tag:'You\'re a dragon.'}],poem:'Scott: Wow! What\'s my <b>animal sign</b>?<br>Bella: Your <b>birth year</b> is 2000. You\'re a <b>dragon</b>. A dragon is <b>smart</b> and <b>energetic</b>.<br>Scott: That\'s <b>true</b>. What\'s your animal sign, Bella?',key:'回答生肖：I\'m a(n)＋動物（台中崇德、宜蘭中華考）；<b>energetic</b> 充滿活力的（13 校考）。'},
+    {label:'④ 人緣好的人',imgs:[{img:'l2_rabbit',tag:'A rabbit is nice and warm.'}],poem:'Bella: My birth year is 1999. I\'m a <b>rabbit</b>. A rabbit is <b>nice and warm</b>.<br>Scott: <b>No wonder</b> you are a <b>people person</b>. <b>What about</b> Abby the pig?<br>Bella: Her birth year is 2024. She\'s a dragon, too.<br>Scott: No wonder she\'s smart! Ha ha!',key:'<b>No wonder</b>…＝難怪；<b>people person</b>＝人緣好的人（各 10 校考）；<b>What about…?</b>＝……怎麼樣？'},
+    {label:'⑤ 亞洲象 vs 非洲象',split:[{img:'l2_asian',tag:'Asian elephants：小、耳朵短'},{img:'l2_african',tag:'African elephants：大、耳朵大'}],poem:'Are they Asian elephants <b>or</b> African elephants?<br>African elephants <b>are different from</b> Asian elephants. African elephants are <b>very</b> big, and <b>their</b> ears are big, too. Asian elephants are small, and their ears are short.',key:'<b>be different from</b>（different 17 校考，全卷第一高頻字！）；<b>their</b>＝牠們的；選擇疑問句 or 不用 Yes/No 回答。'},
+    {label:'⑥ 身高與壽命',imgs:[{img:'l2_african',tag:'about 3.2 meters tall'},{img:'l2_asian',tag:'only about 2.75 meters tall'}],poem:'An African elephant is about <b>3.2 meters</b> tall, <b>but</b> an Asian elephant is <b>only</b> about <b>2.75 meters</b> tall.<br>Asian elephants\' <b>lifespans</b> are about <b>60</b> years, but African elephants\' lifespans are about <b>70</b> years.',key:'課本數字：非洲象 <b>3.2 m</b>、亞洲象 <b>2.75 m</b>；壽命 <b>60 vs. 70</b> 年。elephants\' 複數所有格只加 <b>\'</b>；問身高 How tall…?'},
   ];
   stepper(p,steps,i=>showPhoto(steps[i]),8000);
 }
@@ -1351,16 +1401,18 @@ function animL2(p){
 /* ================= Review 1 動畫 ================= */
 function animR1(p){
   p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
-  <div class="card"><h3>🔁 Review 1 一次複習（原創改寫）</h3>
-  <p><span class="pill">GR</span>問候、a / an、大小寫</p>
-  <p><span class="pill">L1</span>家人與職業、Who 問句、Yes/No 簡答、所有格</p>
-  <p><span class="pill">L2</span>動物、不規則複數、It's / Its、different from</p></div>`;
+  <div class="card"><h3>🔁 Review 1 一次複習（康軒課本）</h3>
+  <p><span class="pill">Read and Say</span>be 動詞疑問句與肯定／否定詳答、Who 與 How old 問句</p>
+  <p><span class="pill">Read and Circle</span>Sam 和 Lucy 的對話：How／How old、am／is、Who is／Is</p>
+  <p><span class="pill">Activity</span>介紹他人：Name、Age、Appearance</p>
+  <p><span class="pill">選讀</span>Animals and Their Food：plant eaters、meat eaters、food chain</p></div>`;
   const steps=[
-    {label:'① 家庭日',imgs:[{img:'r1_zoo',tag:'Today is Saturday. Mia\'s family is at the zoo.'}],poem:'Today is Saturday. Mia and her family are at the zoo. Her cousin, Tina, is <b>a two-year-old</b> baby.',key:'<b>a</b> two-year-old baby（year 不加 s、two 是子音音 → a）。'},
-    {label:'② 遇到同學',imgs:[{img:'r1_zoo',tag:'Nice to meet you, Mr. and Mrs. Lin.'}],poem:'Ben: Hi, Mia! <b>Who</b> are they?<br>Mia: <b>They\'re</b> my parents. This is my father, and this is my mother.<br>Ben: <b>Nice to meet you</b>, Mr. and Mrs. Lin.',key:'問人用 <b>Who</b>；they → They\'re；GR 的問候語在這裡也會考。'},
-    {label:'③ 那是大象嗎？',imgs:[{img:'l2_african',tag:'It\'s an African elephant.'}],poem:'Tina: Is it <b>a</b> big horse?<br>Mia: No, <b>it isn\'t</b>. It\'s <b>an</b> elephant. <b>Its</b> ears are big. <b>It\'s</b> about three meters tall.',key:'<b>It\'s</b>＝It is；<b>Its</b>＝它的（8 校考 It\'s／Its）；a big horse ↔ an elephant。'},
-    {label:'④ 家裡的寵物',imgs:[{img:'r1_pets',tag:'They\'re like family to us.'}],poem:'Ben: Are those your pets? Mia: Yes, <b>they are</b>. The dog is Lucky. <b>It\'s</b> two years old. The cat is Snow. <b>Its</b> eyes are blue. They\'re like family to us.',key:'Are those…? → Yes, <b>they are</b>.（不能 Yes, those are／they\'re）；How old is Lucky? — It\'s two years old.'},
-    {label:'⑤ 晚上看電影',imgs:[{img:'r1_theater',tag:'They are at a movie theater.'}],poem:'In the evening, they are at <b>a movie theater</b>. It\'s <b>an</b> old theater, but it\'s nice. The movie is about twelve animals. <b>No wonder</b> Tina is happy!',key:'<b>movie theater</b>＝電影院（5 校考）；<b>an</b> old theater。'},
+    {label:'① be 動詞詳答',imgs:[{img:'l1_teen',tag:'Is Peter a tall man?'}],poem:'Is Peter a tall man?<br>→ <b>Yes, he is</b> a tall man.<br>→ <b>No, he is not</b> a tall man.<br>Are your parents tall? → Yes, <b>they\'re</b> tall. ／ No, they\'re not tall.',key:'簡答要換<b>代名詞</b>：Peter → he、your parents → they；肯定<b>簡答</b>（Yes, he is.）句尾不能縮寫。'},
+    {label:'② Wh- 問句',imgs:[{img:'l1_class',tag:'Who is he? — He is my cousin.'}],poem:'<b>Who</b> is he? — He is my cousin. ／ He is Matt.<br><b>How old</b> are you? — I\'m fifteen years old.',key:'Who 問「是誰」（名字或關係）；How old 問「幾歲」；Wh- 問句不能用 Yes / No 回答。'},
+    {label:'③ 你好嗎？',imgs:[{img:'l1_class',tag:'How are you?'}],poem:'Sam: Hi, Lucy. <b>How</b> are you?<br>Lucy: I <b>am</b> great, thanks. And you?<br>Sam: I\'m fine. Thank you.',key:'問好不好用 <b>How</b>，問年齡才用 How old；I 搭配 <b>am</b>。'},
+    {label:'④ 那個男人是誰？',imgs:[{img:'r1_theater',tag:'He\'s Johnny. He is an actor.'}],poem:'Lucy: <b>Who is</b> that man?<br>Sam: He\'s Johnny. He is <b>an actor</b>.<br>Lucy: <b>How old</b> is he?<br>Sam: He is <b>fifteen years old</b>.<br>Lucy: He is young.',key:'<b>an</b> actor（母音開頭）；fifteen（15）不是 fifty（50）。'},
+    {label:'⑤ 介紹他人',imgs:[{img:'l1_family',tag:'Mike is my grandfather.'}],poem:'Mike is my grandfather. He is <b>600 years old</b>. He is tall and <b>strong</b>. He is my <b>hero</b>.',key:'介紹三要素：Name（名字）、Age（年齡）、Appearance（外表）；strong 強壯的、hero 英雄。'},
+    {label:'⑥ 動物吃什麼？',imgs:[{img:'r1_zoo',tag:'Animals and Their Food'},{img:'l2_goat',tag:'plant eaters'}],poem:'Rabbits are <b>plant eaters</b>. Leopards are <b>meat eaters</b>. Humans are plant and meat eaters.<br>Tigers and lions eat other animals. Horses, <b>sheep</b>, rabbits, and elephants eat plants.',key:'複數主詞＋<b>are</b>；sheep 單複數同形；這段是 Review 1 選讀，可當閱讀測驗素材。'},
   ];
   stepper(p,steps,i=>showPhoto(steps[i]),8000);
 }

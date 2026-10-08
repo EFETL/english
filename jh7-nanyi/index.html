@@ -213,6 +213,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:20px}
 .ps.en{letter-spacing:0;font-size:1.35rem;line-height:1.7}
 .ps.pop{animation:pop .45s ease}
 @keyframes pop{0%{transform:scale(.9);opacity:.3}100%{transform:scale(1);opacity:1}}
+.bk{min-width:0;overflow-wrap:anywhere}
 </style>
 </head>
 <body>
@@ -227,8 +228,8 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:20px}
 <nav class="tabs"><div class="wrap" id="tabs"></div></nav>
 <main><div class="wrap" id="app"></div></main>
 <footer><div class="wrap">
-  <b>全民補習班 英文科</b>｜考點依據：臺北丹鳳、屏東中正、高雄左營、新北中正（皆 114）四校國一上第一次段考試卷（卷面未標版本，依題材推定為南一版；範圍依新北中正卷逐題標課推定為 Starter～Review 1），另比對全臺 59 校 114 上七年級英文段考的三版共同考點。<br>
-  <b>課文為依段考卷考點原創改寫，非課本原文</b>；模擬題、克漏字與閱讀文章皆為原創，不照抄考卷原題。英文發音使用微軟 Neural 語音（en-US-Aria）預錄。練習時可以開聲音，答對、答錯都有音效。背景音樂只在「動畫導覽」播放，可按右下角按鈕關閉。<br>
+  <b>全民補習班 英文科</b>｜考點依據：臺北丹鳳、屏東中正、高雄左營、新北中正（皆 114）四校國一上第一次段考試卷（卷面未標版本，題材已用南一 B1 課本逐課核對吻合；範圍 Starter～Review 1，新北中正卷頭明寫），另比對全臺 59 校 114 上七年級英文段考的三版共同考點。<br>
+  <b>課文依南一版國中英文第一冊（B1）課本</b>；模擬題、克漏字與閱讀文章為原創，不照抄考卷原題。英文發音使用微軟 Neural 語音（en-US-Aria）預錄。練習時可以開聲音，答對、答錯都有音效。背景音樂只在「動畫導覽」播放，可按右下角按鈕關閉。<br>
   交卷時會把你的姓名、分數與錯題傳給老師，只有老師看得到。左下角 ✏️ 可以手寫、兩指縮放。<br>
   <details style="margin-top:8px"><summary>圖片來源與授權</summary>
   照片皆來自 Wikimedia Commons：Standing Alaskan Coastal Brown bear：Alan Vernon（CC BY 2.0）；Bigfoot Trails Statue, Cataloochee, NC (46721642951)：Warren LeMay from Cincinnati, OH, United（CC0）；Grover Krantz shows plaster casts of Bigfoot footprints：Alan King（公有領域）；Redwood National Park, fog in the forest：Michael Schweppe（CC BY-SA 2.0）；Machermo, Kyajo Ri, Mountains of Nepal：Vyacheslav Argenberg（CC BY 4.0）；House mouse (Mus musculus) 2808：Ahunt（CC0）；Hong Kong Gold Cup (trophy) 20260301：Will629（CC0）；Eric Shipton yeti footprint：Gardner Soule（公有領域）；Piece of chocolate cake on a white plate decorated with chocolate sauce：Daria YakovlevaMinor edits made by Subsi（CC0）；Cinderella Castle：Katie Rommel-Esham (contact via bdesham)（CC BY-SA 4.0）；Cashier counter at SM Supermarket (2024-01-27)：Wide Awake!（CC BY 4.0）；Hualien Taiwan Farmer-with-his-water-buffalo-01：CEphoto, Uwe Aranas（CC BY-SA 3.0）；Hippopotamus @ Barcelona zoo：Pedroserafin（公有領域）；Ferris wheel Nice Dec 2008 a：Cayambe（CC BY-SA 3.0）；WaltDisneyplansDisneylandDec1954：Orange County Archives（CC BY 2.0）；Walt disney portrait：NASA（公有領域）；Family eating meal：National Cancer Institute（公有領域）；Host Family & YES Exchange Students (33037766074)：Exchanges Photos（CC0）；Political Map of the World, 2013：Central Intelligence Agency（公有領域）；Postcards (receiving from travelers)：Pauloleong2002（CC BY-SA 4.0）；Classroom with students in Baozhong Junior High School 20130308：褒忠國中 雲端網（CC BY 2.0）；Close-up view of a public phone keypad：Shixart1985（CC BY 2.0）。</details>
@@ -263,295 +264,323 @@ const isZY=s=>/[ㄅ-ㄩ]/.test(s);
 const ASK={e:'選出正確的中文意思',c:'選出正確的英文',s:'選出正確的拼字',p:'選出正確的複數形',g:'選出正確的字填入空格'};
 const L = {
 st:{
-  no:'Starter', code:1, title:'Welcome to the Game Show!', short:'問候與數字', color:'linear-gradient(135deg,#1d5c63,#3aa39a)',
-  desc:'打招呼｜電話號碼｜數字 1～100｜大小寫與標點',
+  no:'Starter', code:1, title:'Greetings, Pronouns & Numbers', short:'問候、代名詞與數字', color:'linear-gradient(135deg,#1d5c63,#3aa39a)',
+  desc:'問候語配對｜my / his / her / its｜for him｜電話號碼｜書寫格式（大小寫與標點）',
   quick:[
-    ['ready','準備好的',['忙碌的','快樂的','生氣的'],1,'e'],
-    ['show','節目；表演',['學校','遊戲','明星'],1,'e'],
-    ['game','遊戲；比賽',['名字','號碼','禮物'],0,'e'],
-    ['welcome','歡迎',['再見','謝謝','早安'],0,'e'],
-    ['tomorrow','明天',['今天','昨天','今晚'],0,'e'],
+    ['meet','遇見；認識',['見面禮','謝謝','早安'],0,'e'],
+    ['fine','很好的',['罰款','有趣的','累的'],0,'e'],
+    ['name','名字',['號碼','遊戲','朋友'],1,'e'],
     ['number','號碼；數字',['名字','電話','字母'],1,'e'],
-    ['name','名字',['號碼','遊戲','朋友'],0,'e'],
-    ['classmate','同學',['老師','朋友','家人'],0,'e'],
+    ['ball','球',['鈴','牆','碗'],0,'e'],
+    ['zero','零',['九','十','英雄'],1,'e'],
+    ['airport','機場',['車站','港口','公園'],0,'e'],
+    ['flour','麵粉',['花','地板','奶油'],0,'e'],
     ['電話號碼','phone number',['phone name','home number','game number'],1,'c'],
-    ['明天見','See you tomorrow.',['Good morning.','Nice to meet you.','Thank you.'],0,'c'],
-    ['晚安（睡前道別）','Good night.',['Good evening.','Good morning.','Good afternoon.'],0,'c'],
-    ['很高興認識你','Nice to meet you.',['See you later.','How are you?','Thank you.'],0,'c'],
-    ['十三','thirteen',['thirty','three','thirdteen'],1,'c'],
-    ['三十','thirty',['thirteen','threety','thirdy'],1,'c'],
-    ['四十','forty',['fourty','fourteen','four'],0,'c'],
-    ['十五','fifteen',['fifty','fiveteen','five'],0,'c'],
-    ['十二','twelve',['twenty','eleven','twelf'],0,'c'],
-    ['十一','eleven',['twelve','seven','elevent'],1,'c'],
-    ['你準備好了嗎？','Are you ready?',['Is you ready?','Are you read?','You are ready?'],1,'c'],
-    ['歡迎來到…','welcome to',['welcome for','welcome at','welcome on'],0,'c'],
-    ['r _ _ d y（準備好的）','ready',['raedy','redy','reddy'],1,'s'],
-    ['t _ m _ r r _ w（明天）','tomorrow',['tommorow','tomorow','tommorrow'],0,'s'],
-    ['f _ r t y（四十）','forty',['fourty','forthy','farty'],0,'s'],
-    ['n _ m b _ r（號碼）','number',['numbr','nunber','namber'],0,'s'],
-    ['t w _ l v e（十二）','twelve',['twelf','twleve','twelv'],0,'s'],
-    ['w _ l c _ m e（歡迎）','welcome',['welcom','wellcome','walcome'],0,'s'],
-    ['Five and six ___ eleven.','is',['are','am','be'],1,'g'],
+    ['很高興認識你','Nice to meet you.',['See you tomorrow.','How are you?','Thank you.'],1,'c'],
+    ['我很好。謝謝你。','I\'m fine. Thank you.',['I\'m Mike. Thank you.','Not much.','I\'m doing.'],0,'c'],
+    ['晚安（睡前道別）','Good night.',['Good evening.','Good morning.','Good afternoon.'],1,'c'],
+    ['最近怎麼樣？（口語）','What\'s up?',['What\'s that?','How old?','Who\'s up?'],0,'c'],
+    ['沒什麼特別的','Not much.',['No, thank you.','Not me.','Not many.'],0,'c'],
+    ['他的（所有格）','his',['him','he\'s','her'],1,'c'],
+    ['他（受格）','him',['his','he','her'],1,'c'],
+    ['它的（所有格）','its',['it\'s','it','is'],1,'c'],
+    ['我們（受格）','us',['our','we','them'],0,'c'],
+    ['n _ m b _ r（號碼）','number',['numbr','nunber','namber'],1,'s'],
+    ['z _ r o（零）','zero',['zeroe','zeru','ziro'],0,'s'],
+    ['e _ g h t（八）','eight',['eigth','aight','eihgt'],0,'s'],
+    ['s _ v _ n（七）','seven',['sevan','seben','sevin'],0,'s'],
+    ['The ball is for ___. (he)','him',['he','his','he\'s'],1,'g'],
+    ['___ name is Rocky. (it)','Its',['It\'s','It','Is'],1,'g'],
+    ['What is ___ name? Her name is Tina.','her',['she','his','its'],1,'g'],
   ],
   words:[
-    ['phone number','電話號碼'],['See you tomorrow.','明天見。'],['Good night.','晚安。'],['Nice to meet you.','很高興認識你。'],
-    ['be ready for','為…做好準備'],['welcome to','歡迎來到'],['game show','遊戲節目'],['How are you?','你好嗎？'],
-    ['What\'s your name?','你叫什麼名字？'],['Thank you.','謝謝你。'],
+    ['Nice to meet you.','很高興認識你。'],['Nice to meet you, too.','我也很高興認識你。'],['How are you?','你好嗎？'],['I\'m fine. Thank you.','我很好，謝謝。'],
+    ['How are you doing?','你最近好嗎？'],['I\'m doing great.','我過得很好。'],['What\'s up?','最近怎樣？'],['Not much.','沒什麼特別的。'],
+    ['Good night.','晚安。'],['phone number','電話號碼'],['The ball is for him.','這顆球是給他的。'],
   ],
   sorts:[
-    {title:'大小寫與標點：這樣寫對不對？',tip:'句首第一個字母大寫；I 永遠大寫；人名、地名第一個字母大寫；句尾要有標點（. ? !）',buckets:['正確 ✅','錯誤 ❌'],items:[
-      ['My name is Sally.',0],['my name is Sally.',1,'句首 my 要大寫成 My（丹鳳考過）。'],
-      ['I am from Taiwan.',0],['Ben and i are classmates.',1,'I（我）永遠大寫。'],
-      ['Are you ready for the game?',0],['Are you ready for the game.',1,'問句句尾要用問號 ?。'],
-      ['What is your phone number?',0],['she is my friend, Amy.',1,'句首 she 要大寫。'],
-      ['Welcome to the game show!',0],['This is ken.',1,'人名 Ken 要大寫。'],
-      ['See you tomorrow.',0],['nice to meet you.',1,'句首 nice 要大寫。']]},
-    {title:'數字分類：-teen 還是 -ty？',tip:'-teen（13～19）重音在後面；-ty（20、30…90）重音在前面。forty 沒有 u！',buckets:['13～19（-teen）','20～90（-ty）'],items:[
-      ['thirteen',0],['fourteen',0],['fifteen',0],['sixteen',0],['eighteen',0],['nineteen',0],
-      ['thirty',1],['forty',1,'four → forty，不是 fourty。'],['fifty',1],['sixty',1],['eighty',1],['ninety',1]]},
+    {title:'書寫格式：這樣寫對不對？',tip:'課本八條規則：I 一律大寫；專有名詞字首大寫；句首大寫；逗點後空一格；直述句加句點；問句加問號；字與字空一格',buckets:['正確 ✅','錯誤 ❌'],items:[
+      ['My name is Vincent.',0],['my name is vincent.',1,'課本改錯題：句首 My、人名 Vincent 都要大寫。'],
+      ['Yes, I am fine.',0],['Yes, i am fine',1,'課本改錯題：I 一律大寫，句尾要加句點。'],
+      ['How is he?',0],['how is he',1,'課本改錯題：句首大寫、問句加問號。'],
+      ['I am Jack. I am from Taiwan.',0],['I am from taiwan.',1,'地名 Taiwan 要大寫。'],
+      ['What is your name?',0],['What is your name.',1,'問句句尾要用問號。'],
+      ['Hi, my name is Rose.',0],['Hi ,my name is Rose.',1,'逗點前不空格，逗點後空一格。']]},
+    {title:'主格、所有格還是受格？',tip:'後面接名詞 → 所有格（my his her its）；放在 for / to 等介系詞或動詞後 → 受格（me him her it us them）；當主詞 → 主格',buckets:['主格','所有格','受格'],items:[
+      ['___ am Mike. (I)',0],['___ is my friend. (she)',0],['___ are students. (we)',0],
+      ['___ name is Joe. (his)',1],['What is ___ name? (your)',1],['___ name is Rocky. (its)',1,'Its＝它的；It\'s＝It is。'],['___ phone number is 2345-0189. (my)',1],
+      ['The ball is for ___. (him)',2],['The ball is for ___. (her)',2,'her 同時是所有格和受格，這裡在 for 後面 → 受格。'],['The ball is for ___. (us)',2]]},
   ],
   mcq:[
-    {q:'A: What\'s your phone number? B: ___',o:['It\'s 2243-8607.','I\'m twelve.','My name is Ben.','It\'s a phone.'],a:0,src:'新北中正、左營 同類題',ex:'問電話號碼要回答號碼。I\'m twelve 是年齡，My name is… 是名字。'},
-    {q:'Welcome ___ the game show! Are you ready ___ the game?',o:['to; for','to; to','for; for','at; with'],a:0,src:'屏東中正 同類題',ex:'welcome to＋地方／活動；be ready for＋事情（為…做好準備）。'},
-    {q:'A: Goodbye, Mr. Lin. B: ___',o:['See you tomorrow.','Nice to meet you.','Good morning.','I\'m fine.'],a:0,src:'新北中正 同類題',ex:'道別時回 See you tomorrow.（明天見）。Nice to meet you 是第一次見面。'},
-    {q:'A: Good night, Mom. B: ___ Sleep well.',o:['Good night.','Good morning.','Good afternoon.','Hello.'],a:0,src:'原創',ex:'Good night 是晚上要睡覺或道別時說的；回答也用 Good night。'},
-    {q:'Five and six ___ eleven.',o:['is','are','am','be'],a:0,src:'屏東中正 同類題',ex:'數學算式當成一件事，用 is：Five and six is eleven.'},
-    {q:'A: How old is your brother? B: He is ___. He is a junior high school student.',o:['thirteen','thirty','three','forty'],a:0,src:'丹鳳 同類題',ex:'國中生大約 13 歲。thirteen（13）和 thirty（30）要分清楚。'},
-    {q:'「零九九三」的唸法是？',o:['zero-nine-nine-three','zero-ninety-three','oh-nine-ninety-three','nine-nine-three'],a:0,src:'丹鳳 同類題',ex:'電話號碼一個數字一個數字唸：zero-nine-nine-three（0 也可唸 oh）。'},
-    {q:'哪一個數字的拼字正確？',o:['forty','fourty','fivety','twelf'],a:0,src:'原創',ex:'40 是 forty（沒有 u）；50 是 fifty；12 是 twelve。'},
-    {q:'A: Hi, I\'m Ella. Nice to meet you. B: ___',o:['Nice to meet you, too.','See you tomorrow.','Good night.','Thank you, I\'m fine.'],a:0,src:'原創',ex:'對方說 Nice to meet you，回 Nice to meet you, too.'},
-    {q:'A: How are you? B: ___',o:['I\'m fine, thank you.','I\'m Ella.','I\'m twelve.','I\'m a student.'],a:0,src:'原創',ex:'How are you? 問「你好嗎」，回答心情或身體狀況 I\'m fine。'},
-    {q:'下列哪一句的大小寫與標點完全正確？',o:['My name is Sally.','my name is Sally.','My name is sally.','My name is Sally'],a:0,src:'丹鳳 同類題',ex:'句首大寫、人名大寫、句尾句點，三個都要有。'},
-    {q:'下列哪一句寫法正確？',o:['Ben and I are friends.','Ben and i are friends.','ben and I are friends.','Ben and I are friends'],a:0,src:'丹鳳、左營 同類題',ex:'I 永遠大寫、人名大寫、句尾加句點。'},
-    {q:'A: Are you ready? B: Yes, ___.',o:['I am','I\'m','you are','I is'],a:0,src:'屏東中正 同類題',ex:'簡答 Yes 句尾不能縮寫：Yes, I am.（不能說 Yes, I\'m.）'},
-    {q:'Twenty and twenty ___ forty.',o:['is','are','am','were'],a:0,src:'原創',ex:'算式用 is。20＋20＝40（forty）。'},
-    {q:'A: What\'s your name? B: ___',o:['My name is Kai.','I am fine.','It\'s 0912-345-678.','Nice to meet you.'],a:0,src:'原創',ex:'問名字就回答名字：My name is Kai. / I\'m Kai.'},
-    {q:'A: Thank you, Ms. Wu. B: ___',o:['You\'re welcome.','Welcome to Taiwan.','Good night.','I\'m ready.'],a:0,src:'原創',ex:'別人道謝回 You\'re welcome.（不客氣）。Welcome to… 是「歡迎來到…」。'},
+    {q:'A: What\'s your phone number? B: ___',o:['It\'s 2345-0189.','I\'m 2345-0189.','My name is Mike.','It\'s a phone.'],a:0,src:'課本句型；新北中正、左營 同類題',ex:'問電話號碼回答 It\'s＋號碼（課本：It\'s 2345-0189.）。'},
+    {q:'A: Nice to meet you. B: ___',o:['Nice to meet you, too.','I\'m fine. Thank you.','Not much.','Good night.'],a:0,src:'課本 Match',ex:'初次見面互相說 Nice to meet you，回應加 too。'},
+    {q:'A: How are you? B: ___',o:['I\'m fine. Thank you.','I\'m Mike.','I\'m 2345-0189.','Nice to meet you.'],a:0,src:'課本 Match',ex:'How are you? 問近況 → I\'m fine. Thank you.'},
+    {q:'A: What\'s up? B: ___',o:['Not much.','I\'m Rose.','Good night.','It\'s 2345-0189.'],a:0,src:'課本 Listen and Repeat',ex:'What\'s up? 口語問候「最近怎樣」→ Not much.'},
+    {q:'A: How are you doing? B: ___',o:['I\'m doing great.','I\'m doing a ball.','Not much, thank.','Good night, Romeo.'],a:0,src:'課本 Listen and Repeat',ex:'How are you doing? → I\'m doing great.'},
+    {q:'A: Good night, Romeo. B: ___',o:['Good night, Juliet.','Good morning, Juliet.','Nice to meet you, Juliet.','Not much, Juliet.'],a:0,src:'課本 Match',ex:'晚上道別互相說 Good night。'},
+    {q:'Joe is my friend. The ball is for ___.',o:['him','he','his','he\'s'],a:0,src:'課本句型；丹鳳 同類題',ex:'介系詞 for 後面接受格 him。'},
+    {q:'A: What is ___ name? B: Her name is Tina.',o:['her','she','his','its'],a:0,src:'課本句型',ex:'回答 Her name → 問 her name（所有格＋名詞）。'},
+    {q:'Look at the dog. ___ name is Rocky.',o:['Its','It\'s','It','Is'],a:0,src:'課本 Look and Fill In',ex:'後面接名詞 name → 所有格 Its。It\'s＝It is。'},
+    {q:'That girl is my sister. ___ name is Amy, and ___ is eleven.',o:['Her; she','She; her','Her; her','His; he'],a:0,src:'左營 同類題',ex:'接名詞用所有格 Her；當主詞用 she。'},
+    {q:'下列哪一句的書寫格式完全正確？',o:['My name is Vincent.','my name is vincent.','My name is vincent.','My name is Vincent'],a:0,src:'課本 Circle and Write；丹鳳 同類題',ex:'句首大寫、人名大寫、句尾句點，三個都要有。'},
+    {q:'下列哪一句的書寫格式完全正確？',o:['How is he?','how is he','How is he.','how is he?'],a:0,src:'課本 Circle and Write',ex:'句首大寫；問句句尾用問號。'},
+    {q:'下列哪一句寫法正確？',o:['Hi, I am Mike.','Hi, i am Mike.','hi, I am Mike.','Hi ,I am Mike.'],a:0,src:'課本書寫規則',ex:'I 一律大寫、句首大寫；逗點前不空格、逗點後空一格。'},
+    {q:'「2345-0189」的唸法是？',o:['two-three-four-five, zero-one-eight-nine','twenty-three, forty-five, one-eighty-nine','two-three-four-five, one-eight-nine','twenty-three-forty-five, zero-one-eighty-nine'],a:0,src:'課本 Numbers；丹鳳 同類題',ex:'電話號碼一個數字一個數字唸，0 唸 zero（或 oh），不能省略。'},
+    {q:'A: Hi, I am Mike. What\'s your name? B: ___',o:['My name is Rose.','I\'m fine.','It\'s 2345-0189.','Her name is Tina.'],a:0,src:'課本句型',ex:'問 your name → 回答 My name is…'},
+    {q:'查紙本字典時，yeti 要怎麼找？',o:['先找 y，再找 e、t、i','先找 i，再找 t、e、y','先找 t，再找 e','直接從第一頁一頁頁翻'],a:0,src:'課本 Dictionary',ex:'課本示範：依字母順序 y → e → t → i 逐一縮小範圍。'},
   ]
 },
 l1:{
-  no:'Lesson 1', code:2, title:'Who Am I?', short:'Bigfoot 與 Yeti', color:'linear-gradient(135deg,#2f6b3a,#6aa84f)',
-  desc:'猜猜我是誰｜Bigfoot／Yeti｜am / is / are｜Yes/No 簡答｜winner',
+  no:'Lesson 1', code:2, title:'What\'s This?', short:'猜謎節目與 Bigfoot', color:'linear-gradient(135deg,#2f6b3a,#6aa84f)',
+  desc:'What is this? / What are these?｜am / is / are＋簡答｜名詞複數｜Bigfoot｜a smart cookie',
   quick:[
-    ['hairy','多毛的',['生氣的','髒的','快樂的'],1,'e'],
+    ['hairy','毛茸茸的；多毛的',['生氣的','髒的','快樂的'],1,'e'],
     ['footprint','腳印',['森林','手指','足球'],1,'e'],
     ['forest','森林',['農場','山','花'],1,'e'],
-    ['angry','生氣的',['飢餓的','快樂的','年輕的'],1,'e'],
-    ['brown','棕色的',['黑色的','藍色的','綠色的'],1,'e'],
-    ['young','年輕的',['老的','強壯的','高的'],1,'e'],
-    ['clean','乾淨的',['髒的','困難的','小的'],1,'e'],
-    ['winner','優勝者',['老師','玩家','歌手'],1,'e'],
-    ['point','分數；點',['遊戲','錢','題目'],1,'e'],
+    ['favorite','最喜愛的',['有名的','很棒的','困難的'],1,'e'],
     ['strong','強壯的',['高的','長的','聰明的'],1,'e'],
-    ['mountain','山',['森林','城市','公園'],0,'e'],
-    ['熊','bear',['bird','beer','pear'],1,'c'],
+    ['brown','棕色的',['黑色的','藍色的','綠色的'],1,'e'],
+    ['winner','贏家',['老師','玩家','歌手'],1,'e'],
+    ['point','分數',['遊戲','錢','題目'],1,'e'],
+    ['show','節目',['學校','遊戲','明星'],1,'e'],
+    ['ready','準備好的',['忙碌的','快樂的','生氣的'],1,'e'],
+    ['picture','圖畫；照片',['明信片','電影','卡通'],0,'e'],
+    ['more','更多的',['更少的','最多的','很多的'],0,'e'],
+    ['fruit','水果',['食物','肉','蛋糕'],0,'e'],
+    ['angry','生氣的',['飢餓的','快樂的','年輕的'],1,'e'],
+    ['young','年輕的',['老的','強壯的','高的'],1,'e'],
+    ['鵝','goose',['goat','duck','geese'],1,'c'],
+    ['獅子','lion',['line','tiger','lemon'],1,'c'],
     ['猴子','monkey',['money','donkey','mouse'],1,'c'],
-    ['老鼠（單數）','mouse',['mice','mouth','house'],1,'c'],
+    ['熊','bear',['bird','beer','pear'],1,'c'],
+    ['斑馬','zebra',['zero','zoo','tiger'],0,'c'],
+    ['河馬','hippo',['happy','hippie','zebra'],1,'c'],
     ['青蛙','frog',['fog','dog','flag'],1,'c'],
-    ['大的','big',['bag','pig','small'],1,'c'],
+    ['山羊','goat',['goose','coat','sheep'],0,'c'],
+    ['螞蟻','ant',['aunt','and','bee'],0,'c'],
+    ['乾淨的','clean',['dirty','clear','cream'],1,'c'],
     ['髒的','dirty',['thirty','clean','dark'],1,'c'],
-    ['困難的','hard',['easy','heart','card'],1,'c'],
-    ['鑰匙','key',['kid','kite','keep'],0,'c'],
-    ['蛋','egg',['leg','bag','ego'],0,'c'],
-    ['h _ _ r y（多毛的）','hairy',['hairly','harry','hary'],1,'s'],
+    ['h _ _ r y（毛茸茸的）','hairy',['hairly','harry','hary'],1,'s'],
     ['f _ _ t p r _ n t（腳印）','footprint',['footprient','foodprint','footprit'],1,'s'],
-    ['f _ r _ s t（森林）','forest',['forist','forrest','forset'],1,'s'],
-    ['a n g r _（生氣的）','angry',['angy','angery','angrry'],1,'s'],
-    ['w _ n n _ r（優勝者）','winner',['winer','wenner','winnar'],1,'s'],
-    ['m _ n k _ y（猴子）','monkey',['monky','mankey','monkee'],1,'s'],
-    ['I ___ brown and hairy.','am',['is','are','be'],1,'g'],
+    ['f _ v _ r _ t e（最喜愛的）','favorite',['favorit','faverite','favourit'],1,'s'],
+    ['w _ n n _ r（贏家）','winner',['winer','wenner','winnar'],1,'s'],
+    ['e l _ p h _ n t（大象）','elephant',['elefant','elephent','alephant'],1,'s'],
+    ['mouse 的複數','mice',['mouses','mices','meese'],1,'p'],
+    ['goose 的複數','geese',['gooses','geeses','goose'],1,'p'],
+    ['sheep 的複數','sheep',['sheeps','shoop','sheepes'],1,'p'],
+    ['bus 的複數','buses',['buss','busies','bus'],1,'p'],
+    ['I ___ tall and strong.','am',['is','are','be'],1,'g'],
     ['Those ___ my footprints.','are',['is','am','be'],1,'g'],
+    ['I am not ___ elephant.','an',['a','two','many'],1,'g'],
   ],
   words:[
-    ['brown and hairy','棕色又多毛'],['tall and strong','又高又壯'],['Who am I?','我是誰？'],['Look!','你看！'],
-    ['ten points','十分'],['Ten points for you!','你得十分！'],['the winner','優勝者'],['my good friend','我的好朋友'],
-    ['in the forest','在森林裡'],['on the mountain','在山上'],
+    ['game show','猜謎／遊戲節目'],['be ready for','為…做好準備'],['Look at this picture.','看這張圖。'],['Ten points for you!','你得十分！'],
+    ['You are right!','你答對了！'],['a smart cookie','聰明的人'],['That\'s it!','答對了！'],['ten more points','再十分'],
+    ['brown and hairy','棕色又毛茸茸'],['tall and strong','又高又壯'],['my favorite food','我最喜愛的食物'],
   ],
   sorts:[
-    {title:'Bigfoot？Yeti？還是兩個都是？',tip:'本站原創故事：Bigfoot 住在北美的森林、棕色；Yeti 住在喜馬拉雅的雪山、白色。兩個都很高大、多毛。',buckets:['Bigfoot','Yeti','兩個都是'],items:[
-      ['My home is the forest.',0],['I am brown.',0],['I am in North America.',0],
-      ['I am white.',1],['The snowy mountains are my home.',1],['I am in the Himalayas.',1],
-      ['I am big and tall.',2],['I am hairy.',2],['My footprints are very big.',2],['I am not a bear.',2]]},
+    {title:'Bigfoot？Yeti？還是兩個都是？',tip:'依課本 Reading 與 Post-reading：Bigfoot 住 forest、棕色、愛吃 fruit；Yeti 住 mountain、白色、吃 meat。兩個都又高又壯、毛茸茸，腳印都很大。',buckets:['Bigfoot','Yeti','兩個都是'],items:[
+      ['The forest is my home.',0],['I am brown.',0],['Fruit is my favorite food.',0],
+      ['The mountain is my home.',1],['I am white.',1],['Meat is my food.',1],
+      ['I am tall and strong.',2],['I am hairy.',2],['My footprints are very big.',2]]},
     {title:'am、is 還是 are？',tip:'I → am；he / she / it / 單數名詞 → is；you / we / they / 複數名詞 → are',buckets:['am','is','are'],items:[
-      ['I ___ Bigfoot.',0],['I ___ not a bear.',0],
-      ['Yeti ___ my good friend.',1],['The forest ___ my home.',1],['It ___ a frog.',1],['My mom ___ young.',1],
-      ['Those ___ my footprints.',2],['You ___ the winner!',2],['We ___ hairy.',2],['The mice ___ small.',2,'mice 是 mouse 的複數。'],['Ben and Ella ___ friends.',2,'A and B 是兩個人 → are。']]},
+      ['I ___ Bigfoot.',0],['I ___ not an elephant.',0],['I ___ sorry, no.',0],
+      ['Yeti ___ my good friend.',1],['The forest ___ my home.',1],['___ it big and tall?',1],['Fruit ___ my favorite food.',1],
+      ['Those ___ my footprints.',2],['You ___ the winner!',2],['They ___ tigers!',2],['___ you ready for the game?',2,'you（你們）→ are。'],['David and Amy ___ on the show.',2,'A and B 是兩個人 → are。']]},
+    {title:'名詞複數：哪一種變化？',tip:'課本 Grammar C：一般加 s；s, x, sh, ch 結尾加 es；子音＋y 去 y 加 ies；f / fe 去掉加 ves；不規則；單複數同形',buckets:['加 s','加 es','ies / ves','不規則或同形'],items:[
+      ['lion → lions',0],['tiger → tigers',0],['monkey → monkeys',0,'y 前面是母音 e，直接加 s。'],['footprint → footprints',0],
+      ['bus → buses',1],['box → boxes',1],['watch → watches',1],['brush → brushes',1],
+      ['baby → babies',2],['party → parties',2],['leaf → leaves',2],['wife → wives',2],
+      ['goose → geese',3],['mouse → mice',3],['sheep → sheep',3],['woman → women',3]]},
   ],
-  hunt:{label:'🔍 be 動詞抓抓樂',title:'找出故事裡的 be 動詞（am / is / are）',tip:'原創遊戲節目「Who Am I?」。縮寫 I\'m 裡也藏著 am，但這裡只找完整寫出來的 am / is / are。',lines:[
-    'Host: Welcome back to Who Am I? Here [is] our first mystery guest.',
-    'Guest: I [am] big and tall. I [am] brown and hairy, but I [am] not a bear.',
-    'The forest [is] my home. Look! Those [are] my footprints. They [are] very big.',
-    'Ella: [Are] you a monkey?',
-    'Guest: No, I\'m not.',
-    'Ben: You [are] Bigfoot!',
-    'Host: Ten points for you, Ben! You [are] the winner!',
+  hunt:{label:'🔍 be 動詞抓抓樂',title:'找出課文裡的 be 動詞（am / is / are）',tip:'課本 L1 對話與閱讀原句。縮寫 It\'s、I\'m 裡也藏著 is / am，但這裡只找完整寫出來的 am / is / are。',lines:[
+    'Judy: Welcome to What\'s This?. I [am] Judy. Hello, David and Amy. [Are] you ready for the game?',
+    'Judy: Look at this picture. What [is] this? — Amy: It\'s a duck.',
+    'Judy: Yes, it [is]. Ten points for you! Look at this picture. What [are] these?',
+    'David: Those [are] lions. — Judy: Sorry. They [are] not lions.',
+    'Amy: [Is] it big and tall? — Judy: Yes, it [is]. You [are] the winner!',
+    'Bigfoot: I [am] tall and strong. I [am] brown and hairy, but I [am] not a bear.',
+    'The forest [is] my home. Look! Those [are] my footprints.',
   ]},
   mcq:[
-    {q:'I am brown and hairy, ___ I am not a bear.',o:['but','and','or','so'],a:0,src:'屏東中正、左營 同類題',ex:'前後意思相反（多毛像熊，卻不是熊）用 but。'},
-    {q:'A: Is the mountain Bigfoot\'s home? B: No, ___. The forest is his home.',o:['it isn\'t','he isn\'t','it is','they aren\'t'],a:0,src:'丹鳳 同類題',ex:'問句主詞 the mountain（物）→ 簡答用 it；後面說森林才是家，所以 No, it isn\'t.'},
-    {q:'Look! Those ___ my footprints. ___ are very big.',o:['are; They','is; It','are; It','is; They'],a:0,src:'屏東中正、新北中正 同類題',ex:'Those 是複數 → are；代替 footprints 用 They。'},
-    {q:'A: ___ you a monkey? B: No, I\'m not.',o:['Are','Is','Am','Do'],a:0,src:'左營 同類題',ex:'主詞 you → be 動詞用 Are。'},
-    {q:'A: Is that your frog? B: No, ___.',o:['it isn\'t','it\'s not frog','he isn\'t','I\'m not'],a:0,src:'新北中正 同類題',ex:'that（那個東西）在簡答中改成 it：No, it isn\'t.'},
-    {q:'Ten points for you! You are ___!',o:['the winner','a winner of','the win','winners'],a:0,src:'新北中正、左營',ex:'You are the winner! 你是優勝者。win 是動詞「贏」，winner 才是人。'},
-    {q:'I am tall and strong. I am not ___ elephant.',o:['an','a','the two','X'],a:0,src:'丹鳳、新北中正 同類題',ex:'elephant 開頭是母音 e 的音 → an elephant。'},
+    {q:'Judy: Look at this picture. What is this? Amy: ___ a duck.',o:['It\'s','Its','This\'s','They\'re'],a:0,src:'課文句',ex:'回答 What is this? 用 It\'s（＝It is）。this is 不可縮寫，Its 是所有格。'},
+    {q:'A: What are these? B: ___',o:['They are tigers.','It is a tiger.','They are tiger.','These is tigers.'],a:0,src:'課文句；新北中正 同類題',ex:'these 複數 → They are＋複數名詞。'},
+    {q:'Judy: Hello, David and Amy. Are you ___ the game?',o:['ready for','ready to','ready at','ready on'],a:0,src:'課文句；屏東中正 同類題',ex:'be ready for＋名詞＝為…做好準備。'},
+    {q:'I am brown and hairy, ___ I am not a bear.',o:['but','and','or','so'],a:0,src:'課文句；屏東中正、左營',ex:'前後意思相反（毛茸茸像熊，卻不是熊）用 but。'},
+    {q:'Look! Those ___ my footprints. ___ are very big.',o:['are; They','is; It','are; It','is; They'],a:0,src:'課文句；屏東中正、新北中正',ex:'Those 複數 → are；代替 footprints 用 They。'},
+    {q:'Amy: Is it big and tall? Judy: Yes, ___.',o:['it is','it\'s','they are','I am'],a:0,src:'課文句',ex:'肯定簡答不可縮寫：Yes, it is.'},
+    {q:'Judy: You are right! You are ___!',o:['a smart cookie','a big cookie','a cookie smart','smart cookies'],a:0,src:'課本 Idioms；左營',ex:'a smart cookie＝聰明的人。'},
+    {q:'That\'s it! Ten ___ points! You are the winner!',o:['more','much','very','many'],a:0,src:'課文句',ex:'ten more points＝再十分（more 更多的）。'},
+    {q:'I am tall and strong. I am not ___ elephant.',o:['an','a','the two','X'],a:0,src:'課文句；丹鳳、新北中正',ex:'elephant 開頭是母音音 → an elephant。'},
     {q:'A: Is that ___ angry zebra? B: Yes, it is.',o:['an','a','two','X'],a:0,src:'丹鳳 同類題',ex:'angry 開頭是母音音 → an angry zebra。冠詞看「緊接在後的字」。'},
-    {q:'下列哪一個是 mouse 的正確複數？',o:['mice','mouses','mices','meese'],a:0,src:'四校都考',ex:'mouse → mice 是不規則複數，沒有 mouses。'},
-    {q:'A: Are those mice small? B: No, ___ are big.',o:['they','it','those mice is','he'],a:0,src:'屏東中正 同類題',ex:'mice 是複數 → 用 they。'},
-    {q:'Bigfoot is very ___. He has a lot of brown hair.',o:['hairy','hungry','happy','hard'],a:0,src:'四校都考',ex:'a lot of hair（很多毛）→ hairy 多毛的。'},
-    {q:'The forest is Bigfoot\'s ___. He lives there.',o:['home','school','game','show'],a:0,src:'丹鳳、屏東中正、左營',ex:'他住在那裡 → home（家）。'},
-    {q:'A: Is your brother angry? B: No, he isn\'t. He is ___.',o:['happy','angry','hairy','a farmer'],a:0,src:'左營 同類題',ex:'No, he isn\'t（不生氣）→ 後面要接相反的 happy。'},
-    {q:'A: What is that in your hand? B: ___ is my key.',o:['This','That','These','Those'],a:0,src:'新北中正 同類題',ex:'東西在「我」手上（近）→ 用 This 回答。對方問 that，因為離他遠。'},
-    {q:'Yeti is white, ___ Bigfoot is brown.',o:['but','and so','or','because of'],a:0,src:'原創',ex:'兩種顏色作對比 → but。'},
-    {q:'Which is TRUE about the story "Who Am I?"?',o:['Ben is the winner.','Bigfoot is a bear.','Ella gets ten points.','The forest is Yeti\'s home.'],a:0,src:'原創課文閱讀',ex:'主持人說 Ten points for you, Ben! You are the winner!；Bigfoot 說 I am not a bear；Yeti 住雪山。'},
+    {q:'Look at those ___. They are white.',o:['geese','gooses','goose','a geese'],a:0,src:'課文 goose；屏東中正',ex:'goose → geese（不規則複數）。'},
+    {q:'A: What are those? B: They are ___.',o:['sheep','sheeps','a sheep','sheepes'],a:0,src:'屏東中正、左營',ex:'sheep 單複數同形。'},
+    {q:'Fruit is my ___ food. I eat it every day.',o:['favorite','angry','dirty','hairy'],a:0,src:'課文句；4/4 校考 favorite',ex:'Fruit is my favorite food.（課文）'},
+    {q:'A: Is the forest Bigfoot\'s home? B: ___',o:['Yes, it is.','No, it isn\'t.','Yes, he is.','No, they aren\'t.'],a:0,src:'課文閱讀；丹鳳 同類題',ex:'課文：The forest is my home. 問句主詞 the forest（物）→ it。'},
+    {q:'Which is TRUE about the dialogue?',o:['Amy is the winner.','David gets the answer "Bigfoot."','The first picture is a duck.','Those animals are lions.'],a:0,src:'課文理解',ex:'Amy 猜中 Bigfoot，Judy 說 Ten more points! You are the winner!；第一張是鵝（goose）；那些動物是老虎。'},
+    {q:'Which is TRUE about Bigfoot and Yeti?',o:['Yeti is Bigfoot\'s good friend.','Bigfoot\'s home is the mountain.','Bigfoot is white.','Meat is Bigfoot\'s favorite food.'],a:0,src:'課文閱讀＋Post-reading',ex:'Yeti is my good friend.；Bigfoot 住森林、棕色、最愛水果；住山上、白色、吃肉的是 Yeti。'},
   ]
 },
 l2:{
-  no:'Lesson 2', code:3, title:'My Favorite Theme Park', short:'Walt Disney 與家人職業', color:'linear-gradient(135deg,#7a3e65,#c0607a)',
-  desc:'Walt Disney｜theme park｜a piece of cake｜家人職業｜Who / What 問句',
+  no:'Lesson 2', code:3, title:'Where Is Annie From?', short:'Annie 的明信片', color:'linear-gradient(135deg,#7a3e65,#c0607a)',
+  desc:'Postcrossing｜Walt Disney World｜Who / Where…from / How old｜數字 10～99｜家族樹與職業',
   quick:[
-    ['favorite','最喜愛的',['有名的','很棒的','困難的'],1,'e'],
-    ['actress','女演員',['女服務生','女歌手','護理師'],1,'e'],
-    ['clerk','店員',['農夫','廚師','醫生'],1,'e'],
-    ['farmer','農夫',['店員','司機','作家'],1,'e'],
-    ['housewife','家庭主婦',['房子','妻子','女兒'],1,'e'],
-    ['founder','創辦人',['發現者','父親','玩家'],1,'e'],
-    ['late','遲到的',['早的','晚安','最後的'],1,'e'],
+    ['postcard','明信片',['郵票','信封','照片'],1,'e'],
+    ['famous','有名的',['最喜愛的','很棒的','有趣的'],1,'e'],
+    ['beautiful','漂亮的',['可愛的','乾淨的','強壯的'],1,'e'],
+    ['wonderful','絕妙的；極好的',['奇怪的','美麗的','有名的'],1,'e'],
+    ['late','遲的；遲到的',['早的','晚安','最後的'],1,'e'],
+    ['hard','困難的',['簡單的','心臟','卡片'],1,'e'],
+    ['easy','簡單的',['困難的','早的','忙碌的'],1,'e'],
+    ['founder','創辦者',['發現者','農夫','玩家'],1,'e'],
     ['place','地方',['遊戲','計畫','公園'],1,'e'],
+    ['still','還；仍然',['安靜的','已經','靜止'],0,'e'],
+    ['cute','可愛的',['剪','酷的','乾淨的'],1,'e'],
+    ['tomorrow','（在）明天',['今天','昨天','今晚'],0,'e'],
     ['theme park','主題樂園',['國家公園','停車場','動物園'],1,'e'],
-    ['cartoon','卡通',['電腦','照相機','蛋糕'],0,'e'],
+    ['actress','女演員',['女服務生','女歌手','護理師'],1,'e'],
+    ['clerk','職員；店員',['農夫','廚師','醫生'],1,'e'],
+    ['housewife','家庭主婦',['房子','妻子','女兒'],1,'e'],
+    ['美國','the USA',['the UK','Canada','England'],0,'c'],
+    ['卡通','cartoon',['carton','camera','cartoons'],0,'c'],
+    ['明星','star',['stair','start','story'],1,'c'],
+    ['農夫','farmer',['father','former','famous'],1,'c'],
     ['女兒','daughter',['doctor','dancer','son'],1,'c'],
     ['兒子','son',['sun','sister','daughter'],1,'c'],
     ['丈夫','husband',['housewife','hungry','wife'],1,'c'],
     ['妻子','wife',['wise','life','husband'],1,'c'],
-    ['河馬','hippo',['hippie','zebra','happy'],1,'c'],
-    ['朋友','friend',['fried','fruit','family'],1,'c'],
     ['小事一樁；很簡單','a piece of cake',['a cup of tea','a big cake','a smart cookie'],1,'c'],
+    ['世界各地','all over the world',['all the world over','all over world','over the all world'],1,'c'],
     ['國中生','junior high school student',['senior high school student','elementary school student','junior high school teacher'],1,'c'],
-    ['容易的','easy',['hard','busy','early'],0,'c'],
+    ['p _ s t c _ r d（明信片）','postcard',['postcar','poscard','postkard'],1,'s'],
+    ['f _ m _ u s（有名的）','famous',['famus','fameous','faimous'],1,'s'],
+    ['b _ _ u t i f u l（漂亮的）','beautiful',['beautifull','beatiful','butiful'],1,'s'],
+    ['w _ n d _ r f u l（極好的）','wonderful',['wonderfull','wanderful','wonderfal'],1,'s'],
     ['d _ _ g h t _ r（女兒）','daughter',['doughter','daugher','daughtor'],1,'s'],
-    ['f _ v _ r _ t e（最喜愛的）','favorite',['favorit','faverite','favourit'],1,'s'],
-    ['a c t r _ s s（女演員）','actress',['actres','acteress','actriss'],1,'s'],
-    ['h _ s b _ n d（丈夫）','husband',['husbend','hasband','husbant'],1,'s'],
-    ['c l _ r k（店員）','clerk',['clark','clerck','clerc'],1,'s'],
-    ['h _ _ s e w i f e（家庭主婦）','housewife',['housewive','hosewife','housewief'],1,'s'],
-    ['My mom works at home. She is ___ housewife.','a',['an','the two','many'],1,'g'],
-    ['Is it hard? No, it\'s ___ piece of cake.','a',['an','the two','one of'],1,'g'],
+    ['t h _ r t _ _ n（13）','thirteen',['thirty','thirdteen','threeteen'],1,'s'],
+    ['f _ r t y（40）','forty',['fourty','forthy','farty'],0,'s'],
+    ['n _ n _ t y（90）','ninety',['ninty','ninity','ninetey'],1,'s'],
+    ['___ is Annie? She\'s a friend from the USA.','Who',['What','Where','How old'],1,'g'],
+    ['Where is he ___? He\'s from Japan.','from',['to','of','at'],1,'g'],
+    ['How old is she? She\'s thirteen ___ old.','years',['year','yeas','ages'],1,'g'],
   ],
   words:[
-    ['a piece of cake','小事一樁'],['theme park','主題樂園'],['Walt Disney World','迪士尼世界'],['the founder of','…的創辦人'],
-    ['the father of','…之父'],['cartoon star','卡通明星'],['a wonderful place for all','適合大家的好地方'],['be late for','…遲到'],
-    ['work at home','在家工作'],['junior high school student','國中生'],
+    ['a postcard from Annie','Annie 寄來的明信片'],['be from','來自'],['… years old','…歲'],['on the postcard','在明信片上'],
+    ['all over the world','世界各地'],['a piece of cake','小事一樁'],['be late for','…遲到'],['See you tomorrow.','明天見。'],
+    ['junior high school student','國中生'],['the father of','…之父；…的創始者'],['have a great time','玩得開心'],['keep in touch','保持聯絡'],
   ],
   sorts:[
-    {title:'這是什麼職業？',tip:'看描述猜職業。注意 actress 是「女」演員；housewife 在家照顧家人。',buckets:['farmer','clerk','actress','housewife'],items:[
-      ['She works at home and cooks for her family.',3],['He works in the rice field.',0],['She is in movies and on TV.',2],
-      ['He works in a store.',1],['She sells things to people in a shop.',1],['He grows fruit and rice.',0],
-      ['She is a famous movie star.',2],['She takes care of the house.',3]]},
-    {title:'Who？What？還是 Where？',tip:'問「人」用 Who；問「東西／職業」用 What；問「地點／來自哪裡」用 Where',buckets:['Who','What','Where'],items:[
-      ['___ is that man on the postcard? — He\'s Walt Disney.',0],['___ is that girl? — She\'s my sister, Amy.',0],
-      ['___ is that? — It\'s a theme park.',1],['___ is your father? — He\'s a farmer.',1,'問職業可以用 What is your father?'],['___ are those? — They\'re hippos.',1],
-      ['___ is Walt Disney World? — It\'s in Florida.',2],['___ are you from? — I\'m from Taiwan.',2],['___ is my key? — It\'s in your bag.',2]]},
+    {title:'Who？What？Where…from？還是 How old？',tip:'問「人」用 Who；問「東西」用 What；問「來自哪裡」用 Where…from；問「年齡」用 How old',buckets:['Who','What','Where…from','How old'],items:[
+      ['___ is Annie? — She\'s a friend from the USA.',0],['___ is that boy? — He\'s my brother.',0],
+      ['___\'s this? — It\'s a postcard from Annie.',1],['___\'s that on the postcard? — It\'s Walt Disney World.',1],['___ is Postcrossing?',1],
+      ['___ is he ___? — He\'s from Japan.',2],['___ are you ___? — I\'m from Taiwan.',2],
+      ['___ is she? — She\'s thirteen years old.',3],['___ are they? — They\'re sixty-eight.',3]]},
+    {title:'數字分類：-teen 還是 -ty？',tip:'-teen（13～19）重音在後面；-ty（20、30…90）重音在前面。forty 沒有 u；ninety 保留 e',buckets:['13～19（-teen）','20～90（-ty）'],items:[
+      ['thirteen',0],['fourteen',0],['fifteen',0],['sixteen',0],['eighteen',0],['nineteen',0],
+      ['thirty',1],['forty',1,'four → forty，不是 fourty。'],['fifty',1],['sixty',1],['eighty',1],['ninety',1,'nine → ninety，保留 e。']]},
+    {title:'這是什麼職業？（Word Power 家族樹）',tip:'farmer 在農場；clerk 在公司或商店；actress 是女演員；housewife 在家照顧家人',buckets:['farmer','clerk','actress','housewife'],items:[
+      ['John (72) works on a farm.',0],['He grows rice and fruit.',0],
+      ['Amy (45) works in an office.',1],['She sells things in a store.',1],
+      ['Vicky (18) is in movies and on TV.',2],['She is a famous movie star.',2],
+      ['Lucy (69) works at home.',3],['She takes care of the house.',3]]},
   ],
-  hunt:{label:'🔍 所有格抓抓樂',title:'找出所有格（my / your / his / her / its / our / their）',tip:'所有格表示「…的」，後面一定接名詞：my mom、its mouth。It\'s＝It is，不是所有格！',lines:[
-    'Ella: Look at [my] photo. This is [my] favorite theme park, Walt Disney World.',
-    'Ben: Who\'s that man? Is he [your] uncle?',
-    'Ella: No, he isn\'t. He\'s Walt Disney. [His] cartoon stars are famous all over the world.',
-    'Ben: Wow! And who\'s that woman? It\'s a nice photo.',
-    'Ella: She\'s [my] mom. [Her] job is fun. She\'s an actress.',
-    'Ben: Look at that hippo! [Its] mouth is so big!',
-    'Ella: [Our] family loves this place. It\'s a wonderful place for all.',
+  hunt:{label:'🔍 疑問詞抓抓樂',title:'找出課文裡的疑問詞（What / Who / How old / Where）',tip:'課本 L2 對話原句。What\'s 裡的 What 也算；How old 要整組一起點。',lines:[
+    'Jenny: [What]\'s this? — Tina: It\'s a postcard from Annie.',
+    'Jenny: [Who] is Annie? — Tina: She\'s a friend from the USA.',
+    'Jenny: [How old] is she? — Tina: She\'s thirteen years old.',
+    'Jenny: [What]\'s that on the postcard? — Tina: It\'s Walt Disney World.',
+    'Jenny: Is that postcard from her, too? — Tina: No, it\'s from Ben.',
+    'Jenny: [Where] is he from? — Tina: He\'s from Japan.',
+    'Jenny: [What] is Postcrossing? Is it hard? — Tina: No. It\'s a piece of cake.',
   ]},
   mcq:[
-    {q:'Walt Disney World is my ___ theme park. I love it very much.',o:['favorite','hard','late','angry'],a:0,src:'四校都考',ex:'I love it very much → 最喜愛的 favorite。'},
-    {q:'A: Is the English test hard? B: No. It\'s ___.',o:['a piece of cake','a piece of paper','a cup of tea','a big cake'],a:0,src:'屏東中正、左營、新北中正',ex:'a piece of cake＝很簡單、小事一樁，不是真的蛋糕。'},
-    {q:'Walt Disney is the ___ of Walt Disney World.',o:['founder','winner','farmer','clerk'],a:0,src:'左營、新北中正',ex:'founder＝創辦人。'},
-    {q:'A: Who\'s that man on the postcard? B: ___',o:['He\'s Walt Disney.','It\'s a postcard.','He\'s fine.','It\'s in Florida.'],a:0,src:'左營 同類題',ex:'Who 問「人」，回答是誰：He\'s Walt Disney.'},
-    {q:'My mom works at home. She is ___.',o:['a housewife','an housewife','a clerk','a farmer'],a:0,src:'屏東中正、左營、新北中正',ex:'在家工作照顧家 → housewife；h 是子音，用 a。'},
-    {q:'My aunt is in many movies. She is ___.',o:['an actress','a actress','an actor','a farmer'],a:0,src:'屏東中正、左營、新北中正',ex:'女演員 actress；母音開頭用 an。actor 通常指男演員。'},
-    {q:'Mr. Wang sells things in a store. He is a ___.',o:['clerk','farmer','singer','doctor'],a:0,src:'丹鳳、左營、新北中正',ex:'在商店賣東西的人是店員 clerk。'},
-    {q:'Mr. and Mrs. Lin have a son and a ___. The girl is ten.',o:['daughter','husband','brother','son'],a:0,src:'四校都考',ex:'The girl → 女兒 daughter。'},
-    {q:'Mrs. Lin is Mr. Lin\'s wife. Mr. Lin is Mrs. Lin\'s ___.',o:['husband','wife','son','daughter'],a:0,src:'丹鳳、屏東中正、左營',ex:'妻子的另一半是丈夫 husband。'},
-    {q:'A: Sorry, I am ___ for my dance class. See you tomorrow. B: Bye!',o:['late','late to','early in','favorite'],a:0,src:'丹鳳 同類題',ex:'be late for＋活動＝…遲到。'},
-    {q:'Walt Disney is the father of many cartoon ___.',o:['stars','star','starses','a star'],a:0,src:'新北中正、屏東中正',ex:'many 後面接複數名詞：stars。'},
-    {q:'A: Who is she? B: ___',o:['She is his daughter.','She is ten.','She is tall.','She is fine.'],a:0,src:'屏東中正 同類題',ex:'Who 問「她是誰（身分）」，回答身分，不是年齡或外表。'},
-    {q:'Walt Disney World is a wonderful place ___ all.',o:['for','of','at','in'],a:0,src:'屏東中正 同類題',ex:'a wonderful place for all＝適合所有人的好地方。'},
-    {q:'A: Are you a junior high school student? B: Yes, ___.',o:['I am','I\'m','you are','he is'],a:0,src:'左營、新北中正 同類題',ex:'Are you…? → Yes, I am.（Yes 簡答不可縮寫）'},
-    {q:'Look at the ___! Its mouth is very big.',o:['hippo','hippos','mice','actress'],a:0,src:'丹鳳、新北中正',ex:'Its（單數的所有格）→ 單數 hippo。'},
-    {q:'A: What is your father? B: ___',o:['He is a farmer.','He is my father.','He is fine.','He is in Taipei.'],a:0,src:'左營 同類題',ex:'What is your father? 問「職業」，回答 He is a farmer.'},
+    {q:'Jenny: Who is Annie? Tina: ___',o:['She\'s a friend from the USA.','She\'s thirteen years old.','It\'s a postcard.','It\'s Walt Disney World.'],a:0,src:'課文句；四校都考 Who',ex:'Who 問「人／身分」→ She\'s a friend from the USA.'},
+    {q:'Jenny: How old is she? Tina: She\'s ___ years old. (13)',o:['thirteen','thirty','three','forty'],a:0,src:'課文句；丹鳳 同類題',ex:'13＝thirteen；thirty 是 30。'},
+    {q:'Jenny: ___ is he from? Tina: He\'s from Japan.',o:['Where','Who','What','How old'],a:0,src:'課文句',ex:'回答地點（from Japan）→ Where…from?'},
+    {q:'Jenny: What\'s that on the postcard? Tina: It\'s Walt Disney World. It\'s very ___ and beautiful.',o:['famous','late','hairy','angry'],a:0,src:'課文句；四校都考 famous',ex:'very famous and beautiful＝非常有名又漂亮。'},
+    {q:'Your friends are from all ___ the world.',o:['over','of','in','on'],a:0,src:'課文句；左營、新北中正',ex:'all over the world＝世界各地。'},
+    {q:'Jenny: Is it hard? Tina: No. It\'s ___.',o:['a piece of cake','a piece of paper','a smart cookie','a big cake'],a:0,src:'課文句；屏東中正、左營、新北中正',ex:'a piece of cake＝很簡單、小事一樁（課本另有 easy as pie）。'},
+    {q:'Oh, no! I\'m late ___ my dance class.',o:['for','to','at','in'],a:0,src:'課文句；丹鳳',ex:'be late for＋名詞＝…遲到。'},
+    {q:'It\'s a postcard ___ Annie. She\'s a friend from the USA.',o:['from','for','of','at'],a:0,src:'課文句；丹鳳',ex:'a postcard from＋人＝某人寄來的明信片。'},
+    {q:'Walt Disney World is my favorite ___.',o:['theme park','theme parks','park theme','a theme park'],a:0,src:'課文句；左營、新北中正',ex:'my favorite＋單數名詞；theme park＝主題樂園。'},
+    {q:'He is the father of many cartoon ___.',o:['stars','star','starses','a star'],a:0,src:'課文句；新北中正、屏東中正',ex:'many 後面接複數名詞 stars。'},
+    {q:'Mickey Mouse is over ninety years old ___ still very cute.',o:['but','and','or','so'],a:0,src:'課文句',ex:'年紀大 ↔ 很可愛，語意相反 → but。'},
+    {q:'A: How old ___ they? B: They\'re sixty-eight.',o:['are','is','am','do'],a:0,src:'課本 Grammar C',ex:'they → are。68＝sixty-eight。'},
+    {q:'My little brother is ___.',o:['an eight-year-old boy','a eight-year-old boy','an eight-years-old boy','eight-year-old boy'],a:0,src:'屏東中正',ex:'eight 母音開頭 → an；名詞前的 eight-year-old，year 不加 s。'},
+    {q:'John (72) is a farmer. He\'s Lucy\'s ___. They are husband and wife.',o:['husband','wife','son','daughter'],a:0,src:'課本 Word Power；丹鳳、屏東中正、左營',ex:'John 和 Lucy 是夫妻 → John 是 Lucy 的 husband。'},
+    {q:'Lucy works at home. She is ___.',o:['a housewife','an housewife','a clerk','a farmer'],a:0,src:'課本 Word Power；屏東中正、左營、新北中正',ex:'在家照顧家人 → housewife；h 是子音，用 a。'},
+    {q:'Vicky is in movies. She is ___.',o:['an actress','a actress','an actor','a farmer'],a:0,src:'課本 Word Power',ex:'女演員 actress；母音開頭用 an。'},
+    {q:'Which is TRUE about Annie\'s postcard?',o:['Mickey Mouse is Annie\'s favorite cartoon star.','Annie is from Taiwan.','Walt Disney is over 90 years old.','Annie is a high school teacher.'],a:0,src:'課本 Comprehension Check',ex:'Mickey Mouse is my favorite.；Annie 來自美國、是國中生；超過 90 歲的是 Mickey Mouse。'},
   ]
 },
 r1:{
-  no:'Review 1', code:4, title:'Postcards from All Over the World', short:'明信片與交換生', color:'linear-gradient(135deg,#8a5a12,#d39b2a)',
-  desc:'Postcrossing 明信片｜交換生與寄宿家庭｜famous / wonderful｜What is that?',
+  no:'Review 1', code:4, title:'Tina Wang in the USA', short:'總複習＋寄宿家庭', color:'linear-gradient(135deg,#8a5a12,#d39b2a)',
+  desc:'Build Your Vocabulary｜疑問詞 where / who / what / how old｜Tina Wang 與 Brown 一家',
   quick:[
-    ['postcard','明信片',['郵票','信封','照片'],1,'e'],
-    ['famous','有名的',['最喜愛的','很棒的','有趣的'],1,'e'],
-    ['wonderful','很棒的',['奇怪的','美麗的','有名的'],1,'e'],
-    ['world','世界',['文字','工作','城市'],1,'e'],
-    ['star','明星；星星',['商店','故事','學生'],1,'e'],
-    ['cartoon','卡通',['紙箱','車','照片'],0,'e'],
-    ['beautiful','美麗的',['可愛的','乾淨的','強壯的'],1,'e'],
-    ['country','國家',['城市','鄉村音樂','家庭'],0,'e'],
+    ['farmer','農夫',['店員','司機','作家'],1,'e'],
+    ['clerk','職員；店員',['農夫','廚師','醫生'],1,'e'],
+    ['forest','森林',['農場','山','花'],1,'e'],
+    ['actress','女演員',['女服務生','女歌手','護理師'],1,'e'],
+    ['husband','丈夫',['妻子','兒子','家庭主婦'],1,'e'],
+    ['housewife','家庭主婦',['房子','妻子','女兒'],1,'e'],
+    ['cook','廚師',['醫生','職員','農夫'],1,'e'],
+    ['doctor','醫生',['護理師','老師','女兒'],1,'e'],
     ['international','國際的',['國內的','有名的','有趣的'],0,'e'],
-    ['大象','elephant',['element','hippo','eleven'],1,'c'],
-    ['全世界','all over the world',['all the world over','all over world','over the all world'],1,'c'],
-    ['卡通明星','cartoon star',['movie star','cartoon stair','car star'],0,'c'],
-    ['家庭；家人','family',['farmer','famous','familiar'],0,'c'],
-    ['學生','student',['studio','teacher','study'],1,'c'],
-    ['日本','Japan',['Japanese','China','Korea'],0,'c'],
-    ['美國','the USA',['the UK','Canada','England'],1,'c'],
-    ['照片','photo',['phone','postcard','picture book'],0,'c'],
-    ['f _ m _ u s（有名的）','famous',['famus','fameous','faimous'],1,'s'],
-    ['p _ s t c _ r d（明信片）','postcard',['postcar','poscard','postkard'],1,'s'],
-    ['w _ n d _ r f u l（很棒的）','wonderful',['wonderfull','wanderful','wonderfal'],1,'s'],
-    ['e l _ p h _ n t（大象）','elephant',['elefant','elephent','alephant'],1,'s'],
-    ['b _ _ u t i f u l（美麗的）','beautiful',['beautifull','beatiful','butiful'],1,'s'],
-    ['c _ r t _ _ n（卡通）','cartoon',['cartton','carton','cartun'],0,'s'],
-    ['What ___ those? They are elephants.','are',['is','am','be'],1,'g'],
-    ['What is that? It is ___ postcard.','a',['an','two','many'],1,'g'],
-    ['Nina is ___ international student.','an',['a','two','many'],1,'g'],
+    ['homestay','寄宿家庭',['旅館','家庭主婦','停留'],0,'e'],
+    ['parents','父母',['親戚','派對','家長會'],0,'e'],
+    ['mouse 的複數','mice',['mouses','mices','meese'],1,'p'],
+    ['goose 的複數','geese',['gooses','geeses','goose'],1,'p'],
+    ['housewife 的複數','housewives',['housewifes','housewivs','housewife'],1,'p'],
+    ['actress 的複數','actresses',['actresss','actresies','actress'],0,'p'],
+    ['女兒','daughter',['doctor','dancer','son'],1,'c'],
+    ['兒子','son',['sun','sister','daughter'],1,'c'],
+    ['和…住在一起','live with',['live in','live on','leave with'],0,'c'],
+    ['對…很好','be nice to',['be nice for','be nice at','be nice of'],0,'c'],
+    ['___ are you from? I\'m from Taiwan.','Where',['Who','What','How old'],1,'g'],
+    ['___ is he? He\'s my father.','Who',['Where','What','How old'],1,'g'],
+    ['___ is it? It\'s a zebra.','What',['Who','Where','How old'],1,'g'],
+    ['___ is your daughter? She\'s five years old.','How old',['Who','Where','What'],1,'g'],
+    ['Karen is ___ daughter.','their',['they','there','them'],1,'g'],
   ],
   words:[
-    ['all over the world','全世界'],['a postcard from…','一張來自…的明信片'],['be from','來自'],['international student','國際學生；交換生'],
-    ['host family','寄宿家庭'],['very famous and beautiful','非常有名又美麗'],['What is that?','那是什麼？'],['What are those?','那些是什麼？'],
-    ['Sounds great!','聽起來很棒！'],['How about you?','那你呢？'],
+    ['live with','和…住在一起'],['the Brown family','Brown 一家人'],['be nice to','對…很好'],['Look at the picture.','看這張照片。'],
+    ['a student in the USA','在美國的學生'],['Where are you from?','你來自哪裡？'],['Who is he?','他是誰？'],['What is it?','它是什麼？'],
+    ['How old is your daughter?','你女兒幾歲？'],['one year old','一歲'],
   ],
   sorts:[
-    {title:'What is…? 還是 What are…?',tip:'this / that ＋ is；these / those ＋ are。回答單數用 It is，複數用 They are。',buckets:['What is…?','What are…?'],items:[
-      ['___ that on the postcard?',0],['___ those on the postcard?',1],['___ this in your hand?',0],['___ these?',1],
-      ['___ that? — It\'s an elephant.',0],['___ those? — They\'re elephants.',1],['___ those animals?',1],['___ your name?',0]]},
-    {title:'這是誰？Kai、Lily 還是 Nina？',tip:'本站原創：Kai 在臺灣用 Postcrossing 寄明信片；Lily 是他的筆友（美國）；Nina 是在加拿大的臺灣交換生。',buckets:['Kai','Lily','Nina'],items:[
-      ['He is from Taiwan and loves postcards.',0],['He has postcards from all over the world.',0],
-      ['She is from the USA.',1],['Her postcard is of Walt Disney World.',1],
-      ['She is an international student.',2],['She lives with a host family in Canada.',2],['Her host family has a big dog.',2]]},
+    {title:'What is…? 還是 What are…?',tip:'this / that / it ＋ is；these / those / they ＋ are。回答單數用 It is，複數用 They are。',buckets:['What is…?','What are…?'],items:[
+      ['___ this? — It\'s a goat.',0],['___ that on the postcard?',0],['___ it? — It\'s a zebra.',0],['___ Postcrossing?',0],
+      ['___ these? — They are tigers.',1],['___ those? — They\'re lions.',1],['___ they? — They\'re geese.',1]]},
+    {title:'這是誰？Tina、Annie 還是 Karen？',tip:'依課本：L2 Annie 是美國國中生；R1 Tina Wang 從臺灣到美國，住在 Brown 家；Karen 是 Brown 夫婦的女兒。',buckets:['Tina Wang','Annie','Karen'],items:[
+      ['I\'m from Taiwan.',0],['I am a student in the USA now.',0],['I live with the Brown family.',0],
+      ['I am a junior high school student from the USA.',1],['Mickey Mouse is my favorite.',1],['I\'m thirteen years old.',1],
+      ['Mr. and Mrs. Brown are my parents.',2],['David is my brother.',2]]},
   ],
-  hunt:{label:'🔍 複數名詞抓抓樂',title:'找出所有的「複數名詞」',tip:'複數名詞通常加 -s / -es，但也有不規則的：mouse → mice、child → children。',lines:[
-    'Kai: Look at my [postcards]! They are from all over the world.',
-    'Lily: Wow! What is that on this postcard?',
-    'Kai: It\'s Walt Disney World. It\'s very famous and beautiful.',
-    'Lily: And what are those?',
-    'Kai: They are [elephants] from Thailand. Those little [mice] are from Japan.',
-    'Lily: Who are your [friends] on Postcrossing?',
-    'Kai: They are [students] and [children] from many [countries].',
+  hunt:{label:'🔍 複數名詞抓抓樂',title:'找出所有的「複數名詞」',tip:'課本 R1 Match 與 Build Your Vocabulary 的句子。複數通常加 -s / -es，也有不規則的：mouse → mice、goose → geese。',lines:[
+    'Are those [lions]? — No, they are [tigers].',
+    'Look at those [geese]. And these are [mice].',
+    'John and Lucy are husband and wife. Lucy and Amy are not [actresses].',
+    'Your [friends] are from all over the world.',
+    'He is the father of many cartoon [stars].',
+    'Karen is their daughter, and David is their son. They are all very nice to me.',
   ]},
   mcq:[
-    {q:'A: What is that on the postcard? B: ___',o:['It\'s Walt Disney World.','He\'s Walt Disney.','They\'re postcards.','It\'s from Lily.'],a:0,src:'丹鳳 同類題',ex:'What 問東西，單數用 It\'s…。問「從哪來」才答 from Lily。'},
-    {q:'Walt Disney World is very ___. Many people know it.',o:['famous','late','hairy','angry'],a:0,src:'四校都考',ex:'很多人知道 → 有名的 famous。'},
-    {q:'Kai has friends from all ___ the world.',o:['over','of','in','on'],a:0,src:'左營、新北中正',ex:'all over the world＝全世界。'},
-    {q:'A: What are those? B: ___',o:['They are elephants.','It is an elephant.','They are an elephant.','Those is elephants.'],a:0,src:'新北中正 同類題',ex:'What are those? 複數 → They are elephants.'},
-    {q:'Nina Chen is ___ international student from Taiwan.',o:['an','a','the two','X'],a:0,src:'新北中正 同類題',ex:'international 以母音 i 開頭 → an。'},
-    {q:'A: Where is Nina from? B: ___',o:['She is from Taiwan.','She is a student.','She is fine.','She is twelve.'],a:0,src:'新北中正 同類題',ex:'Where…from? 問「來自哪裡」。'},
-    {q:'A: Where are David and Jeff from? B: ___ from the USA.',o:['They are','He is','They is','We are'],a:0,src:'丹鳳 同類題',ex:'David and Jeff 兩個人 → They are。'},
-    {q:'Is the postcard for ___? Is it for Kai?',o:['him','he','his','he\'s'],a:0,src:'丹鳳、屏東中正、左營',ex:'介系詞 for 後接受格 him。'},
-    {q:'These are ___.',o:['wonderful watches','wonderfuls watch','wonderful watchs','watches wonderful'],a:0,src:'丹鳳 同類題',ex:'形容詞不加 s，放在名詞前；watch → watches。'},
-    {q:'A: Are those students from the USA? B: No, ___ are from Japan.',o:['they','it','those students is','he'],a:0,src:'左營 同類題',ex:'students 複數 → they。'},
-    {q:'Mickey Mouse is a famous cartoon ___.',o:['star','stars','starts','a star'],a:0,src:'左營、新北中正',ex:'a famous cartoon star（單數，前面已有 a）。'},
-    {q:'A: Let\'s write postcards to our friends. B: ___',o:['Sounds great!','I\'m sorry.','Good night.','You\'re welcome.'],a:0,src:'左營 同類題',ex:'對提議表示贊成：Sounds great!'},
-    {q:'A: I like elephants. How about you? B: ___',o:['I like hippos.','I am fine.','I\'m from Taiwan.','It\'s a postcard.'],a:0,src:'左營 同類題',ex:'How about you? 是「那你呢？」，要回答同一件事（喜歡什麼動物）。'},
-    {q:'Which is TRUE about Kai in the story?',o:['He has postcards from all over the world.','He is from the USA.','He is an international student.','He has a host family in Canada.'],a:0,src:'原創課文閱讀',ex:'Kai 來自臺灣、收集各國明信片。來自美國的是 Lily；交換生是 Nina。'},
-    {q:'Nina\'s host family is very nice. ___ house is big and beautiful.',o:['Their','They','Them','They\'re'],a:0,src:'左營 同類題',ex:'後面接名詞 house → 所有格 Their。'},
-    {q:'___ name is Lily. She is my friend on Postcrossing.',o:['Her','She','Hers','She\'s'],a:0,src:'左營 同類題',ex:'句首、後接名詞 name → 所有格 Her，記得大寫。'},
+    {q:'A: Where is Tina Wang from? B: ___',o:['She\'s from Taiwan.','She\'s a student.','She\'s fine.','She\'s with the Browns.'],a:0,src:'課本 R1 閱讀；新北中正',ex:'課文：I\'m from Taiwan. Where…from? 問來自哪裡。'},
+    {q:'Tina lives ___ the Brown family in the USA.',o:['with','for','of','at'],a:0,src:'課本 R1 閱讀',ex:'live with＋人＝和…住在一起。'},
+    {q:'Mr. Brown is ___ cook, and Mrs. Brown is ___ doctor.',o:['a; a','an; a','a; an','an; an'],a:0,src:'課本 R1 閱讀',ex:'cook、doctor 都是子音開頭 → a。'},
+    {q:'Karen is ___ daughter, and David is ___ son.',o:['their; their','they; they','there; their','them; their'],a:0,src:'課本 R1 閱讀',ex:'後接名詞 → 所有格 their。there 是「那裡」。'},
+    {q:'They are all very nice to ___.',o:['me','I','my','mine'],a:0,src:'課本 R1 閱讀',ex:'介系詞 to 後接受格 me。'},
+    {q:'A: Who is Karen? B: ___',o:['She is Mr. and Mrs. Brown\'s daughter.','She is from the USA.','She is fine.','She is five years old.'],a:0,src:'課本 R1 閱讀；Who 四校都考',ex:'Who 問身分 → Karen is their daughter.'},
+    {q:'A: Are those lions? B: No, ___ are tigers.',o:['they','it','those lions','he'],a:0,src:'課本 R1 Match',ex:'those 簡答換成 they。'},
+    {q:'A: Is a bear strong and hairy? B: ___',o:['Yes, it is.','Yes, it\'s.','Yes, they are.','No, he isn\'t.'],a:0,src:'課本 R1 Match',ex:'a bear 單數動物 → it；肯定簡答不縮寫。'},
+    {q:'A: How old is your sister? B: She\'s ___.',o:['one year old','one years old','one old','a year olds'],a:0,src:'課本 R1 Match；屏東中正',ex:'一歲用單數 year：one year old。'},
+    {q:'Look at the picture. These are ___, and those are ___.',o:['mice; geese','mouses; gooses','mice; gooses','mouse; geese'],a:0,src:'課本 Build Your Vocabulary',ex:'mouse → mice、goose → geese。'},
+    {q:'Tina Wang is ___ international student from Taiwan.',o:['an','a','the two','X'],a:0,src:'課本補充字 international；新北中正',ex:'international 以母音開頭 → an。'},
+    {q:'A: Where ___ Peter from? B: He\'s from the USA.',o:['is','are','am','does'],a:0,src:'課本 R1 Match',ex:'Peter 單數 → is。'},
+    {q:'A: Aren\'t David and Amy brother and sister? B: ___ David is Amy\'s brother.',o:['Yes, they are.','No, they are.','Yes, they aren\'t.','No, they aren\'t.'],a:0,src:'左營',ex:'否定問句照事實回答：是兄妹 → Yes, they are.'},
+    {q:'Mr. and Mrs. Brown are nice. ___ house is big.',o:['Their','They','Them','They\'re'],a:0,src:'左營 同類題',ex:'後面接名詞 house → 所有格 Their。'},
+    {q:'Which is TRUE about Tina Wang?',o:['She is a student in the USA now.','She is from the USA.','She is Mrs. Brown\'s daughter.','She lives with Annie.'],a:0,src:'課本 R1 閱讀',ex:'I am a student in the USA now. I live with the Brown family.'},
+    {q:'下列哪一句的大小寫與標點完全正確？',o:['Tina Wang is from Taiwan.','tina wang is from taiwan.','Tina Wang is from taiwan.','Tina wang is From Taiwan.'],a:0,src:'左營、屏東中正、丹鳳',ex:'句首、人名（名和姓）、國名都要大寫；句尾句號。'},
   ]
 },
 gram:{
@@ -645,14 +674,14 @@ const CLOZE=[
     {q:'__5__',o:['a','an','two','many'],a:0,ex:'snowy 以子音開頭 → a snowy mountain。'},
     {q:'__6__',o:['happy','hairy','late','dirty'],a:0,ex:'We are not angry → 相對的「快樂的」happy。'},
    ]},
-  {title:'克漏字 B｜Kai\'s Postcard',text:'Kai: Lily, what is __1__ on your postcard?\nLily: It\'s Walt Disney World. It\'s very famous and beautiful. It\'s my __2__ theme park.\nKai: Who\'s that man?\nLily: He\'s Walt Disney. He is the __3__ of Walt Disney World.\nKai: Wow! __4__ you from Florida?\nLily: No, I\'m not. I\'m from New York. And my friends on Postcrossing are from all over the __5__.\nKai: Is it hard to write a postcard in English?\nLily: No. It\'s a piece of __6__!',
+  {title:'克漏字 B｜Tina\'s Postcard',text:'Jenny: Tina, what is __1__ on your postcard?\nTina: It\'s Walt Disney World. It\'s very famous and beautiful. It\'s Annie\'s __2__ theme park.\nJenny: Who\'s Walt Disney?\nTina: He is the __3__ of Walt Disney World.\nJenny: Wow! __4__ Annie from Japan?\nTina: No, she isn\'t. She\'s from the USA. My friends on Postcrossing are from all over the __5__.\nJenny: Is it hard to write a postcard in English?\nTina: No. It\'s a piece of __6__!',
    qs:[
-    {q:'__1__',o:['that','those','these','they'],a:0,ex:'is 前面用單數 that。'},
-    {q:'__2__',o:['favorite','angry','hairy','late'],a:0,ex:'my favorite theme park＝我最喜愛的主題樂園。'},
-    {q:'__3__',o:['founder','winner','clerk','farmer'],a:0,ex:'the founder of…＝…的創辦人。'},
-    {q:'__4__',o:['Are','Is','Am','Do'],a:0,ex:'主詞 you → Are。'},
-    {q:'__5__',o:['world','word','work','walk'],a:0,ex:'all over the world＝全世界。'},
-    {q:'__6__',o:['cake','cookie','bread','pie'],a:0,ex:'a piece of cake＝小事一樁。'},
+    {q:'__1__',o:['that','those','these','they'],a:0,ex:'is 前面用單數 that（課文：What\'s that on the postcard?）。'},
+    {q:'__2__',o:['favorite','angry','hairy','late'],a:0,ex:'favorite theme park＝最喜愛的主題樂園（Annie 的明信片原句）。'},
+    {q:'__3__',o:['founder','winner','clerk','farmer'],a:0,ex:'the founder of…＝…的創辦者（課文：The founder is Walt Disney.）。'},
+    {q:'__4__',o:['Is','Are','Am','Do'],a:0,ex:'主詞 Annie 單數 → Is。'},
+    {q:'__5__',o:['world','word','work','walk'],a:0,ex:'all over the world＝世界各地。'},
+    {q:'__6__',o:['cake','cookie','bread','pie'],a:0,ex:'a piece of cake＝小事一樁（easy as pie 才用 pie）。'},
    ]},
 ];
 const READ=[
@@ -677,18 +706,20 @@ const READ=[
    ]},
 ];
 const TRANS=[
-  ['你的電話號碼是多少？','What is your phone number?','phone number 電話號碼；問句用問號'],
-  ['我棕色又多毛，但我不是熊。','I am brown and hairy, but I am not a bear.','but 表相反；a bear'],
-  ['看！那些是我的腳印。','Look! Those are my footprints.','Those 複數 → are；footprints'],
-  ['你得十分！你是優勝者！','Ten points for you! You are the winner!','points 複數；the winner'],
-  ['那是你的青蛙嗎？不，它不是。','Is that your frog? No, it isn\'t.','that 在簡答改成 it'],
-  ['迪士尼世界是我最喜愛的主題樂園。','Walt Disney World is my favorite theme park.','favorite 最喜愛的；theme park'],
-  ['這很難嗎？不，這是小事一樁。','Is it hard? No, it\'s a piece of cake.','a piece of cake 小事一樁'],
-  ['我媽媽在家工作。她是家庭主婦。','My mom works at home. She is a housewife.','a housewife（h 子音 → a）'],
-  ['那些是什麼？它們是大象。','What are those? They are elephants.','those → are；elephants 複數'],
-  ['她是來自臺灣的國際學生。','She is an international student from Taiwan.','an international；be from'],
-  ['我有來自全世界的朋友。','I have friends from all over the world.','all over the world 全世界'],
-  ['Ben 和 Ella 的媽媽是店員。','Ben and Ella\'s mom is a clerk.','共有所有格：只在最後一人加 \'s'],
+  ['很高興認識你。','Nice to meet you.','Starter 問候語；回應加 too'],
+  ['你的電話號碼是幾號？','What\'s your phone number?','Starter；phone number；問句用問號'],
+  ['這顆球是給他的。','The ball is for him.','Starter；for 後接受格 him'],
+  ['這是什麼？它是一隻鵝。','What is this? It\'s a goose.','L1 課文；this 回答時改 it'],
+  ['我是棕色的又毛茸茸，但我不是熊。','I am brown and hairy, but I am not a bear.','L1 課文；but 表相反；a bear'],
+  ['看！那些是我的腳印。','Look! Those are my footprints.','L1 課文；Those 複數 → are'],
+  ['水果是我最喜愛的食物。','Fruit is my favorite food.','L1 課文；favorite 最喜愛的'],
+  ['你是贏家！','You are the winner!','L1 課文；the winner'],
+  ['她十三歲。','She\'s thirteen years old.','L2 課文；thirteen ≠ thirty'],
+  ['他來自哪裡？他來自日本。','Where is he from? He\'s from Japan.','L2 課文；from 不能漏'],
+  ['它難嗎？不，那是小事一樁。','Is it hard? No. It\'s a piece of cake.','L2 課文；a piece of cake'],
+  ['華特迪士尼世界是我最喜愛的主題樂園。','Walt Disney World is my favorite theme park.','L2 閱讀；theme park'],
+  ['我跳舞課要遲到了。','I\'m late for my dance class.','L2 課文；be late for'],
+  ['我和 Brown 一家住在一起。','I live with the Brown family.','R1 閱讀；live with'],
 ];
 
 /* 考點雷達（依各校段考卷統計） */
@@ -703,9 +734,9 @@ const RADAR={
 };
 
 /* ================= 導覽 ================= */
-const TABS=[['home','🏠 考點雷達'],['st','👋 Starter'],['l1','👣 L1 Bigfoot'],['l2','🏰 L2 Walt Disney'],['r1','💌 R1 明信片'],['gram','🧠 文法特訓'],['mix','🧩 克漏字＋閱讀']];
+const TABS=[['home','🏠 考點雷達'],['st','👋 Starter'],['l1','👣 L1 What\'s This?'],['l2','💌 L2 Annie'],['r1','🔁 Review 1'],['gram','🧠 文法特訓'],['mix','🧩 克漏字＋閱讀']];
 
-const AUDIO=new Set(["00313120", "00f0e6aa", "03285dfc", "04ac0721", "05537a1b", "05e9e040", "07c5bf96", "07cc25f4", "07cc2b2a", "0906d7a1", "0a0a25b5", "0ad0581b", "0ba65dd9", "0ba81191", "0c807952", "0dc48142", "0e6bf99a", "0edc8ae2", "15faef94", "18ae6c91", "1957b3a7", "1a956a35", "1b05cef8", "1bd670a0", "1f951fd4", "27db9c83", "27e17df3", "28cb3c32", "2ca135cd", "2d4873c8", "2d505a99", "2e2d5bb2", "3018bb65", "30be372f", "35e8dc9a", "37a3e893", "3a7f06b2", "3d1f5e07", "3ea07d7c", "4024f153", "406f344d", "4124f2e6", "4249d707", "49cbe0a2", "4c2dfe93", "4e388f15", "4f292a60", "506dff3e", "514c98f2", "521d0429", "53cacdb9", "557fef14", "559d6552", "57342012", "573511ed", "573f252c", "58446843", "5921168a", "592318c4", "597d11c6", "5a69615f", "5afecfa5", "5fb7b228", "5fd56df9", "6045f017", "605d486b", "63374a36", "660ec0f4", "67a9c9d2", "6815c86c", "6a164f08", "6cc7dde1", "6e957ec9", "70c67e32", "7183f6da", "719c6755", "7c3193ac", "7f323263", "7f42eafe", "808e8652", "80f867d9", "812716e3", "82db4d21", "8583378f", "87d96bf7", "89ba7561", "89cbe5d5", "8a29f33d", "8a524c53", "8b77447b", "8bdbdcda", "8d39bde6", "8e660e16", "8eb9ea3e", "8ff53680", "92e99ecd", "94e2dfef", "95150aa0", "9b3cf040", "9bcd89e7", "9d2ee900", "9f000e9b", "a070a5a9", "a108b658", "a28f44fb", "a2bf3a03", "a2fb5eed", "a31eda03", "a3d72107", "a59115d1", "a947e23c", "ac3c2a26", "aceae80c", "acefb2fe", "afd3aab4", "b010ea67", "b4bc6200", "b50aaefe", "bb357f55", "bb8324f1", "bfdbdb95", "c0b061df", "c2a805b8", "c3b76fbc", "c51f5d7a", "c8d632fc", "c944ea21", "c97160d1", "c9ad5a6b", "cba09f8d", "cd4e70b5", "ce5dfe9a", "d13b2f71", "d27adb64", "d91cad98", "defe7a94", "df04da84", "e0363a7b", "e2d79f84", "e382ff79", "e40c292c", "e4c35bdc", "e5a0205d", "e5f12404", "e61ccf6c", "e92df9e1", "e96898d5", "e9a2ff6f", "f5352bb4", "f95c4f58", "fb4544d2", "fe8c6573", "fec3a580", "fefb3906"]);
+const AUDIO=new Set(["03285dfc", "05537a1b", "05e9e040", "07cc25f4", "0815494f", "0906d7a1", "0a0a25b5", "0ba81191", "0bd2c6d5", "0c807952", "0dc48142", "0e6f5bde", "1399d8c1", "15faef94", "18ae6c91", "1a382458", "1b05cef8", "1bd670a0", "1f29dbd6", "1f951fd4", "2166e5bd", "25571b23", "27db9c83", "28cb3c32", "28dc52cb", "2ca135cd", "2d4873c8", "2d505a99", "2e2d5bb2", "3018bb65", "3044938a", "30be372f", "312fd389", "348f1364", "3583acfe", "35e8dc9a", "3d1f5e07", "3ea07d7c", "4024f153", "406f344d", "4124f2e6", "45b679ca", "46430fd9", "4de8dd35", "4e388f15", "4f292a60", "506dff3e", "51059901", "514c98f2", "559d6552", "57342012", "573511ed", "58446843", "5921168a", "592318c4", "597d11c6", "5a69615f", "5afecfa5", "5fb7b228", "5fd56df9", "6045f017", "608a69e4", "622b0026", "63374a36", "660ec0f4", "67a9c9d2", "6a164f08", "6b556299", "6cc7dde1", "6e957ec9", "6fa9dc52", "70c67e32", "70f28d81", "7183f6da", "72664f91", "7499948f", "7c3193ac", "7f323263", "7f42eafe", "808e8652", "80f867d9", "82db4d21", "8583378f", "87d96bf7", "88d37956", "89ba7561", "8a29f33d", "8a524c53", "8b6fe763", "8b77447b", "8bdbdcda", "8d39bde6", "8d80552f", "8e660e16", "8eb9ea3e", "91dad0f8", "94e2dfef", "95150aa0", "95207894", "95cd8075", "96972cb0", "99f7f2f7", "9b3cf040", "9bcd89e7", "9d24aa8e", "9d2ee900", "9f000e9b", "a108b658", "a1f02512", "a2bf3a03", "a2fb5eed", "a31eda03", "a3d72107", "a3fa9a27", "a947e23c", "ac3c2a26", "aceae80c", "afd3aab4", "b010ea67", "b374b113", "b4bc6200", "b50aaefe", "b8f616a7", "b9b732b2", "bb357f55", "bb8324f1", "bef086ed", "bfdbdb95", "c0b061df", "c1faa93e", "c2a805b8", "c3b76fbc", "c51f5d7a", "c8028cd1", "c8d632fc", "c944ea21", "c97160d1", "c9ad5a6b", "cbfd3c67", "d13b2f71", "d27adb64", "d4fa8470", "d76a9191", "defe7a94", "df04da84", "e0363a7b", "e12ccf0e", "e2d79f84", "e382ff79", "e40c292c", "e4c35bdc", "e5a0205d", "e5f12404", "e61ccf6c", "e85541e0", "e92df9e1", "e96898d5", "e9a2ff6f", "ef3e2929", "f2c789e7", "f2dead7f", "f4b48d8c", "f95c4f58", "fb4544d2", "fdd2b0cb", "fe8c6573", "fefb3906"]);
 /* ================= 注釋配對 ================= */
 function renderMatch(el,pairs){
   const rounds=[];const sp=shuf(pairs);for(let k=0;k<sp.length;k+=5)rounds.push(sp.slice(k,k+5));
@@ -1131,7 +1162,7 @@ function renderHome(app){
   const bar=arr=>`<div class="bars">${arr.map(([n,v])=>`<div class="b"><span>${n}</span><div class="track"><div class="fill" data-w="${v/N*100}"></div></div><b>${v}/${N}</b></div>`).join('')}</div>`;
   app.innerHTML=`
   <h2>📡 第一次段考考點雷達</h2>
-  <p class="muted">整理 ${N} 所學校的國一上第一次段考卷：${RADAR.schools}。這 4 校卷面沒有寫版本，是依題材（Bigfoot、Walt Disney、Postcrossing）推定為南一版；範圍依新北中正卷逐題標課推定為 Starter＋L1～L2＋Review 1。</p>
+  <p class="muted">整理 ${N} 所學校的國一上第一次段考卷：${RADAR.schools}。這 4 校卷面沒有寫版本，但題材（L1 Bigfoot、L2 Annie 的 Walt Disney World 明信片與 Postcrossing、R1 Tina Wang 住 Brown 家）已用南一 B1 課本逐課核對完全吻合，確認是南一版；範圍是 Starter＋L1～L2＋Review 1（新北中正卷頭明寫 Starter-R1）。</p>
   <div class="lessoncards" style="margin:16px 0 24px">
     ${['st','l1','l2','r1','gram'].map(k=>`<div class="lc" style="background:${L[k].color}" data-k="${k}"><div><div class="n">${L[k].no}</div><div class="t">${L[k].short}</div></div><div class="d">${L[k].desc}</div></div>`).join('')}
     <div class="lc" style="background:linear-gradient(135deg,#3a4f7a,#6b86b8)" data-k="mix"><div><div class="n">綜合</div><div class="t">克漏字＋閱讀</div></div><div class="d">原創克漏字｜閱讀測驗｜翻譯翻翻卡</div></div>
@@ -1150,7 +1181,7 @@ function renderHome(app){
   <p class="muted" style="margin-top:12px">四校都考<b>字母大小寫互換</b>（常用課外長字，全對才給分）和<b>翻譯</b>：I am brown and hairy, but I am not a bear.／Is it hard? No, it's a piece of cake. → 到「🧩 克漏字＋閱讀」用翻譯翻翻卡練，句首大寫、句尾標點別忘記。</p></div>
   <div class="card"><h3>🧭 建議闖關順序</h3>
   <p>① 每課先看 <b>🎬 動畫導覽</b>，弄懂課文在說什麼 → ② <b>⚡ 單字快問快答</b>、<b>🔗 片語配對</b>，練熟基本分 → ③ <b>🧠 文法特訓</b>，把 be 動詞、複數、所有格練到反射 → ④ <b>📝 段考模擬題</b>與 <b>🧩 克漏字＋閱讀</b>，檢查自己的程度。</p>
-  <p class="muted">各課課文與文章都是依段考卷考點原創改寫，不是課本原文；段考範圍請以自己學校公告為準。</p></div>`;
+  <p class="muted">各課「動畫導覽」的課文依南一 B1 課本；模擬題、克漏字與閱讀文章為原創。段考範圍請以自己學校公告為準。</p></div>`;
   app.querySelectorAll('.lc').forEach(c=>c.onclick=()=>go(c.dataset.k,c.dataset.k==='mix'?undefined:'anim'));
   requestAnimationFrame(()=>setTimeout(()=>app.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%'),60));
 }
@@ -1237,7 +1268,7 @@ function renderMix(app){
   const s=curSub.mix||'cloze';
   const subs=[['cloze','🧩 課文改寫克漏字'],['read','📖 閱讀測驗'],['trans','🃏 翻譯翻翻卡']];
   app.innerHTML=`<h2>🧩 克漏字＋閱讀＋翻譯</h2>
-  <p class="muted">四校都考克漏字（Bigfoot 自述、明信片對話最常見），閱讀愛考家族樹、動物、交換生；四校都考翻譯，句首大寫、句尾標點都要寫對。以下文章皆為原創改寫。</p>
+  <p class="muted">四校都考克漏字（Bigfoot 自述、明信片對話最常見），閱讀愛考家族樹、動物、交換生；四校都考翻譯，句首大寫、句尾標點都要寫對。克漏字與閱讀文章為原創；翻譯翻翻卡優先用課本原句。</p>
   <div class="subtabs">${subs.map(([k,t])=>`<button class="sub ${k===s?'on':''}" data-s="${k}">${t}</button>`).join('')}</div><div id="panel"></div>`;
   app.querySelectorAll('.sub').forEach(b=>b.onclick=()=>{curSub.mix=b.dataset.s;render()});
   const p=$('#panel');
@@ -1252,73 +1283,77 @@ function renderMix(app){
   set.forEach((c,k)=>{const nm=c.title.split('｜')[1]||c.title;renderMCQ($('#cq'+k),c.qs.map(q=>({...q,src:'',q:/^__\d__$/.test(q.q)?`${nm} 第 ${q.q.replace(/_/g,'')} 格`:q.q})),7,`綜合 ${c.title.replace(/｜/g,' ')}`)});
 }
 
-/* ================= Starter 動畫 ================= */
+/* ================= Starter 動畫（課文依南一 B1 課本） ================= */
 function animST(p){
   p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
-  <div class="card"><h3>🗺️ 課文一張圖（原創改寫）</h3>
-  <p><span class="pill">開場</span>新學期第一天，Ella 和 Ben 認識彼此 → 交換<b>電話號碼</b></p>
-  <p><span class="pill">節目</span>班上辦「遊戲節目」：<b>Welcome to</b> the game show! Are you <b>ready for</b> the game?</p>
-  <p><span class="pill">基本功</span>數字 1～100（-teen / -ty）、大小寫與標點、Good night / See you tomorrow</p></div>`;
+  <div class="card"><h3>🗺️ 課本 Starter 一張圖</h3>
+  <p><span class="pill">字母</span>26 個字母大小寫與筆順（4 校都考「字母大小寫互換」）</p>
+  <p><span class="pill">問候</span>Nice to meet you. ／ How are you? ／ Good night. ／ How are you doing? ／ What's up?</p>
+  <p><span class="pill">代名詞</span>What is <b>your / his / her / its</b> name?；The ball is for <b>him / her / it</b>.</p>
+  <p><span class="pill">數字</span>0～9、What's your <b>phone number</b>? — It's 2345-0189.</p>
+  <p><span class="pill">書寫格式</span>I 一律大寫、句首與專有名詞大寫、句點與問號、逗點後空一格</p></div>`;
   const steps=[
-    {label:'① 很高興認識你',imgs:[{img:'st_class',tag:'Hi! I\'m Ella. Nice to meet you.'}],poem:'Ella: Hi! I\'m Ella. What\'s your <b>name</b>?<br>Ben: My name is Ben. <b>Nice to meet you</b>.<br>Ella: Nice to meet you, <b>too</b>.',key:'對方說 Nice to meet you → 回 Nice to meet you, <b>too</b>。句首、人名第一個字母<b>大寫</b>（四校都考大小寫）。'},
-    {label:'② 電話號碼',imgs:[{img:'st_phone',tag:'What\'s your phone number?'}],poem:'Ben: What\'s your <b>phone number</b>, Ella?<br>Ella: It\'s 2243-8607.<br>Ben: Two-two-four-three, eight-six-zero-seven. OK!',key:'<b>What\'s your phone number?</b> → It\'s + 號碼（新北中正、左營考）。號碼要一個數字一個數字唸。'},
-    {label:'③ 遊戲節目開場',imgs:[{img:'st_class',tag:'Welcome to the game show!'}],poem:'Teacher: Hello, class! <b>Welcome to</b> the game <b>show</b>! Are you <b>ready for</b> the game?<br>Class: Yes, we <b>are</b>!',key:'welcome <b>to</b>＋活動；be ready <b>for</b>＋事情（屏東中正考介系詞）。Yes 簡答<b>不能縮寫</b>：Yes, we are.'},
-    {label:'④ 數字大考驗',imgs:[{img:'st_class',tag:'Five and six is eleven!'}],poem:'Teacher: What is five and six?<br>Ben: Five and six <b>is</b> eleven!<br>Teacher: Good! What is twenty and twenty?<br>Ella: It\'s <b>forty</b>!',key:'算式用 <b>is</b>。forty（40）<b>沒有 u</b>；thirteen（13）／thirty（30）要聽清楚重音。'},
-    {label:'⑤ 明天見',imgs:[{img:'st_class',tag:'See you tomorrow!'}],poem:'Ella: Goodbye, Ben. <b>See you tomorrow</b>!<br>Ben: See you!<br>（晚上）Mom: <b>Good night</b>, Ella.<br>Ella: Good night, Mom.',key:'道別說 See you tomorrow.；Good night 是晚上道別或睡前說的，<b>不是</b>「晚上好」（那是 Good evening）。'},
+    {label:'① 很高興認識你',imgs:[{img:'st_class',tag:'Nice to meet you.'}],poem:'A: <b>Nice to meet you.</b><br>B: Nice to meet you, <b>too</b>.<br>A: <b>How are you?</b><br>B: I\'m fine. Thank you.',key:'課本 Greetings 配對：對方說 Nice to meet you → 回 Nice to meet you, <b>too</b>；How are you? → <b>I\'m fine. Thank you.</b>'},
+    {label:'② 晚安與口語問候',imgs:[{img:'st_class',tag:'Good night, Romeo. Good night, Juliet.'}],poem:'Romeo: <b>Good night</b>, Juliet.<br>Juliet: Good night, Romeo.<br>A: <b>How are you doing?</b> B: I\'m doing great.<br>A: <b>What\'s up?</b> B: Not much.',key:'Good night 是晚上道別或睡前說的（「晚上好」是 Good evening）。What\'s up? → <b>Not much.</b>'},
+    {label:'③ 你叫什麼名字？',imgs:[{img:'st_class',tag:'What is your name?'}],poem:'Mike: Hi, I am Mike. What\'s <b>your</b> name?<br>Tina: Hello! <b>My</b> name is Tina. <b>Its</b> name is Rocky.<br>What is <b>his</b> name? — <b>His</b> name is Joe.',key:'所有格後面一定接名詞：my / your / his / her / <b>its</b> name。<b>Its</b>＝它的，<b>It\'s</b>＝It is（丹鳳、屏東中正考）。'},
+    {label:'④ 這顆球是給他的',imgs:[{img:'st_class',tag:'The ball is for him.'}],poem:'The ball is for <b>him</b>.<br>The ball is for <b>her</b>.<br>The ball is for Tina.<br>The ball is for <b>it</b>.',key:'介系詞 for 後面接<b>受格</b>：him、her、it、us、them（丹鳳考 for him，不是 for he / his）。'},
+    {label:'⑤ 電話號碼',imgs:[{img:'st_phone',tag:'What\'s your phone number?'}],poem:'A: What\'s your <b>phone number</b>?<br>B: My phone number is 2345-0189.<br>B: <b>It\'s</b> 2345-0189.',key:'號碼用 <b>It\'s</b> 回答；一個數字一個數字唸：two-three-four-five, <b>zero</b>-one-eight-nine（新北中正、左營、丹鳳考）。'},
+    {label:'⑥ 書寫格式改錯',imgs:[{img:'st_class',tag:'My name is Vincent.'}],poem:'<s>my name is vincent.</s> → <b>M</b>y name is <b>V</b>incent.<br><s>Yes, i am fine</s> → Yes, <b>I</b> am fine<b>.</b><br><s>how is he</s> → <b>H</b>ow is he<b>?</b>',key:'課本 Circle and Write 原題。句首大寫、<b>I</b> 大寫、人名大寫、直述句加句點、問句加問號（3/4 校考，丹鳳翻譯沒標點扣分）。'},
   ];
   stepper(p,steps,i=>showPhoto(steps[i]),8000);
 }
 
-/* ================= L1 動畫 ================= */
+/* ================= L1 動畫（課文依南一 B1 課本） ================= */
 function animL1(p){
   p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
-  <div class="card"><h3>🗺️ 課文一張圖（原創改寫）</h3>
-  <p><span class="pill">節目</span>遊戲節目「Who Am I?」：神秘來賓描述自己，參賽者 Ella 和 Ben 用 Yes/No 問句猜</p>
-  <p><span class="pill">來賓 1</span>Bigfoot：又高又壯、<b>棕色又多毛</b>、不是熊、住在<b>森林</b>、<b>腳印</b>很大</p>
-  <p><span class="pill">來賓 2</span>Yeti：白色、多毛、住在喜馬拉雅的雪山，是 Bigfoot 的好朋友</p>
-  <p><span class="pill">文法</span>am / is / are ＋ Yes/No 簡答 ＋ this / that / these / those ＋ but</p></div>`;
+  <div class="grid2">
+    <div class="card"><h3>💬 對話：猜謎節目 What's This?</h3><p><span class="pill">起</span>主持人 Judy：Are you <b>ready for</b> the game?</p><p><span class="pill">承</span>Amy 說 duck ✗，David 答 <b>a goose</b> ✓</p><p><span class="pill">轉</span>David 說 lions ✗，Amy 答 <b>tigers</b> ✓：a smart cookie!</p><p><span class="pill">合</span>Amy 猜中 <b>Bigfoot</b>：Ten more points! You are the <b>winner</b>!</p></div>
+    <div class="card"><h3>📖 閱讀：I Am Bigfoot</h3><p><span class="pill">外型</span>tall and strong、<b>brown and hairy</b>，不是大象也不是熊</p><p><span class="pill">生活</span>家在 <b>forest</b>，最愛 <b>fruit</b>，好朋友 Yeti</p><p><span class="pill">腳印</span>Those are my <b>footprints</b>. They are very big.</p><p><span class="pill">比較</span>Yeti：mountain、white、meat</p></div>
+  </div>`;
   const steps=[
-    {label:'① 我是誰？',imgs:[{img:'l1_bigfoot',tag:'Who am I?'}],poem:'Host: Welcome back to <b>Who Am I?</b> Here is our first mystery guest.<br>Guest: I <b>am</b> big and tall. I am brown and <b>hairy</b>, <b>but</b> I am not a bear.',key:'I → <b>am</b>；hairy＝多毛的（四校都考）；前後相反用 <b>but</b>（屏東中正、左營考）。'},
-    {label:'② 不是熊喔',split:[{img:'l1_bear',tag:'a bear 熊'},{img:'l1_bigfoot',tag:'Bigfoot 大腳怪'}],poem:'Ella: <b>Are</b> you a bear?<br>Guest: No, I\'m <b>not</b>. I am not a bear, and I am not a monkey.',key:'Are you…? → Yes, I am. ／ No, I\'m not.（Yes 不縮寫，No 可縮寫）'},
-    {label:'③ 森林與腳印',imgs:[{img:'l1_forest',tag:'The forest is my home.'},{img:'l1_foot',tag:'Look! Those are my footprints.'}],poem:'Guest: The <b>forest</b> is my home. Look! <b>Those are</b> my <b>footprints</b>. <b>They</b> are very big.',key:'Those 複數 → <b>are</b>，代替 footprints 用 <b>They</b>（新北中正、屏東中正考）。footprint 拼字常考。'},
-    {label:'④ 你得十分！',imgs:[{img:'l1_trophy',tag:'You are the winner!'}],poem:'Ben: You are <b>Bigfoot</b>!<br>Host: That\'s right! <b>Ten points</b> for you, Ben! You are <b>the winner</b>!',key:'points 是複數；<b>winner</b>＝優勝者（新北中正、左營考）。'},
-    {label:'⑤ 第二位來賓',imgs:[{img:'l1_yeti',tag:'1951 年在喜馬拉雅山拍到的「雪怪腳印」'},{img:'l1_himalaya',tag:'The snowy mountains are my home.'}],poem:'Guest 2: I am <b>white</b> and hairy, too. The snowy mountains <b>are</b> my home. Bigfoot <b>is</b> my good friend. Who am I?<br>Ella: You are <b>Yeti</b>!',key:'The snowy mountains（複數）→ <b>are</b>；Bigfoot（單數）→ <b>is</b>。'},
-    {label:'⑥ 那是你的嗎？',imgs:[{img:'l1_mouse',tag:'Is that your mouse? No, it isn\'t.'}],poem:'Host: Ben, is <b>that</b> your mouse?<br>Ben: No, <b>it isn\'t</b>. It\'s Ella\'s. And <b>those mice</b> are the host\'s!',key:'簡答把 that 換成 <b>it</b>；mouse → <b>mice</b>（四校都考的不規則複數）。'},
+    {label:'① 節目開始',imgs:[{img:'l1_trophy',tag:'Welcome to What\'s This?'}],poem:'(A game show is on.)<br>Judy: <b>Welcome to</b> <i>What\'s This?</i>. I am Judy. Hello, David and Amy. <b>Are</b> you <b>ready for</b> the game?<br>David &amp; Amy: Yes!',key:'welcome <b>to</b>＋節目；be ready <b>for</b>＋名詞（屏東中正考介系詞）。you（你們）→ <b>Are</b>。'},
+    {label:'② 這是什麼？',imgs:[{img:'l1_trophy',tag:'What is this? It\'s a goose.'}],poem:'Judy: Look at this picture. <b>What is this?</b><br>Amy: It\'s a duck.<br>Judy: No, <b>it isn\'t</b>.<br>David: <b>It\'s a goose.</b><br>Judy: Yes, <b>it is</b>. Ten points for you!',key:'What is this? → <b>It\'s</b> a…（this 改成 it）。goose 複數是 <b>geese</b>。肯定簡答不縮寫：Yes, it is.'},
+    {label:'③ 這些是什麼？',imgs:[{img:'l1_bear',tag:'They are tigers!'}],poem:'Judy: <b>What are these?</b><br>David: <b>Those are</b> lions.<br>Judy: Sorry. They are <b>not</b> lions.<br>Amy: <b>They are</b> tigers!<br>Judy: You are right! You are <b>a smart cookie</b>!',key:'these / those → <b>are</b>＋複數名詞；回答改用 <b>They</b>。a smart cookie＝聰明的人（課本 Idioms）。'},
+    {label:'④ 大腳怪！',imgs:[{img:'l1_bigfoot',tag:'It\'s Bigfoot!'}],poem:'Judy: And, <b>what\'s</b> this?<br>David: It\'s a monkey!<br>Judy: I\'m sorry, no.<br>Amy: <b>Is it</b> big and tall? Judy: Yes, it is.<br>Amy: It\'s Bigfoot!<br>Judy: That\'s it! <b>Ten more points</b>! You are <b>the winner</b>!',key:'what is＝<b>what\'s</b>；Is it…? → Yes, it is.；<b>more</b> 放名詞前：ten more points。winner 2/4 校考。'},
+    {label:'⑤ I Am Bigfoot',imgs:[{img:'l1_bigfoot',tag:'I am brown and hairy, but I am not a bear.'},{img:'l1_forest',tag:'The forest is my home.'}],poem:'I am tall and <b>strong</b>. I am not <b>an</b> elephant.<br>I am brown and <b>hairy</b>, <b>but</b> I am not a bear.<br>The <b>forest</b> is my home. Fruit is my <b>favorite</b> food.',key:'hairy、favorite 4/4 校考；<b>an</b> elephant（母音）；前後相反用 <b>but</b>（屏東中正、左營翻譯考這句）。'},
+    {label:'⑥ 我的腳印',imgs:[{img:'l1_foot',tag:'Look! Those are my footprints.'}],poem:'Yeti is my good friend.<br>Look! <b>Those are</b> my <b>footprints</b>.<br><b>They</b> are very big.<br>I am Bigfoot.',key:'Those 複數 → <b>are</b>，代替 footprints 用 <b>They</b>（新北中正、屏東中正考）。'},
+    {label:'⑦ Bigfoot vs. Yeti',split:[{img:'l1_forest',tag:'Bigfoot：forest／brown／fruit'},{img:'l1_himalaya',tag:'Yeti：mountain／white／meat'}],poem:'Bigfoot — Home: <b>forest</b>　Look: <b>brown</b>, tall, strong, hairy　Food: <b>fruit</b><br>Yeti — Home: <b>mountain</b>　Look: <b>white</b>, tall, strong, hairy, big footprints　Food: <b>meat</b>',key:'課本 Post-reading 比較表。Yeti：傳說在喜馬拉雅山活動的巨大神祕生物，相傳是肉食性。'},
   ];
   stepper(p,steps,i=>showPhoto(steps[i]),8000);
 }
 
-/* ================= L2 動畫 ================= */
+/* ================= L2 動畫（課文依南一 B1 課本） ================= */
 function animL2(p){
   p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
   <div class="grid2">
-    <div class="card"><h3>💬 對話：Ella 的照片</h3><p><span class="pill">起</span>Ella 給 Ben 看她<b>最喜愛的主題樂園</b>照片</p><p><span class="pill">承</span>照片上的男人是 Walt Disney，迪士尼世界的<b>創辦人</b></p><p><span class="pill">轉</span>介紹家人：媽媽是<b>女演員</b>、爸爸是<b>店員</b></p><p><span class="pill">合</span>英文小考難嗎？<b>a piece of cake</b>！</p></div>
-    <div class="card"><h3>📖 短文：Walt Disney</h3><p><span class="pill">一</span>Walt Disney 是許多<b>卡通明星之父</b></p><p><span class="pill">二</span>Walt Disney World 是適合大家的好地方</p><p><span class="pill">三</span>職業單字：farmer、clerk、actress、housewife</p></div>
+    <div class="card"><h3>💬 對話：Jenny ＆ Tina（At school）</h3><p><span class="pill">起</span>It's a <b>postcard from Annie</b>.——Annie 13 歲，來自 <b>the USA</b></p><p><span class="pill">承</span>明信片上是 Walt Disney World：very <b>famous</b> and beautiful</p><p><span class="pill">轉</span>另一張來自日本的 Ben；朋友來自 <b>all over the world</b>：Postcrossing</p><p><span class="pill">合</span>Is it hard? <b>a piece of cake</b>！Tina 跳舞課要 <b>late</b> 了</p></div>
+    <div class="card"><h3>📖 閱讀：Annie 的明信片</h3><p><span class="pill">一</span>Annie 是美國的 <b>junior high school student</b></p><p><span class="pill">二</span>最愛的 <b>theme park</b>：Walt Disney World；<b>founder</b> 是 Walt Disney</p><p><span class="pill">三</span>Mickey Mouse：over 90 years old <b>but still</b> very cute</p><p><span class="pill">Word Power</span>家族樹：farmer、housewife、clerk、actress、husband / wife、son / daughter</p></div>
   </div>`;
   const steps=[
-    {label:'① 我最愛的樂園',imgs:[{img:'l2_castle',tag:'This is my favorite theme park.'},{img:'l2_park',tag:'theme park 主題樂園'}],poem:'Ella: Look at my photo. This is my <b>favorite theme park</b>, Walt Disney World.<br>Ben: Wow! It\'s beautiful.',key:'<b>favorite</b>（最喜愛的）四校都考，拼字注意 fav-o-rite；theme park＝主題樂園。'},
-    {label:'② 他是誰？',imgs:[{img:'l2_walt',tag:'He\'s Walt Disney.'}],poem:'Ben: <b>Who\'s</b> that man? Is he your uncle?<br>Ella: No, he isn\'t. He\'s Walt Disney. He is the <b>founder</b> of Walt Disney World.',key:'<b>Who</b> 問人（四校都考）；簡答 No, <b>he</b> isn\'t.；founder＝創辦人（左營、新北中正）。'},
-    {label:'③ 卡通明星之父',imgs:[{img:'l2_plan',tag:'Walt Disney and his park plan'}],poem:'Walt Disney is <b>the father of</b> many <b>cartoon stars</b>. <b>His</b> park is a wonderful place <b>for</b> all.',key:'many ＋ 複數 <b>stars</b>；接名詞用所有格 <b>His</b>；a wonderful place <b>for</b> all（屏東中正）。'},
-    {label:'④ 家人的職業',imgs:[{img:'l2_clerk',tag:'My dad is a clerk.'},{img:'l2_farmer',tag:'My grandpa is a farmer.'}],poem:'Ben: Who\'s that woman?<br>Ella: She\'s my mom. She\'s <b>an actress</b>. My dad is <b>a clerk</b>, and my grandpa is <b>a farmer</b>. My grandma works at home. She is <b>a housewife</b>.',key:'<b>an</b> actress（母音）／<b>a</b> housewife（h 子音）；這四個職業單字 3～4 校都考！'},
-    {label:'⑤ 河馬的大嘴',imgs:[{img:'l2_hippo',tag:'Its mouth is so big!'}],poem:'Ben: Look at that <b>hippo</b>! <b>Its</b> mouth is so big!<br>Ella: <b>It\'s</b> my little brother\'s favorite animal.',key:'<b>Its</b>＝它的（後接名詞）；<b>It\'s</b>＝It is。hippo 3 校考。'},
-    {label:'⑥ 小事一樁',imgs:[{img:'l2_cake',tag:'It\'s a piece of cake!'}],poem:'Ben: Oh no! I\'m <b>late for</b> the English quiz. Is it hard?<br>Ella: No. It\'s <b>a piece of cake</b>! See you tomorrow!',key:'<b>a piece of cake</b>＝很簡單（3 校考，不是真的蛋糕）；be late <b>for</b>＝…遲到（丹鳳）。'},
+    {label:'① Annie 寄來的明信片',imgs:[{img:'r1_postcard',tag:'It\'s a postcard from Annie.'}],poem:'Jenny: What\'s this?<br>Tina: It\'s a <b>postcard from</b> Annie.<br>Jenny: <b>Who</b> is Annie?<br>Tina: She\'s a friend from <b>the USA</b>.<br>Jenny: <b>How old</b> is she?<br>Tina: She\'s <b>thirteen years old</b>.',key:'<b>Who</b> 問人（4/4 校考）、<b>How old</b> 問年齡；thirteen（13）≠ thirty（30）。'},
+    {label:'② 明信片上是什麼？',imgs:[{img:'l2_castle',tag:'It\'s Walt Disney World.'}],poem:'Jenny: What\'s that <b>on the postcard</b>?<br>Tina: It\'s Walt Disney World. It\'s very <b>famous</b> and <b>beautiful</b>.',key:'famous 4/4 校考；beautiful 拼字 b-e-a-u。丹鳳課文克漏字就考這段。'},
+    {label:'③ 他來自哪裡？',imgs:[{img:'r1_map',tag:'Your friends are from all over the world.'}],poem:'Jenny: Is that postcard from <b>her</b>, too?<br>Tina: No, it\'s from Ben.<br>Jenny: <b>Where</b> is he <b>from</b>?<br>Tina: He\'s from Japan.<br>Jenny: Cool! Your friends are from <b>all over the world</b>. How?<br>Tina: Postcrossing.',key:'<b>Where … from?</b> 問來自哪裡，from 不能漏；all over the world（左營、新北中正考）。'},
+    {label:'④ 小事一樁',imgs:[{img:'l2_cake',tag:'It\'s a piece of cake.'}],poem:'Jenny: What is Postcrossing? Is it <b>hard</b>?<br>Tina: No. It\'s <b>a piece of cake</b>. Look.<br>Jenny: Wow! It\'s really <b>easy</b>.<br>Tina: Oh, no! I\'m <b>late for</b> my dance class.<br>Jenny: OK. See you tomorrow.',key:'<b>a piece of cake</b>＝很簡單（3/4 校考，也可說 easy as pie）；be late <b>for</b>（丹鳳）。'},
+    {label:'⑤ Annie 的明信片',imgs:[{img:'l2_park',tag:'Walt Disney World is my favorite theme park.'},{img:'l2_walt',tag:'The founder is Walt Disney.'}],poem:'My name is Annie. I am a <b>junior high school student</b> from the USA. Walt Disney World is my <b>favorite theme park</b>. The <b>founder</b> is Walt Disney. He is <b>the father of</b> many cartoon <b>stars</b>.',key:'theme park、founder、the father of＋many＋複數 stars（左營、新北中正、屏東中正考）。'},
+    {label:'⑥ 米奇還是很可愛',imgs:[{img:'l2_plan',tag:'Walt Disney World is a wonderful place.'}],poem:'Mickey Mouse is my favorite. He is over 90 years old <b>but still</b> very <b>cute</b>. Walt Disney World is a <b>wonderful place</b>. Come and <b>have a great time</b>!',key:'90＝<b>ninety</b>；but 連接相反語意；wonderful 3/4 校考；have a great time＝玩得開心。'},
+    {label:'⑦ 家族樹與職業',imgs:[{img:'l2_farmer',tag:'John is a farmer.'},{img:'l2_clerk',tag:'Amy is a clerk.'}],poem:'John is <b>a farmer</b>. He\'s 72 years old. He\'s Lucy\'s <b>husband</b>.<br>John and Lucy are husband and <b>wife</b>. Lucy is <b>a housewife</b>.<br>Tom and Bob are father and <b>son</b>. Vicky is <b>an actress</b>.',key:'課本 Word Power。farmer、daughter 4/4 校考；<b>a</b> housewife（h 子音）／<b>an</b> actress（母音）。'},
   ];
   stepper(p,steps,i=>showPhoto(steps[i]),8000);
 }
 
-/* ================= R1 動畫 ================= */
+/* ================= R1 動畫（課文依南一 B1 課本） ================= */
 function animR1(p){
   p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
   <div class="grid2">
-    <div class="card"><h3>💌 對話：Kai ＆ Lily</h3><p><span class="pill">起</span>Kai 在 Postcrossing 交到<b>全世界</b>的朋友</p><p><span class="pill">承</span>Lily（美國）寄來 Walt Disney World 明信片</p><p><span class="pill">轉</span>What is that? ／ What are those?</p><p><span class="pill">合</span>寫英文明信片？a piece of cake！</p></div>
-    <div class="card"><h3>📖 短文：Nina in Canada</h3><p><span class="pill">一</span>Nina 是來自臺灣的<b>國際學生</b></p><p><span class="pill">二</span>她住在加拿大的寄宿家庭（host family）</p><p><span class="pill">三</span>家人的職業、年齡、寵物——家族題組常考</p></div>
+    <div class="card"><h3>🧩 Build Your Vocabulary ＋ Grammar</h3><p><span class="pill">單字</span>farmer、clerk、forest、actress、husband、<b>mice</b>、housewife、<b>geese</b></p><p><span class="pill">疑問詞</span><b>where</b> 地點、<b>who</b> 人、<b>what</b> 事物、<b>how old</b> 年齡</p></div>
+    <div class="card"><h3>📖 Power Up Your Reading</h3><p><span class="pill">一</span>Tina Wang 來自臺灣，現在是在美國的學生</p><p><span class="pill">二</span>住在 <b>the Brown family</b>：Mr. Brown 是 cook、Mrs. Brown 是 doctor</p><p><span class="pill">三</span>Karen 是 <b>their daughter</b>、David 是 <b>their son</b></p></div>
   </div>`;
   const steps=[
-    {label:'① 全世界的明信片',imgs:[{img:'r1_postcard',tag:'Postcards from all over the world'},{img:'r1_map',tag:'all over the world'}],poem:'Kai: Look at my <b>postcards</b>! They are from <b>all over the world</b>. My friends on Postcrossing send them to me.',key:'all <b>over</b> the world＝全世界（左營、新北中正）；postcard 拼字 3 校考。'},
-    {label:'② 那是什麼？',imgs:[{img:'l2_castle',tag:'What is that on the postcard?'}],poem:'Lily: <b>What is that</b> on this postcard?<br>Kai: <b>It\'s</b> Walt Disney World. It\'s very <b>famous</b> and beautiful.',key:'What is that? → <b>It\'s</b>…（丹鳳課文克漏字）；famous＝有名的（四校都考）。'},
-    {label:'③ 那些是什麼？',imgs:[{img:'r1_postcard',tag:'What are those?'}],poem:'Lily: And <b>what are those</b>?<br>Kai: <b>They are</b> elephants from Thailand. Those little <b>mice</b> are from Japan.',key:'What are those? → <b>They are</b> + 複數（新北中正）；an elephant → elephants。'},
-    {label:'④ 國際學生 Nina',imgs:[{img:'r1_host',tag:'Nina and her host family'}],poem:'Nina Chen is <b>an international student</b> from Taiwan. Now she lives with <b>a host family</b> in Canada. Mr. Green is a farmer, and Mrs. Green is a clerk.',key:'<b>an</b> international（母音）；Where is Nina <b>from</b>? — She is from Taiwan.（新北中正閱讀考 Where…from）'},
-    {label:'⑤ 我的第二個家',imgs:[{img:'r1_dinner',tag:'My host family is wonderful.'}],poem:'"My host family is <b>wonderful</b>," Nina says. "<b>Their</b> house is big, and <b>their</b> dog is cute. <b>Its</b> name is Lucky."',key:'wonderful 3 校考；所有格 <b>Their</b> / <b>Its</b> 後面一定接名詞。'},
+    {label:'① 單字總複習',imgs:[{img:'l2_farmer',tag:'farmer'},{img:'l1_mouse',tag:'mouse → mice'}],poem:'farmer　clerk　forest　actress<br>husband　<b>mice</b>　housewife　<b>geese</b>',key:'課本 Build Your Vocabulary。mouse → <b>mice</b>（4/4 校考）、goose → <b>geese</b>（屏東中正）。'},
+    {label:'② 疑問詞的用法',imgs:[{img:'st_class',tag:'Where / Who / What / How old'}],poem:'A: <b>Where</b> are you from? B: I\'m from Taiwan.<br>A: <b>Who</b> is he? B: He\'s my father.<br>A: <b>What</b> is it? B: It\'s a zebra.<br>A: <b>How old</b> is your daughter? B: She\'s five years old.',key:'先圈疑問詞再找答案：where 地點、who 人／關係、what 事物、how old 年齡。'},
+    {label:'③ 配對練習',imgs:[{img:'l1_bear',tag:'Is a bear strong and hairy? Yes, it is.'}],poem:'Are those lions? — No, <b>they</b> are tigers.<br>Is a bear strong and hairy? — Yes, <b>it is</b>.<br>Who is the boy? — He is my brother.<br>How old is your sister? — She\'s <b>one year old</b>.',key:'those → <b>they</b>；動物 → <b>it</b>；一歲 one <b>year</b> old（屏東中正考）。'},
+    {label:'④ Tina Wang 在美國',imgs:[{img:'r1_host',tag:'I live with the Brown family.'}],poem:'Hi, everyone. I\'m Tina Wang. I\'m <b>from</b> Taiwan. I am a student <b>in the USA</b> now. I <b>live with</b> the Brown family.',key:'人名「名」「姓」都大寫；<b>live with</b>＋人。新北中正閱讀題就是這個情境（Where is Tina from?）。'},
+    {label:'⑤ Brown 一家',imgs:[{img:'r1_dinner',tag:'They are all very nice to me.'}],poem:'Look at the picture. Mr. Brown is <b>a cook</b>, and Mrs. Brown is <b>a doctor</b>. Karen is <b>their</b> daughter, and David is <b>their</b> son. They are all very nice to <b>me</b>.',key:'<b>their</b>＋名詞（≠ there / they\'re）；介系詞 to 後接受格 <b>me</b>；職業前加 a。'},
   ];
   stepper(p,steps,i=>showPhoto(steps[i]),8000);
 }

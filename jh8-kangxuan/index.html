@@ -213,6 +213,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:20px}
 .ps.en{letter-spacing:0;font-size:1.35rem;line-height:1.7}
 .ps.pop{animation:pop .45s ease}
 @keyframes pop{0%{transform:scale(.9);opacity:.3}100%{transform:scale(1);opacity:1}}
+.bk{min-width:0;overflow-wrap:anywhere}
 </style>
 </head>
 <body>
@@ -228,7 +229,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:20px}
 <main><div class="wrap" id="app"></div></main>
 <footer><div class="wrap">
   <b>全民補習班 英文科</b>｜考點依據：丹鳳、台中崇德、台南復興、嘉義太保、基隆銘傳、大社、宜蘭中華、屏東中正、屏東明正、左營、新北五峰、桃園、燕巢、福營、自強、花蓮美崙、蘆洲、高雄七賢、高雄三民、高雄五甲、高雄五福、高雄光華、高雄國昌、高雄正興、高雄苓雅、鼎金等 26 校康軒版 114 學年度八上第一次段考試卷（範圍 L1～L2＋Review 1），另比對翰林版 28 校的共通文法。<br>
-  <b>課文為依段考卷考點原創改寫，非課本原文</b>；模擬題、克漏字與閱讀文章皆為原創，不照抄考卷原題。英文發音使用微軟 Neural 語音（en-US-Aria）預錄。練習時可以開聲音，答對、答錯都有音效。背景音樂只在「動畫導覽」播放，可按右下角按鈕關閉。<br>
+  <b>課文依康軒課本</b>（L1 It Rained a Lot Yesterday、L2 Why Didn’t You See a Doctor?、Review 1）；模擬題與閱讀文章為原創，不照抄考卷原題。英文發音使用微軟 Neural 語音（en-US-Aria）預錄。練習時可以開聲音，答對、答錯都有音效。背景音樂只在「動畫導覽」播放，可按右下角按鈕關閉。<br>
   交卷時會把你的姓名、分數與錯題傳給老師，只有老師看得到。左下角 ✏️ 可以手寫、兩指縮放。<br>
   <details style="margin-top:8px"><summary>圖片來源與授權</summary>
   照片皆來自 Wikimedia Commons：Autumn leaves, Dumitru Rascanu park：Iurie Nistor（CC0）；Storm dark clouds：Unknown authorUnknown author（公有領域）；Fisherman in a boat rowing with net：Peter van der Sluijs（CC BY-SA 3.0）；Houses on the water, modern type, Amsterdam (33340981472)：Dmitry Eliuseev（CC BY 2.0）；Panama’s Gardi Sugdub island’s population displaced because of sea level rise：European Union, Copernicus Sentinel-2 im（Attribution）；Aerial view of Malé - Maldives - 12 July 2008：steve_l（CC BY 2.0）；Heavy Snow for Derby - geograph.org.uk - 5657764：Malcolm Neal（CC BY-SA 2.0）；Havelock Island, Sandy lagoon, Andaman Islands：Vyacheslav Argenberg（CC BY 4.0）；People with Umbrellas Walking into Hanzhong Street, Taipei 20160610：玄史生（CC0）；Doctor examines patient with stethoscope：Unknown photographer（公有領域）；Ice cream cone with spoon：Thegreatmutata（CC0）；Girl wears a face mask in Stockholm：Maximiliaan Ronaldszoon（CC BY-SA 4.0）；Concerned Phone Call (Unsplash)：Ehimetalor Unuabona becomeincognito（CC0）；Medicine cocktail tablets and pills in glass：Pöllö（CC BY 3.0）；Sneeze：James Gathany（公有領域）；Nurse checks child's temperature with digital thermometer in a clinical setting undefined：Shixart1985（CC BY 2.0）；Farmer Working in Field at Dawn Meherpur 02：Ashikul Islam Anik（CC BY-SA 4.0）。</details>
@@ -263,8 +264,8 @@ const isZY=s=>/[ㄅ-ㄩ]/.test(s);
 const ASK={e:'選出正確的中文意思',c:'選出正確的英文',s:'選出正確的拼字',p:'選出正確的過去式',g:'選出正確的填空'};
 const L = {
 l1:{
-  no:'Lesson 1', code:1, title:'What\'s the Weather Like?', short:'天氣與暖化', color:'linear-gradient(135deg,#8a3b12,#c4682c)',
-  desc:'天氣句型 It / There / We have｜What\'s…like?｜Change, or Go Under!',
+  no:'Lesson 1', code:1, title:'It Rained a Lot Yesterday', short:'天氣與暖化', color:'linear-gradient(135deg,#8a3b12,#c4682c)',
+  desc:'Rita 與 Brian 聊天氣｜How／What…like?｜天氣三種說法｜〈Change, or Go Under!〉',
   quick:[
     ['common','常見的',['害怕的','黑暗的','全球的'],1,'e'],
     ['level','水平面；程度',['樓層','上升','島嶼'],1,'e'],
@@ -279,6 +280,9 @@ l1:{
     ['wet','濕的',['溫暖的','起風的','多雲的'],1,'e'],
     ['fix','解決；修理',['建造','混合','保護'],1,'e'],
     ['global','全球的',['當地的','常見的','全部的'],1,'e'],
+    ['sky','天空',['空氣','季節','陣雨'],1,'e'],
+    ['heavy','大量的；重的',['溼的','安全的','黑暗的'],1,'e'],
+    ['cry','哭泣',['建造','生活','變成'],1,'e'],
     ['雪','snow',['show','slow','snowy'],1,'c'],
     ['雨傘','umbrella',['raincoat','umbrellas','under'],1,'c'],
     ['害怕的','afraid',['angry','again','away'],1,'c'],
@@ -291,6 +295,8 @@ l1:{
     ['導致','lead to',['look at','go under','learn from'],1,'c'],
     ['沉沒；滅頂','go under',['go over','lead to','move away'],1,'c'],
     ['處於危險中','in danger',['in season','in fact','in time'],1,'c'],
+    ['身體不舒服','under the weather',['over the moon','on cloud nine','in the rain'],1,'c'],
+    ['忘記','forget',['forgive','for get','foreign'],1,'c'],
     ['u m b _ _ l l a（雨傘）','umbrella',['umbralla','umbrela','unbrella'],1,'s'],
     ['w _ _ t h e r（天氣）','weather',['wether','weathar','whether'],1,'s'],
     ['a u t _ _ n（秋天）','autumn',['autum','outumn','autunm'],1,'s'],
@@ -301,7 +307,8 @@ l1:{
   words:[
     ['lead to','導致'],['go under','沉沒；被淹沒'],['be afraid of','害怕…'],['in danger','處於危險中'],
     ['global warming','全球暖化'],['make changes','做出改變'],['rise and fall','上升與下降'],['weather report','氣象報告'],
-    ['far away from','遠離…'],['say goodbye to','向…告別'],['protect … from …','保護…免於…'],['learn from','向…學習'],
+    ['far away from','遠離…'],['say goodbye to','向…告別'],['under the weather','身體不舒服'],['learn from','向…學習'],
+    ['move away','搬走'],['work with nature','與大自然合作'],['climate change','氣候變遷'],['take a look','看一看'],
   ],
   sorts:[
     {title:'天氣的主詞：It？There？還是 We / They（have）？',tip:'It + 天氣動詞／形容詞（It rains. It is windy.）；There + be + 天氣名詞（There is rain.）；人當主詞要用 have（We have a lot of rain.）',buckets:['It','There','We / They'],items:[
@@ -318,20 +325,25 @@ l1:{
     {title:'What 還是 How？',tip:'What is the weather LIKE? ＝ How is the weather?（How 後面不加 like）',buckets:['What','How'],items:[
       ['___ is the weather like today?',0],['___ is the weather today?',1],['___ was the weather like in Tokyo?',0],
       ['___ was your trip to Hualien?',1],['___ is Taipei like in autumn?',0],['___ was the weather yesterday?',1],['___ season do you like best?',0]]},
-    {title:'這是誰的做法？',tip:'課文三個地方：巴拿馬小島（搬家）、馬爾地夫（浮動城市）、臺灣（從例子學習、做出改變）',buckets:['巴拿馬小島','馬爾地夫','臺灣'],items:[
-      ['People said goodbye to their island.',0],['Many fishermen became farmers.',0],['They built a new town far away from the sea.',0],
-      ['It is building a floating city.',1],['The houses can rise and fall with the sea.',1],['Most of its land is about one meter above sea level.',1],
-      ['We should learn from these examples.',2],['We should make changes now.',2]]},
+    {title:'課文：這是哪個地方的做法？',tip:'課本閱讀〈Change, or Go Under!〉：Panama 小島（搬家）、the Maldives（設計新城市）、Taiwan（向上面的例子學習、做出改變）',buckets:['Panama','the Maldives','Taiwan'],items:[
+      ['People said goodbye to their homes and moved away.',0],['Many fishermen became farmers.',0],['They built a new town far away from the sea.',0],['They didn\'t just sit and cry about climate change.',0],
+      ['People are designing a new city.',1],['It can rise and fall with sea levels.',1],['This city can also protect sea life.',1],['It can work with nature and may never go under!',1],
+      ['We should learn from the examples above.',2],['We should also make some changes, or we may go under!',2]]},
+    {title:'課文：這句話是 Rita 說的？還是 Brian 說的？',tip:'Brian 從英國來，每天都在聊天氣；Rita 提醒他帶傘，最後受不了他一直報天氣',buckets:['Rita','Brian'],items:[
+      ['Look! The rain stopped. It\'s so sunny now.',1],['Yes, the sky is bright. Great weather for photos.',0],
+      ['Air con is very common in Taiwan, but it\'s not in the UK.',1,'Brian 來自英國，覺得臺灣冷氣很普遍。'],['Don\'t forget your umbrella, Brian.',0],
+      ['I\'m not afraid of a little rain.',1],['Not really. I am a little under the weather.',1,'Brian 淋了大陣雨，身體不舒服。'],
+      ['Oh, no. What happened?',0],['Bless you.',0,'Brian 打噴嚏，Rita 說 Bless you.'],['No more weather reports, please, Brian!',0]]},
   ],
-  hunt:{label:'🔍 過去式抓抓樂',title:'找出課文中的「過去式動詞」',tip:'第一段在說「現在」正在發生的事（現在進行式），巴拿馬小島那段才是過去發生的事。點一下你認為是過去式的字！',lines:[
+  hunt:{label:'🔍 過去式抓抓樂',title:'找出課文中的「過去式動詞」',tip:'課文原句！閱讀第一段、馬爾地夫那段在說「現在正在發生」（現在進行式），對話的「昨天」和巴拿馬那段才是過去發生的事。didn\'t 也算過去式喔！',lines:[
+    'Look! The rain [stopped]. It\'s so sunny now.',
+    'It [rained] a lot yesterday, and I [ran] home in a heavy shower. I [was] all wet.',
     'Global warming is leading to a rise in sea levels around the world.',
-    'This is putting many people\'s lives in danger.',
-    'For many years, the sea [came] closer and closer to the homes on a small island near Panama.',
-    'In 2024, about three hundred families [said] goodbye to their island.',
-    'They [moved] to the land and [built] a new town far away from the sea.',
-    'Many fishermen [became] farmers.',
-    '"We [were] afraid of the sea, but we [were] not afraid of change," one man [said].',
-    'The Maldives is building a floating city, so people do not need to move away.',
+    'People on a small island in Panama [said] goodbye to their homes and [moved] away.',
+    'They [built] a new town far away from the sea, and many fishermen [became] farmers.',
+    'They [didn\'t] just sit and cry about climate change.',
+    'They [changed], and they are living new lives now.',
+    'In the Maldives, people are designing a new city.',
   ]},
   mcq:[
     {q:'A: What\'s the weather ___ in Tainan in summer? B: It\'s hot and wet.',o:['like','how','about','for'],a:0,src:'丹鳳、蘆洲 同類題',ex:'What is the weather like…? like 不能漏。若用 How，則是 How is the weather…?，後面不加 like。'},
@@ -343,18 +355,20 @@ l1:{
     {q:'Air con is very ___ in Taiwan because the summer is long and hot.',o:['common','afraid','dark','safe'],a:0,src:'高雄國昌、正興 同類題',ex:'common＝常見的。夏天又長又熱，所以冷氣很常見。'},
     {q:'Global warming is leading ___ a rise in sea levels.',o:['to','for','in','at'],a:0,src:'屏東明正、蘆洲 同類題',ex:'lead to＋名詞＝導致…。'},
     {q:'The rising sea is putting people\'s lives ___ danger.',o:['in','on','at','under'],a:0,src:'自強、高雄五甲 同類題',ex:'in danger＝處於危險中；put … in danger＝使…陷入危險。'},
-    {q:'The families moved to the land, and many fishermen ___ farmers.',o:['became','become','becomes','becoming'],a:0,src:'左營、高雄七賢 同類題',ex:'moved 是過去式，and 前後時態一致：become → became。'},
+    {q:'People on a small island in Panama moved away, and many fishermen ___ farmers.',o:['became','become','becomes','becoming'],a:0,src:'課文句（左營、高雄七賢 同類題）',ex:'moved 是過去式，and 前後時態一致：become → became。'},
     {q:'They built the new town far away ___ the sea, so it is safe now.',o:['from','to','of','with'],a:0,src:'Review 1 多校',ex:'far away from＝遠離…。'},
     {q:'The houses in the floating city can ___ and fall with sea levels.',o:['rise','raise','rose','rising'],a:0,src:'大社、宜蘭中華 同類題',ex:'rise and fall＝上升和下降；can 後面接原形 rise。raise 要有受詞（舉起）。'},
-    {q:'Why did the people on the small island near Panama move away?',o:['Because the sea came closer to their homes.','Because they wanted to be fishermen.','Because there was too much snow.','Because they wanted a floating city.'],a:0,src:'課文閱讀（原創改寫）',ex:'the sea came closer and closer to the homes：海水越來越靠近家園，所以搬走。'},
-    {q:'What is the Maldives doing about the rising sea?',o:['It is building a floating city.','It is moving everyone to Panama.','It is making the sea smaller.','It is building more fishing boats.'],a:0,src:'課文閱讀（原創改寫）',ex:'The Maldives is building a floating city，房子會隨海平面升降。'},
+    {q:'What did the people on the small island in Panama do?',o:['They built a new town far away from the sea.','They designed a city that can rise and fall.','They sat and cried about climate change.','They became fishermen.'],a:0,src:'課本閱讀',ex:'They built a new town far away from the sea, and many fishermen became farmers. 會升降的城市是馬爾地夫；他們「沒有」坐著哭；是漁夫變農夫。'},
+    {q:'What are people in the Maldives doing about rising sea levels?',o:['They are designing a new city that can rise and fall with sea levels.','They are moving to Panama.','They are making the sea smaller.','They are building more fishing boats.'],a:0,src:'課本閱讀',ex:'In the Maldives, people are designing a new city. It can rise and fall with sea levels.'},
+    {q:'In the dialogue, why is Brian under the weather?',o:['He ran home in a heavy shower and was all wet.','He ate too much ice cream.','It was too hot, and he had no air con.','He forgot his photos.'],a:0,src:'課本對話',ex:'It rained a lot yesterday, and I ran home in a heavy shower. I was all wet. 淋雨後身體不舒服、打噴嚏。'},
+    {q:'Why does Rita say, "No more weather reports, please, Brian!"?',o:['Brian talks about the weather all the time.','Brian works for a TV station.','Rita doesn\'t like sunny days.','Rita can\'t hear the radio.'],a:0,src:'課本對話（推論）',ex:'Brian 每天都在講天氣（雨停了、好熱、出太陽了），所以 Rita 開玩笑叫他別再報天氣了。'},
     {q:'What does "go under" mean in "Change, or go under!"?',o:['被海水淹沒、失敗','走到下面','去旅行','慢慢長大'],a:0,src:'左營、蘆洲 同類題',ex:'go under 字面是「沉下去」，這裡指不改變就會被海水淹沒、無法生存。'},
     {q:'Autumn is my favorite ___ because it\'s not too hot and not too cold.',o:['season','weather','report','nature'],a:0,src:'台南復興 同類題',ex:'autumn 是一個季節 season。weather 是天氣，不能說 favorite weather 指秋天。'},
   ]
 },
 l2:{
-  no:'Lesson 2', code:2, title:'I\'m Under the Weather', short:'感冒與健康', color:'linear-gradient(135deg,#7a4a1c,#c08a3e)',
-  desc:'under the weather｜看醫生、吃藥｜電話用語｜雙受詞',
+  no:'Lesson 2', code:2, title:'Why Didn\'t You See a Doctor?', short:'感冒與健康', color:'linear-gradient(135deg,#7a4a1c,#c08a3e)',
+  desc:'Bella 打給 Scott｜Why…? Because…｜授與動詞 to／for｜〈Cool Ways to Treat a Cold〉',
   quick:[
     ['medicine','藥',['醫生','醫院','食物'],1,'e'],
     ['fever','發燒',['感冒','咳嗽','頭痛'],1,'e'],
@@ -372,11 +386,11 @@ l2:{
     ['口罩','mask',['mark','map','mass'],1,'c'],
     ['強壯的','strong',['strange','string','song'],1,'c'],
     ['膝蓋','knee',['knife','neck','nose'],1,'c'],
-    ['忘記','forget',['forgive','for get','foreign'],1,'c'],
+    ['衣服','clothes',['cloths','close','clothe'],1,'c'],
     ['感冒（片語）','catch a cold',['catch a cool','have a cool','take a cold'],1,'c'],
     ['吃藥','take medicine',['eat medicines','drink medicine','take a doctor'],1,'c'],
     ['看醫生','see a doctor',['look a doctor','watch a doctor','see doctor'],1,'c'],
-    ['身體不舒服','under the weather',['over the moon','on cloud nine','in the rain'],1,'c'],
+    ['為什麼','why',['who','where','what'],1,'c'],
     ['至於…','as for',['as well','such as','as soon as'],1,'c'],
     ['穿上','put on',['put off','take off','try out'],1,'c'],
     ['留言','leave a message',['take a massage','live a message','leave a massage'],1,'c'],
@@ -388,30 +402,31 @@ l2:{
     ['s h _ u l d _ r（肩膀）','shoulder',['shouder','sholder','shoulter'],1,'s'],
   ],
   words:[
-    ['catch a cold','感冒'],['take medicine','吃藥'],['see a doctor','看醫生'],['under the weather','身體不舒服'],
+    ['catch a cold','感冒'],['take medicine','吃藥'],['see a doctor','看醫生'],['go to work','去上班'],
     ['as for','至於'],['put on','穿上'],['take care of','照顧'],['leave a message','留言'],
-    ['have a fever','發燒'],['sore throat','喉嚨痛'],['be different from','和…不同'],['be worried about','擔心…'],
+    ['have a fever','發燒'],['sore throat','喉嚨痛'],['be different from','和…不同'],['That\'s too bad.','太糟了'],
   ],
   sorts:[
-    {title:'這是誰治感冒的方法？',tip:'Bella（臺灣）：看醫生、吃藥、穿厚外套；Scott（英國）：不看醫生、在家休息、還吃冰淇淋',buckets:['Bella','Scott','兩人都有'],items:[
-      ['saw a doctor',0],['took some medicine',0],['put on a thick coat',0,'Bella 怕冷到，穿上厚外套保暖。'],
-      ['didn\'t take any medicine',1],['ate ice cream for his sore throat',1,'冰淇淋冰冰的，Scott 說喉嚨比較舒服。'],['stayed in bed and slept a lot',1],
-      ['caught a cold last month',2],['is strong and healthy again now',2,'方法不同，但兩人現在都好了。']]},
+    {title:'課文：這是誰治感冒的方法？',tip:'課本閱讀〈Cool Ways to Treat a Cold〉：Bella 看醫生、吃藥、穿厚大衣；Scott 不看醫生、讓身體保持涼爽、吃冰淇淋',buckets:['Bella','Scott','兩人都有'],items:[
+      ['went to the doctor',0],['took the medicine',0],['didn\'t drink any cold drinks',0],['put on a heavy coat even on a hot summer day',0,'Bella 大熱天也穿厚大衣保暖。'],
+      ['didn\'t take any medicine',1],['kept his body cool',1],['didn\'t wear any heavy clothes',1],['ate some ice cream for his sore throat',1,'冰淇淋能幫助喉嚨痛，這就是 "cool ways"。'],
+      ['rested at home last week',2,'Scott and I both rested at home last week.'],['had a fever',2],['is healthy again now',2,'方法不同，但兩人現在都恢復健康。']]},
     {title:'電話用語：打電話的人說？還是接電話的人說？',tip:'May I speak to…?（我可以找…嗎？）是打電話的人；Who\'s calling, please?（請問哪位？）是接電話的人',buckets:['打電話的人','接電話的人'],items:[
-      ['May I speak to Scott, please?',0],['Who\'s calling, please?',1],['Hold on, please.',1],['Can I take a message?',1,'take a message＝幫別人記下留言。'],
+      ['May I speak to Scott, please?',0],['This is Scott speaking.',1,'課文：本人接聽。'],['Who\'s calling, please?',1],['Hold on, please.',1],['Can I take a message?',1,'take a message＝幫別人記下留言。'],
       ['Can I leave a message?',0,'leave a message＝自己留言給別人。'],['Sorry, he\'s not in right now.',1],['Sorry, I have the wrong number.',0],
       ['Speaking.',1,'對方找的就是你本人時說 Speaking.＝我就是。'],['Please ask him to call me back.',0]]},
     {title:'這樣做會讓感冒好得快？還是更嚴重？',tip:'考題常把健康習慣放在閱讀或對話裡，判斷「該做 / 不該做」',buckets:['好得快 👍','更嚴重 👎'],items:[
       ['drink lots of warm water',0],['get enough rest',0],['take your medicine on time',0],['put on a warm coat',0],['wear a mask when you cough',0],
       ['stay up late to play games',1],['take a cold shower on a cold night',1],['walk in the heavy rain without an umbrella',1],['forget to take your medicine',1]]},
   ],
-  hunt:{label:'🔍 片語抓抓樂',title:'找出 Bella 日記裡的「健康與電話片語」',tip:'片語是好幾個字一組，整組會被框起來。共有 8 組，點點看！',lines:[
-    'Last month, Scott and I both [caught a cold].',
-    'I felt [under the weather], so I [saw a doctor] and [took some medicine].',
-    'Mom told me to [put on] my thick coat.',
-    '[As for] Scott, he didn\'t go to school, and he didn\'t answer my calls.',
-    'I called his home and [left a message] for him. I was worried about him.',
-    'His way was very [different from] mine. He just stayed in bed and ate ice cream!',
+  hunt:{label:'🔍 片語抓抓樂',title:'找出 Bella 文章裡的「健康片語」',tip:'課本閱讀原句！片語是好幾個字一組，整組會被框起來。共有 9 組，點點看！',lines:[
+    'Scott and I both [rested at home] last week because we were sick and [had a fever].',
+    'However, we did different things for our colds.',
+    'I [went to the doctor], and she gave me some medicine.',
+    'I [took the medicine] and didn\'t drink any cold drinks.',
+    'I [put on] a heavy coat even on a hot summer day. Now, [because of] that, I am healthy again.',
+    '[As for] Scott, he didn\'t [see a doctor] or take any medicine.',
+    'His ways were really [different from] mine.',
   ]},
   mcq:[
     {q:'A: Achoo! B: Bless you! Are you OK? A: Not really. I\'m a little ___ today.',o:['under the weather','over the moon','in the rain','on time'],a:0,src:'新北五峰 同類題',ex:'under the weather＝身體不舒服。over the moon 是「非常開心」。'},
@@ -422,19 +437,20 @@ l2:{
     {q:'Bella sent a message ___ Scott, but he didn\'t answer.',o:['to','for','with','of'],a:0,src:'宜蘭中華、屏東中正 同類題',ex:'send 物 to 人。send、give、show、lend、write 用 to。'},
     {q:'A: Hello. May I speak to Dr. Lin? B: ___',o:['Sorry, she\'s not in. Can I take a message?','Yes, I can speak English.','This is Dr. Lin\'s cold.','No, you can\'t see a doctor.'],a:0,src:'台中崇德 同類題',ex:'找的人不在時：Sorry, she\'s not in. Can I take a message?（要幫你留言嗎？）'},
     {q:'A: Hello. Is this 2345-6789? B: No, it isn\'t. A: Oh, sorry. I have the ___ number.',o:['wrong','bad','sick','other'],a:0,src:'台中崇德、多校電話題',ex:'打錯電話：I have the wrong number.'},
-    {q:'People in England don\'t ___ see a doctor for a cold.',o:['always','never','ever','seldom'],a:0,src:'屏東明正 同類題',ex:'not always＝不一定、並非總是。這是「部分否定」，不是「從不」。'},
-    {q:'Bella saw a doctor. ___ Scott, he just stayed in bed.',o:['As for','Because of','Such as','As well'],a:0,src:'屏東明正、高雄正興 同類題',ex:'As for＋人／事＝至於…，用來換一個話題對象比較。'},
+    {q:'People in Scott\'s country don\'t ___ see a doctor for a cold. They only do that for serious health problems.',o:['always','never','ever','seldom'],a:0,src:'課文句（屏東明正 同類題）',ex:'not always＝不一定、並非總是（部分否定）。後句說嚴重時才看醫生，所以不是「從不」。'},
+    {q:'Bella went to the doctor. ___ Scott, he didn\'t see a doctor or take any medicine.',o:['As for','Because of','Such as','As well'],a:0,src:'課文句（屏東明正、高雄正興 同類題）',ex:'As for＋人／事＝至於…，用來換一個話題對象比較。'},
     {q:'Scott\'s way to treat a cold was very different ___ mine.',o:['from','of','with','to'],a:0,src:'桃園、福營 同類題',ex:'be different from＝和…不同；mine＝my way。'},
     {q:'My shoulders ___ yesterday, so I stayed home.',o:['hurt','hurted','hurts','hurting'],a:0,src:'嘉義太保 同類題',ex:'hurt 的過去式仍是 hurt，沒有 hurted。'},
     {q:'In this lesson, "treat" in "ways to treat a cold" means ___.',o:['治療','請客','對待','禮物'],a:0,src:'台南復興 同類題（一字多義）',ex:'treat 有「治療、對待、請客」等意思；treat a cold＝治療感冒。'},
     {q:'Wendy coughed a lot but didn\'t wear a ___, so many of her classmates got sick.',o:['mask','message','medicine','shower'],a:0,src:'原創',ex:'咳嗽卻沒戴口罩 mask，害同學也生病。'},
-    {q:'Why was Bella worried about Scott?',o:['He didn\'t come to school and didn\'t answer her calls.','He ate too much ice cream at school.','He forgot her phone number.','He saw a doctor every day.'],a:0,src:'課文對話（原創改寫）',ex:'Scott 沒上學、也沒回 Bella 的電話，所以她很擔心。'},
+    {q:'Why did Bella call Scott?',o:['He didn\'t go to work, and he didn\'t answer her message.','He wanted some ice cream.','He forgot her phone number.','He saw a doctor every day.'],a:0,src:'課本對話',ex:'Scott, you didn\'t go to work today. I sent a message to you, but you didn\'t answer.'},
+    {q:'Why does Scott want ice cream?',o:['Because it can help his sore throat.','Because he is very hungry.','Because it is his birthday.','Because the doctor gave it to him.'],a:0,src:'課本對話',ex:'Because it can help my sore throat. Some people in my country do that, too.'},
     {q:'Don\'t forget to ___ your coat, or you might catch a cold.',o:['put on','take off','put off','try on'],a:0,src:'台南復興 同類題',ex:'put on＝穿上；take off＝脫掉；put off＝延期。'},
   ]
 },
 r1:{
-  no:'Review 1', code:4, title:'Looking Back: Weather, Health, and Change', short:'Review 1 統整', color:'linear-gradient(135deg,#5c3a21,#a0673a)',
-  desc:'課文連貫翻譯｜過去式動詞變化｜far away from、above sea level、led to',
+  no:'Review 1', code:4, title:'Review 1：天氣說法、授與動詞、連接詞', short:'Review 1 統整', color:'linear-gradient(135deg,#5c3a21,#a0673a)',
+  desc:'天氣 adj./v./n.｜授與動詞 to／for｜連接詞整理｜電話用語｜過去式',
   quick:[
     ['lead','led',['leaded','lad','lead'],1,'p'],
     ['build','built',['builded','build','bilt'],1,'p'],
@@ -473,34 +489,38 @@ r1:{
     {title:'看時間線索：現在式？過去式？還是現在進行式？',tip:'yesterday、last…、…ago → 過去式；now、Look! → 進行式；every day、usually、often → 現在式',buckets:['現在式','過去式','現在進行式'],items:[
       ['It often ___ (rain) in Keelung in winter.',0],['It ___ (rain) a lot last weekend.',1],['Look! It ___ (snow) outside.',2],
       ['Scott ___ (catch) a cold two weeks ago.',1],['Bella usually ___ (see) a doctor for a cold.',0],['Sea levels ___ (rise) around the world now.',2],
-      ['Three hundred families ___ (move) to the land in 2024.',1],['Scott ___ (take) a hot shower every night.',0],['Global warming ___ (lead) to a rise in sea levels these days.',2]]},
+      ['Last year, people on a small island ___ (move) away.',1],['Scott ___ (take) a hot shower every night.',0],['Global warming ___ (lead) to a rise in sea levels these days.',2]]},
     {title:'規則動詞？不規則動詞？還是過去式＝原形？',tip:'L1、L2 常考：led、built、became、forgot、wore、caught、sent、taught；hurt、put、cost 的過去式和原形一樣',buckets:['規則（加 ed）','不規則（變形）','過去式＝原形'],items:[
       ['move',0],['treat',0],['answer',0],['rain',0],['protect',0],
       ['lead',1],['build',1],['become',1],['forget',1],['wear',1],['catch',1],['send',1],
       ['hurt',2],['put',2],['cost',2]]},
   ],
-  hunt:{label:'🔍 動詞變化抓抓樂',title:'連貫式翻譯回顧：找出所有「過去式動詞」',tip:'這段把 L1、L2 的內容串起來，像段考的「連貫式翻譯／動詞填空」。現在進行式（is leading）不是過去式喔！',lines:[
-    'Global warming is leading to a rise in sea levels.',
-    'Last year, the rising sea [led] to big changes on a small island.',
-    'The people there [built] a new town far away from the sea.',
-    'Many fishermen [became] farmers, and their children [went] to a new school.',
-    'In the same month, Scott [caught] a cold because he [forgot] his umbrella in the heavy rain.',
-    'Bella [sent] him a message and [brought] him some soup the next day.',
+  hunt:{label:'🔍 動詞變化抓抓樂',title:'Review 1 回顧：找出所有「過去式動詞」',tip:'前兩句是 L1、L2 課文；後面是 Review 1 的 Grandpa 派（Read and Fill In）：以前 loved、現在 doesn\'t eat，時間不同動詞就不同！',lines:[
+    'It [rained] a lot yesterday, and I [ran] home in a heavy shower.',
+    'I [caught] a cold and [had] a fever, so I [rested] at home.',
+    'My grandpa [loved] pies. He [felt] happy because my grandma [made] good pies.',
+    'He [ate] lots of pies, and my grandma [made] different pies for him every week.',
+    'For his health, Grandpa doesn\'t eat pies now.',
+    'He sends Grandma\'s pies to us, so we can often enjoy the delicious pies.',
   ]},
   mcq:[
     {q:'Last year, the heavy rain ___ to a big flood in the town.',o:['led','leaded','leads','leading'],a:0,src:'蘆洲、高雄七賢 同類題',ex:'Last year → 過去式；lead 的過去式是 led（不規則）。'},
     {q:'The new town is about twenty meters ___ sea level, so it is safe.',o:['above','under','below','in'],a:0,src:'Review 1 多校',ex:'above sea level＝高於海平面；地勢高才安全。'},
     {q:'They ___ a new school far away from the sea two years ago.',o:['built','build','builded','building'],a:0,src:'高雄三民、鼎金 同類題',ex:'two years ago → 過去；build → built。'},
-    {q:'Scott ___ his umbrella at home, so he got wet.',o:['forgot','forget','forgets','forgetted'],a:0,src:'大社、高雄光華 同類題',ex:'got wet 是過去式，前面也用過去式 forgot。'},
-    {q:'Bella ___ a mask to school last week because she had a cough.',o:['wore','wears','weared','wearing'],a:0,src:'高雄三民 同類題',ex:'last week → 過去式；wear → wore。'},
+    {q:'Tom ___ his umbrella at home, so he got wet.',o:['forgot','forget','forgets','forgetted'],a:0,src:'大社、高雄光華 同類題',ex:'got wet 是過去式，前面也用過去式 forgot。'},
+    {q:'Amy ___ a mask to school last week because she had a cough.',o:['wore','wears','weared','wearing'],a:0,src:'高雄三民 同類題',ex:'last week → 過去式；wear → wore。'},
     {q:'Ms. Wang ___ us an interesting lesson about global warming yesterday.',o:['taught','teached','teaches','thought'],a:0,src:'多校過去式',ex:'teach → taught；thought 是 think 的過去式，別混淆。'},
     {q:'The old man said goodbye ___ his island and moved to the land.',o:['to','for','at','from'],a:0,src:'Review 1 多校',ex:'say goodbye to＋人／地方＝向…告別。'},
     {q:'A: How ___ the weather in Yilan last weekend? B: It ___ rainy and cold.',o:['was; was','is; is','was; is','did; was'],a:0,src:'台南復興、宜蘭中華 同類題',ex:'last weekend → 過去；How was the weather…? It was…。'},
     {q:'A: Did you have a lot of snow in Hehuanshan last winter? B: Yes, ___.',o:['we did','it did','there did','we had'],a:0,src:'嘉義太保、大社 同類題',ex:'問句主詞 you、助動詞 Did → Yes, we did.'},
     {q:'___ a lot of typhoons in Taiwan last summer.',o:['There were','It was','They were','It had'],a:0,src:'高雄七賢、國昌 同類題',ex:'a lot of typhoons 複數名詞 → There were。'},
     {q:'Many fishermen became farmers. "farmers" 的工作地點最可能是 ___.',o:['田裡','海上','醫院','學校'],a:0,src:'原創',ex:'farmer＝農夫，在田裡工作；fisherman 才是在海上。'},
-    {q:'The rising sea is a big danger to the islands. We should learn ___ the Maldives and make changes.',o:['from','to','of','about'],a:0,src:'屏東中正、高雄七賢 同類題',ex:'learn from＝向…學習。'},
-    {q:'Scott didn\'t ___ to school yesterday because he had a fever.',o:['come','came','comes','coming'],a:0,src:'丹鳳 同類題',ex:'didn\'t 後面接原形動詞 come。'},
+    {q:'Taiwan is an island, too. We should learn ___ the examples above and make some changes.',o:['from','to','of','about'],a:0,src:'屏東中正、高雄七賢 同類題',ex:'learn from＝向…學習。'},
+    {q:'Scott didn\'t ___ to work yesterday because he had a fever.',o:['go','went','goes','going'],a:0,src:'課文（丹鳳 同類題）',ex:'didn\'t 後面接原形動詞 go。課文：you didn\'t go to work today。'},
+    {q:'Jack gave the computer ___ Ivy, and he bought a new phone ___ her, too.',o:['to; for','for; to','to; to','for; for'],a:0,src:'Review 1 授與動詞',ex:'give 物 to 人；buy 物 for 人。'},
+    {q:'A: Hello, may I speak to Jason, please? B: ___',o:['This is Jason speaking.','I am Jason\'s phone.','Yes, you can speak.','Sorry, Jason is me.'],a:0,src:'Review 1 電話用語',ex:'本人接電話：This is Jason speaking.／Speaking.'},
+    {q:'It seldom ___ in Sydney in July.',o:['snows','snowy','is snow','has snow'],a:0,src:'Review 1 天氣說法',ex:'It 當主詞、snow 當動詞 → It snows（三單加 s）。snowy 是形容詞要配 is。'},
+    {q:'My grandpa felt happy ___ my grandma made good pies.',o:['because','so','because of','but'],a:0,src:'Review 1 Read and Fill In',ex:'後面 my grandma made good pies 是子句，說明原因 → because。'},
     {q:'下列過去式何者正確？',o:['cry → cried','stop → stoped','treat → treatted','fall → falled'],a:0,src:'多校過去式',ex:'cry 子音＋y → cried；stop → stopped；treat → treated；fall → fell。'},
     {q:'選出與「全球暖化正導致世界各地海平面上升。」意思相同的句子。',o:['Global warming is leading to a rise in sea levels around the world.','Global warming led a rise of sea level in the world.','The world leads to global warming and sea levels.','Sea levels are leading global warming around the world.'],a:0,src:'多校翻譯題（原創句）',ex:'lead to＋名詞；a rise in sea levels＝海平面的上升；正在發生用 is leading。'},
   ]
@@ -594,7 +614,7 @@ gram:{
 },
 };
 
-/* 綜合頁：克漏字＋閱讀＋翻譯（全部原創改寫） */
+/* 綜合頁：克漏字＋閱讀為原創；翻譯翻翻卡改用康軒課本原句 */
 const CLOZE=[
   {title:'克漏字 A｜A Rainy Week in Keelung',text:'Hi, I\'m Kai. I live in Keelung. People call it "the Rain Port" __1__ it rains a lot here. Last week, __2__ was heavy rain every day, and the streets were all wet. On Monday, I forgot my __3__ at home, so I got wet on my way to school. On Thursday, there was no school __4__ the typhoon. My little sister was __5__ of the strong wind, so I told her a funny story. The weather report says it will be sunny next week. I hope it is __6__!',
    qs:[
@@ -636,18 +656,20 @@ const READ=[
    ]},
 ];
 const TRANS=[
-  ['外面在下雪嗎？','Is it snowing outside?','天氣用 It；現在進行式 Is it snowing'],
-  ['台北的冬天天氣怎麼樣？','What is the weather like in Taipei in winter?','What…like? ＝ How is the weather…?'],
-  ['基隆冬天常下雨。','It often rains in Keelung in winter.','It rains；也可說 There is a lot of rain'],
-  ['因為大雨，我們上學遲到了。','We were late for school because of the heavy rain.','because of＋名詞'],
-  ['全球暖化正導致海平面上升。','Global warming is leading to a rise in sea levels.','lead to＋名詞；a rise in sea levels'],
-  ['他們在遠離海的地方建了一座新城鎮。','They built a new town far away from the sea.','build → built；far away from'],
-  ['許多漁夫變成了農夫。','Many fishermen became farmers.','fisherman 複數 fishermen；become → became'],
-  ['我今天身體不太舒服。','I\'m a little under the weather today.','under the weather＝身體不適'],
-  ['你應該看醫生並吃藥。','You should see a doctor and take some medicine.','see a doctor；take medicine'],
-  ['醫生給了我一些藥。','The doctor gave me some medicine.','give 人 物＝give 物 to 人'],
-  ['我傳了訊息給你，但你沒有回。','I sent a message to you, but you didn\'t answer.','send → sent；didn\'t＋原形'],
-  ['至於 Scott，他沒有看醫生。','As for Scott, he didn\'t see a doctor.','as for＝至於'],
+  ['昨天下了好多雨，我在一場大陣雨中跑回家。','It rained a lot yesterday, and I ran home in a heavy shower.','L1 課名句；rain 當動詞 → rained；run → ran'],
+  ['外面天氣怎麼樣？風大嗎？','What\'s the weather like out there? Is it windy?','L1 課文；What…like?；wind → windy'],
+  ['別忘了你的雨傘。','Don\'t forget your umbrella.','L1 課文；否定祈使句 Don\'t＋原形'],
+  ['我才不怕一點小雨。','I\'m not afraid of a little rain.','L1 課文；be afraid of'],
+  ['我有點身體不舒服。','I am a little under the weather.','L1 課文；under the weather'],
+  ['全球暖化正導致世界各地的海平面上升。','Global warming is leading to a rise in sea levels around the world.','L1 課文；lead to＋名詞'],
+  ['他們在遠離海的地方建了一座新城鎮，許多漁夫變成了農夫。','They built a new town far away from the sea, and many fishermen became farmers.','L1 課文；built、became、fishermen'],
+  ['我們應該向上面的例子學習，也做出一些改變。','We should learn from the examples above and also make some changes.','L1 課文；learn from、make changes'],
+  ['我傳了訊息給你，但你沒有回。','I sent a message to you, but you didn\'t answer.','L2 課文；send 物 to 人'],
+  ['我感冒了，還發燒，所以我在家休息。','I caught a cold and had a fever, so I rested at home.','L2 課文；catch → caught；so 接結果'],
+  ['你為什麼沒去看醫生？','Why didn\'t you see a doctor?','L2 課名句；Why didn\'t＋S＋原形'],
+  ['她給了我一些藥。','She gave me some medicine.','L2 課文；give 人 物＝give 物 to 人'],
+  ['至於 Scott，他沒看醫生，也沒吃任何藥。','As for Scott, he didn\'t see a doctor or take any medicine.','L2 課文；as for；否定句用 or'],
+  ['因為大雪，我們沒有出門。','We didn\'t go out because of the heavy snow.','課本練習；because of＋名詞'],
 ];
 
 /* 考點雷達（依 analysis/stats_by_publisher.json 康軒 26 校統計） */
@@ -664,7 +686,7 @@ const RADAR={
 /* ================= 導覽 ================= */
 const TABS=[['home','🏠 考點雷達'],['l1','🌧️ L1 天氣與暖化'],['l2','🤒 L2 感冒與健康'],['r1','🔁 Review 1'],['gram','🧠 文法特訓'],['mix','🧩 克漏字＋閱讀']];
 
-const AUDIO=new Set(["001a2b4a", "03650ae2", "08f1af4a", "0a339056", "0a876116", "10421806", "1151b16e", "128b9544", "132be06e", "13da09a6", "14e70fd1", "1536b624", "19bb34eb", "1af8295a", "1d1a14a2", "1d69b0f1", "1dff06ae", "2036a965", "219901ae", "21d9d8e7", "22657b24", "22752b57", "231af847", "2448ca2f", "24f208e4", "255e0fd1", "276e86b9", "282c316c", "2c919679", "2dbc1605", "2ee262c2", "36404793", "385aba2a", "3c4455ce", "3eabe49b", "3fac1442", "406aeaca", "42454824", "42521417", "4288e94c", "46cca9d2", "46e8d230", "46f1f52d", "483822dc", "48c0ed8c", "495bfbce", "49788502", "4cc85440", "4d5b0474", "4e750a0e", "54e4990c", "57be9a42", "5d342984", "5e227625", "5ea746fd", "60d56f8c", "6261af7f", "62bdfdb8", "644e442d", "64c4f9f1", "65d5776b", "682e2aa7", "6998e86a", "6b141cd8", "6eae8e6f", "6ee2f34e", "6ef23884", "6ef6e45e", "7261c8af", "74f99889", "75be4588", "808e8652", "809e3f91", "82475d92", "848317f2", "888f4017", "89a3b5d3", "8b86c991", "911a6fea", "93dfd483", "9609f7e0", "96ef186b", "98948ac6", "994c2d1c", "9b99e7dd", "9c0cdc8e", "9ca4bd3e", "a0d24684", "a1e5de1d", "a4213c0a", "a4af99dd", "a59115d1", "a6563e8a", "a85f5e6a", "aac94b8e", "acd68483", "acf38390", "ad27ee58", "ad46b26c", "ae11b050", "af3a6f3b", "b20619fd", "b2e48278", "b33572bd", "b39bd973", "b56f63c1", "bc03351c", "bed77800", "bf055208", "c052a138", "c39bf2a3", "c4eb23da", "c51f5d7a", "c546d834", "c5e12a13", "c68baa70", "c7eb512c", "c91c7e60", "cb532ae5", "cc628958", "d1b10e58", "d3d1c92c", "d75689dd", "d8b9cf23", "dba5ea54", "de0f6b44", "de776945", "dfd59e45", "e18c56af", "e330335b", "e40ddc70", "e422e7e3", "e4bc209e", "e52b80e0", "e7774569", "e92df9e1", "f0dfd78b", "f26018c6", "f4b56829", "f4f0b4e7", "f590e1e5", "f5c7e2cc", "f5ce03fb", "f85a0760", "f90cbb4b", "f944e95b", "f9819f36", "fff6a237"]);
+const AUDIO=new Set(["001710e6", "001a2b4a", "03650ae2", "08f1af4a", "0a339056", "0a876116", "10421806", "1151b16e", "119f9d40", "128b9544", "132be06e", "13da09a6", "16af5780", "16e2c1f2", "177487d0", "18f40e39", "19bb34eb", "1a83051b", "1af8295a", "1c618417", "1d1a14a2", "1d69b0f1", "1dff06ae", "1fd7466b", "219901ae", "21d9d8e7", "22657b24", "22752b57", "231af847", "2448ca2f", "24f208e4", "255e0fd1", "276e86b9", "282c316c", "2dbc1605", "2ee262c2", "36404793", "385aba2a", "3a94c54e", "3c4455ce", "3eabe49b", "3fac1442", "3fdb0075", "406aeaca", "42454824", "424bf2ef", "42521417", "4288e94c", "43d72d83", "4629e89b", "46e8d230", "46f1f52d", "483822dc", "48c0ed8c", "495bfbce", "49788502", "4aff1df6", "4c2ae112", "4cc85440", "4d5b0474", "4e750a0e", "54e4990c", "57be9a42", "5d342984", "5e227625", "5ea746fd", "5f6d4310", "60d56f8c", "6261af7f", "62bdfdb8", "63ea0393", "644e442d", "64c4f9f1", "65d5776b", "682e2aa7", "6998e86a", "6b141cd8", "6dd70425", "6eae8e6f", "6ee2f34e", "6ef23884", "6ef6e45e", "71ceada1", "7261c8af", "74a9893d", "74f99889", "75be4588", "7b071ed6", "807b7cde", "808e8652", "809e3f91", "82475d92", "848317f2", "888f4017", "89a3b5d3", "8b86c991", "911a6fea", "93dfd483", "9609f7e0", "98948ac6", "994c2d1c", "9a72dc2b", "9b99e7dd", "9c0cdc8e", "9ca4bd3e", "a0d24684", "a1e5de1d", "a4213c0a", "a4af99dd", "a59115d1", "a6563e8a", "a85f5e6a", "acd68483", "acf38390", "ad27ee58", "ad46b26c", "ae11b050", "af3a6f3b", "b20619fd", "b2e48278", "b33572bd", "b39bd973", "bc03351c", "bed77800", "bf055208", "c39bf2a3", "c4eb23da", "c51f5d7a", "c546d834", "c5e12a13", "c7eb512c", "c91c7e60", "caaa002e", "cb532ae5", "cc628958", "cd2b8f36", "d1b10e58", "d3d1c92c", "d4127a42", "de0f6b44", "de776945", "e1416487", "e18c56af", "e2befe92", "e330335b", "e40ddc70", "e422e7e3", "e4bc209e", "e52b80e0", "e7774569", "e92df9e1", "f0dfd78b", "f26018c6", "f4b56829", "f590e1e5", "f5ce03fb", "f85a0760", "f90cbb4b", "f944e95b", "f9819f36", "fba2f4f6", "fff6a237"]);
 /* ================= 注釋配對 ================= */
 function renderMatch(el,pairs){
   const rounds=[];const sp=shuf(pairs);for(let k=0;k<sp.length;k+=5)rounds.push(sp.slice(k,k+5));
@@ -1096,7 +1118,7 @@ function renderHome(app){
     <div class="lc" style="background:linear-gradient(135deg,#6b4a2b,#b08a5a)" data-k="mix"><div><div class="n">綜合</div><div class="t">克漏字＋閱讀</div></div><div class="d">原創克漏字｜閱讀測驗｜翻譯翻翻卡</div></div>
   </div>
   <div class="card"><h3>最常考的主題（幾校考過）</h3>${bar(RADAR.topics)}
-  <p class="muted" style="margin-top:10px">⚠️ 26 校全部都考：<b>天氣主詞 It / There / We have</b>、<b>because / so / because of</b>、<b>雙受詞 to / for</b>。<br>⚠️ 全球暖化課文（海平面上升、巴拿馬小島搬遷、馬爾地夫浮動城市）有 19 校考，多校在 Review 1 用「連貫式翻譯／動詞填空」再考一次。</p></div>
+  <p class="muted" style="margin-top:10px">⚠️ 26 校全部都考：<b>天氣主詞 It / There / We have</b>、<b>because / so / because of</b>、<b>雙受詞 to / for</b>。<br>⚠️ L1 閱讀〈Change, or Go Under!〉（海平面上升、巴拿馬小島搬遷、馬爾地夫設計新城市）有 19 校考，多校用「連貫式翻譯／動詞填空」再考一次。<br>📘 課本人物：L1 對話是 <b>Rita 與 Brian</b>（Brian 從英國來，一直聊天氣）；L2 是 <b>Bella 與 Scott</b>（打電話、治感冒）。</p></div>
   <div class="grid2">
     <div class="card"><h3>文法必考點</h3><div class="chips">${RADAR.basics.map(([w,n])=>`<span>${w} <b>×${n}</b></span>`).join('')}</div>
     <p class="muted" style="margin-top:12px">頭號陷阱：<b>Do you have much rain?</b>（主詞是人，用 have）／<b>There is a lot of rain.</b>／<b>It rains a lot.</b>；<s>Because…, so…</s> 不能並用；<s>give me it</s> → give it to me。</p></div>
@@ -1108,8 +1130,8 @@ function renderHome(app){
   <div class="card"><h3>✍️ 非選題考什麼？</h3><div class="chips">${RADAR.nonmcq.map(([w,n])=>`<span>${w} <b>×${n}</b></span>`).join('')}</div>
   <p class="muted" style="margin-top:12px">翻譯最愛考課文句：全球暖化導致海平面上升（lead to a rise in sea levels）、我傳訊息給你但你沒回、至於 Scott… → 到「🧩 克漏字＋閱讀」用翻譯翻翻卡練。</p></div>
   <div class="card"><h3>🧭 建議闖關順序</h3>
-  <p>① 每課先看 <b>🎬 動畫導覽</b>，弄懂課文在說什麼 → ② <b>⚡ 單字快問快答</b>、<b>🔗 片語配對</b>，練熟基本分 → ③ <b>🧠 文法特訓</b>，把 because / so、雙受詞、天氣主詞練到反射 → ④ <b>🔁 Review 1</b> 練過去式與課文翻譯 → ⑤ <b>📝 段考模擬題</b>與 <b>🧩 克漏字＋閱讀</b>，檢查自己的程度。</p>
-  <p class="muted">段考範圍各校略有不同（有的學校加考雜誌或 2000 單字），請依自己學校的公告準備。本站課文為依段考卷考點原創改寫，非課本原文。</p></div>`;
+  <p>① 每課先看 <b>🎬 動畫導覽</b>，弄懂課文在說什麼 → ② <b>⚡ 單字快問快答</b>、<b>🔗 片語配對</b>，練熟基本分 → ③ <b>🧠 文法特訓</b>，把 because / so、雙受詞、天氣主詞練到反射 → ④ <b>🔁 Review 1</b> 統整天氣三種說法、授與動詞、連接詞、電話用語與過去式 → ⑤ <b>📝 段考模擬題</b>與 <b>🧩 克漏字＋閱讀</b>，檢查自己的程度。</p>
+  <p class="muted">段考範圍各校略有不同（有的學校加考雜誌或 2000 單字），請依自己學校的公告準備。本站課文依康軒課本；模擬題與閱讀文章為原創。</p></div>`;
   app.querySelectorAll('.lc').forEach(c=>c.onclick=()=>go(c.dataset.k,c.dataset.k==='mix'?undefined:'anim'));
   requestAnimationFrame(()=>setTimeout(()=>app.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%'),60));
 }
@@ -1196,7 +1218,7 @@ function renderMix(app){
   const s=curSub.mix||'cloze';
   const subs=[['cloze','🧩 主題克漏字'],['read','📖 閱讀測驗'],['trans','🃏 翻譯翻翻卡']];
   app.innerHTML=`<h2>🧩 克漏字＋閱讀＋翻譯</h2>
-  <p class="muted">康軒 25 校考閱讀、22 校考克漏字，文章常借用課本主題（天氣、全球暖化、感冒看醫生、電話對話）；19 校考翻譯，多考課文句。以下文章與句子皆為原創改寫。</p>
+  <p class="muted">康軒 25 校考閱讀、22 校考克漏字，文章常借用課本主題（天氣、全球暖化、感冒看醫生、電話對話）；19 校考翻譯，多考課文句。克漏字與閱讀文章為原創；翻譯翻翻卡改用課本原句。</p>
   <div class="subtabs">${subs.map(([k,t])=>`<button class="sub ${k===s?'on':''}" data-s="${k}">${t}</button>`).join('')}</div><div id="panel"></div>`;
   app.querySelectorAll('.sub').forEach(b=>b.onclick=()=>{curSub.mix=b.dataset.s;render()});
   const p=$('#panel');
@@ -1214,18 +1236,20 @@ function renderMix(app){
 /* ================= L1 動畫 ================= */
 function animL1(p){
   p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
-  <div class="card"><h3>🗺️ 課文一張圖（原創改寫）</h3>
-  <p><span class="pill">對話</span>各地天氣大不同：What's the weather like…? → 基隆多雨、加拿大下大雪、高雄秋天少雨 → 記得帶<b>雨傘</b></p>
-  <p><span class="pill">閱讀</span>〈Change, or Go Under!〉全球暖化 → 海平面上升 → 巴拿馬小島居民<b>搬到陸地</b>、漁夫變農夫 → 馬爾地夫蓋<b>浮動城市</b> → 臺灣也要改變</p>
-  <p><span class="pill">文法</span>天氣主詞 It / There / We have ＋ What…like? / How…? ＋ because / so</p></div>`;
+  <div class="card"><h3>🗺️ 課文一張圖（康軒課本 L1）</h3>
+  <p><span class="pill">對話</span>Rita 與從英國來的 Brian（9/2～9/5）：雨停了、好熱吹冷氣 → Rita 提醒帶<b>傘</b>、Brian 說不怕雨 → 隔天淋了<b>大陣雨</b>、<b>under the weather</b> → 又在報天氣：<b>No more weather reports!</b></p>
+  <p><span class="pill">閱讀</span>〈Change, or Go Under!〉全球暖化 → 海平面上升（Problem）→ 巴拿馬小島<b>告別家園、遠離海建新城鎮</b>、漁夫變農夫（Solution 1）→ 馬爾地夫設計<b>能隨海平面升降</b>的新城市（Solution 2）→ 臺灣也要改變</p>
+  <p><span class="pill">文法</span>How／What…like? 問天氣 ＋ 天氣三種說法（形容詞 It is rainy／動詞 It rains／名詞 We have rain、There is rain）＋ 名詞＋y → 形容詞</p></div>`;
   const steps=[
-    {label:'① 今天天氣如何？',imgs:[{img:'l1_sunny',tag:'It\'s sunny and hot today.'},{img:'l1_cloudy',tag:'It\'s cloudy and dark.'}],poem:'Amy: What\'s the weather <b>like</b> in Tainan today?<br>Ben: It\'s sunny and hot. How about Taipei?<br>Amy: It\'s cloudy and dark. There <b>may be</b> a shower this afternoon.',key:'What…<b>like</b>?＝How is…?（How 後面不加 like，13 校考過）。天氣形容詞用 <b>It is</b>；名詞 shower 用 <b>There may be</b>。'},
-    {label:'② 帶把傘吧',imgs:[{img:'l1_umbrella',tag:'It often rains in the afternoon.'}],poem:'Ben: Does it <b>rain</b> a lot in Taipei?<br>Amy: Yes, it <b>does</b>. It often rains in the afternoon, so I take my <b>umbrella</b> every day.',key:'Does it rain…? → Yes, it <b>does</b>。umbrella 是 19 校考的拼字題；<b>so</b> 接結果。'},
-    {label:'③ 下雪的地方',imgs:[{img:'l1_snow',tag:'They have a lot of snow in Canada.'}],poem:'Ben: Do you <b>have</b> much snow in Taiwan?<br>Amy: Not really. But my cousin lives in Canada. They <b>have</b> a lot of snow there. Last week, there <b>was</b> heavy snow, and her school was closed <b>because of</b> it.',key:'26 校全考的陷阱：主詞是人用 <b>have</b>（Do you have much snow?）；snow 名詞用 <b>There was</b>；<b>because of</b>＋名詞。'},
-    {label:'④ 我最愛的季節',imgs:[{img:'l1_autumn',tag:'Autumn is my favorite season.'}],poem:'Autumn is my favorite <b>season</b> because the weather is not too hot and not too cold. In Kaohsiung, it <b>seldom</b> rains in autumn.',key:'season、autumn 是首字母填空常客；seldom＝很少（頻率副詞）。'},
-    {label:'⑤ 海平面上升',imgs:[{img:'l1_island',tag:'巴拿馬外海的小島（衛星影像）'},{img:'l1_fisher',tag:'Many fishermen became farmers.'}],poem:'Global warming is <b>leading to</b> a rise in sea levels around the world. This is putting people\'s lives <b>in danger</b>.<br>Near Panama, the sea came closer and closer to a small island. The families <b>said goodbye to</b> their homes and <b>built</b> a new town <b>far away from</b> the sea. Many <b>fishermen became farmers</b>.',key:'<b>lead to</b>（19 校）、<b>in danger</b>、build → <b>built</b>、become → <b>became</b>、fisherman 複數 <b>fishermen</b>（13 校）。'},
-    {label:'⑥ 浮動城市',imgs:[{img:'l1_male',tag:'馬爾地夫：許多土地只比海面高一點'},{img:'l1_float',tag:'Floating houses can rise and fall with the sea.'}],poem:'Most of the land in the Maldives is only about one meter <b>above sea level</b>. So the country is building a floating city. The houses can <b>rise and fall</b> with sea levels.',key:'above sea level（高於海平面）、rise and fall（上升與下降）多校出現在翻譯與閱讀。'},
-    {label:'⑦ Change, or Go Under!',split:[{img:'l1_float',tag:'改變'},{img:'l1_island',tag:'或被淹沒'}],poem:'What about Taiwan? We live on an island, too. We can\'t <b>fix</b> this problem in a day, but we can <b>learn from</b> these examples and <b>make changes</b> now.<br><b>Change, or go under!</b>',key:'fix＝解決（10 校）；learn from；make changes；go under＝沉沒、失敗。'},
+    {label:'① 9/2 雨停了',imgs:[{img:'l1_sunny',tag:'It\'s so sunny now.'}],poem:'Brian: Good morning, Rita. How are you doing?<br>Rita: Great.<br>Brian: Look! The <b>rain</b> stopped. It\'s so <b>sunny</b> now.<br>Rita: Yes, the <b>sky</b> is bright. Great <b>weather</b> for photos.',key:'The rain stopped 的 rain 是<b>名詞</b>；sun → <b>sunny</b>（名詞＋y → 形容詞，重複 n）。weather 不可數，不加 a。'},
+    {label:'② 9/3 好熱',imgs:[{img:'l1_sunny',tag:'Phew, it\'s really hot today!'}],poem:'Brian: Hi, Rita. Phew, it\'s really hot today!<br>Rita: It sure is!<br>Brian: Ah, I <b>feel</b> cool now. <b>Air</b> con is very <b>common</b> in Taiwan, but it\'s not in the UK.',key:'feel＋形容詞（feel cool）；<b>common</b>＝普遍的（18 校首字母 c____n）。Brian 從英國來。'},
+    {label:'③ 別忘了帶傘',imgs:[{img:'l1_cloudy',tag:'It\'s dark outside.'},{img:'l1_umbrella',tag:'Don\'t forget your umbrella.'}],poem:'Rita: It\'s <b>dark</b> outside. There might be rain in the afternoon. Don\'t <b>forget</b> your <b>umbrella</b>, Brian.<br>Brian: Ha! I\'m not <b>afraid of</b> a little rain. We often <b>have rain</b> in London, too.',key:'There might be <b>rain</b>／We <b>have rain</b>：rain 是不可數名詞。be <b>afraid of</b>（16 校）；umbrella 19 校拼字。'},
+    {label:'④ 9/4 身體不舒服',imgs:[{img:'l1_umbrella',tag:'I ran home in a heavy shower.'}],poem:'Rita: Morning, Brian. Are you OK?<br>Brian: Not really. I am a little <b>under the weather</b>.<br>Rita: Oh, no. What happened?<br>Brian: It <b>rained</b> a lot yesterday, and I <b>ran</b> home in a <b>heavy shower</b>. I was all <b>wet</b>.',key:'<b>課名句</b>：It rained a lot yesterday.（rain 當動詞）；under the weather＝身體不舒服（14 校）；heavy shower＝大陣雨。'},
+    {label:'⑤ 9/5 別再報天氣了',imgs:[{img:'l1_autumn',tag:'Look, the sun is out.'}],poem:'Brian: Achoo! — Rita: Bless you.<br>Brian: Thank you. By the way, I feel so cold in here! What\'s the weather <b>like</b> out there? Is it <b>windy</b>?<br>Brian: Rita. Look, the sun is out.<br>Rita: No more weather <b>reports</b>, please, Brian!',key:'What\'s the weather <b>like</b>?＝How\'s the weather?；wind → <b>windy</b>；weather report（report 15 校）。'},
+    {label:'⑥ Problem：海平面上升',imgs:[{img:'l1_island',tag:'Gardi Sugdub Island, Panama'}],poem:'Global warming is <b>leading to</b> a rise in <b>sea levels</b> around the world. This is putting people\'s lives in <b>danger</b>. However, people in some places are <b>fixing</b> these problems now. Let\'s take a look.',key:'<b>lead to</b>（19 校）、sea level（18 校）、in danger、fix＝解決（10 校）。'},
+    {label:'⑦ Solution 1：Panama',imgs:[{img:'l1_island',tag:'People said goodbye to their homes.'},{img:'l1_fisher',tag:'Many fishermen became farmers.'}],poem:'People on a small island in Panama said goodbye to their homes and moved away. They <b>built</b> a new town <b>far</b> away from the sea, and many <b>fishermen became</b> farmers. They didn\'t just sit and <b>cry</b> about climate change. They changed, and they are <b>living</b> new lives now.',key:'build → <b>built</b>、become → <b>became</b>、fisherman 複數 <b>fishermen</b>（13 校）；far away from（遠離）。'},
+    {label:'⑧ Solution 2：the Maldives',imgs:[{img:'l1_male',tag:'The Maldives'},{img:'l1_float',tag:'It can rise and fall with sea levels.'}],poem:'In the Maldives, people are designing a new city. It can rise and fall with sea levels. People can build <b>safe</b> houses there. This city can also <b>protect</b> sea life. It can work with <b>nature</b> and may never go under!',key:'safe（11 校）、protect（12 校）、nature（15 校，不加 the）；rise and fall；go under＝沉沒。'},
+    {label:'⑨ Change, or Go Under!',split:[{img:'l1_float',tag:'Change'},{img:'l1_island',tag:'or go under'}],poem:'Taiwan is an island, too. We should learn from the examples <b>above</b> and also make some changes, or we may go under!',key:'above＝在上面（the examples above）；learn from；make changes；這裡的 <b>or</b>＝否則。'},
   ];
   stepper(p,steps,i=>showPhoto(steps[i]),8000);
 }
@@ -1234,16 +1258,17 @@ function animL1(p){
 function animL2(p){
   p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
   <div class="grid2">
-    <div class="card"><h3>📞 對話：Bella 打給 Scott（原創改寫）</h3><p><span class="pill">起</span>Scott 沒來上學，也沒回訊息</p><p><span class="pill">承</span>Bella 打電話：May I speak to…?</p><p><span class="pill">轉</span>Scott 身體不適：發燒、喉嚨痛</p><p><span class="pill">合</span>Bella 要把筆記<b>帶給他</b>（雙受詞）</p></div>
-    <div class="card"><h3>📖 閱讀：兩種治感冒的方法</h3><p><span class="pill">Bella</span>看醫生、吃藥、穿厚外套</p><p><span class="pill">Scott</span>不看醫生、不吃藥、在家睡覺、吃冰淇淋</p><p><span class="pill">結論</span>方法<b>不同</b>，但兩人都恢復健康</p></div>
+    <div class="card"><h3>📞 對話：Bella 打給 Scott（康軒課本 L2）</h3><p><span class="pill">起</span>Scott 沒去<b>上班</b>，也沒回訊息</p><p><span class="pill">承</span>Scott 感冒發燒，在家休息，卻沒看醫生</p><p><span class="pill">轉</span><b>Why</b> didn't you see a doctor? <b>Because</b>…只有嚴重才看</p><p><span class="pill">合</span>請 Bella <b>帶冰淇淋給他</b>（bring … to me）治喉嚨痛</p></div>
+    <div class="card"><h3>📖 閱讀：Cool Ways to Treat a Cold</h3><p><span class="pill">Bella</span>看醫生、吃藥、不喝冷飲、穿厚大衣、待在家</p><p><span class="pill">Scott</span>不看醫生不吃藥、身體保持涼爽、吃冰淇淋</p><p><span class="pill">結論</span>方法<b>不同</b>，但兩人都恢復健康</p></div>
   </div>`;
   const steps=[
-    {label:'① 打電話',imgs:[{img:'l2_phone',tag:'May I speak to Scott, please?'}],poem:'Bella: Hello. <b>May I speak to</b> Scott, please?<br>Scott: <b>Speaking.</b> Hi, Bella.<br>Bella: You didn\'t come to school today. I <b>sent</b> you a message, but you didn\'t <b>answer</b>.',key:'電話用語 17 校考：May I speak to…? → Speaking.（我就是）／Who\'s calling, please?；send → <b>sent</b>。'},
-    {label:'② 身體不舒服',imgs:[{img:'l2_sneeze',tag:'Achoo! — Bless you!'},{img:'l2_thermo',tag:'I have a fever.'}],poem:'Scott: Sorry. I\'m <b>under the weather</b>. I <b>caught a cold</b>. I have a <b>fever</b> and a <b>sore throat</b>. Achoo!<br>Bella: <b>Bless you!</b> That sounds <b>serious</b>.',key:'under the weather（14 校）、catch → <b>caught</b> a cold（17 校）、fever（20 校）、serious（19 校）。'},
-    {label:'③ 看醫生吃藥',imgs:[{img:'l2_doctor',tag:'Bella saw a doctor.'},{img:'l2_pills',tag:'take medicine'}],poem:'Bella: Did you <b>see a doctor</b>? When I had a cold last month, I saw a doctor and <b>took</b> some <b>medicine</b>. The doctor <b>gave me</b> some medicine for my headache.',key:'medicine 是 24 校最高頻單字；吃藥是 <b>take</b> medicine。give <b>me</b> some medicine ＝ give some medicine <b>to</b> me。'},
-    {label:'④ 穿上外套',imgs:[{img:'l2_mask',tag:'Wear a mask when you cough.'}],poem:'Mom told me to <b>put on</b> my thick coat and wear a <b>mask</b>. She said, "Keep warm, <b>or</b> you might get worse."',key:'put on＝穿上（9 校）；mask（11 校）；祈使句＋or＝否則。'},
-    {label:'⑤ 至於 Scott…',imgs:[{img:'l2_icecream',tag:'He ate ice cream for his sore throat!'}],poem:'<b>As for</b> Scott, he didn\'t see a doctor <b>or</b> take any medicine. People in his country <b>don\'t always</b> see a doctor for a cold. He stayed in bed and even ate ice cream for his sore throat!',key:'as for＝至於（10 校）；not always＝不一定（部分否定）；didn\'t…or…（否定句用 or 連接）。'},
-    {label:'⑥ 方法不同',split:[{img:'l2_doctor',tag:'Bella 的方法'},{img:'l2_icecream',tag:'Scott 的方法'}],poem:'His way was very <b>different from</b> mine, but now we are both strong and <b>healthy</b> again. Maybe I can try his way next time!',key:'be different from＋mine（＝my way）；healthy、strong 是首字母填空常考字。'},
+    {label:'① 打電話',imgs:[{img:'l2_phone',tag:'May I speak to Scott?'}],poem:'Bella: May I <b>speak</b> to Scott?<br>Scott: This is Scott speaking.<br>Bella: Scott, you didn\'t go to work today. I <b>sent</b> a <b>message</b> to you, but you didn\'t answer. What happened?',key:'電話用語：May I speak to…? → This is … speaking.；send → <b>sent</b>；send 物 <b>to</b> 人（授與動詞）。'},
+    {label:'② 感冒發燒',imgs:[{img:'l2_thermo',tag:'I caught a cold and had a fever.'}],poem:'Scott: I <b>caught a cold</b> and had a <b>fever</b>, <b>so</b> I rested at home.<br>Bella: That\'s too bad. Did you see a doctor?<br>Scott: No, I didn\'t. I drank a lot of water and slept all day.',key:'catch → <b>caught</b> a cold（17 校）、fever（20 校）；原因, <b>so</b> 結果。'},
+    {label:'③ 為什麼不看醫生？',imgs:[{img:'l2_doctor',tag:'Why didn\'t you see a doctor?'}],poem:'Bella: <b>Why</b> didn\'t you see a doctor?<br>Scott: <b>Because</b> people in my <b>country</b> don\'t always see a doctor for a cold. We only do that for <b>serious health</b> problems.',key:'課名句！Why didn\'t＋S＋原形? → Because…；not always＝不一定；serious（19 校）、country（14 校）。'},
+    {label:'④ 冰淇淋治喉嚨痛？',imgs:[{img:'l2_icecream',tag:'Can you bring some ice cream to me?'}],poem:'Scott: My head still <b>hurts</b>, and I have a sore throat.<br>Bella: What can I do for you?<br>Scott: Can you <b>bring</b> some ice cream <b>to me</b>?<br>Bella: Sure. But why do you need ice cream?<br>Scott: Because it can help my sore throat.',key:'部位＋hurt(s)（hurt 三態同形）；bring 物 <b>to</b> 人＝bring me some ice cream。'},
+    {label:'⑤ Bella 的方法',imgs:[{img:'l2_doctor',tag:'I went to the doctor.'},{img:'l2_pills',tag:'I took the medicine.'}],poem:'Scott and I both rested at home last week because we were sick and had a fever. I went to the doctor, and she <b>gave me</b> some <b>medicine</b>. I took the medicine and didn\'t drink any cold drinks. I <b>put on</b> a heavy <b>coat</b> even on a hot summer day. Now, <b>because of</b> that, I am <b>healthy</b> again.',key:'gave me some medicine＝gave some medicine to me；medicine 24 校最高頻；put on；because of＋名詞／代名詞。'},
+    {label:'⑥ 至於 Scott…',imgs:[{img:'l2_icecream',tag:'He ate some ice cream for his sore throat.'}],poem:'<b>As for</b> Scott, he didn\'t see a doctor <b>or</b> take any medicine. He kept his <b>body</b> cool and didn\'t wear any heavy <b>clothes</b>. Also, he ate some ice cream for his sore throat.',key:'as for＝至於（10 校）；否定句連接兩個動作用 <b>or</b>；keep＋受詞＋形容詞。'},
+    {label:'⑦ 方法不同',split:[{img:'l2_pills',tag:'Bella 的方法'},{img:'l2_icecream',tag:'Scott 的 cool ways'}],poem:'His ways were really <b>different from</b> mine, but he is <b>strong</b> and healthy again now, too. <b>Maybe</b> I can <b>try</b> his "cool ways" next time.',key:'be different from＋mine（＝my ways）；strong（10 校）、maybe（≠ may be）。'},
   ];
   stepper(p,steps,i=>showPhoto(steps[i]),8000);
 }
@@ -1251,15 +1276,16 @@ function animL2(p){
 /* ================= Review 1 動畫 ================= */
 function animR1(p){
   p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
-  <div class="card"><h3>🔁 Review 1 怎麼考？</h3>
-  <p><span class="pill">連貫翻譯</span>把 L1 全球暖化課文改成中翻英：導致海平面上升、遠離海邊、漁夫變農夫</p>
-  <p><span class="pill">動詞填空</span>給原形，要寫出正確時態：led、built、became、said、moved</p>
-  <p><span class="pill">兩課混搭</span>天氣＋感冒：Scott forgot his umbrella, so he caught a cold.</p></div>`;
+  <div class="card"><h3>🔁 Review 1 統整什麼？（康軒課本）</h3>
+  <p><span class="pill">天氣</span>形容詞 rainy／動詞 rain／名詞 rain 三種說法；How is／What…like? 問天氣</p>
+  <p><span class="pill">授與動詞</span>give…to／buy…for；不及物、及物、授與動詞</p>
+  <p><span class="pill">連接詞</span>because、so、and、but、or 整理；電話用語</p></div>`;
   const steps=[
-    {label:'① 為什麼要搬家？',imgs:[{img:'l1_island',tag:'The sea came closer and closer.'}],poem:'Last year, the rising sea <b>led</b> to big changes on a small island. The sea <b>came</b> closer and closer to people\'s homes.',key:'lead → <b>led</b>（12 校考 led to）；come → <b>came</b>。看到 Last year 就要用過去式。'},
-    {label:'② 遠離海邊',imgs:[{img:'r1_farmer',tag:'Many fishermen became farmers.'}],poem:'The families <b>said</b> goodbye to their island and <b>moved</b> to the land. They <b>built</b> a new town <b>far away from</b> the sea, and many fishermen <b>became</b> farmers.',key:'far away from（6 校）、become → <b>became</b>、farmer。and 前後時態一致。'},
-    {label:'③ 高於海平面',imgs:[{img:'l1_male',tag:'above sea level'}],poem:'The new town is far <b>above sea level</b>, so the families are safe now.',key:'above（10 校）＝在…上方；above sea level＝高於海平面。'},
-    {label:'④ 兩課混搭',imgs:[{img:'l1_umbrella',tag:'He forgot his umbrella.'},{img:'l2_thermo',tag:'He caught a cold.'}],poem:'Scott <b>forgot</b> his umbrella in the heavy rain, so he <b>caught</b> a cold. Bella <b>sent</b> him a message and <b>brought</b> him some soup.',key:'forget → <b>forgot</b>、catch → <b>caught</b>、send → <b>sent</b>、bring → <b>brought</b>（15 校考不規則過去式）。'},
+    {label:'① 天氣三種說法',imgs:[{img:'l1_umbrella',tag:'It is raining now.'},{img:'l1_snow',tag:'There was a little snow last night.'}],poem:'形容詞：It was <b>rainy</b> this morning. It\'s <b>snowy</b> in Seoul in winter.<br>動詞：It is <b>raining</b> now. It seldom <b>snows</b> in Sydney in July.<br>名詞：We have a lot of <b>rain</b> in spring. There was a little <b>snow</b> last night.',key:'看主詞與詞性：It＋be＋形容詞／It＋動詞／人＋have＋名詞／There＋be＋名詞。'},
+    {label:'② 問天氣',imgs:[{img:'l1_cloudy',tag:'What was the weather like?'}],poem:'<b>How is</b> the weather in Yilan now?<br><b>What was</b> the weather <b>like</b> in Yilan yesterday?',key:'What 一定配 like；How was／What was 不可縮寫。'},
+    {label:'③ 授與動詞',imgs:[{img:'l2_pills',tag:'She gave me some medicine.'}],poem:'Jack gave the computer <b>to</b> Ivy. → Jack gave Ivy the computer.<br>Jack bought the computer <b>for</b> Ivy. → Jack bought Ivy the computer.',key:'give／send／show／write → <b>to</b>；buy／make → <b>for</b>。不及物動詞不接受詞（The boy is sleeping.）；及物動詞接一個受詞（Amy loves the man.）。'},
+    {label:'④ 連接詞整理',imgs:[{img:'l2_thermo',tag:'The man was sick and stayed at home.'}],poem:'Many people cried <b>because</b> the movie was sad. → The movie was sad, <b>so</b> many people cried.<br>The man was sick <b>and</b> stayed at home the whole day.<br>The man was sick, <b>but</b> he didn\'t see a doctor.<br>Did you go to the movies <b>or</b> stay at home last night?',key:'because 和 so 不能同句；and 補充、but 轉折、or 選擇。'},
+    {label:'⑤ 電話用語',imgs:[{img:'l2_phone',tag:'Hello, may I speak to Jason, please?'}],poem:'A: Hello, may I speak to Jason, please?<br>B: <b>This is Jason speaking.</b> ／ Sorry. He\'s not here.<br>A: Could I <b>leave a message</b>?<br>A: Is this 2918-9393? B: Sorry. You have the <b>wrong number</b>.',key:'本人接聽 This is … speaking.／Speaking.；留言 leave a message；打錯 wrong number。'},
   ];
   stepper(p,steps,i=>showPhoto(steps[i]),8000);
 }

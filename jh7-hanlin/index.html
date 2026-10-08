@@ -213,13 +213,14 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:20px}
 .ps.en{letter-spacing:0;font-size:1.35rem;line-height:1.7}
 .ps.pop{animation:pop .45s ease}
 @keyframes pop{0%{transform:scale(.9);opacity:.3}100%{transform:scale(1);opacity:1}}
+.bk{min-width:0;overflow-wrap:anywhere}
 </style>
 </head>
 <body>
 <header class="hero">
   <div class="wrap">
     <a href="../" style="color:#fff;opacity:.85;text-decoration:none;font-size:1rem;display:block;margin-bottom:8px">← 回英文選單</a><span class="tag">翰林版 國一上 ｜ 第一次段考</span>
-    <h1>英文段考闖關｜Starter＋Lesson 1～2＋Review 1</h1>
+    <h1>英文段考闖關｜Starter＋Unit 1～2＋Review 1</h1>
     <p>先看動畫弄懂課文，再用遊戲練熟單字與 be 動詞，最後做段考模擬題、交卷給老師。</p>
     <div class="me" id="me"></div>
   </div>
@@ -227,8 +228,8 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:20px}
 <nav class="tabs"><div class="wrap" id="tabs"></div></nav>
 <main><div class="wrap" id="app"></div></main>
 <footer><div class="wrap">
-  <b>全民補習班 英文科</b>｜考點依據：全臺 36 校翰林版國一上第一次段考試卷（範圍 Starter Unit＋L1～L2＋Review 1），另比對 59 校七上英文段考的跨版本共通文法。<br>
-  <b>課文為依段考卷考點原創改寫，非課本原文。</b>模擬題、克漏字與閱讀文章皆為原創，不照抄考卷原題。<br>
+  <b>全民補習班 英文科</b>｜考點依據：全臺 36 校翰林版國一上第一次段考試卷（範圍 Starter Unit＋Unit 1～2＋Review 1），另比對 59 校七上英文段考的跨版本共通文法。<br>
+  <b>課文依翰林版課本；模擬題與閱讀文章為原創</b>，不照抄考卷原題。<br>
   英文發音使用微軟 Neural 語音（en-US-Aria）預錄。練習時可以開聲音，答對、答錯都有音效。背景音樂只在「動畫導覽」播放，可按右下角按鈕關閉。<br>
   交卷時會把你的姓名、分數與錯題傳給老師，只有老師看得到。左下角 ✏️ 可以手寫、兩指縮放。<br>
   <details style="margin-top:8px"><summary>圖片來源與授權</summary>
@@ -264,8 +265,8 @@ const isZY=s=>/[ㄅ-ㄩ]/.test(s);
 const ASK={e:'選出正確的中文意思',c:'選出正確的英文',s:'選出正確的拼字',n:'這個數字的英文是？',pl:'選出正確的複數形',g:'選出最適合填入空格的答案'};
 const L = {
 st:{
-  no:'Starter', code:1, title:'Hello! Nice to Meet You', short:'數字顏色文具', color:'linear-gradient(135deg,#1f4e8c,#3b7dd8)',
-  desc:'問候語｜數字 1–100｜顏色｜文具｜What\'s this?',
+  no:'Starter', code:1, title:'Starter Unit 國小銜接複習', short:'代名詞與數字', color:'linear-gradient(135deg,#1f4e8c,#3b7dd8)',
+  desc:'代名詞＋be｜所有格 What\'s your name?｜數字與年紀｜大小寫｜📊 問候語、文具、顏色',
   quick:[
     ['ruler','尺',['橡皮擦','鉛筆盒','雨傘'],1,'e'],
     ['eraser','橡皮擦',['尺','麥克筆','筆記本'],1,'e'],
@@ -293,13 +294,19 @@ st:{
     ['11','eleven',['seven','twelve','one-one'],1,'n'],
     ['u m b r _ _ _ a（雨傘）','umbrella',['umbralla','umbrela','unbrella'],1,'s'],
     ['f _ r t y（四十）','forty',['fourty','forthy','foty'],1,'s'],
+    ['他的','his',['he','him','he\'s'],1,'c'],
+    ['她的','her',['she','hers','she\'s'],1,'c'],
+    ['它的；牠的','its',['it\'s','it','its\''],1,'c'],
+    ['他們的','their',['they\'re','there','them'],1,'c'],
+    ['27','twenty-seven',['twenty seven','seventy-two','twenty-seventh'],0,'n'],
+    ['44','forty-four',['fourty-four','fourteen-four','forty-fourth'],1,'n'],
     ['e r _ s _ r（橡皮擦）','eraser',['erasor','eracer','earser'],1,'s'],
     ['p _ r p _ e（紫色的）','purple',['perple','purpel','pruple'],1,'s'],
   ],
   words:[
     ['Nice to meet you.','很高興認識你。'],['Nice to meet you, too.','我也很高興認識你。'],['Not bad.','還不錯。'],
     ['How are you?','你好嗎？'],['What\'s your name?','你叫什麼名字？'],['What\'s this?','這是什麼？'],
-    ['pencil case','鉛筆盒'],['What color is it?','它是什麼顏色？'],['See you.','再見。'],['Thank you.','謝謝你。'],
+    ['pencil case','鉛筆盒'],['How old are you?','你幾歲？'],['Mr. and Mrs. Lin','林先生和林太太'],['Its name is Happy.','牠的名字是 Happy。'],
   ],
   sorts:[
     {title:'它是哪一類？顏色、文具還是數字？',tip:'Starter 三大類：顏色（color）、文具（school things）、數字（number）',buckets:['顏色','文具','數字'],items:[
@@ -312,12 +319,13 @@ st:{
       ['It\'s a ruler.',2],['It\'s an eraser.',2,'eraser 母音開頭，用 an。'],['It\'s an umbrella.',2],
       ['It\'s purple.',3],['It\'s brown and white.',3]]},
   ],
-  hunt:{label:'🔍 顏色抓抓樂',title:'找出短文裡所有的「顏色」',tip:'把每一個表示顏色的字點出來。注意：color 本身是「顏色」這個名詞，不是一種顏色喔！',lines:[
-    'Hi, I am Jamie. This is my pencil case. It is [blue].',
-    'What is in it? A [black] pen, a [white] eraser, and two markers.',
-    'The markers are [purple] and [gray].',
-    'My ruler is [brown]. My umbrella is [yellow] and [green].',
-    'What is my favorite color? It is [purple]!',
+  hunt:{label:'🔍 所有格抓抓樂',title:'找出課本例句裡的所有格（my / your / his / her / its）',tip:'所有格＝「…的」，後面一定接名詞（name）。注意 It is 的 It 不是所有格！（句子取自翰林 Starter 課本）',lines:[
+    'What is [your] name? [My] name is Ryan.',
+    '[His] name is William. [Her] name is Sara.',
+    '[Its] name is Happy.',
+    'What is [his] name? [His] name is Bob.',
+    'What is [her] name? [Her] name is Helen. She is Helen.',
+    'What is [its] name? [Its] name is Rocky. It is Rocky.',
   ]},
   mcq:[
     {q:'A: Nice to meet you, Zac. B: ___',o:['Nice to meet you, too.','Nice to meet you.','Fine, thank you.','I\'m Zac.'],a:0,src:'嘉義太保、桃園大有等 8 校 同類題',ex:'對方先說 Nice to meet you，回答要加 too：Nice to meet you, too.'},
@@ -328,6 +336,9 @@ st:{
     {q:'Twelve and thirteen is ___.',o:['twenty-five','twenty-three','thirty-five','fifteen'],a:0,src:'原創',ex:'12＋13＝25＝twenty-five。'},
     {q:'A: What color is your ruler? B: ___',o:['It\'s brown.','It\'s a ruler.','Yes, it is.','It\'s twelve.'],a:0,src:'新北鷺江、鳳甲 同類題',ex:'What color 問顏色，要回答顏色 brown。'},
     {q:'A: What\'s your name? B: ___',o:['My name is Yuki.','I\'m fine.','It\'s Yuki\'s.','Yes, I am.'],a:0,src:'Starter 課本句型',ex:'問名字就回答 My name is…／I\'m…。'},
+    {q:'A: What is her name? B: ___ name is Helen.',o:['Her','She','His','She\'s'],a:0,src:'Starter 課本句型',ex:'name 前面要用所有格 Her（她的）。She 是主格，She\'s＝She is。'},
+    {q:'A: How old is he? B: He ___ one.',o:['is','am','are','be'],a:0,src:'Starter 課本句型',ex:'主詞 He → is。課本：How old is he? He is one.'},
+    {q:'They ___ Mr. and Mrs. Lin.',o:['are','is','am','be'],a:0,src:'Starter 課本句型',ex:'They 複數 → are。'},
     {q:'下列哪一個字的大小寫轉換正確？',o:['ruler → RULER','Eraser → eRASER','marker → MARKEr','Pen → PEN.'],a:0,src:'21 校考大小寫轉換',ex:'全部轉成大寫就是 RULER。大小寫轉換題「全對才給分」，每一個字母都要檢查。'},
     {q:'下列哪一句的大小寫與標點正確？',o:['My name is Amy.','my name is Amy.','My name is amy.','My Name Is Amy'],a:0,src:'新北板橋 同類題',ex:'句首大寫、人名大寫、句尾加句點。'},
     {q:'A: Is this your marker? B: No, ___. It\'s Jamie\'s.',o:['it isn\'t','it is','this isn\'t','I\'m not'],a:0,src:'原創',ex:'問句 this 在簡答裡改用 it：No, it isn\'t.'},
@@ -338,8 +349,8 @@ st:{
   ]
 },
 l1:{
-  no:'Lesson 1', code:2, title:'This Is My Family', short:'家人與職業', color:'linear-gradient(135deg,#1f4e8c,#2f8f83)',
-  desc:'新同學 Zac｜家人與職業｜Who…? How old…?｜be 動詞簡答',
+  no:'Unit 1', code:2, title:'Who\'s That Handsome Boy?', short:'家人與職業', color:'linear-gradient(135deg,#1f4e8c,#2f8f83)',
+  desc:'新同學 Zac｜表哥 Max｜My Dear Family｜Who…? How old…?｜be 動詞簡答',
   quick:[
     ['cousin','堂表兄弟姊妹',['叔伯舅','姪子','同學'],1,'e'],
     ['writer','作家',['歌手','服務生','上班族'],1,'e'],
@@ -351,6 +362,8 @@ l1:{
     ['young','年輕的',['老的','矮的','瘦的'],1,'e'],
     ['dear','珍貴的；親愛的',['昂貴的','可愛的','新的'],1,'e'],
     ['classmate','同學',['老師','教室','表親'],1,'e'],
+    ['really','真地',['也','非常','新的'],1,'e'],
+    ['teacher','老師',['學生','作家','廚師'],1,'e'],
     ['上班族','office worker',['police officer','office','worker man'],1,'c'],
     ['警察','police officer',['office worker','police office','doctor'],1,'c'],
     ['女人（單數）','woman',['women','man','wife'],1,'c'],
@@ -370,7 +383,7 @@ l1:{
   ],
   words:[
     ['office worker','上班族'],['police officer','警察'],['a family of five','五口之家'],['junior high school','國中'],
-    ['elementary school','國小'],['be dear to me','對我很珍貴'],['husband and wife','夫妻'],['Excuse me.','不好意思；請問'],
+    ['elementary school','國小'],['be dear to me','對我很珍貴'],['husband and wife','夫妻'],['I see.','我知道了。'],
     ['twenty-nine years old','二十九歲'],['new classmate','新同學'],
   ],
   sorts:[
@@ -389,22 +402,23 @@ l1:{
       ['Zac ___ a junior high school student.',1],['My family ___ very dear to me.',1,'family 當「一個家庭」是單數。'],
       ['Sophie and Max ___ cousins.',2],['These women ___ nurses.',2,'women 是 woman 的複數。'],
       ['My parents ___ office workers.',2],['That handsome man ___ a singer.',1],
-      ['You and I ___ classmates.',2,'You and I＝we，用 are。'],['Zac\'s sister ___ twenty years old.',1]]},
+      ['You and I ___ classmates.',2,'You and I＝we，用 are。'],['Zac\'s sister ___ a nurse.',1]]},
   ],
-  hunt:{label:'🔍 be 動詞抓抓樂',title:'找出 Zac 自我介紹裡的 be 動詞（am / is / are）',tip:'be 動詞有三個：am、is、are。點出每一個！（本文都用完整寫法，沒有縮寫）',lines:[
-    'Hi, I [am] Zac. I [am] new here.',
+  hunt:{label:'🔍 be 動詞抓抓樂',title:'找出課文 My Dear Family 裡的 be 動詞（am / is / are）',tip:'be 動詞有三個：am、is、are。縮寫也要點：I\'m 裡有 am、She\'s／He\'s 裡有 is，點整個縮寫字。（課文取自翰林 Unit 1 Reading）',lines:[
+    'Hi, [I\'m] Jamie, and this [is] my dear family.',
     'We [are] a family of five.',
-    'My dad [is] a writer, and my mom [is] a housewife.',
-    'This young woman [is] my sister, Sophie. She [is] a nurse.',
-    'That tall man [is] not my brother. He [is] my cousin, Max.',
-    'My grandparents [are] seventy years old. They [are] very kind.',
+    'My mom [is] an office worker. [She\'s] thirty-five years old.',
+    'My dad [is] a teacher. [He\'s] thirty-five, too.',
+    'My sister [is] an elementary school student, and [I\'m] a junior high school student.',
+    '[She\'s] ten, and [I\'m] thirteen.',
+    'And my baby brother, Dan, [is] one year old.',
     'My family [is] very dear to me.',
   ]},
   mcq:[
-    {q:'A: Who\'s that tall boy? B: ___',o:['He\'s Zac, our new classmate.','He\'s tall.','He\'s twelve.','Yes, he is.'],a:0,src:'台中五權、新北福營 同類題',ex:'Who 問「是誰」，要回答身分或名字；tall、twelve 回答的是外表、年齡。'},
+    {q:'A: Look at that handsome boy. Who is he? B: ___',o:['That\'s Zac, our new classmate.','He\'s handsome.','He\'s twelve.','Yes, he is.'],a:0,src:'課文句；台中五權、新北福營 同類題',ex:'Who 問「是誰」，要回答身分或名字；handsome、twelve 回答的是外表、年齡。'},
     {q:'A: How old is your cousin Max? B: ___',o:['He\'s twenty-nine.','He\'s a doctor.','He\'s handsome.','He\'s fine.'],a:0,src:'燕巢、錦和 同類題',ex:'How old 問年齡，回答數字。'},
     {q:'A: Is Sophie a nurse? B: Yes, ___.',o:['she is','she\'s','Sophie is','he is'],a:0,src:'台中五權、高雄獅甲',ex:'簡答主詞要換成代名詞 she；肯定簡答不可縮寫成 Yes, she\'s.'},
-    {q:'A: Is your mom an office worker? B: No, ___. She\'s a housewife.',o:['she isn\'t','she is','he isn\'t','it isn\'t'],a:0,src:'鳳甲、鼎金 同類題',ex:'mom 是女生 → she；後面說她是家庭主婦，所以回答 No, she isn\'t.'},
+    {q:'A: Is Sophie a doctor? B: No, ___. She\'s a nurse.',o:['she isn\'t','she is','he isn\'t','it isn\'t'],a:0,src:'鳳甲、鼎金 同類題',ex:'Sophie 是女生 → she；課文說她是護理師，所以回答 No, she isn\'t.'},
     {q:'My aunt is ___ office worker, and my uncle is ___ writer.',o:['an; a','a; an','an; an','a; a'],a:0,src:'台中向上、嘉義太保',ex:'office 母音 o 開頭 → an；writer 的 w 是子音 → a。'},
     {q:'Your uncle\'s daughter is your ___.',o:['cousin','sister','aunt','niece'],a:0,src:'錦和、嘉義玉山',ex:'叔叔／舅舅的女兒是你的堂（表）姊妹 cousin。'},
     {q:'Those two ___ are writers.',o:['women','woman','womans','womens'],a:0,src:'26 校考 woman',ex:'Those two 後面接複數：woman → women（不規則）。'},
@@ -416,12 +430,12 @@ l1:{
     {q:'A: Isn\'t Mr. Lin a doctor? B: ___. He is a writer.',o:['No, he isn\'t','Yes, he is','No, he is','Yes, he isn\'t'],a:0,src:'嘉義玉山、新泰（否定問句）',ex:'否定問句照事實回答：他不是醫生 → No, he isn\'t.。Yes 後面不會接否定，No 後面不會接肯定。'},
     {q:'Lily and Tom are husband and wife. Tom is Lily\'s ___.',o:['husband','wife','son','brother'],a:0,src:'台南復興、新北三多',ex:'Tom 是 Lily 的丈夫 husband。'},
     {q:'My sister is young. She is ___ elementary school student.',o:['an','a','the two','X'],a:0,src:'新北忠孝、鼎金',ex:'elementary 是母音 e 開頭 → an elementary school student。'},
-    {q:'Zac\'s family: Dad (writer), Mom (housewife), Sophie (nurse), and Zac. 這一家共有幾口？',o:['四口','五口','三口','六口'],a:0,src:'原創（家譜題型）',ex:'爸、媽、Sophie、Zac＝4 人：a family of four。表哥 Max 不算在同一個小家庭。'},
+    {q:'Jamie\'s family: Mom (office worker), Dad (teacher), her sister, Jamie, and baby brother Dan. How many people are there in Jamie\'s family?',o:['Five.','Four.','Six.','Three.'],a:0,src:'課本 Reading After You Read 同類',ex:'媽、爸、妹妹、Jamie、Dan＝5 人：We are a family of five.（表哥 Max 不算）'},
   ]
 },
 l2:{
-  no:'Lesson 2', code:3, title:'Welcome to My House', short:'房間與位置', color:'linear-gradient(135deg,#6a3d9a,#a066d3)',
-  desc:'紫色客廳｜三隻老鼠｜Keret House｜介系詞 Where…?',
+  no:'Unit 2', code:3, title:'Where Are My Pencils?', short:'房間與位置', color:'linear-gradient(135deg,#6a3d9a,#a066d3)',
+  desc:'Zac 的爸媽｜紫色客廳、灰色廚房｜Mickey 在哪？｜Keret House｜Where…?',
   quick:[
     ['hungry','餓的',['生氣的','忙碌的','開心的'],1,'e'],
     ['enough','足夠的',['很多的','特別的','彼此'],1,'e'],
@@ -453,52 +467,52 @@ l2:{
   words:[
     ['in front of','在…前面'],['next to','在…旁邊'],['each other','彼此'],['right next to','就在…旁邊'],
     ['between A and B','在 A 和 B 之間'],['enough for one person','一個人住就夠'],['at home','在家'],
-    ['birthday gift','生日禮物'],['on the wall','在牆上'],['Welcome to my house.','歡迎來我家。'],
+    ['Come meet my parents.','來見見我爸媽。'],['favorite color','最喜愛的顏色'],['Mr. and Mrs. Hugo','Hugo 先生和太太'],
   ],
   sorts:[
     {title:'看位置選介系詞',tip:'on 在上面（有接觸）、above 在正上方（沒接觸）、under 在下面、between A and B 在兩者之間',buckets:['on','under','between','in front of','next to'],items:[
       ['書在桌面上：The book is ___ the desk.',0],['毛筆在椅子上：The brush is ___ the chair.',0],
-      ['貓在床底下：The cat is ___ the bed.',1],['Molly 在沙發下：Maybe Molly is ___ the sofa.',1],
+      ['貓在床底下：The cat is ___ the bed.',1],['Mickey 在沙發下嗎？Maybe he is ___ the sofa.（課文）',1],
       ['飯廳在廚房和浴室中間：The dining room is ___ the kitchen and the bathroom.',2],
       ['Zac 坐在 Jamie 和 Yuki 中間：Zac is ___ Jamie and Yuki.',2],
       ['電視在沙發前面：The TV is ___ the sofa.',3],['車子在房子前面：The car is ___ the house.',3],
-      ['臥室就在浴室旁邊：My bedroom is right ___ the bathroom.',4],['Minnie 在盒子旁邊：Minnie is ___ the box.',4]]},
-    {title:'Keret House 裡有什麼？在哪一層？',tip:'原創改寫：浴室、廚房、飯廳在下層，而且彼此相鄰；臥室在它們的上方',buckets:['下層（彼此相鄰）','上層（above）','不在屋子裡'],items:[
+      ['臥室就在浴室旁邊：My bedroom is right ___ the bathroom.',4],['Mickey 在盒子旁邊：Look. He is ___ the box.（課文）',4]]},
+    {title:'Keret House 裡有什麼？在哪一層？',tip:'課文：浴室、廚房、飯廳彼此相鄰；臥室在這三間的上方（above）',buckets:['下層（彼此相鄰）','上層（above）','不在屋子裡'],items:[
       ['the bathroom',0],['the kitchen',0],['the dining room',0,'Inside the house, the bathroom, the kitchen, and the dining room are right next to each other.'],
       ['the bedroom',1,'The bedroom is above those three rooms.'],
-      ['a big living room',2,'屋子很窄，沒有大客廳。'],['a garden',2],['ten bedrooms',2]]},
+      ['a big living room',2,'課文只提到浴室、廚房、飯廳和臥室。'],['a garden',2],['ten bedrooms',2]]},
     {title:'this / that 還是 these / those？',tip:'近的用 this（單）/ these（複）；遠的用 that（單）/ those（複）',buckets:['this','that','these','those'],items:[
       ['___ is my bedroom.（就在身邊，一間）',0],['___ cookie in my hand is for you.',0],
       ['___ is Zac\'s house over there.（遠處，一間）',1],['Who is ___ tall boy over there?',1],
       ['___ are my mice.（手上兩隻）',2],['___ brushes here are new.',2],
       ['What are ___ in the brown box over there?',3],['___ comic books on that desk are Jamie\'s.',3]]},
   ],
-  hunt:{label:'🔍 位置抓抓樂',title:'找出短文裡表示「位置」的介系詞',tip:'一個介系詞片語算一個（例如 in front of、next to 都整組點）。',lines:[
-    'Welcome to Zac\'s house! The living room walls are purple.',
-    'A gray sofa is [in front of] the TV.',
-    'Mickey is [in] his little house. Minnie is [next to] the brown box.',
-    'Where is Molly? Maybe she is [under] the sofa.',
-    'The kitchen is [between] the living room and the bathroom.',
-    'Zac\'s bedroom is [above] the kitchen.',
-    'A big clock is [on] the wall, and a cat is [behind] the door.',
-    'The cookies are [inside] the box. The mice are hungry!',
+  hunt:{label:'🔍 位置抓抓樂',title:'找出課文裡表示「位置」的介系詞',tip:'一個介系詞片語算一個（例如 next to 整組點）。句子取自翰林 Unit 2 的對話、閱讀與 Grammar Focus。',lines:[
+    'What are those [in] the brown box?',
+    'They\'re [in] their house. Oh, no. Where\'s Mickey?',
+    'Maybe he\'s [under] the sofa. No, he\'s not.',
+    'Look. He\'s [next to] the box.',
+    'The Keret House is a small house [in] Poland.',
+    '[Inside] the house, the bathroom, the kitchen, and the dining room are right [next to] each other.',
+    'The bedroom is [above] those three rooms.',
+    'Where is the book bag? It\'s [on] the bed. They\'re [behind] the door.',
   ]},
   mcq:[
     {q:'A: What are those in the brown box? B: ___ cookies for my mice.',o:['They\'re','It\'s','Those is','There\'re'],a:0,src:'崇林、屏東明正 同類題',ex:'問 What are those? 是複數，回答用 They\'re（They are），不能用 It\'s。'},
     {q:'I have three pet ___. Their names are Mickey, Minnie, and Molly.',o:['mice','mouses','mouse','mices'],a:0,src:'28 校考 mouse',ex:'mouse 的複數是 mice（不規則），沒有 mouses 和 mices。'},
     {q:'The Keret House is not big, but it\'s ___ for one person.',o:['enough','hungry','favorite','between'],a:0,src:'右昌、新北三多等 27 校',ex:'be enough for…＝對…來說足夠。這是課文核心句的改寫。'},
     {q:'The mice are ___. Let\'s give them some cookies.',o:['hungry','enough','purple','special'],a:0,src:'29 校考 hungry',ex:'要給牠們餅乾 → 牠們餓了 hungry。'},
-    {q:'A: Where is Molly? B: ___ she is under the sofa.',o:['Maybe','Many','Very','Enough'],a:0,src:'崇林、新泰、桃園大有',ex:'Maybe＝也許，表示不確定。'},
+    {q:'A: Where\'s Mickey? B: ___ he\'s under the sofa.',o:['Maybe','Many','Very','Enough'],a:0,src:'課文句；崇林、新泰、桃園大有',ex:'Maybe＝也許，表示不確定。'},
     {q:'The dining room is ___ the kitchen and the bathroom.',o:['between','in front of','next','above to'],a:0,src:'嘉義太保、高雄苓雅',ex:'between A and B＝在 A 和 B 之間；看到 and 連接兩個地點就想到 between。'},
     {q:'Inside the house, the bathroom and the kitchen are right next to ___.',o:['each other','other','the other each','each'],a:0,src:'新北福營、右昌等 15 校',ex:'next to each other＝彼此相鄰。'},
     {q:'Purple is my ___ color. I love it!',o:['favorite','hungry','enough','dear'],a:0,src:'27 校考 favorite',ex:'favorite color＝最喜愛的顏色。'},
     {q:'A: Where are my markers? B: ___ on your desk.',o:['They\'re','It\'s','Its','There'],a:0,src:'台中向上、高雄中庄',ex:'markers 複數 → They\'re。'},
     {q:'The bedroom is ___ those three rooms. You can go up the stairs to it.',o:['above','under','between','in front'],a:0,src:'台中向上、新北板橋',ex:'臥室在三間房間的上方 → above。'},
-    {q:'A: Is the kitchen purple, too? B: No, ___. It\'s white.',o:['it isn\'t','they aren\'t','it is','she isn\'t'],a:0,src:'嘉義玉山 同類題',ex:'the kitchen 單數 → it；後面說它是白色，所以 No, it isn\'t.'},
-    {q:'A: Are the kitchen and the dining room purple? B: Yes, ___.',o:['they are','it is','they\'re','we are'],a:0,src:'台中向上、錦和',ex:'the kitchen and the dining room 兩個 → they；肯定簡答不縮寫：Yes, they are.'},
+    {q:'A: Is the kitchen purple, too? B: No, ___. It\'s gray.',o:['it isn\'t','they aren\'t','it is','she isn\'t'],a:0,src:'課文；嘉義玉山 同類題',ex:'the kitchen 單數 → it；課文說廚房是灰色，所以 No, it isn\'t.'},
+    {q:'A: Are the living room walls purple? B: Yes, ___.',o:['they are','it is','they\'re','we are'],a:0,src:'台中向上、錦和',ex:'the living room walls 複數 → they；肯定簡答不縮寫：Yes, they are.（課文：the living room walls are purple）'},
     {q:'Here\'s a gift ___ you. Open it!',o:['for','of','to','at'],a:0,src:'新北板橋、高雄龍華',ex:'a gift for you＝給你的禮物。'},
-    {q:'根據課文改寫，Keret House 在哪裡？',o:['In Warsaw, Poland, between two buildings.','In Taipei, next to a park.','Under a big tree in a garden.','Above a bookstore in Japan.'],a:0,src:'台中五權 同類題',ex:'Keret House 在波蘭華沙，夾在兩棟建築之間，最窄處不到 1 公尺。'},
-    {q:'Which is true about the Keret House?',o:['It is long and narrow.','It is enough for ten people.','It has a big living room.','Its bedroom is under the kitchen.'],a:0,src:'崇林、新北福營 同類題',ex:'它又長又窄，只夠一個人住；臥室在廚房等房間的上方。'},
+    {q:'根據課文，Keret House 在哪裡？',o:['In Poland.','In Taipei.','In Japan.','In Kaohsiung.'],a:0,src:'台中五權 同類題',ex:'課文：The Keret House is a small house in Poland.'},
+    {q:'Which is true about the Keret House?',o:['It is long and thin.','It is enough for ten people.','It is big and tall.','Its bedroom is under the kitchen.'],a:0,src:'課本 After You Read 同類',ex:'課文：It is long, thin, and very special. 只夠一個人住；臥室在浴室、廚房、飯廳的上方（above）。'},
     {q:'A: ___ is my book bag? B: It\'s under your bed.',o:['Where','What','Who','How old'],a:0,src:'新北忠孝 同類題',ex:'回答「在床底下」（位置），問句用 Where。'},
   ]
 },
@@ -555,9 +569,9 @@ r1:{
       ['___ is your grandpa? — He\'s ninety-six.',3],['___ are the twins? — They\'re two.',3]]},
   ],
   mcq:[
-    {q:'【家譜】Grandpa Hugo has two children: Mr. Hugo and Aunt Mia. Mr. Hugo\'s children are Jamie and Amy. Aunt Mia\'s son is Leo. Who is Leo to Jamie?',o:['His cousin.','His brother.','His uncle.','His son.'],a:0,src:'台中五權、台中向上 家譜題組 同類',ex:'Leo 是 Jamie 的姑姑 Aunt Mia 的兒子 → 堂表兄弟 cousin。'},
+    {q:'【家譜】Grandpa Lee has two children: Mr. Lee and Aunt Mia. Mr. Lee\'s children are Tom and Amy. Aunt Mia\'s son is Leo. Who is Leo to Tom?',o:['His cousin.','His brother.','His uncle.','His son.'],a:0,src:'台中五權、台中向上 家譜題組 同類',ex:'Leo 是 Tom 的姑姑 Aunt Mia 的兒子 → 堂表兄弟 cousin。'},
     {q:'【家譜】同上。Who is Aunt Mia to Amy?',o:['Her aunt.','Her mother.','Her sister.','Her cousin.'],a:0,src:'家譜題組 同類',ex:'Aunt Mia 是 Amy 爸爸的姊妹 → aunt。'},
-    {q:'【家譜】同上。How many grandchildren does Grandpa Hugo have?',o:['Three.','Two.','Four.','One.'],a:0,src:'家譜題組 同類',ex:'孫子女：Jamie、Amy、Leo，共三位。'},
+    {q:'【家譜】同上。How many grandchildren does Grandpa Lee have?',o:['Three.','Two.','Four.','One.'],a:0,src:'家譜題組 同類',ex:'孫子女：Tom、Amy、Leo，共三位。'},
     {q:'【座位】Tom\'s seat is in front of Nick\'s seat, and Nick\'s seat is next to Rita\'s seat. Which is true?',o:['Nick sits behind Tom.','Tom sits behind Nick.','Rita sits in front of Tom.','Nick sits between Tom and Rita.'],a:0,src:'台中向上 座位推理 同類',ex:'Tom 在 Nick 前面 → Nick 在 Tom 後面（behind）。'},
     {q:'【房間】My bedroom is between the bathroom and the kitchen. The living room is next to the kitchen. What is next to the bathroom?',o:['My bedroom.','The kitchen.','The living room.','The dining room.'],a:0,src:'高雄苓雅 同類',ex:'順序：浴室－臥室－廚房－客廳，浴室旁邊是臥室。'},
     {q:'John and Jason are brothers. ___ father is a cook.',o:['John and Jason\'s','John\'s and Jason\'s','John and Jasons\'','John\'s and Jason'],a:0,src:'台南復興、台北誠正（共同所有格）',ex:'兩人共有同一個爸爸，只在最後一個名字加 \'s：John and Jason\'s father。'},
@@ -613,7 +627,7 @@ gram:{
       ['Minnie is ___ hungry.',2,'hungry 是形容詞，單獨當補語不加冠詞。'],['They are ___ writers.',2,'複數名詞前不用 a / an。'],['Is Minnie ___ sad? No, she\'s happy.',2]]},
     {title:'It\'s 還是 Its？',tip:'It\'s＝It is（它是）；Its＝它的（後面接名詞）',buckets:['It\'s','Its'],items:[
       ['___ my new pencil case.',0],['A: What\'s this? B: ___ a gift for you.',0],['___ not big, but it\'s enough for one person.',0],['___ purple. Purple is my favorite color.',0],
-      ['I have a dog. ___ name is Rocky.',1],['The Keret House is in Poland. ___ walls are white.',1],['Look at the bird. ___ tail is very short.',1],['The mouse is in ___ little house.',1]]},
+      ['I have a dog. ___ name is Rocky.',1],['The Keret House is in Poland. ___ bedroom is above the kitchen.',1],['Look at the bird. ___ tail is very short.',1],['The mouse is in ___ little house.',1]]},
     {title:'抓錯大作戰：這句文法對不對？',tip:'簡答不能縮寫在句尾；複數主詞用 are；共同所有格只在最後加 \'s',buckets:['正確 ✅','錯誤 ❌'],items:[
       ['Is Zac your classmate? Yes, he\'s.',1,'肯定簡答不能縮寫：Yes, he is.'],
       ['Are those your mice? Yes, they are.',0],
@@ -655,7 +669,7 @@ gram:{
 },
 };
 
-/* 綜合頁：克漏字＋閱讀＋翻譯（全部原創改寫） */
+/* 綜合頁：克漏字＋閱讀為原創；翻譯翻翻卡用翰林課本原句 */
 const CLOZE=[
   {title:'克漏字 A｜Meet My Family',text:'Hello, everyone! I\'m Yuki, and this is my family photo. We are a family __1__ five. My dad is __2__ office worker, and my mom is a cook. The tall boy in the photo is my brother, Ken. __3__ fifteen years old. He is a junior high school student. The little girl is my sister, Mimi. She is only two. __4__ favorite color is pink. Who is the man next to my dad? He is not my uncle. He is my __5__, Leo. He is my uncle\'s son. My family is very dear __6__ me.',
    qs:[
@@ -666,14 +680,14 @@ const CLOZE=[
     {q:'__5__',o:['cousin','brother','uncle','son'],a:0,ex:'叔叔的兒子 → cousin。'},
     {q:'__6__',o:['to','of','for','at'],a:0,ex:'be dear to 人＝對某人很珍貴。'},
    ]},
-  {title:'克漏字 B｜A Visit to Zac\'s House',text:'Today Jamie is at Zac\'s house. "Welcome to my house!" Zac says. The living room is big, and the walls are purple. "Purple is my mom\'s __1__ color," Zac says. There is a brown box __2__ the sofa and the TV. "What are __3__ in the box?" Jamie asks. "They\'re cookies for my __4__," Zac says. "Their names are Mickey, Minnie, and Molly. They are always __5__!" Jamie looks around. "Where is Molly?" "__6__ she is under the sofa," Zac says.',
+  {title:'克漏字 B｜A Visit to Zac\'s House',text:'Today Jamie is at Zac\'s house. "Welcome to my house!" Zac says. The living room is big, and the walls are purple. "Purple is my mom\'s __1__ color," Zac says. There is a brown box __2__ the sofa and the TV. "What are __3__ in the box?" Jamie asks. "They\'re cookies for my __4__," Zac says. "Their names are Mickey, Minnie, and Molly. They are always __5__!" Zac looks around. "Where is Mickey?" "__6__ he is under the sofa," Jamie says.',
    qs:[
     {q:'__1__',o:['favorite','hungry','enough','dear'],a:0,ex:'mom\'s favorite color＝媽媽最喜歡的顏色。'},
     {q:'__2__',o:['between','next','above to','in front'],a:0,ex:'between the sofa and the TV＝在沙發和電視之間。'},
     {q:'__3__',o:['those','that','this','it'],a:0,ex:'回答 They\'re cookies（複數），問句用 What are those。'},
     {q:'__4__',o:['mice','mouse','mouses','mices'],a:0,ex:'三隻老鼠 → 複數 mice。'},
     {q:'__5__',o:['hungry','enough','purple','special'],a:0,ex:'給牠們餅乾、牠們總是很餓 → hungry。'},
-    {q:'__6__',o:['Maybe','Very','Really','Enough'],a:0,ex:'Maybe＝也許，Zac 也不確定 Molly 在哪。'},
+    {q:'__6__',o:['Maybe','Very','Really','Enough'],a:0,ex:'Maybe＝也許，Jamie 也不確定 Mickey 在哪（課文：Maybe he\'s under the sofa.）。'},
    ]},
 ];
 const READ=[
@@ -699,18 +713,20 @@ const READ=[
    ]},
 ];
 const TRANS=[
-  ['那個高的男孩是誰？','Who is that tall boy?','Who 問人；tall 放在 boy 前面'],
-  ['他是我們的新同學，Zac。','He is our new classmate, Zac.','our＋名詞；new classmate'],
-  ['我們家有五個人。','We are a family of five.','a family of five'],
-  ['我媽媽是上班族。','My mom is an office worker.','an office worker（an＋母音）'],
-  ['我的表哥二十九歲。','My cousin is twenty-nine years old.','twenty-nine 有連字號；years old'],
-  ['我的家人對我來說很珍貴。','My family is very dear to me.','family 單數 → is；be dear to'],
-  ['紫色是我最喜愛的顏色。','Purple is my favorite color.','favorite color'],
-  ['盒子裡的那些是什麼？','What are those in the box?','those 複數 → What are'],
-  ['牠們是給我的老鼠吃的餅乾。','They are cookies for my mice.','mouse → mice'],
-  ['這間房子不大，但足夠一個人住。','The house is not big, but it is enough for one person.','be enough for…'],
-  ['飯廳在廚房和浴室之間。','The dining room is between the kitchen and the bathroom.','between A and B'],
-  ['也許他在沙發下面。','Maybe he is under the sofa.','Maybe＝也許；under'],
+  ['你看那個英俊的男孩。','Look at that handsome boy.','look at＋人；handsome（U1 課文）'],
+  ['那是 Zac，我們的新同學。','That\'s Zac, our new classmate.','our＋new＋classmate（U1 課文）'],
+  ['他是我的表哥 Max。','He\'s my cousin, Max.','cousin（U1 課文）'],
+  ['他二十九歲。','He\'s twenty-nine years old.','twenty-nine 有連字號；years old（U1 課文）'],
+  ['我們是五口之家。','We are a family of five.','a family of five（U1 課文）'],
+  ['我媽媽是上班族。','My mom is an office worker.','an office worker（U1 課文）'],
+  ['我的家人對我來說非常珍貴。','My family is very dear to me.','family 單數 → is；be dear to（U1 課文）'],
+  ['紫色是我最喜愛的顏色。','Purple is my favorite color.','favorite color（U2 課文）'],
+  ['棕色盒子裡的那些是什麼？','What are those in the brown box?','those 複數 → What are（U2 課文）'],
+  ['牠們是給我的老鼠的餅乾。','They\'re cookies for my mice.','mouse → mice（U2 課文）'],
+  ['也許牠在沙發底下。','Maybe he\'s under the sofa.','Maybe＝也許；under（U2 課文）'],
+  ['臥室在那三個房間的上方。','The bedroom is above those three rooms.','above（U2 課文）'],
+  ['Keret House 不大，但一個人住夠了。','The Keret House is not big, but it is enough for one person.','be enough for…（U2 課文）'],
+  ['你叫什麼名字？——我的名字是 Ryan。','What is your name? My name is Ryan.','所有格 your / my（Starter）'],
 ];
 
 /* 考點雷達（依翰林 36 校七上第一次段考卷統計：analysis/stats_by_publisher.json） */
@@ -725,9 +741,9 @@ const RADAR={
 };
 
 /* ================= 導覽 ================= */
-const TABS=[['home','🏠 考點雷達'],['st','🔤 Starter'],['l1','👨‍👩‍👧 L1 家人職業'],['l2','🏠 L2 房間位置'],['r1','🔁 Review 1'],['gram','🧠 文法特訓'],['mix','🧩 克漏字＋閱讀']];
+const TABS=[['home','🏠 考點雷達'],['st','🔤 Starter'],['l1','👨‍👩‍👧 U1 家人職業'],['l2','🏠 U2 房間位置'],['r1','🔁 Review 1'],['gram','🧠 文法特訓'],['mix','🧩 克漏字＋閱讀']];
 
-const AUDIO=new Set(["0014f66d", "011decbc", "02a57704", "03285dfc", "03b1d87b", "05bf6449", "07cc25f4", "0a0a25b5", "0ba81191", "0dc48142", "0edc8ae2", "10f5d87c", "128a5e20", "16fb7f77", "18201bf2", "1dd8f4b8", "1f951fd4", "2414eb49", "2ca135cd", "2d505a99", "2e2d5bb2", "2ef3accc", "30be372f", "31c54e86", "32d3da77", "33e6572f", "35e314a5", "3799e184", "3ae1316f", "3b084af1", "3bbe5f00", "3d7e6258", "3dda96ad", "3ea07d7c", "4024f153", "406f344d", "4124f2e6", "41387a9e", "45b1c069", "490b64ba", "4958a664", "4b094365", "4c48d350", "4dec6320", "4e388f15", "4ef0c8fc", "514c98f2", "521d0429", "52844540", "547125cb", "568f4ba4", "57342012", "573511ed", "58446843", "592318c4", "5a69615f", "5c9f5209", "5cbde4e5", "5e5063f2", "5fb7b228", "60d8d2d9", "60e2ae30", "61342fd0", "62ae0724", "62ebc769", "63374a36", "665eb609", "666e893c", "668ca946", "67a9c9d2", "6a3a7f29", "6cc7dde1", "70c67e32", "7183f6da", "77d66499", "7843150e", "78627a04", "78bb9249", "795735e5", "7f323263", "8003a189", "80f867d9", "82138fe3", "82afede5", "82fbf5cd", "84cc956a", "8583378f", "89193acd", "8953595b", "8a7324ef", "8b34adbd", "8b77447b", "8b840ddb", "8c3b3011", "8c7d94af", "8d4ea641", "8e660e16", "8ea0f8a0", "8ff53680", "90c0806f", "92a761cd", "9363796f", "963335ee", "9868d831", "9a6e02ff", "9d2ee900", "9d9ecbcf", "9dcfbd73", "a1f02512", "a2a70e2f", "a2bf3a03", "a3a5d239", "a3df0ed1", "a4213c0a", "a4ee076f", "a51087ed", "a7262d15", "a91a3339", "a9352eba", "aceae80c", "acf8f357", "ae3744b3", "afd915a5", "b010ea67", "b29a1f4c", "b7f83197", "ba9ab39a", "bac209c5", "bb357f55", "bb8324f1", "be139872", "bedf6fe5", "bef086ed", "bf3ad851", "c3b6d666", "c4f6b883", "c690f19c", "c944ea21", "c97160d1", "c9ad5a6b", "cb73150d", "cbfd3c67", "d1f27484", "d397b280", "d7ece5ca", "d940d530", "dced8a09", "de020766", "df49a3a6", "e13cb2ab", "e236c7d8", "e2d79f84", "e3fc1e53", "e40c292c", "e5a0205d", "e74bd49a", "e81a898d", "e96898d5", "e9a2ff6f", "ea8f353b", "ef3e2929", "ef7743df", "f275aaba", "f50205a5", "f5352bb4", "f590e1e5", "f62b5f8c", "f749db6d", "f79f39aa", "f80a9d59", "fac46df3", "fb4544d2", "fb663305", "fce33891", "fda010c9", "fdd2b0cb", "fee13031"]);
+const AUDIO=new Set(["0014f66d", "00f0e6aa", "02a57704", "03274595", "03285dfc", "03b1d87b", "07cc25f4", "08b86621", "091d2bae", "0a0a25b5", "0ba81191", "0dc48142", "0edc8ae2", "10f5d87c", "128a5e20", "16fb7f77", "18201bf2", "1d74603e", "1dd8f4b8", "1f951fd4", "2414eb49", "2ca135cd", "2d505a99", "2e2d5bb2", "2ef3accc", "30be372f", "32d3da77", "3393d623", "33e6572f", "35e314a5", "37348a60", "378c7fa1", "3799e184", "3ae1316f", "3b084af1", "3bbe5f00", "3d5d558d", "3d7e6258", "3dda96ad", "3ea07d7c", "4024f153", "406f344d", "4124f2e6", "41387a9e", "45b1c069", "490b64ba", "4958a664", "4b094365", "4bdfdfb3", "4dec6320", "4e388f15", "4ef0c8fc", "514c98f2", "521d0429", "52844540", "547125cb", "568f4ba4", "57342012", "573511ed", "573f252c", "58446843", "592318c4", "5a69615f", "5c9f5209", "5cbde4e5", "5e5063f2", "5fb7b228", "605d486b", "60d8d2d9", "60e2ae30", "61342fd0", "62ae0724", "62f115db", "63374a36", "665eb609", "666e893c", "668ca946", "67a9c9d2", "6a3a7f29", "6cc7dde1", "70c67e32", "7183f6da", "77d66499", "7843150e", "78627a04", "78bb9249", "795735e5", "7e85d653", "7f323263", "8003a189", "80f867d9", "82138fe3", "82afede5", "84cc956a", "8583378f", "89193acd", "8953595b", "8a7324ef", "8b34adbd", "8b77447b", "8c3b3011", "8c7d94af", "8d4ea641", "8e660e16", "8ea0f8a0", "8ff53680", "90c0806f", "92a761cd", "9363796f", "963335ee", "9769b020", "9868d831", "9918f4ae", "9a688bf3", "9a6e02ff", "9d2ee900", "9d9ecbcf", "9dcfbd73", "9fad8423", "9fd7144e", "a025d330", "a1f02512", "a2bf3a03", "a3a5d239", "a3df0ed1", "a4213c0a", "a4ee076f", "a51087ed", "a7262d15", "a91a3339", "a9352eba", "aa921b82", "ab9312ba", "aceae80c", "acf8f357", "afd915a5", "b010ea67", "b29a1f4c", "b7f83197", "ba9ab39a", "bac209c5", "bb357f55", "bb8324f1", "be139872", "bedf6fe5", "bef086ed", "bf3ad851", "c3b6d666", "c4f6b883", "c690f19c", "c944ea21", "c97160d1", "c9ad5a6b", "cbfd3c67", "d251569e", "d397b280", "d7ece5ca", "d940d530", "d9889b6b", "dced8a09", "de020766", "df49a3a6", "e13cb2ab", "e19ca431", "e236c7d8", "e2d79f84", "e382ff79", "e40c292c", "e5a0205d", "e74bd49a", "e81a898d", "e96898d5", "e9a2ff6f", "ea8f353b", "ef3e2929", "ef7743df", "f275aaba", "f4b48d8c", "f5352bb4", "f590e1e5", "f62b5f8c", "f749db6d", "f79f39aa", "f80a9d59", "fac46df3", "fb4544d2", "fce33891", "fdd2b0cb", "fe00a57c", "fee13031"]);
 /* ================= 注釋配對 ================= */
 function renderMatch(el,pairs){
   const rounds=[];const sp=shuf(pairs);for(let k=0;k<sp.length;k+=5)rounds.push(sp.slice(k,k+5));
@@ -1153,7 +1169,7 @@ function renderHome(app){
   const bar=arr=>bar2(arr,N);
   app.innerHTML=`
   <h2>📡 第一次段考考點雷達</h2>
-  <p class="muted">整理 ${N} 所學校的翰林版國一上第一次段考卷（範圍 Starter Unit＋L1～L2＋Review 1）：${RADAR.schools}，看哪些東西「每校都考」。</p>
+  <p class="muted">整理 ${N} 所學校的翰林版國一上第一次段考卷（範圍 Starter Unit＋Unit 1～2＋Review 1）：${RADAR.schools}，看哪些東西「每校都考」。課文動畫與抓抓樂已依翰林課本原文校正。</p>
   <div class="lessoncards" style="margin:16px 0 24px">
     ${['st','l1','l2','r1','gram'].map(k=>`<div class="lc" style="background:${L[k].color}" data-k="${k}"><div><div class="n">${L[k].no}</div><div class="t">${L[k].short}</div></div><div class="d">${L[k].desc}</div></div>`).join('')}
     <div class="lc" style="background:linear-gradient(135deg,#3a4f7a,#6b86b8)" data-k="mix"><div><div class="n">綜合</div><div class="t">克漏字＋閱讀</div></div><div class="d">克漏字｜閱讀測驗｜翻譯翻翻卡</div></div>
@@ -1257,9 +1273,9 @@ function renderHunt(el,h){
 /* ================= 綜合：克漏字＋閱讀＋翻譯 ================= */
 function renderMix(app){
   const s=curSub.mix||'cloze';
-  const subs=[['cloze','🧩 課文改寫克漏字'],['read','📖 閱讀測驗'],['trans','🃏 翻譯翻翻卡']];
+  const subs=[['cloze','🧩 克漏字'],['read','📖 閱讀測驗'],['trans','🃏 翻譯翻翻卡']];
   app.innerHTML=`<h2>🧩 克漏字＋閱讀＋翻譯</h2>
-  <p class="muted">翰林 36 校中 28 校考克漏字、27 校考閱讀題組（家譜、找寵物位置、房間配置最常見）、24 校考中翻英。以下文章皆為原創改寫。</p>
+  <p class="muted">翰林 36 校中 28 校考克漏字、27 校考閱讀題組（家譜、找寵物位置、房間配置最常見）、24 校考中翻英。克漏字與閱讀文章為原創；翻譯翻翻卡是翰林課本原句。</p>
   <div class="subtabs">${subs.map(([k,t])=>`<button class="sub ${k===s?'on':''}" data-s="${k}">${t}</button>`).join('')}</div><div id="panel"></div>`;
   app.querySelectorAll('.sub').forEach(b=>b.onclick=()=>{curSub.mix=b.dataset.s;render()});
   const p=$('#panel');
@@ -1274,56 +1290,63 @@ function renderMix(app){
   set.forEach((c,k)=>{const nm=c.title.split('｜')[1]||c.title;renderMCQ($('#cq'+k),c.qs.map(q=>({...q,src:'',q:/^__\d__$/.test(q.q)?`${nm} 第 ${q.q.replace(/_/g,'')} 格`:q.q})),7,`綜合 ${c.title.replace(/｜/g,' ')}`)});
 }
 
-/* ================= Starter 動畫 ================= */
+/* ================= Starter 動畫（課文依翰林 Starter Unit 課本） ================= */
 function animST(p){
   p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
-  <div class="card"><h3>🗺️ Starter 一張圖</h3>
-  <p><span class="pill">問候</span>Hello! → Nice to meet you. → Nice to meet you, <b>too</b>.／How are you? → Fine / Not bad.</p>
-  <p><span class="pill">文具</span>What's this? It's <b>a</b> ruler／<b>an</b> eraser／<b>an</b> umbrella.</p>
-  <p><span class="pill">數字</span>eleven、twelve、thirteen…forty（沒有 u！）、forty-eight（要連字號）</p>
-  <p><span class="pill">顏色</span>What color is it? It's purple／brown／gray.</p></div>`;
+  <div class="card"><h3>🗺️ Starter Unit 一張圖（翰林課本）</h3>
+  <p><span class="pill">① 字母</span>印刷體大小寫互換：TEXTBOOK → textbook、galaxy → GALAXY（全對才給分）</p>
+  <p><span class="pill">② 拼讀</span>短母音：van、wet、pig、box、bug</p>
+  <p><span class="pill">③ 代名詞</span>I <b>am</b>／you, we, they <b>are</b>／he, she, it <b>is</b>；I'm、you're、he's、it's、they're</p>
+  <p><span class="pill">④ 所有格</span>What is your name? — <b>My</b> name is Ryan.／<b>His</b>、<b>Her</b>、<b>Its</b> name is …</p>
+  <p><span class="pill">⑤ 年紀</span>How old are you? — I am ten.／27 twenty-seven、44 forty-four、40 <b>forty</b>（沒有 u）</p>
+  <p><span class="pill">📊 補充</span>打招呼（Nice to meet you, too.）、文具（a ruler、an eraser）、顏色在課本 U1／U2／R1，但很多學校併入 Starter 考。</p></div>`;
   const steps=[
-    {label:'① 見面打招呼',imgs:[{img:'l1_class',tag:'Hello! Nice to meet you.'}],poem:'Jamie: Hello! I\'m Jamie. What\'s your name?<br>Yuki: My name is Yuki. <b>Nice to meet you.</b><br>Jamie: <b>Nice to meet you, too.</b>',key:'回答 Nice to meet you. 要加 <b>too</b>（8 校考）。句首字母、人名都要<b>大寫</b>。'},
-    {label:'② 你好嗎？',imgs:[{img:'l1_kids',tag:'How are you? — Not bad.'}],poem:'Yuki: How are you, Jamie?<br>Jamie: <b>Not bad.</b> And you?<br>Yuki: I\'m <b>fine</b>, thank you.',key:'How are you? 回答 Fine / Not bad / Great，<b>不是</b>回答名字或年齡。'},
-    {label:'③ 這是什麼？',imgs:[{img:'st_ruler',tag:'What\'s this? It\'s a ruler.'},{img:'st_pencils',tag:'They\'re pencils.'}],poem:'Yuki: <b>What\'s this?</b><br>Jamie: <b>It\'s a</b> ruler. And this is <b>an</b> eraser.<br>Yuki: What are those? — <b>They\'re</b> pencils.',key:'單數用 It\'s a / an…；複數用 They\'re…。eraser、umbrella 母音開頭 → <b>an</b>。'},
-    {label:'④ 什麼顏色？',imgs:[{img:'st_pencils',tag:'What color is it?'},{img:'st_umbrella',tag:'My umbrella is yellow and green.'}],poem:'Yuki: <b>What color is</b> your umbrella?<br>Jamie: It\'s yellow and green. <b>Purple</b> is my favorite color.',key:'What color 問顏色。purple、brown、gray 常考拼字。'},
-    {label:'⑤ 數字大考驗',imgs:[{img:'st_ruler',tag:'twelve, thirteen, forty, forty-eight'}],poem:'Jamie: How many markers are in the box?<br>Yuki: <b>Twelve</b>. And forty-eight <b>pencils</b>!<br>12 twelve｜13 thirteen｜29 twenty-nine｜40 <b>forty</b>｜48 <b>forty-eight</b>',key:'four、fourteen 有 u，<b>forty 沒有 u</b>！二十一以上的數字要用<b>連字號</b>：twenty-nine。'},
+    {label:'① 字母大小寫',imgs:[{img:'st_pencils',tag:'TEXTBOOK → textbook'}],poem:'TEXTBOOK → <b>textbook</b>　QUIZ → <b>quiz</b><br>vacuum → <b>VACUUM</b>　galaxy → <b>GALAXY</b>',key:'課本 Starter ①：大小寫互換<b>全對才給分</b>（19 校考）。小心 b／d、p／q 的形狀。'},
+    {label:'② 字母拼讀',imgs:[{img:'st_ruler',tag:'van, jet, pig, box, bug'}],poem:'van, v-an, <b>van</b>　jet, j-et, <b>jet</b><br>pig, p-ig, <b>pig</b>　box, b-ox, <b>box</b>　bug, b-ug, <b>bug</b>',key:'課本 Starter ②：短母音 a、e、i、o、u。先拆開再拼回來。'},
+    {label:'③ 代名詞＋be',imgs:[{img:'l1_class',tag:'I am Tina. You are Gary.'}],poem:'<b>I am</b> Tina. <b>You are</b> Gary.<br><b>He is</b> Mark. <b>She is</b> Kelly. <b>It is</b> Lucky.<br><b>We are</b> Ben and Jan. <b>They are</b> Mr. and Mrs. Lin.',key:'課本 Starter ③：I → am；you／we／they → are；he／she／it → is。縮寫 I\'m、you\'re、he\'s、it\'s、we\'re、they\'re。'},
+    {label:'④ 所有格與名字',imgs:[{img:'l1_kids',tag:'What is your name?'}],poem:'What is <b>your</b> name? — <b>My</b> name is Ryan.<br><b>His</b> name is William. <b>Her</b> name is Sara. <b>Its</b> name is Happy.<br>Her name is Helen. → <b>She is</b> Helen.',key:'課本 Starter ④：所有格後面接名詞。<b>its</b>（它的）≠ it\'s（it is）；What is＝What\'s。'},
+    {label:'⑤ 數字與年紀',imgs:[{img:'st_ruler',tag:'How old are you? I am ten.'}],poem:'<b>How old</b> are you? — I am <b>ten</b>.<br>How old is he? — He is <b>one</b>.<br>27 <b>twenty-seven</b>｜44 <b>forty-four</b>｜13 thirteen｜30 thirty',key:'課本 Starter ⑤：21～99 十位與個位之間加<b>連字號</b>；four、fourteen 有 u，<b>forty 沒有 u</b>！'},
+    {label:'⑥ 書寫格式',imgs:[{img:'st_umbrella',tag:'My name is Jack-Jack.'}],poem:'<b>M</b>y name is <b>J</b>ack-<b>J</b>ack<b>.</b><br><b>W</b>hat is your name<b>?</b><br><b>I</b> am ten.',key:'課本 Starter ⑥：句首大寫、<b>I 永遠大寫</b>、人名大寫、直述句加句點、問句加問號、標點前不空格。'},
   ];
   stepper(p,steps,i=>showPhoto(steps[i]),8000);
 }
 
-/* ================= L1 動畫 ================= */
+/* ================= Unit 1 動畫（課文依翰林 Unit 1 課本） ================= */
 function animL1(p){
   p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
-  <div class="card"><h3>🗺️ 課文一張圖（原創改寫）</h3>
-  <p><span class="pill">對話</span>Jamie 看到一個高個子男生 → Yuki 介紹：他是新同學 <b>Zac</b> → 互相說 Nice to meet you</p>
-  <p><span class="pill">短文</span>Zac 介紹家人：爸爸是<b>作家</b>、媽媽是<b>家庭主婦</b>、姊姊 Sophie 是<b>護理師</b>、表哥 Max 29 歲是<b>醫生</b></p>
-  <p><span class="pill">文法</span>Who…? How old…? ＋ be 動詞 Yes/No 簡答 ＋ a / an ＋ 所有格</p></div>`;
+  <div class="card"><h3>🗺️ 課文一張圖（翰林 Unit 1 Who's That Handsome Boy?）</h3>
+  <p><span class="pill">對話 A</span>At school：Jamie 看到英俊的男孩 → Yuki：他是新同學 <b>Zac</b>；那位年輕女子是 Zac 的姊姊 <b>Sophie（nurse）</b>，又高又美</p>
+  <p><span class="pill">對話 B</span>In the classroom：<b>Zac Hugo</b> 和 <b>Jamie Parker</b> 互相認識；Jamie 的表哥 <b>Max Banker</b> 不是學生，是 29 歲的<b>醫生</b></p>
+  <p><span class="pill">閱讀</span>My Dear Family：五口之家——媽媽 office worker（35）、爸爸 teacher（35）、妹妹國小生（10）、Jamie 國中生（13）、弟弟 Dan（1）</p>
+  <p><span class="pill">文法</span>be 動詞直述／疑問／簡答 ＋ a / an＋形容詞＋名詞 ＋ Who is he/she? ＋ 家族稱謂</p></div>`;
   const steps=[
-    {label:'① 那個高個子是誰？',imgs:[{img:'l1_class',tag:'Who\'s that tall boy?'}],poem:'Jamie: Look at that <b>tall</b> boy. <b>Who\'s</b> he?<br>Yuki: That\'s Zac, our new <b>classmate</b>.<br>Jamie: Hi, Zac. I\'m Jamie. <b>Nice to meet you.</b><br>Zac: Nice to meet you, <b>too</b>.',key:'Who 問「是誰」→ 回答名字或身分。<b>our</b> new classmate：名詞前用所有格。'},
-    {label:'② 一家五口',imgs:[{img:'l1_family',tag:'We are a family of five.'}],poem:'Zac: This is my family photo. We are <b>a family of five</b>.<br>My dad is a <b>writer</b>. My mom is a <b>housewife</b>.',key:'a family <b>of</b> five（介系詞 of）；writer 前用 <b>a</b>；housewife 的複數是 house<b>wives</b>。'},
-    {label:'③ 作家爸爸',imgs:[{img:'l1_writer',tag:'My dad is a writer.'},{img:'l1_office',tag:'Is your mom an office worker? No, she isn\'t.'}],poem:'Jamie: Is your mom <b>an office worker</b>?<br>Zac: <b>No, she isn\'t.</b> She\'s a housewife. She\'s always busy at home.',key:'<b>an</b> office worker（13 校考 a/an）；簡答要換成代名詞 <b>she</b>。'},
-    {label:'④ 護理師姊姊',imgs:[{img:'l1_nurse',tag:'She\'s a nurse.'}],poem:'Jamie: And who\'s this young <b>woman</b>?<br>Zac: She\'s my sister, Sophie. She\'s a <b>nurse</b>. She\'s tall and <b>beautiful</b>.',key:'woman 的複數是 <b>women</b>（26 校考）。'},
-    {label:'⑤ 醫生表哥',imgs:[{img:'l1_doctor',tag:'He\'s my cousin, Max. He\'s a doctor.'}],poem:'Jamie: Is this man your brother?<br>Zac: <b>No, he isn\'t.</b> He\'s my <b>cousin</b>, Max. He\'s my uncle\'s son.<br>Jamie: <b>How old</b> is he? — He\'s <b>twenty-nine</b>. He\'s a <b>doctor</b>.',key:'uncle 的兒子＝<b>cousin</b>（27 校考）。How old → 回答數字；twenty-nine 要連字號。'},
-    {label:'⑥ 家人很珍貴',imgs:[{img:'l1_police',tag:'Isn\'t your uncle a police officer?'},{img:'l1_singer',tag:'She\'s a singer.'}],poem:'Jamie: <b>Isn\'t</b> your uncle a police officer?<br>Zac: <b>No, he isn\'t.</b> He\'s a cook. But my aunt is a <b>singer</b>!<br>Zac: My family <b>is</b> very <b>dear to</b> me.',key:'否定問句照事實回答（12 校考）；My family <b>is</b>（family 單數）；be dear to＝對…很珍貴。'},
+    {label:'① 那個英俊的男孩是誰？',imgs:[{img:'l1_class',tag:'Look at that handsome boy. Who is he?'}],poem:'Jamie: Good morning, Yuki.<br>Yuki: Good morning, Jamie.<br>Jamie: Look at that <b>handsome</b> boy. <b>Who is he?</b><br>Yuki: That\'s Zac, <b>our new classmate</b>.',key:'Who 問「是誰」→ 回答名字或身分。handsome（24 校考）；<b>our</b> new classmate：所有格＋形容詞＋名詞。'},
+    {label:'② 年輕女子是誰？',imgs:[{img:'l1_nurse',tag:'That\'s Zac\'s sister, Sophie. She\'s a nurse.'}],poem:'Jamie: And the <b>young woman</b>?<br>Yuki: That\'s <b>Zac\'s sister</b>, Sophie. She\'s a <b>nurse</b>.<br>Jamie: She\'s <b>very tall</b>.<br>Yuki: She\'s <b>beautiful, too</b>.',key:'woman 的複數是 <b>women</b>（26 校考）；Zac\'s＝名詞所有格；too（也）放句尾。'},
+    {label:'③ 互相認識',imgs:[{img:'l1_kids',tag:'Nice to meet you, too.'}],poem:'Zac: Hi, I\'m Zac Hugo. <b>Nice to meet you.</b><br>Jamie: I\'m Jamie Parker. <b>Nice to meet you, too.</b><br>Zac: Who\'s this, Jamie? <b>Is he your brother?</b><br>Jamie: <b>No, he isn\'t.</b> He\'s my <b>cousin</b>, Max. Max Banker.',key:'回答 Nice to meet you. 要加 <b>too</b>（8 校考）。cousin 堂表兄弟姊妹（27 校考）。'},
+    {label:'④ 醫生表哥',imgs:[{img:'l1_doctor',tag:'He\'s a doctor.'}],poem:'Zac: Is Max a student?<br>Jamie: <b>No, he isn\'t.</b> He\'s a <b>doctor</b>.<br>Zac: <b>Really?</b> <b>How old</b> is he?<br>Jamie: He\'s <b>twenty-nine years old</b>.<br>Zac: <b>I see.</b>',key:'簡答 Max → <b>he</b>；How old → 回答數字；twenty-nine 要連字號、years 加 s。'},
+    {label:'⑤ My Dear Family（上）',imgs:[{img:'l1_family',tag:'We are a family of five.'},{img:'l1_office',tag:'My mom is an office worker.'}],poem:'Hi, I\'m Jamie, and this is my <b>dear family</b>. We are <b>a family of five</b>.<br>My mom is <b>an office worker</b>. She\'s thirty-five years old.<br>My dad is a <b>teacher</b>. He\'s thirty-five, <b>too</b>.',key:'a family <b>of</b> five；<b>an</b> office worker（a/an 20 校考）；teacher＝teach＋er。'},
+    {label:'⑥ My Dear Family（下）',imgs:[{img:'l1_kids',tag:'She\'s ten, and I\'m thirteen.'},{img:'l1_family',tag:'My family is very dear to me.'}],poem:'My sister is <b>an elementary school</b> student, and I\'m a <b>junior high school</b> student.<br>She\'s ten, and I\'m thirteen. And my <b>baby</b> brother, Dan, is <b>one year old</b>.<br>My family <b>is</b> very <b>dear to</b> me.',key:'an elementary／a junior；one year old（一歲 year 不加 s）；My family <b>is</b>（family 單數）。'},
+    {label:'⑦ Theme Words 職業',imgs:[{img:'l1_singer',tag:'Paul is a singer.'},{img:'l1_police',tag:'Jane is a police officer.'},{img:'l1_writer',tag:'Eric is a writer.'}],poem:'Paul is a <b>singer</b>. Zoe is <b>an office worker</b>. Scott is a teacher.<br>Carol is a <b>housewife</b>. Jane is a <b>police officer</b>.<br>Eric is a <b>writer</b>. Ted is a <b>cook</b>.',key:'writer（27 校）、singer（25 校）、housewife（23 校）都是高頻字；-er 表示「做…的人」。'},
   ];
   stepper(p,steps,i=>showPhoto(steps[i]),8000);
 }
 
-/* ================= L2 動畫 ================= */
+/* ================= Unit 2 動畫（課文依翰林 Unit 2 課本） ================= */
 function animL2(p){
   p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
   <div class="grid2">
-    <div class="card"><h3>💬 對話：Jamie 到 Zac 家（原創改寫）</h3><p><span class="pill">起</span>紫色的客廳——媽媽最喜歡的顏色</p><p><span class="pill">承</span>棕色盒子裡是給老鼠的<b>餅乾</b></p><p><span class="pill">轉</span>三隻老鼠 Mickey、Minnie、Molly 都<b>餓</b>了</p><p><span class="pill">合</span>Molly 在哪？也許在沙發<b>下面</b></p></div>
-    <div class="card"><h3>📖 閱讀：The Keret House</h3><p><span class="pill">一</span>在波蘭華沙，夾在兩棟大樓<b>之間</b></p><p><span class="pill">二</span>又長又窄，最窄處只有 92 公分</p><p><span class="pill">三</span>浴室、廚房、飯廳<b>彼此相鄰</b>；臥室在它們<b>上方</b></p><p><span class="pill">四</span>不大，但<b>足夠</b>一個人住</p></div>
+    <div class="card"><h3>💬 對話：Jamie 到 Zac 家（翰林 Unit 2）</h3><p><span class="pill">起</span>見 Zac 的爸媽 <b>Mr. and Mrs. Hugo</b></p><p><span class="pill">承</span>客廳牆壁是<b>紫色</b>——Zac 媽媽最喜愛的顏色；飯廳也是紫色，<b>廚房是灰色</b></p><p><span class="pill">轉</span>棕色盒子裡是給老鼠 Mickey、Minnie、Molly 的<b>餅乾</b></p><p><span class="pill">合</span>Mickey 不見了！不在沙發下，在<b>盒子旁邊</b>——牠<b>餓</b>了</p></div>
+    <div class="card"><h3>📖 閱讀：The Keret House</h3><p><span class="pill">一</span>波蘭（Poland）的一棟<b>小房子</b></p><p><span class="pill">二</span>又長又窄（long, thin），非常<b>特別</b></p><p><span class="pill">三</span>浴室、廚房、飯廳<b>彼此相鄰</b>；臥室在它們<b>上方</b></p><p><span class="pill">四</span>不大，但<b>足夠</b>一個人住</p></div>
   </div>`;
   const steps=[
-    {label:'① 紫色客廳',imgs:[{img:'l2_living',tag:'Welcome to my house!'}],poem:'Zac: <b>Welcome to</b> my house! This is our <b>living room</b>.<br>Jamie: Wow! The walls are <b>purple</b>.<br>Zac: Purple is my mom\'s <b>favorite</b> color.',key:'favorite（27 校）、purple（24 校）拼字必考。the walls 複數 → <b>are</b>。'},
-    {label:'② 盒子裡是什麼？',imgs:[{img:'l2_cookies',tag:'They\'re cookies for my mice.'},{img:'l2_gift',tag:'Here\'s a gift for you.'}],poem:'Jamie: <b>What are those</b> in the brown box?<br>Zac: <b>They\'re</b> cookies for my <b>mice</b>.<br>Jamie: Here\'s a <b>gift</b> for you, Zac.',key:'問 What are those? 答 <b>They\'re</b>…（不用 It\'s）。mouse → <b>mice</b>（28 校考）。'},
-    {label:'③ 三隻餓老鼠',imgs:[{img:'l2_mice',tag:'Mickey, Minnie, and Molly are hungry.'}],poem:'Zac: Their names are Mickey, Minnie, and Molly. They\'re <b>hungry</b>.<br>Jamie: Where\'s Molly?<br>Zac: Hmm… <b>Maybe</b> she\'s <b>under</b> the sofa.',key:'hungry 是 <b>29 校</b>考的第一名單字！Maybe＝也許。Where 問位置。'},
-    {label:'④ 房間在哪裡？',imgs:[{img:'l2_kitchen',tag:'The kitchen is next to the dining room.'},{img:'l2_dining',tag:'The dining room'},{img:'l2_bedroom',tag:'My bedroom is above the kitchen.'}],poem:'Zac: The <b>kitchen</b> is <b>next to</b> the <b>dining room</b>.<br>The bathroom is <b>between</b> the kitchen <b>and</b> my parents\' room.<br>My <b>bedroom</b> is <b>above</b> the kitchen.',key:'next to（22 校）、in front of（23 校）、between A <b>and</b> B、above（在上方，不接觸）。'},
-    {label:'⑤ 最窄的房子',imgs:[{img:'l2_keret',tag:'The Keret House is between two buildings.'}],poem:'The <b>Keret House</b> is in Warsaw, Poland. It is <b>between</b> two buildings.<br>It is long and very <b>narrow</b>. At its thinnest part, it is only 92 centimeters wide!',key:'Where is the Keret House? → It is <b>in</b> Poland.（台中五權考過）'},
-    {label:'⑥ 屋子裡面',imgs:[{img:'l2_keret_in',tag:'Inside the house'},{img:'l2_keret_kitchen',tag:'The kitchen is very small.'},{img:'l2_keret_desk',tag:'The bedroom is above those rooms.'},{img:'l2_keret_bed',tag:'It\'s enough for one person.'}],poem:'<b>Inside</b> the house, the bathroom, the kitchen, and the dining room are right <b>next to each other</b>.<br>The bedroom is <b>above</b> those three rooms.<br>The house is not big, but it\'s <b>enough</b> for one person.',key:'next to <b>each other</b>（15 校）；be <b>enough for</b>…（27 校考 enough）。'},
+    {label:'① 見見 Zac 的爸媽',imgs:[{img:'l2_living',tag:'Come meet my parents.'}],poem:'Zac: <b>Come meet my parents.</b><br>Jamie: OK.<br>Zac: Mom and Dad, this is Jamie.<br>Jamie: Nice to meet you, <b>Mr. and Mrs. Hugo</b>.<br>Zac\'s dad: Nice to meet you, <b>too</b>.',key:'parents（22 校考）要用複數；介紹別人用 <b>This is</b>…；Mr. and Mrs.＋姓。'},
+    {label:'② 紫色客廳、灰色廚房',imgs:[{img:'l2_living',tag:'The living room walls are purple.'},{img:'l2_kitchen',tag:'The kitchen isn\'t purple. It\'s gray.'}],poem:'Jamie: Wow, the <b>living room</b> walls are <b>purple</b>.<br>Zac\'s mom: Well, purple is my <b>favorite color</b>.<br>Jamie: Are the kitchen and the dining room purple, too?<br>Zac: The dining room is, <b>but</b> the kitchen isn\'t. It\'s <b>gray</b>.',key:'favorite（27 校）、purple（24 校）拼字必考。walls 複數 → <b>are</b>。廚房是 <b>gray</b>，不是紫色！'},
+    {label:'③ 盒子裡是什麼？',imgs:[{img:'l2_cookies',tag:'They\'re cookies for my mice.'},{img:'l2_gift',tag:'That is a gift.'}],poem:'Jamie: <b>What are those</b> in the brown box?<br>Zac: <b>They\'re cookies</b> for my <b>mice</b>, Mickey, Minnie, and Molly.<br>（Grammar Focus：What is that? — <b>That is a gift.</b>）',key:'問 What are those? 答 <b>They\'re</b>…（不用 It\'s）。mouse → <b>mice</b>（28 校考）。'},
+    {label:'④ Mickey 在哪？',imgs:[{img:'l2_mice',tag:'Where\'s Mickey?'}],poem:'Jamie: <b>Where are they?</b><br>Zac: They\'re <b>in</b> their house. Oh, no. <b>Where\'s</b> Mickey?<br>Jamie: <b>Maybe</b> he\'s <b>under</b> the sofa.<br>Zac: No, he\'s not.',key:'Where 問位置（32 校考）；They\'re（牠們是）≠ their（牠們的）；Maybe＝也許。'},
+    {label:'⑤ 牠餓了！',imgs:[{img:'l2_mice',tag:'He\'s next to the box. He\'s hungry.'},{img:'l2_cookies',tag:'cookies'}],poem:'Jamie: Look. He\'s <b>next to</b> the box.<br>Zac: He\'s <b>hungry</b>, haha.<br>Jamie: He <b>really</b> is.',key:'hungry 是 <b>29 校</b>考的第一名單字！next to＝在…旁邊（22 校考）。'},
+    {label:'⑥ 房間與位置',imgs:[{img:'l2_dining',tag:'He\'s in the dining room.'},{img:'l2_bedroom',tag:'It\'s on the bed.'}],poem:'Where is your father? — He\'s <b>in</b> the dining room.<br>Where is the book bag? — It\'s <b>on</b> the bed.<br>Where are the basketballs? — They\'re <b>behind</b> the door.',key:'課本 Grammar Focus 2：in／on／under／next to／near／between／in front of／behind（介系詞 35 校考）。'},
+    {label:'⑦ The Keret House',imgs:[{img:'l2_keret',tag:'The Keret House is a small house in Poland.'}],poem:'The <b>Keret House</b> is a small house <b>in Poland</b>.<br>It is long, thin, and very <b>special</b>.',key:'Where is the Keret House? → It is <b>in</b> Poland.（台中五權考過）special 22 校考。'},
+    {label:'⑧ 屋子裡面',imgs:[{img:'l2_keret_in',tag:'Inside the house'},{img:'l2_keret_kitchen',tag:'right next to each other'},{img:'l2_keret_desk',tag:'The bedroom is above those three rooms.'},{img:'l2_keret_bed',tag:'enough for one person'}],poem:'<b>Inside</b> the house, the bathroom, the kitchen, and the dining room are <b>right next to each other</b>.<br>The bedroom is <b>above</b> those three rooms.<br>The Keret House is not big, <b>but</b> it is <b>enough for</b> one person.',key:'next to <b>each other</b>（15 校）；above（上方）；be <b>enough for</b>…（27 校考 enough）。'},
   ];
   stepper(p,steps,i=>showPhoto(steps[i]),8000);
 }
@@ -1331,16 +1354,16 @@ function animL2(p){
 /* ================= Review 1：家譜＋位置推理 ================= */
 function animR1(p){
   const people=[
-    {n:'Grandpa Hugo',r:'爺爺',g:0},{n:'Grandma Hugo',r:'奶奶',g:0},
-    {n:'Mr. Hugo',r:'爸爸（office worker）',g:1},{n:'Mrs. Hugo',r:'媽媽（housewife）',g:1},{n:'Aunt Mia',r:'姑姑（singer）',g:1},{n:'Uncle Dan',r:'姑丈（police officer）',g:1},
-    {n:'Jamie',r:'我（13 歲）',g:2},{n:'Amy',r:'妹妹（8 歲）',g:2},{n:'Leo',r:'Aunt Mia 的兒子（15 歲）',g:2}];
+    {n:'Grandpa Lee',r:'爺爺',g:0},{n:'Grandma Lee',r:'奶奶',g:0},
+    {n:'Mr. Lee',r:'爸爸（office worker）',g:1},{n:'Mrs. Lee',r:'媽媽（housewife）',g:1},{n:'Aunt Mia',r:'姑姑（singer）',g:1},{n:'Uncle Dan',r:'姑丈（police officer）',g:1},
+    {n:'Tom',r:'我（13 歲）',g:2},{n:'Amy',r:'妹妹（8 歲）',g:2},{n:'Leo',r:'Aunt Mia 的兒子（15 歲）',g:2}];
   const Q=[
-    ['Who is Leo to Jamie?','He is Jamie\'s cousin.','姑姑的兒子 → cousin'],
+    ['Who is Leo to Tom?','He is Tom\'s cousin.','姑姑的兒子 → cousin'],
     ['Who is Uncle Dan to Amy?','He is Amy\'s uncle.','姑姑的丈夫 → uncle'],
     ['Is Aunt Mia a housewife?','No, she isn\'t. She\'s a singer.','簡答換代名詞 she'],
     ['How old is Leo?','He\'s fifteen.','How old → 數字'],
-    ['Are Jamie and Amy Mr. Hugo\'s children?','Yes, they are.','兩人 → they；不可縮寫成 they\'re'],
-    ['Who are Mr. and Mrs. Hugo?','They are husband and wife.','夫妻 husband and wife'],
+    ['Are Tom and Amy Mr. Lee\'s children?','Yes, they are.','兩人 → they；不可縮寫成 they\'re'],
+    ['Who are Mr. and Mrs. Lee?','They are husband and wife.','夫妻 husband and wife'],
   ];
   const R=[
     ['The bathroom is between the kitchen and the bedroom.','浴室在廚房和臥室中間'],
@@ -1351,11 +1374,17 @@ function animR1(p){
   p.innerHTML=`<div class="card"><h3>🌳 家族樹推理（段考題組常見題型）</h3>
     <p class="muted">先看家族樹，再點下面的問題卡片翻面看答案（會唸出來）。</p>
     ${[0,1,2].map(g=>`<div class="chips" style="justify-content:center;margin:8px 0;text-align:center">${people.filter(x=>x.g===g).map(x=>`<span><b>${x.n}</b><br><small>${x.r}</small></span>`).join('')}</div>`).join('<div style="text-align:center">⬇️</div>')}
-    <p class="muted" style="text-align:center">Mr. Hugo 和 Aunt Mia 是兄妹（都是 Grandpa Hugo 的孩子）</p>
+    <p class="muted" style="text-align:center">Mr. Lee 和 Aunt Mia 是兄妹（都是 Grandpa Lee 的孩子）</p>
     <div class="flips tr">${Q.map((c,k)=>`<div class="flip" data-k="${k}"><div class="in"><div class="f"><b class="en">${esc(c[0])}</b></div><div class="bk2"><span class="en">${esc(c[1])}</span><small>${esc(c[2])}</small></div></div></div>`).join('')}</div></div>
   <div class="card"><h3>🏠 房間位置推理</h3><p class="muted">依句子排出房子的平面圖（點卡片看中文，會唸英文）。</p>
     <div class="flips tr">${R.map((c,k)=>`<div class="flip" data-r="${k}"><div class="in"><div class="f"><b class="en">${esc(c[0])}</b></div><div class="bk2"><span>${esc(c[1])}</span></div></div></div>`).join('')}</div>
     <p style="margin-top:12px">答案：<b>下層</b> 臥室｜浴室｜廚房｜客廳（沙發在電視前）；<b>上層</b> 書房在客廳正上方。</p></div>
+  <div class="card"><h3>📘 翰林課本 Review 1 在練什麼？</h3>
+    <p><span class="pill">聽力</span>Introducing Others 介紹他人：This is my friend, … — Nice to meet you. — Nice to meet you, too.</p>
+    <p><span class="pill">Recap</span>詞序：a / an 或所有格＋形容詞＋名詞 → <b>a good friend</b>／<b>my good friend</b>／<b>Peter's good friend</b></p>
+    <p><span class="pill">家庭</span>家族樹介紹自己與家人（married 已婚的）；<span class="pill">年紀</span>Mona, born 2006 → How old is she?</p>
+    <p><span class="pill">打招呼</span>Hi. → Oh hi. → <b>How are you?</b> → <b>Fine. And you?</b> → <b>Not bad.</b> → Good-bye. → Bye.</p>
+    <p><span class="pill">位置</span>in／on／under／behind／<b>above</b>／in front of（找貓咪在客廳哪裡）</p></div>
   <div class="card"><h3>🎯 Review 1 必考速記</h3>
     <p><span class="pill">關係</span>uncle / aunt 的孩子＝<b>cousin</b>；爸媽的兄弟＝uncle；爸媽的姊妹＝aunt</p>
     <p><span class="pill">單複數改寫</span>主詞、be 動詞、名詞<b>一起改</b>，複數前<b>拿掉 a / an</b>：That is an apple tree. → Those are apple trees.</p>

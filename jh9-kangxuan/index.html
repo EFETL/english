@@ -213,6 +213,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:20px}
 .ps.en{letter-spacing:0;font-size:1.35rem;line-height:1.7}
 .ps.pop{animation:pop .45s ease}
 @keyframes pop{0%{transform:scale(.9);opacity:.3}100%{transform:scale(1);opacity:1}}
+.bk{min-width:0;overflow-wrap:anywhere}
 </style>
 </head>
 <body>
@@ -228,10 +229,10 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:20px}
 <main><div class="wrap" id="app"></div></main>
 <footer><div class="wrap">
   <b>全民補習班 英文科</b>｜考點依據：台中五權、台中向上、台中崇德、台北誠正、台南中山、基隆銘傳、宜蘭中華、屏東中正、屏東明正、新北中正、新北五峰、新北板橋、新北永和、新北江翠、桃園、桃園大有、民族、燕巢、自強、花蓮宜昌、花蓮美崙、高雄七賢、高雄五甲、高雄國昌、高雄正興、高雄獅甲、高雄苓雅、高雄龍華、鳳甲、鼎金等 30 校（113–114 上）康軒版九年級第一次段考試卷，另比對全臺 59 校九上英文段考的共通文法。<br>
-  <b>課文為依段考卷考點原創改寫，非課本原文。</b>模擬題、克漏字與閱讀文章皆為原創，不照抄考卷原題。英文發音使用微軟 Neural 語音（en-US-Aria）預錄。練習時可以開聲音，答對、答錯都有音效。背景音樂只在「動畫導覽」播放，可按右下角按鈕關閉。<br>
+  <b>課文依康軒課本（115 學年 B5 L1、L2、Review 1）；模擬題與閱讀文章為原創</b>，不照抄考卷原題。英文發音使用微軟 Neural 語音（en-US-Aria）預錄。練習時可以開聲音，答對、答錯都有音效。背景音樂只在「動畫導覽」播放，可按右下角按鈕關閉。<br>
   交卷時會把你的姓名、分數與錯題傳給老師，只有老師看得到。左下角 ✏️ 可以手寫、兩指縮放。<br>
   <details style="margin-top:8px"><summary>圖片來源與授權</summary>
-  照片皆來自 Wikimedia Commons：Plate of chips at the Chalet Cafe, Cowfold, West Sussex, England：Acabashi（CC BY-SA 4.0）；Frituur fries frikandel mayo curry ketchup：Jon Åslund（CC BY 2.0）；Friterie Tabora in Brussels (DSCF7283)：Trougnouf (Benoit Brummer)（CC BY 4.0）；20090110 Oude leie (0042)：Donar Reiskoffer（CC BY 3.0）；Fried vendaces：JIP（CC BY-SA 3.0）；Namur Belgium Bridges-over-the-Meuse-01：CEphoto, Uwe Aranas（CC BY-SA 3.0）；Waitress taking an order：photo taken by flickr user alan.light（CC BY 2.0）；Beer and pizza on display in a restaurant on a rustic table with focus on the glass of beer：Nenad Stojkovic（CC BY 2.0）；American soldiers on furlough in southern France 1918：New-York tribune（公有領域）；Smartphone with navigation map app：Santeri Viinamäki（CC BY-SA 4.0）；Food delivery driver delivering online order：Meanwell Packaging（CC BY 2.0）；Couch-furniture-living-room-sofa (24300293356)：www.Pixel.la Free Stock Photos（CC0）；Willie Mae's exterior waiting：Krista（CC BY 2.0）；Last pizza delivery of the night (21301214092)：college.library（CC BY 2.0）；2 food deliverymen waiting for the green light at Taipei Arena Station 20220819：ThomasYehYeh（CC BY-SA 4.0）；Students of Baozhong Junior High School in khaki uniforms 20121207：褒忠國中 雲端網（CC BY 2.0）；Vintage electric hair dryer at the Malay Heritage Centre：Qhairy（CC0）；Hairdryer 20101109：Batholith (talk)（公有領域）。</details>
+  照片皆來自 Wikimedia Commons：Plate of chips at the Chalet Cafe, Cowfold, West Sussex, England：Acabashi（CC BY-SA 4.0）；Frituur fries frikandel mayo curry ketchup：Jon Åslund（CC BY 2.0）；Friterie Tabora in Brussels (DSCF7283)：Trougnouf (Benoit Brummer)（CC BY 4.0）；20090110 Oude leie (0042)：Donar Reiskoffer（CC BY 3.0）；Fried vendaces：JIP（CC BY-SA 3.0）；Namur Belgium Bridges-over-the-Meuse-01：CEphoto, Uwe Aranas（CC BY-SA 3.0）；Waitress taking an order：photo taken by flickr user alan.light（CC BY 2.0）；Beer and pizza on display in a restaurant on a rustic table with focus on the glass of beer：Nenad Stojkovic（CC BY 2.0）；American soldiers on furlough in southern France 1918：New-York tribune（公有領域）；Smartphone with navigation map app：Santeri Viinamäki（CC BY-SA 4.0）；Food delivery driver delivering online order：Meanwell Packaging（CC BY 2.0）；Couch-furniture-living-room-sofa (24300293356)：www.Pixel.la Free Stock Photos（CC0）；Willie Mae's exterior waiting：Krista（CC BY 2.0）；Last pizza delivery of the night (21301214092)：college.library（CC BY 2.0）；2 food deliverymen waiting for the green light at Taipei Arena Station 20220819：ThomasYehYeh（CC BY-SA 4.0）；Students of Baozhong Junior High School in khaki uniforms 20121207：褒忠國中 雲端網（CC BY 2.0）；Arrivals and Departures Board at the Paris Charles de Gaulle Airport (CDG), Roissy, France (52025030784)：Charles from Port Chester, New York（CC BY 2.0）；Halloween candy bucket：Petey21（CC0）；Plate of cookies：Sarah Fleming from Houston, TX, USA（CC BY 2.0）；K-pop group performance on stage, three male dancers in black suits, dynamic choreography, live concert：FeklaIvanova16（CC0）。</details>
 </div></footer>
 
 <script>
@@ -260,12 +261,12 @@ const isZY=s=>/[ㄅ-ㄩ]/.test(s);
 /* ================= 資料 ================= */
 /* 快問快答：[題目, 正解, [3 個誘答], 高頻(≥2 校考過), 題型]
    題型：e＝看英文選中文、c＝看中文選英文、s＝選出正確拼字、g＝文法／時態判斷
-   課文、對話、文章皆為依段考卷考點原創改寫，非課本原文。 */
+   課文句（anim、hunt、TRANS）依康軒 115 學年 B5 課本原文；模擬題、克漏字、閱讀文章為原創。 */
 const ASK={e:'選出正確的中文意思',c:'選出正確的英文',s:'選出正確的拼字',g:'選出正確的答案（文法）'};
 const L = {
 l1:{
-  no:'Lesson 1', code:1, title:'Where Did French Fries Come From?', short:'薯條的由來', color:'linear-gradient(135deg,#8a3b12,#c8672b)',
-  desc:'薯條起源（比利時 Meuse River）｜餐廳點餐｜現在完成式 since / for｜been to / gone to',
+  no:'Lesson 1', code:1, title:'Have You Ever Tried These Dishes?', short:'薯條歷史＋披薩店', color:'linear-gradient(135deg,#8a3b12,#c8672b)',
+  desc:'Emily 的報告：薯條起源（比利時 Meuse River）｜Carla & Nick 披薩店送錯單｜現在完成式 經驗／持續／完成',
   quick:[
     ['common','常見的',['方便的','成功的','傳統的'],1,'e'],
     ['excellent','優秀的',['令人興奮的','昂貴的','方便的'],1,'e'],
@@ -274,7 +275,9 @@ l1:{
     ['soldier','士兵',['司機','廚師','服務生'],1,'e'],
     ['national','國家的',['自然的','傳統的','主要的'],1,'e'],
     ['thick','厚的；粗的',['細的','黏的','快的'],1,'e'],
-    ['tradition','傳統',['翻譯','假日','主題'],1,'e'],
+    ['history','歷史',['地理','科學','主題'],0,'e'],
+    ['nobody','沒有人',['每個人','某人','任何人'],1,'e'],
+    ['inch','英寸',['公尺','公斤','英里'],1,'e'],
     ['island','島',['語言','地區','湖'],1,'e'],
     ['main','主要的',['平常的','國家的','有名的'],1,'e'],
     ['type','類型',['主題','打字員','時間'],1,'e'],
@@ -286,6 +289,8 @@ l1:{
     ['油炸','fry',['fly','try','cry'],1,'c'],
     ['點心；零食','snack',['snake','snap','stack'],1,'c'],
     ['假日','holiday',['birthday','history','hobby'],1,'c'],
+    ['南瓜','pumpkin',['potato','peanut','pudding'],1,'c'],
+    ['烘烤','bake',['back','bike','bark'],1,'c'],
     ['吹風機','hairdryer',['hairbrush','dishwasher','haircut'],1,'c'],
     ['細長條（薯條的「條」）','stick',['stock','snack','stitch'],1,'c'],
     ['主題；話題','topic',['type','tip','tool'],1,'c'],
@@ -300,15 +305,15 @@ l1:{
   ],
   words:[
     ['have been to','曾去過（已回來）'],['have gone to','已去了（人不在這裡）'],['have been in','一直待在某地'],['decide on','決定（選）'],
-    ['such as','例如'],['since then','從那時起'],['cut … into …','把…切成…'],['one of the + 最高級 + 複數名詞','最…的…之一'],
-    ['dress up','盛裝打扮'],['get … wrong','弄錯…'],['wave goodbye','揮手道別'],['so far','到目前為止'],
+    ['hear about','聽說'],['since then','從那時起'],['cut … into …','把…切成…'],['one of the + 最高級 + 複數名詞','最…的…之一'],
+    ['take … back to …','把…帶回…'],['get … wrong','弄錯…'],['for free','免費'],['by the way','順帶一提'],['even if','即使'],['check with','跟…確認'],
   ],
   sorts:[
     {title:'since 還是 for？',tip:'since＋「時間點」或「過去式子句」；for＋「一段時間」。How long…? 兩種都能回答。',buckets:['since','for'],items:[
       ['___ 2015',0],['___ ten years',1],['___ last summer',0],['___ a long time',1],['___ I was a child',0,'since 後面接子句要用過去式（was）。'],
       ['___ three days',1],['___ centuries',1],['___ yesterday',0],['___ the past two weeks',1,'for the past＋一段時間。'],['___ an hour',1],['___ ten years ago',0,'since ten years ago＝自從十年前（時間點）。']]},
     {title:'have been to／have gone to／have been in',tip:'been to＝去過（已回來）；gone to＝去了（還沒回來，人不在）；been in＝一直待在某地（常配 for / since）',buckets:['been to','gone to','been in'],items:[
-      ['Ken isn\'t here. He has ___ Japan.',1,'人不在這裡 → gone to。'],
+      ['Nick isn\'t here. He has ___ Japan.',1,'人不在這裡 → gone to。'],
       ['I have ___ Belgium twice. The fries there were great.',0],
       ['My aunt has ___ Kaohsiung for ten years. She still lives there.',2],
       ['Where is Dad? He has ___ the bakery.',1],
@@ -320,20 +325,18 @@ l1:{
     {title:'already／yet／ever／never',tip:'already 用肯定句（have 和 p.p. 中間）；yet 用否定、疑問句句尾；ever 問「曾經」；never＝從未',buckets:['already','yet','ever','never'],items:[
       ['Have you ___ tried stinky tofu?',2],['I have ___ finished my homework.',0],['She hasn\'t eaten lunch ___.',1],
       ['Have they arrived ___?',1,'疑問句句尾 → yet。'],['I have ___ been to Belgium, but I want to go someday.',3],
-      ['The new cook has ___ gotten two orders wrong today.',0],['No, I have ___ seen snow.',3],['Is this the best pizza you have ___ eaten?',2,'最高級＋you have ever p.p.']]},
+      ['Nick and Carla have ___ ordered. The pizza is coming.',0],['No, I have ___ seen snow.',3],['Is this the best pizza you have ___ eaten?',2,'最高級＋you have ever p.p.']]},
   ],
-  hunt:{label:'🔍 完成式抓抓樂',title:'找出短文中的「現在完成式」',tip:'have / has ＋ 過去分詞才是現在完成式。came、froze、fried 是過去式，不要點！',lines:[
-    'Fries are one of the most popular snacks in the world.',
-    'People [have eaten] them for centuries, but where did they come from?',
-    'Many people believe that the first fries came from Belgium.',
-    'Long ago, people near the Meuse River often caught small fish and fried them.',
-    'But in winter, the river froze, and it was hard for them to catch any fish.',
-    'So they cut potatoes into long thin sticks and fried them instead.',
-    'During World War I, American soldiers in Belgium tasted these fried potatoes.',
-    'French was the main language there, so the soldiers called them French fries.',
-    'Since then, French fries [have become] a favorite food around the world.',
-    'I [have tried] fries in the UK and in the USA. Fries in the UK are thicker than those in the USA.',
-    'In Belgium, eating fries with mayonnaise [has been] a tradition for a long time.',
+  hunt:{label:'🔍 完成式抓抓樂',title:'找出課文中的「現在完成式」',tip:'have / has（含 haven’t、’ve）＋過去分詞才是現在完成式。gave、froze、called、took 是過去式，不要點！（句子取自課本）',lines:[
+    'The French gave the world the first hairdryer, paper machine, and bikini.',
+    'However, they didn\'t give the world French fries. Many people probably [haven\'t heard] about this fact yet.',
+    'It was common for people in the area to catch and fry fish, but that was difficult when the river froze in the winter.',
+    'They called these fried potatoes "French fries" because French was the main language there.',
+    'They also took the food back to the USA. Since then, French fries [have become] popular all over the world.',
+    'Mr. Davis: You[\'ve done] a good job! How many different types of French fries [have] you [tried] before?',
+    'Carla: So, [have] you [been] to this restaurant before? Nick: Yes, I[\'ve eaten] here before.',
+    'Carla: It [has been] one of the most popular pizza places in this city for years.',
+    'Waiter: Our new cook [has gotten] one or two orders wrong today.',
   ]},
   mcq:[
     {q:'Kevin ___ in Taichung since he was five.',o:['has lived','lived','lives','is living'],a:0,src:'台中崇德、燕巢 同類題',ex:'since＋過去式子句（since he was five）→ 主要子句用現在完成式 has lived。is living 不能配 since。'},
@@ -344,20 +347,22 @@ l1:{
     {q:'In winter, it was hard ___ people to catch fish because the river froze.',o:['for','of','to','with'],a:0,src:'屏東中正、新北五峰 同類題',ex:'It is / was＋adj＋for 人＋to V。描述事情難易用 for。'},
     {q:'People there spoke French, ___ the soldiers called the fried potatoes French fries.',o:['so','because','but','although'],a:0,src:'課文改寫',ex:'前面是原因（說法語），後面是結果（叫 French fries）→ so。'},
     {q:'The river ___ last winter, so nobody could catch fish.',o:['froze','freezed','has frozen','frozen'],a:0,src:'台中五權 陷阱',ex:'freeze 是不規則動詞：freeze-froze-frozen。last winter 是過去時間 → froze。沒有 freezed。'},
-    {q:'This pizza place is one of the most successful ___ on the island.',o:['restaurants','restaurant','a restaurant','restaurant ones'],a:0,src:'台中向上、台南中山 同類題',ex:'one of the＋最高級＋複數名詞：最…的…之一。'},
+    {q:'It has been one of the most popular pizza ___ in this city for years.',o:['places','place','a place','place ones'],a:0,src:'課文句（台中向上、台南中山 同類題）',ex:'one of the＋最高級＋複數名詞：最…的…之一。'},
     {q:'Fries in the UK are thicker than ___ in the USA.',o:['those','that','them','it'],a:0,src:'高雄國昌、鳳甲',ex:'比較時用 those 代替前面的複數名詞 fries，避免重複。'},
     {q:'Math, English, and science are my favorite ___.',o:['subjects','languages','holidays','soldiers'],a:0,src:'17 校考 subject',ex:'數學、英文、自然是「科目」subjects。'},
     {q:'Waiter: Have you decided ___ your order yet?',o:['on','in','at','for'],a:0,src:'新北中正、燕巢、民族',ex:'decide on＝決定（選定某樣東西）。'},
     {q:'People in Taiwan ___ the Mid-Autumn Festival by having barbecues.',o:['celebrate','freeze','wave','fry'],a:0,src:'16 校考 celebrate',ex:'celebrate＝慶祝（節日）。'},
     {q:'Grandpa died five years ago. = Grandpa ___ for five years.',o:['has been dead','has died','died','is dying'],a:0,src:'台中向上 陷阱',ex:'die 是瞬間動詞，不能接 for／since；要改成狀態 be dead：has been dead for five years。'},
-    {q:'Waiter: I\'m so sorry. Our new cook ___ a few orders wrong today.',o:['has gotten','have gotten','is getting','get'],a:0,src:'新北中正 同類題',ex:'today 還沒結束、到目前為止已弄錯 → 現在完成式；主詞 cook 單數 → has gotten。'},
-    {q:'According to the reading, why did people start to fry potatoes?',o:['They couldn\'t catch fish when the river froze.','Potatoes were cheaper than fish.','The soldiers asked them to.','French people liked potatoes.'],a:0,src:'課文閱讀（原創改寫）',ex:'冬天河水結冰，抓不到魚，所以把馬鈴薯切條來炸。'},
-    {q:'Why are they called "French fries"?',o:['French was the main language in that area.','They were first made in France.','French soldiers named them.','They were cut in a French way.'],a:0,src:'課文閱讀（原創改寫）',ex:'一戰美國士兵在比利時吃到，當地主要語言是法語，所以叫 French fries。薯條其實是從比利時來的！'},
+    {q:'Waiter: Sorry about that. Our new cook ___ one or two orders wrong today.',o:['has gotten','have gotten','is getting','get'],a:0,src:'新北中正 同類題',ex:'today 還沒結束、到目前為止已弄錯 → 現在完成式；主詞 cook 單數 → has gotten。'},
+    {q:'According to the reading, why did people start to fry potatoes?',o:['They couldn\'t catch fish when the river froze.','Potatoes were cheaper than fish.','The soldiers asked them to.','French people liked potatoes.'],a:0,src:'課文閱讀（Emily 的報告）',ex:'冬天河水結冰，抓不到魚，所以把馬鈴薯切成細長條來炸。'},
+    {q:'Why are they called "French fries"?',o:['French was the main language in that area.','They were first made in France.','French soldiers named them.','They were cut in a French way.'],a:0,src:'課文閱讀（Emily 的報告）',ex:'一戰美國士兵在比利時吃到，當地主要語言是法語，所以叫 French fries。薯條其實是從比利時來的！'},
+    {q:'Carla ordered a 9-inch Cheese King pizza. What did the waiter bring her?',o:['Two 5-inch pizzas.','Three 5-inch pizzas.','A 10-inch pizza.','A 9-inch pizza and some fries.'],a:0,src:'課文對話',ex:'you\'ve just brought us two 5-inch pizzas。服務生還以為 5＋5＝10 吋比 9 吋大，其實面積差很多！'},
+    {q:'Which is TRUE according to Emily\'s report?',o:['Fries in the UK are usually thicker than those in the USA.','The French gave the world French fries.','The earliest French fries were from France.','American soldiers made the first French fries.'],a:0,src:'課文閱讀（Part B）',ex:'Part B：Fries in the UK are usually thicker than those in the USA. 法國人給了世界吹風機，但沒有給世界薯條。'},
   ]
 },
 l2:{
-  no:'Lesson 2', code:2, title:'Food Delivery Apps', short:'外送 App', color:'linear-gradient(135deg,#1f6f78,#3aa6a0)',
-  desc:'外送 App 調查與圖表｜情緒形容詞 -ed / -ing｜that 子句｜mind V-ing｜not only…but also',
+  no:'Lesson 2', code:2, title:'Are You Interested in Trying Food Delivery Apps?', short:'外送 App', color:'linear-gradient(135deg,#1f6f78,#3aa6a0)',
+  desc:'Food Delivery Apps Make Life Easier（Top 5 圖表）｜Nick & Bella 的 Yummy Sloth｜-ing / -ed｜that 子句｜轉述句',
   quick:[
     ['delivery','外送',['折扣','服務','位置'],1,'e'],
     ['service','服務',['選擇','理由','司機'],1,'e'],
@@ -366,6 +371,9 @@ l2:{
     ['location','位置',['清單','年齡','圖表'],1,'e'],
     ['several','幾個的',['分開的','嚴重的','每個的'],1,'e'],
     ['convenient','方便的',['有幫助的','受歡迎的','常見的'],1,'e'],
+    ['helpful','有用的；有幫助的',['無助的','有害的','有趣的'],1,'e'],
+    ['offer','提供',['訂購','支付','分享'],0,'e'],
+    ['button','按鈕；鈕扣',['奶油','底部','盒子'],0,'e'],
     ['chart','圖表',['清單','菜單','地圖'],1,'e'],
     ['couch','沙發',['教練','沙拉','窗簾'],1,'e'],
     ['tip','小費',['折扣','費用','訂單'],1,'e'],
@@ -391,8 +399,8 @@ l2:{
   ],
   words:[
     ['be tired of','厭倦'],['be interested in','對…有興趣'],['at least','至少'],['be bored with','對…感到厭煩'],
-    ['be surprised at','對…感到驚訝'],['not only A but also B','不僅 A 而且 B'],['stand in line','排隊'],['give it a try','試試看'],
-    ['have no choice but to V','別無選擇只能…'],['in a word','簡而言之'],['first of all','首先'],['three out of five','五個中有三個'],
+    ['be surprised at','對…感到驚訝'],['not only A but also B','不僅 A 而且 B'],['give it a chance','試試看；給它一次機會'],['have an interest in','對…有興趣'],
+    ['three out of every five','每五個中有三個'],['in a word','總之'],['first of all','首先'],['what\'s more','此外'],['Guess what?','你猜怎麼著？'],['as hungry as a horse','餓得要命'],
   ],
   sorts:[
     {title:'-ed 還是 -ing？',tip:'-ed：人「感到」…（感受）；-ing：事物「令人」…（性質）',buckets:['-ed（感到…）','-ing（令人…）'],items:[
@@ -418,16 +426,15 @@ l2:{
       ['Are you surprised ___ the result of the survey?',0],
       ['She was surprised ___ her friends remembered her birthday.',2]]},
   ],
-  hunt:{label:'🔍 情緒形容詞抓抓樂',title:'找出對話中的「情緒形容詞」（-ed / -ing）',tip:'interest 是名詞、tip 是小費，都不是情緒形容詞！點錯會記一次。',lines:[
-    'Leo: I\'m so [bored]. I\'m [tired] of sitting on the couch and doing nothing.',
-    'Jenny: Let\'s order some food with this new app. It\'s really [interesting].',
-    'Leo: Do you have any interest in trying Thai food?',
-    'Jenny: Sure. I don\'t mind giving it a try. Look! There\'s a [surprising] discount for new users.',
-    'Leo: Wow, I\'m [surprised] that it\'s thirty percent off!',
-    'Jenny: Enter your location, and it will show you all the restaurants in your area.',
-    'Leo: Our meal is on the way. I\'m so [excited]!',
-    'Jenny: Forty minutes later… The wait was really [tiring].',
-    'Leo: The driver looked [tired], too. Let\'s give him a tip.',
+  hunt:{label:'🔍 情緒形容詞抓抓樂',title:'找出課文中的「情緒形容詞」（-ed / -ing，含 scary / scared）',tip:'interest、surprise 在這裡是名詞；hungry、angry 不是 -ed / -ing 形容詞。點錯會記一次。（句子取自課本對話與 Word Bank）',lines:[
+    'Nick: I don\'t like rainy days. I\'m [bored].',
+    'Bella: Yeah, I\'m [tired] of sitting here on the couch and doing nothing.',
+    'Bella: Sure, I\'ve always had an interest in new things. I don\'t mind giving it a chance.',
+    'Nick: Guess what? New users get a 50% discount! Bella: What a surprise!',
+    'Bella: I\'m as hungry as a horse, and if I don\'t eat soon, I\'ll be very angry.',
+    'Word Bank: What [exciting] news! I am [excited].',
+    'Word Bank: It\'s a [boring] day. The dog is [scary]. I am [scared].',
+    'Word Bank: Climbing all these stairs is [tiring]. It is [surprising] that the woman tipped me.',
   ]},
   mcq:[
     {q:'I\'m tired ___ waiting for our pizza. It\'s been an hour!',o:['of','with','at','in'],a:0,src:'14 校考 be tired of',ex:'be tired of＋V-ing＝厭倦…。be bored with 才用 with。'},
@@ -439,19 +446,20 @@ l2:{
     {q:'Three out of every five students ___ food delivery apps.',o:['use','uses','using','is using'],a:0,src:'高雄七賢、鳳甲 同類題',ex:'three out of five students＝五個學生中有三個，主詞是複數學生 → use。'},
     {q:'Using apps ___ people a lot of time.',o:['saves','save','saving','are saving'],a:0,src:'新北中正、新北江翠',ex:'動名詞（Using apps）當主詞視為單數 → saves。'},
     {q:'Food delivery apps have not only become popular but also ___ our lives easier.',o:['made','make','making','to make'],a:0,src:'新北中正、新北永和 陷阱',ex:'not only…but also 前後要對稱：have become … (have) made，都用過去分詞。'},
-    {q:'Enter your ___, and the app will show you the restaurants near you.',o:['location','uniform','century','chart'],a:0,src:'16 校考 location',ex:'location＝位置。輸入位置才能找附近餐廳。'},
-    {q:'New users can get a 30% ___ on their first order.',o:['discount','delivery','service','reason'],a:0,src:'19 校考 discount',ex:'30% off＝打七折，是 discount（折扣）。'},
+    {q:'The app has a map and will show us the ___ of the delivery guy.',o:['location','uniform','century','chart'],a:0,src:'課文句（16 校考 location）',ex:'location＝位置。App 地圖會顯示外送員的位置。'},
+    {q:'Guess what? New users get a 50% ___!',o:['discount','delivery','service','reason'],a:0,src:'課文句（19 校考 discount）',ex:'a 50% discount＝打五折。'},
     {q:'You have two ___: fried rice or noodles.',o:['choices','chooses','chose','choose'],a:0,src:'台北誠正、台中崇德 陷阱',ex:'two 後接複數名詞；choice（n.）選擇，choose（v.）選。'},
     {q:'Jenny was surprised ___ she got her meal in only ten minutes.',o:['that','at','to','about'],a:0,src:'台中崇德、新北五峰',ex:'後面是完整句子（she got…）→ be surprised that＋子句。'},
     {q:'This app is ___ cheap ___ easy to use.',o:['not only; but also','either; or','neither; nor','both; or'],a:0,src:'宜蘭中華、高雄龍華 同類題',ex:'not only A but also B＝不僅 A 而且 B，A、B 都是形容詞，前後對稱。'},
-    {q:'According to the survey, what is the most common reason students use the apps?',o:['They save time.','They are cheap.','They give more choices.','The drivers are friendly.'],a:0,src:'課文閱讀（原創改寫）',ex:'圖表中 Save time 占 45%，最高。'},
-    {q:'Why do some students think delivery service is expensive?',o:['They have to pay the delivery cost and a tip.','The food is not fresh.','They have to stand in line.','The apps are hard to use.'],a:0,src:'課文閱讀（原創改寫）',ex:'they have to pay the delivery cost and tip the driver。'},
+    {q:'According to the chart in the reading, what is the No. 1 reason for using food delivery apps?',o:['It saves time.','It offers discounts.','It offers more choices.','The weather is bad.'],a:0,src:'課文閱讀（Top 5 圖表）',ex:'Top 5：① It saves time. ② convenient and helpful ③ discounts ④ more choices ⑤ the weather is bad。'},
+    {q:'Why do Nick and Bella have to wait another 30 minutes?',o:['Nick didn\'t tap on the "Place Order" button.','The delivery guy got lost.','The restaurant was closed.','It was raining too hard.'],a:0,src:'課文對話',ex:'Nick: I didn\'t tap on the "Place Order" button. 訂單根本沒送出。'},
+    {q:'According to the reading, which is NOT true?',o:['In Taiwan, only young people use food delivery apps.','People can save time by using delivery apps.','People don\'t have to go out when they use the apps.','The apps let people choose their favorite restaurants.'],a:0,src:'課本 Reading Comprehension',ex:'In Taiwan, that number is growing among people of all ages.——各年齡層都在用，不是只有年輕人。'},
     {q:'"In a word, food delivery apps have…" What does "In a word" mean?',o:['簡而言之','換句話說的一個字','首先','另一方面'],a:0,src:'宜蘭中華、新北永和',ex:'In a word＝簡而言之，用來做總結。'},
   ]
 },
 r1:{
-  no:'Review 1', code:3, title:'The Story of the Hairdryer', short:'複習：時態判斷', color:'linear-gradient(135deg,#6b4c9a,#9b7fd1)',
-  desc:'過去式 vs 現在完成式｜瞬間動詞轉狀態｜吹風機發明史閱讀',
+  no:'Review 1', code:3, title:'Tense Review & Reading Challenge', short:'複習：時態判斷', color:'linear-gradient(135deg,#6b4c9a,#9b7fd1)',
+  desc:'時態總複習（過去式 vs 現在完成式）｜-ing / -ed｜點餐用語｜藍色萬聖節桶・K-pop 練習生',
   quick:[
     ['I ___ my homework last night. (finish)','finished',['have finished','finish','has finished'],1,'g'],
     ['She ___ in Tainan since 2020. (live)','has lived',['lived','lives','is live'],1,'g'],
@@ -471,19 +479,27 @@ r1:{
     ['nobody','無名小卒；沒有人',['某個人','每個人','任何人'],1,'e'],
     ['abroad','在國外',['在船上','在家','在附近'],1,'e'],
     ['habit','習慣',['嗜好','傳統','經驗'],1,'e'],
-    ['inventor','發明家',['投資者','訪客','導遊'],0,'e'],
+    ['article','文章',['藝術家','文具','活動'],0,'e'],
+    ['bucket','桶子',['籃子','口袋','鈕扣'],0,'e'],
+    ['pressure','壓力',['禮物','珍貴的','假裝'],0,'e'],
+    ['owe','欠（債）',['擁有','允許','付錢'],0,'e'],
+    ['greet','打招呼；迎接',['生長','抓住','親吻'],0,'e'],
+    ['臉頰','cheek',['check','chick','cheap'],0,'c'],
+    ['自由','freedom',['freezer','friendship','fortune'],0,'c'],
+    ['公司','company',['country','community','compass'],0,'c'],
     ['烘烤','bake',['back','bike','bark'],1,'c'],
     ['餅乾','cookie',['cooker','cook','coffee'],1,'c'],
     ['花費（時間／金錢）','spend',['spell','speed','send'],1,'c'],
     ['下定決心','make up one\'s mind',['change one\'s mind','mind one\'s business','keep in mind'],1,'c'],
     ['想出（點子）','come up with',['come back from','catch up with','come true'],1,'c'],
     ['放棄','give up',['give in','give back','get up'],1,'c'],
-    ['i n v _ n t（發明）','invent',['invant','imvent','invet'],0,'s'],
+    ['p r e s s _ r e（壓力）','pressure',['presure','pressur','preasure'],0,'s'],
+    ['a r t _ c l e（文章）','article',['artical','articel','artcle'],0,'s'],
   ],
   words:[
     ['hand in','繳交'],['back and forth','來回'],['make up one\'s mind','下定決心'],['come up with','想出'],
     ['give up','放棄'],['used to V','過去常常…'],['have 人 + 原形 V','叫某人做…'],['since then','從那時起'],
-    ['a nobody','無名小卒'],['spend … on …','花費（時間／錢）在…上'],['pay for','付錢買'],
+    ['get along with','和…相處'],['instead of','而不是'],['fade away','消失'],['from time to time','有時'],['deal with','應付；處理'],
   ],
   sorts:[
     {title:'看到這個時間線索，要用哪個時態？',tip:'明確的過去時間（yesterday、ago、last、in 2019、just now、When…?）→ 過去式；跟「到現在」有關（since、for、already、yet、ever、so far、How long）→ 現在完成式',buckets:['過去式','現在完成式'],items:[
@@ -494,16 +510,15 @@ r1:{
       ['leave',1,'改 be away：He has been away for a week.'],['come',1,'改 be here：She has been here since noon.'],
       ['live',0],['know',0],['work',0],['study',0],['wait',0]]},
   ],
-  hunt:{label:'🔍 時間線索抓抓樂',title:'找出決定時態的「時間線索」',tip:'找出 In 1888、since then、for…、ago、already、yet 這類時間詞，再看看旁邊的動詞用了什麼時態。',lines:[
-    'Today, almost every home has a hairdryer. But who invented it?',
-    '[In 1888], a French hairdresser named Alexandre Godefroy made the first hair-drying machine.',
-    'It was very big, and people had to sit under it in his salon.',
-    '[In the 1920s], smaller hairdryers appeared, but they were heavy and slow.',
-    '[Since then], hairdryers have changed a lot.',
-    'They have become lighter, safer, and quieter [over the past hundred years].',
-    'My grandma has used the same hairdryer [for twenty years]!',
-    'She bought it [twenty years ago], and it still works well.',
-    'I have [already] asked her to buy a new one, but she hasn\'t changed her mind [yet].',
+  hunt:{label:'🔍 時間線索抓抓樂',title:'找出決定時態的「時間線索」',tip:'找出 ever、last summer、since、next month、every day、now、then 這類時間線索，再看看旁邊的動詞用了什麼時態。（句子取自課本 Review 1）',lines:[
+    'Q: Have you [ever] read an English novel? A: Yes, I have.',
+    'Q: What did you read? A: My Sister\'s Keeper. I read it [last summer].',
+    'Q: How long have you been interested in singing? A: [Since] I was a junior high school student.',
+    'Q: Do you want to be a singer in the future? A: Yes, I do. I am going to start my singing classes [next month].',
+    'The monster eats a cookie [every day]. The monster is eating a cookie [now].',
+    'The monster ate many cookies [last week]. The monster was eating a cookie [then].',
+    'The monster will eat seven cookies [next week].',
+    'Chloe: Well, it seems that [since 2018], blue has become a new color for Halloween buckets.',
   ]},
   mcq:[
     {q:'A: Have you finished your report? B: Yes, I ___ it last night.',o:['finished','have finished','finish','had finish'],a:0,src:'自強、基隆銘傳 陷阱',ex:'問句用現在完成式，但回答有明確過去時間 last night → 過去式 finished。'},
@@ -517,10 +532,11 @@ r1:{
     {q:'Our teacher had us ___ the homework by Friday.',o:['hand in','to hand in','handing in','handed in'],a:0,src:'新北江翠、桃園大有',ex:'使役動詞 have＋人＋原形動詞。hand in＝繳交。'},
     {q:'Mr. Wu ___ English at this school since he graduated.',o:['has taught','taught','teaches','is teaching'],a:0,src:'新北永和 同類題',ex:'since＋過去式子句 → 主要子句現在完成式 has taught。'},
     {q:'Jack ___ to the gym every night last year, but he ___ there since January.',o:['went; hasn\'t been','has gone; wasn\'t','goes; hasn\'t been','went; wasn\'t'],a:0,src:'台中崇德 同類題',ex:'last year → went；since January → 現在完成式 hasn\'t been。'},
-    {q:'Who made the first hair-drying machine?',o:['A French hairdresser.','An American soldier.','The writer\'s grandma.','A Belgian cook.'],a:0,src:'閱讀（原創改寫，多校考吹風機）',ex:'In 1888, a French hairdresser … made the first hair-drying machine.'},
-    {q:'Which is TRUE about the first hair-drying machine?',o:['People had to sit under it.','It was small and light.','It appeared in the 1920s.','People could carry it home.'],a:0,src:'閱讀（原創改寫）',ex:'It was very big, and people had to sit under it. 1920s 出現的是較小的吹風機。'},
-    {q:'How long has the writer\'s grandma used her hairdryer?',o:['For twenty years.','Since 1888.','For two years.','Since the 1920s.'],a:0,src:'閱讀（原創改寫）',ex:'has used the same hairdryer for twenty years；也可說 since she bought it twenty years ago。'},
-    {q:'"…but she hasn\'t changed her mind yet." What does this mean?',o:['奶奶還是不想買新的吹風機','奶奶已經買了新的吹風機','奶奶忘了吹風機放在哪裡','奶奶想換新髮型'],a:0,src:'閱讀（原創改寫）',ex:'change one\'s mind＝改變心意；還沒改變心意＝還是不想換。'},
+    {q:'Since 2018, what has become a new color for Halloween buckets?',o:['Blue.','Orange.','Black.','Purple.'],a:0,src:'Reading Challenge 1（高雄七賢克漏字）',ex:'it seems that since 2018, blue has become a new color for Halloween buckets.'},
+    {q:'Why did Alicia come up with the idea of a blue Halloween bucket?',o:['Her son is autistic and has problems getting along with people.','Her son didn\'t like the color orange.','She wanted to sell more buckets.','Her son was too old for Halloween.'],a:0,src:'Reading Challenge 1',ex:'He loves Halloween a lot, but he is autistic and has problems getting along with people.'},
+    {q:'Which sentence is an OPINION, not a fact?',o:['She thought that people would know the person had special needs.','People shared it over 28,000 times.','Her son is 21 years old.','She posted it on Facebook.'],a:0,src:'Reading Challenge 1 Activity',ex:'She thought that…（她認為）是想法 → opinion；其他都可以查證 → fact。'},
+    {q:'According to Reading Challenge 2, which is NOT a problem for K-pop trainees?',o:['They have too much free time.','They feel lonely from time to time.','They have to follow orders from their companies.','Training is expensive.'],a:0,src:'Reading Challenge 2',ex:'First 苦練多年、Second 離家寂寞、Third 沒自由、Finally 訓練很貴——沒有「太多空閒」。'},
+    {q:'Why did Jenny kiss Mike on the cheeks?',o:['It\'s the way French people greet each other.','She wanted to get a taxi.','She was very hungry.','It was Mike\'s birthday.'],a:0,src:'Culture Corner',ex:'It\'s just the way French people greet each other, dear.'},
   ]
 },
 gram:{
@@ -598,7 +614,7 @@ gram:{
 },
 };
 
-/* 綜合頁：克漏字＋閱讀＋翻譯（全部原創改寫） */
+/* 綜合頁：克漏字＋閱讀為原創；翻譯以課本原句為主 */
 const CLOZE=[
   {title:'克漏字 A｜A Wrong Pizza',text:'Waiter: Good evening. __1__ you been to our restaurant before?\nAnn: No, this is our first time. My friend told me that you are one of the most popular pizza __2__ on the island.\nWaiter: Thank you! Have you decided __3__ your order yet?\nAnn: Yes. We\'d like a 12-inch pizza and some fries.\n(Twenty minutes later)\nAnn: Excuse me. We ordered a 12-inch pizza, but this is a 9-inch __4__.\nWaiter: I\'m so sorry. Our new cook __5__ a few orders wrong today. We\'ll make a new one for you and give you a 20% __6__.\nAnn: That\'s very kind of you. Thanks!',
    qs:[
@@ -642,17 +658,18 @@ const READ=[
    ]},
 ];
 const TRANS=[
-  ['人們吃薯條已經好幾世紀了。','People have eaten fries for centuries.','have / has＋p.p.＋for＋一段時間'],
-  ['冬天河水結冰時，漁夫很難抓到魚。','In winter, it was hard for fishermen to catch fish because the river froze.','It was＋adj＋for 人＋to V；freeze → froze'],
-  ['他們把馬鈴薯切成細長條然後油炸。','They cut potatoes into long thin sticks and fried them.','cut…into…；cut 的過去式不變'],
-  ['你以前來過這家餐廳嗎？','Have you been to this restaurant before?','have been to＝曾去過'],
-  ['你決定好要點什麼了嗎？','Have you decided on your order yet?','decide on；yet 放問句句尾'],
+  ['從那時起，薯條就在全世界流行起來。','Since then, French fries have become popular all over the world.','Since then＋現在完成式（課文句）'],
+  ['對那個地區的人來說，捕魚和炸魚很常見。','It was common for people in the area to catch and fry fish.','It was＋adj＋for 人＋to V（課文句）'],
+  ['他們會把馬鈴薯切成細長條然後油炸。','They would cut potatoes into long thin sticks and fry them.','cut…into…（課文句）'],
+  ['你以前來過這家餐廳嗎？','Have you been to this restaurant before?','have been to＝曾去過（課文句）'],
+  ['你們決定好要點什麼了嗎？','Have you decided on your order yet?','decide on；yet 放問句句尾（課文句）'],
+  ['我們的新廚師今天弄錯了一兩張訂單。','Our new cook has gotten one or two orders wrong today.','get＋受詞＋wrong（課文句）'],
   ['我哥哥去日本了，他不在這裡。','My brother has gone to Japan. He isn\'t here.','has gone to＝去了還沒回來'],
-  ['我厭倦了坐在沙發上什麼事都不做。','I\'m tired of sitting on the couch and doing nothing.','be tired of＋V-ing（兩個 V-ing 對等）'],
-  ['你介意幫我開門嗎？','Would you mind opening the door for me?','mind＋V-ing'],
-  ['我很驚訝這個應用程式這麼受歡迎。','I\'m surprised that the app is so popular.','be surprised＋that 子句'],
-  ['使用外送應用程式可以幫人們節省時間。','Using food delivery apps saves people time.','動名詞主詞＋單數動詞'],
-  ['外送應用程式不僅讓生活更方便，也改變了我們吃東西的方式。','Food delivery apps have not only made life easier but also changed the way we eat.','not only…but also 前後對稱'],
+  ['我厭倦了坐在沙發上什麼事都不做。','I\'m tired of sitting here on the couch and doing nothing.','be tired of＋V-ing（兩個 V-ing 對等，課文句）'],
+  ['我不介意給它一次機會。','I don\'t mind giving it a chance.','mind＋V-ing（課文句）'],
+  ['首先，使用外送應用程式能節省時間。','First of all, using food delivery apps saves time.','動名詞主詞＋單數動詞（課文句）'],
+  ['外送應用程式不僅變得更受歡迎，也讓我們的生活更輕鬆。','Food delivery apps have not only become more popular but also made our lives easier.','not only…but also 前後對稱（課文句）'],
+  ['似乎從 2018 年起，藍色就成了萬聖節桶子的新顏色。','It seems that since 2018, blue has become a new color for Halloween buckets.','It seems that＋since＋現在完成式（R1 課文句）'],
   ['自從我搬到臺北以來已經三年了。','It has been three years since I moved to Taipei.','It has been＋時間＋since＋過去式'],
 ];
 
@@ -668,9 +685,9 @@ const RADAR={
 };
 
 /* ================= 導覽 ================= */
-const TABS=[['home','🏠 考點雷達'],['l1','🍟 L1 薯條由來'],['l2','📱 L2 外送 App'],['r1','💨 Review 1'],['gram','⏰ 文法特訓'],['mix','🧩 克漏字＋閱讀']];
+const TABS=[['home','🏠 考點雷達'],['l1','🍟 L1 薯條＋披薩'],['l2','📱 L2 外送 App'],['r1','🎃 Review 1'],['gram','⏰ 文法特訓'],['mix','🧩 克漏字＋閱讀']];
 
-const AUDIO=new Set(["004ce480", "012362ee", "036c305d", "0bf5a9a6", "0d380769", "124aec70", "127e5c5e", "15e50f43", "1b17727e", "1f6a832c", "1f9a7239", "2187f8ab", "264281a5", "26d155b8", "286e8983", "28da85e5", "29268712", "2b3c411b", "2bab0c25", "2da05180", "2f8fb29c", "2ffc7090", "30c707a2", "3108b3f9", "314e8a8d", "36a0bb72", "372a8e5c", "3defe8d7", "42b8c469", "43dee336", "47c0351e", "4b12ebdf", "4b642909", "4d5b0474", "5127f14d", "559f4095", "56dfde64", "58a95e4b", "59e1ecc1", "59eb3ca3", "5be11f1f", "60d56f8c", "615b0848", "63f6447c", "6437ef74", "66d5f47b", "68b71dd4", "69343c68", "6a786eb0", "70efeee8", "711b845f", "720c3fd5", "75fa501b", "77a740bf", "7ac4d962", "7c6cbe3f", "7cd4964e", "7d7591b3", "7f216d41", "7f89ef49", "7fb566d6", "844d8f21", "8467c7f7", "864c86f7", "891cfe4f", "8a263b04", "8b1bc3d8", "8e59ea63", "8edbb950", "8f01928f", "8f735a56", "9292a6c1", "957c9d0e", "95bdb559", "9846a263", "98c8d393", "9b0f2144", "9b8bed7b", "9ccd1fb5", "9d2ff74c", "9d505116", "9f1386c0", "a0d6927a", "a2b21edf", "a3b449e4", "a4b6fd91", "a5997dc4", "a65b72c3", "a9f017d4", "aaf74aa2", "ab31f388", "acf38390", "ad6846bd", "ade176a3", "ae0af9ed", "ae11b050", "af6daaea", "b0f221b6", "b1095de1", "b2a0fab4", "b3d7b818", "b536a99d", "b55426cf", "b9ef387b", "bb0aeb8a", "bc6a5425", "c294a9c4", "c9a69ebd", "cb18332c", "cc5b3b71", "ce34e117", "ced71285", "cf6262ec", "d3ad6a29", "d8b9cf23", "dd314f18", "de375a53", "e234733b", "e35db814", "e55419df", "e7af3b02", "e7af465b", "e85c3338", "e8e87d47", "e96fd64c", "e9c3f10a", "ea816135", "ea90e208", "eda17c15", "edbf0fe3", "eea0b6e0", "eeda06a8", "f0f6b52e", "f133b6e1", "f5ce03fb", "f7372cda", "f8a35e19", "f9c53a55", "fa20169f", "fb7f6c5e", "ffc8ed4d"]);
+const AUDIO=new Set(["004ce480", "012362ee", "036c305d", "0aa2b7c9", "0bf5a9a6", "124aec70", "127e5c5e", "152f19e6", "15e50f43", "16c0ddfd", "17676759", "1b17727e", "1f6a832c", "1f9a7239", "211e1500", "2187f8ab", "2448abff", "25a1eea4", "264281a5", "26d155b8", "286e8983", "28b19af7", "28da85e5", "29268712", "2b3c411b", "2bab0c25", "2da05180", "2f56fb56", "2f8fb29c", "2ffc7090", "30c707a2", "3108b3f9", "36a0bb72", "3defe8d7", "3f32c75d", "41a6f93d", "43b27471", "43dee336", "47c0351e", "4a7181df", "4b642909", "4d5b0474", "5127f14d", "559f4095", "56dfde64", "58a95e4b", "59e1ecc1", "5c73fa51", "5f98198d", "60d56f8c", "63f6447c", "6437ef74", "66d5f47b", "677d1962", "68b71dd4", "69343c68", "6a786eb0", "70efeee8", "711b845f", "720c3fd5", "75fa501b", "77a740bf", "791dd820", "7ac4d962", "7c6cbe3f", "7cd4964e", "7d7591b3", "7f216d41", "7f89ef49", "7fb566d6", "844d8f21", "8467c7f7", "8529c27f", "864c86f7", "88873632", "891cfe4f", "8a5f7c0f", "8b1bc3d8", "8b7203f2", "8e59ea63", "8edbb950", "8f01928f", "8f735a56", "9292a6c1", "945fdc34", "95bdb559", "98c8d393", "9b0f2144", "9b8bed7b", "9bcd1704", "9ccd1fb5", "9d2ff74c", "9d505116", "9f1386c0", "a5997dc4", "a65b72c3", "a87a8d74", "a9f017d4", "aa62e8bc", "aaf74aa2", "ab31f388", "acf38390", "ad6846bd", "ade176a3", "ae0af9ed", "ae11b050", "ae15bdea", "af6daaea", "b1095de1", "b2a0fab4", "b3759975", "b3d7b818", "b536a99d", "b55426cf", "b56d5fdf", "b9ef387b", "bb0aeb8a", "bc6a5425", "c1c20790", "c1d9c9dd", "c294a9c4", "cb18332c", "cc5b3b71", "ce34e117", "cf6262ec", "cfa8a3a2", "d3ad6a29", "d8b9cf23", "d8f08ef6", "d9b9523f", "dd314f18", "de375a53", "de706733", "e234733b", "e35db814", "e522e976", "e55419df", "e5fe10a4", "e6f9c64b", "e7af3b02", "e85c3338", "e8e87d47", "e96fd64c", "e9c3f10a", "ea816135", "ea90e208", "eda17c15", "edbf0fe3", "eeda06a8", "f0f6b52e", "f0fb29e7", "f133b6e1", "f3788f37", "f5ce03fb", "f6dc9f15", "f8a35e19", "f9c53a55", "fa20169f", "fb1de34a", "fb7f6c5e", "ffc8ed4d"]);
 /* ================= 注釋配對 ================= */
 function renderMatch(el,pairs){
   const rounds=[];const sp=shuf(pairs);for(let k=0;k<sp.length;k+=5)rounds.push(sp.slice(k,k+5));
@@ -1202,7 +1219,7 @@ function renderMix(app){
   const s=curSub.mix||'cloze';
   const subs=[['cloze','🧩 課文改寫克漏字'],['read','📖 閱讀測驗'],['trans','🃏 翻譯翻翻卡']];
   app.innerHTML=`<h2>🧩 克漏字＋閱讀＋翻譯</h2>
-  <p class="muted">康軒各校克漏字常用餐廳點餐對話、薯條起源改寫，閱讀常考外送 App 圖表題與素養題；翻譯多考課文句型。以下文章皆為原創改寫（課文為依段考卷考點原創改寫，非課本原文）。</p>
+  <p class="muted">康軒各校克漏字常用餐廳點餐對話、薯條起源改寫，閱讀常考外送 App 圖表題與素養題；翻譯多考課文句型。以下克漏字與閱讀文章皆為原創；翻譯翻翻卡以康軒課本原句為主。</p>
   <div class="subtabs">${subs.map(([k,t])=>`<button class="sub ${k===s?'on':''}" data-s="${k}">${t}</button>`).join('')}</div><div id="panel"></div>`;
   app.querySelectorAll('.sub').forEach(b=>b.onclick=()=>{curSub.mix=b.dataset.s;render()});
   const p=$('#panel');
@@ -1220,17 +1237,18 @@ function renderMix(app){
 /* ================= L1 動畫 ================= */
 function animL1(p){
   p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
-  <div class="card"><h3>🗺️ 課文一張圖</h3>
-  <p><span class="pill">對話</span>Ann 和朋友第一次到島上的披薩店 → Have you been to…? / Have you decided on…yet? → 新廚師今天已經弄錯幾張單（has gotten … wrong）</p>
-  <p><span class="pill">閱讀</span>薯條的由來：比利時 Meuse River 一帶的人常捕魚油炸 → 冬天河水<b>結冰</b>（froze）→ 改把馬鈴薯切成細長條（sticks）油炸 → 一戰美國<b>士兵</b>因當地說法語而叫它 French fries → 英國薯條比美國<b>粗</b></p>
-  <p><span class="pill">文法</span>現在完成式：since / for、How long、ever / never、already / yet、been to / gone to</p></div>`;
+  <div class="card"><h3>🗺️ 課文一張圖（康軒 B5 L1：Have You Ever Tried These Dishes?）</h3>
+  <p><span class="pill">閱讀</span>902 班 Emily 的歷史報告〈Are French Fries Truly French?〉：法國人給了世界<b>吹風機</b>、造紙機、比基尼，<b>However</b> 沒給薯條 → 17 世紀晚期比利時 Meuse River 沿岸，河水<b>結冰</b>（froze）捕不到魚，就把馬鈴薯切成細長條（sticks）油炸 → 一戰美國<b>士兵</b>因當地主要語言是法語而叫它 French fries → <b>Since then</b> 流行全世界</p>
+  <p><span class="pill">對話</span>Carla 和 Nick 在披薩店：Have you been to…? / Have you decided on your order yet? → 點 9 吋 Cheese King，卻送來兩個 5 吋 → 新廚師今天 has gotten one or two orders wrong → 「5＋5＝10 吋」的披薩數學又錯了！</p>
+  <p><span class="pill">文法</span>現在完成式：A 經驗（ever / never / once）、B 持續（How long / for / since）、C 完成（already / yet）；轉折語 however / but / though</p></div>`;
   const steps=[
-    {label:'① 第一次來嗎？',imgs:[{img:'l1_order',tag:'Have you been to this restaurant before?'},{img:'l1_pizza',tag:'One of the most successful pizza places on the island'}],poem:'Waiter: Good evening. <b>Have you been to</b> our restaurant <b>before</b>?<br>Ann: No, this is our first time. My friend says you\'re <b>one of the most successful pizza places</b> on the island.',key:'<b>have been to</b>＝曾去過（26 校考 been to / gone to）；<b>one of the＋最高級＋複數名詞</b>（places 要加 s）。'},
-    {label:'② 決定好了嗎？',imgs:[{img:'l1_order',tag:'Have you decided on your order yet?'}],poem:'Waiter: <b>Have you decided on</b> your order <b>yet</b>?<br>Ann: Not yet. What do you have, <b>such as</b> snacks?<br>Waiter: Our fries are excellent. We\'ve sold them <b>since</b> we opened.',key:'<b>decide on</b>＝決定（選）；<b>yet</b> 放問句、否定句句尾；<b>since</b>＋過去式子句（since we opened）。'},
-    {label:'③ 新廚師弄錯了',imgs:[{img:'l1_pizza',tag:'Our new cook has gotten a few orders wrong today.'}],poem:'Ann: Excuse me, we ordered a 12-inch pizza, but this is a 9-inch one.<br>Waiter: I\'m so sorry. Our new cook <b>has gotten</b> a few orders <b>wrong</b> today.',key:'today 還沒結束、到目前為止 → 現在完成式 <b>has gotten</b>；<b>get … wrong</b>＝弄錯；9-inch 當形容詞<b>不加 s</b>。'},
-    {label:'④ 河水結冰了',imgs:[{img:'l1_meuse',tag:'The Meuse River in Belgium'},{img:'l1_fryfish',tag:'People often caught small fish and fried them.'},{img:'l1_frozen',tag:'In winter, the river froze.'}],poem:'Long ago, people near the <b>Meuse River</b> in Belgium often caught small fish and <b>fried</b> them.<br>But in winter, the river <b>froze</b>, and <b>it was hard for them to catch</b> any fish.',key:'freeze → <b>froze</b> → <b>frozen</b>（沒有 freezed！）；<b>It was＋adj＋for 人＋to V</b>（屏東中正、新北五峰考句型）。'},
-    {label:'⑤ 切成細長條',imgs:[{img:'l1_fries',tag:'They cut potatoes into long thin sticks and fried them.'},{img:'l1_friterie',tag:'A fry shop in Brussels, Belgium'}],poem:'So they <b>cut</b> potatoes <b>into</b> long thin <b>sticks</b> and fried them instead.<br>In Belgium, eating fries with mayonnaise <b>has been</b> a <b>tradition</b> for a long time.',key:'<b>cut … into …</b>＝把…切成…（cut 過去式不變）；stick＝細長條，翻譯填空要寫複數 <b>sticks</b>（台南中山陷阱）。'},
-    {label:'⑥ 為什麼叫 French fries？',imgs:[{img:'l1_soldiers',tag:'American soldiers in France, 1918'},{img:'l1_chips',tag:'UK chips are thicker than those in the USA.'}],poem:'During World War I, American <b>soldiers</b> in Belgium tasted these fried potatoes. French was the <b>main language</b> there, <b>so</b> they called them "French fries."<br><b>Since then</b>, French fries <b>have become</b> popular around the world. Fries in the UK are <b>thicker</b> than <b>those</b> in the USA.',key:'<b>Since then</b>＋現在完成式；比較時用 <b>those</b> 代替 fries（高雄國昌、鳳甲考）。'},
+    {label:'① Emily 的報告',imgs:[{img:'l1_fries',tag:'Topic: Are French Fries Truly French?'}],poem:'The French gave the world the first <b>hairdryer</b>, paper machine, and bikini. <b>However</b>, they didn\'t give the world French fries.<br>Many people probably <b>haven\'t heard</b> about this fact <b>yet</b>.',key:'<b>However</b>＝然而（對比轉折語，副詞，後加逗號）；<b>haven\'t + p.p. + yet</b>＝還沒……。吹風機：一般說 1888 年法國髮型師 Godefroy 做出第一台（坐式），課本只說「法國人給了世界第一台吹風機」。'},
+    {label:'② 河水結冰了',imgs:[{img:'l1_meuse',tag:'The Meuse River in Belgium'},{img:'l1_fryfish',tag:'People caught and fried fish.'},{img:'l1_frozen',tag:'The river froze in the winter.'}],poem:'The earliest French fries were from Belgium along the <b>Meuse River</b> in the late 17th <b>century</b>.<br><b>It was common for</b> people in the area <b>to catch and fry</b> fish, but that was difficult when the river <b>froze</b> in the winter.',key:'freeze → <b>froze</b> → <b>frozen</b>（沒有 freezed！）；<b>It was＋adj＋for 人＋to V</b>（屏東中正、屏東明正考原句）。'},
+    {label:'③ 切成細長條',imgs:[{img:'l1_fries',tag:'They would cut potatoes into long thin sticks.'},{img:'l1_friterie',tag:'A fry shop in Brussels, Belgium'}],poem:'When they could not catch fish for food, they would <b>cut</b> potatoes <b>into</b> long thin <b>sticks</b> and fry them.',key:'<b>cut … into …</b>＝把…切成…（cut 三態同形）；stick＝細長條，翻譯要寫複數 <b>sticks</b>；would＝過去常會。'},
+    {label:'④ 為什麼叫 French fries？',imgs:[{img:'l1_soldiers',tag:'American soldiers in World War I'}],poem:'During World War I, American <b>soldiers</b> in Belgium tasted this delicious food for the first time. They called these fried potatoes "French fries" <b>because</b> French was the <b>main language</b> there.<br>They also took the food back to the USA. <b>Since then</b>, French fries <b>have become</b> popular all over the world.',key:'<b>Since then</b>＋現在完成式；become-became-<b>become</b>。call＋受詞＋名稱。'},
+    {label:'⑤ 其他事實',imgs:[{img:'l1_chips',tag:'Fries in the UK are usually thicker than those in the USA.'}],poem:'There is a French fry museum in Belgium.<br>Americans <b>celebrate National</b> French Fry Day on the second Friday of July.<br>Fries in the UK are usually <b>thicker</b> than <b>those</b> in the USA.<br>Mr. Davis: You<b>\'ve done</b> a good job! How many different types of French fries <b>have</b> you <b>tried</b> before?',key:'比較時用 <b>those</b> 代替 fries（高雄國昌、鳳甲考）；英國叫 chips，比較粗。'},
+    {label:'⑥ 你來過嗎？',imgs:[{img:'l1_pizza',tag:'One of the most popular pizza places in this city'},{img:'l1_order',tag:'Have you decided on your order yet?'}],poem:'Carla: So, <b>have</b> you <b>been to</b> this restaurant <b>before</b>? It\'s one of my favorites.<br>Nick: Yes, I<b>\'ve eaten</b> here before. <b>Nobody</b> makes better pizzas.<br>Carla: It <b>has been one of the most popular pizza places</b> in this city <b>for years</b>.<br>Waiter: Hi, <b>have</b> you <b>decided on</b> your order <b>yet</b>?',key:'<b>have been to</b>＝曾去過（26 校考 been to / gone to）；<b>one of the＋最高級＋複數名詞</b>；<b>for years</b>＋完成式；decide on＋N。'},
+    {label:'⑦ 披薩數學',imgs:[{img:'l1_pizza',tag:'A 9-inch pizza is bigger than two 5-inch pizzas!'}],poem:'Carla: Excuse me, we ordered a <b>9-inch</b> Cheese King pizza, but you<b>\'ve just brought</b> us two 5-inch pizzas.<br>Waiter: Our new cook <b>has gotten</b> one or two orders <b>wrong</b> today. We <b>have decided to</b> give you one more inch of pizza <b>for free</b>—five and five makes ten.<br>Carla: <b>Even if</b> you give us three 5-inch pizzas, it will still not be enough!',key:'9-inch 當形容詞<b>不加 s</b>；<b>get … wrong</b>＝弄錯；圓面積看半徑²：9 吋≈63.6、5 吋≈19.6，三個也不夠！'},
   ];
   stepper(p,steps,i=>showPhoto(steps[i]),8000);
 }
@@ -1239,16 +1257,17 @@ function animL1(p){
 function animL2(p){
   p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
   <div class="grid2">
-    <div class="card"><h3>💬 對話：Leo ＆ Jenny</h3><p><span class="pill">起</span>Leo 坐在沙發上好<b>無聊</b>（bored / tired of）</p><p><span class="pill">承</span>用外送 App 點餐：輸入<b>位置</b>、新用戶<b>折扣</b></p><p><span class="pill">轉</span>Leo 想吃泰國菜：I don\'t <b>mind</b> giving it a try.</p><p><span class="pill">合</span>等了 40 分鐘好<b>累人</b>，給司機<b>小費</b></p></div>
-    <div class="card"><h3>📊 閱讀：外送 App 調查</h3><p><span class="pill">一</span>每五個學生有<b>三個</b>每週至少用一次</p><p><span class="pill">二</span>First of all：<b>省時間</b>，不用排隊</p><p><span class="pill">三</span>Another reason：<b>折扣</b>、更多<b>選擇</b></p><p><span class="pill">四</span>In a word：<b>not only</b>…<b>but also</b>…</p></div>
+    <div class="card"><h3>📊 閱讀：Food Delivery Apps Make Life Easier</h3><p><span class="pill">一</span>美國每五個年輕人有<b>三個</b>用外送 App；台灣各<b>年齡</b>層都在增加</p><p><span class="pill">二</span>First of all <b>省時間</b>；Second 方便又<b>有用</b>；Third <b>折扣</b></p><p><span class="pill">三</span>Fourth 更多<b>選擇</b>；What\'s more 天氣不好也能吃</p><p><span class="pill">四</span>In a word：<b>not only</b>…<b>but also</b>…</p></div>
+    <div class="card"><h3>💬 對話：Nick ＆ Bella</h3><p><span class="pill">起</span>下雨天好<b>無聊</b>（bored / tired of），冰箱沒吃的</p><p><span class="pill">承</span>試新 App「Yummy Sloth」：I don\'t <b>mind</b> giving it a chance，新用戶打<b>五折</b></p><p><span class="pill">轉</span>等了 30 分鐘，查外送員<b>位置</b>……</p><p><span class="pill">合</span>Nick 根本沒<b>按</b>「Place Order」<b>按鈕</b>！再等 30 分鐘</p></div>
   </div>`;
   const steps=[
-    {label:'① 好無聊',imgs:[{img:'l2_couch',tag:'I\'m tired of sitting on the couch.'}],poem:'Leo: I\'m so <b>bored</b>. I\'m <b>tired of</b> sitting on the <b>couch</b> and doing nothing.<br>Jenny: Let\'s order some food with this new app. It\'s really <b>interesting</b>.',key:'人感到 → <b>-ed</b>（bored）；事物令人 → <b>-ing</b>（interesting）。<b>be tired of＋V-ing</b>，sitting 和 doing 對等（燕巢陷阱）。'},
-    {label:'② 輸入位置',imgs:[{img:'l2_app',tag:'Enter your location.'}],poem:'Jenny: <b>Enter your location</b>, and it will show you all the restaurants in your <b>area</b>.<br>Leo: Wow, I\'m <b>surprised that</b> new users get a thirty percent <b>discount</b>!',key:'<b>祈使句, and…</b>＝做…就會…；<b>be surprised that＋子句</b>（15 校考 be＋adj＋that）。'},
-    {label:'③ 試試看',imgs:[{img:'l2_rider',tag:'Delivery drivers in Taipei'}],poem:'Leo: Do you have any <b>interest</b> in trying Thai food?<br>Jenny: Sure. I don\'t <b>mind giving</b> it a try.<br>Leo: Would you <b>mind tapping</b> "Order" for me?<br>Jenny: <b>Not at all</b>.',key:'<b>mind＋V-ing</b>（12 校考）；回答 <b>Not at all</b>＝一點也不介意。interest 是<b>名詞</b>：have interest in。'},
-    {label:'④ 等好久',imgs:[{img:'l2_bag',tag:'Your meal is on the way.'},{img:'l2_pizzabox',tag:'Delivery orders waiting to go'}],poem:'Forty minutes later…<br>Jenny: The wait was really <b>tiring</b>.<br>Leo: The <b>driver</b> looked <b>tired</b>, too. Let\'s give him a <b>tip</b>.',key:'wait（事物）→ <b>tiring</b>；driver（人）→ <b>tired</b>。tip＝小費。'},
-    {label:'⑤ 調查圖表',imgs:[{img:'l2_uniform',tag:'Our class asked 100 students.'},{img:'l2_line',tag:'No need to stand in line!'}],poem:'We found that <b>three out of every five</b> students use food delivery apps <b>at least</b> once a week. <b>From the chart, we can see that</b> students like these apps for <b>several reasons</b>.<br><b>First of all</b>, <b>using</b> the apps <b>saves</b> time. Students don\'t have to <b>stand in line</b>.',key:'<b>動名詞當主詞＋單數動詞</b>（Using apps saves…）；<b>see that＋子句</b>；at least＝至少（12 校考）。'},
-    {label:'⑥ 簡而言之',imgs:[{img:'l2_rider',tag:'Delivery apps have changed the way we eat.'}],poem:'<b>Another reason</b> is the price. New users often get a discount.<br><b>In a word</b>, food delivery apps have <b>not only</b> made our lives easier <b>but also</b> changed the way we eat.',key:'<b>not only A but also B</b> 前後對稱：have made … (have) changed（新北中正陷阱）；In a word＝簡而言之。'},
+    {label:'① 五個有三個',imgs:[{img:'l2_rider',tag:'Delivery drivers in Taipei'}],poem:'With so many food <b>delivery</b> apps out there, who wants to cook every day?<br>In the USA, <b>three out of every five</b> young people use food delivery apps. In Taiwan, that number is growing <b>among</b> people of all <b>ages</b>.',key:'<b>three out of every five</b>＝每五個中有三個；<b>among</b>（三者以上之中）vs between。'},
+    {label:'② 省時間',imgs:[{img:'l2_line',tag:'No need to go out to restaurants!'}],poem:'From the <b>chart</b> on the next page, we can see <b>that</b> people are <b>interested in</b> these apps for several <b>reasons</b>.<br><b>First of all</b>, <b>using</b> food delivery apps <b>saves</b> time because people do not have to <b>spend time going</b> out to restaurants.',key:'<b>動名詞當主詞＋單數動詞</b>（using … saves）；see that＋子句；spend 時間＋V-ing。'},
+    {label:'③ 方便、折扣、選擇',imgs:[{img:'l2_app',tag:'Delivery apps offer discounts and more choices.'}],poem:'<b>Second</b>, many people <b>think that</b> food delivery apps are convenient and <b>helpful</b>.<br><b>Third</b>, delivery apps usually <b>offer discounts</b>. <b>Fourth</b>, they offer users more <b>choices</b>.<br><b>What\'s more</b>, some users use them when the weather is bad.',key:'列點轉折語 First of all → Second → Third → Fourth → What\'s more → In a word；think that＋子句（Grammar 2）。'},
+    {label:'④ 總之',imgs:[{img:'l2_rider',tag:'Delivery apps have made our lives easier.'}],poem:'<b>In a word</b>, food delivery apps have <b>not only</b> become more popular <b>but also</b> made our lives easier.',key:'<b>not only A but also B</b> 前後對稱：have become … (have) made（宜蘭中華、新北中正、永和考原句）。'},
+    {label:'⑤ 下雨天好無聊',imgs:[{img:'l2_couch',tag:'I\'m tired of sitting here on the couch.'}],poem:'Nick: I don\'t like rainy days. I\'m <b>bored</b>.<br>Bella: Yeah, I\'m <b>tired of</b> sitting here on the <b>couch</b> and doing nothing. Also, I\'m hungry, but <b>I don\'t think</b> there\'s any food in the fridge.',key:'人感到 → <b>-ed</b>（bored）；<b>be tired of＋V-ing</b>，sitting 和 doing 對等（燕巢陷阱）；I don\'t think＋子句。'},
+    {label:'⑥ 給它一次機會',imgs:[{img:'l2_app',tag:'Nick is downloading the app.'}],poem:'Nick: Yesterday, a friend told me about a new food delivery app, Yummy Sloth. Do you want to try it?<br>Bella: Sure, I\'ve always had an <b>interest</b> in new things. I don\'t <b>mind giving</b> it a <b>chance</b>.<br>Nick: Guess what? New users get a 50% <b>discount</b>! Bella: What a surprise!',key:'<b>mind＋V-ing</b>（12 校考，台中向上考原句）；interest 是<b>名詞</b>：have an interest in；a 50% discount＝打五折。'},
+    {label:'⑦ 餐點在哪裡？',imgs:[{img:'l2_bag',tag:'Where are our meals?'},{img:'l2_pizzabox',tag:'Delivery orders waiting to go'}],poem:'Bella: How long will it take for our meals to get here? Nick: About 30 minutes. Bella: <b>At least</b> we don\'t have to go out in the rain.<br>(30 minutes later) Bella: I\'m as hungry as a horse!<br>Nick: The app will show us the <b>location</b> of the delivery guy. Oh, no! I didn\'t <b>tap</b> on the "Place Order" <b>button</b>.',key:'<b>at least</b>＝至少（≠ at last 終於）；<b>location</b> 位置（16 校）；Now we have to wait <b>another 30 minutes</b>（another＋數字＋複數）。'},
   ];
   stepper(p,steps,i=>showPhoto(steps[i]),8000);
 }
@@ -1256,16 +1275,18 @@ function animL2(p){
 /* ================= Review 1 動畫 ================= */
 function animR1(p){
   p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
-  <div class="card"><h3>🧭 時態判斷口訣</h3>
-  <p><span class="pill">過去式</span>看到 yesterday、ago、last、in 2019、just now、When…? → 只講「過去那時」</p>
-  <p><span class="pill">完成式</span>看到 since、for、already、yet、ever、never、so far、How long → 從過去「連到現在」</p>
-  <p><span class="pill">瞬間動詞</span>die / buy / begin / leave / come 不能接 for、since → be dead / have / be on / be away / be here</p></div>`;
+  <div class="card"><h3>🧭 Review 1 在複習什麼？</h3>
+  <p><span class="pill">A 時態</span>餅乾怪獸：every day（現在式）、now（進行式）、last week（過去式）、then（過去進行式）、tomorrow / next week（未來式）、has eaten（完成式）</p>
+  <p><span class="pill">段考必考</span>過去式 vs 現在完成式：yesterday、ago、last、When…? → 過去式；since、for、already、yet、ever → 完成式；die / buy / begin 不能接 for、since</p>
+  <p><span class="pill">閱讀挑戰</span>RC1 藍色萬聖節桶（搭配 L1）、RC2 K-pop 練習生（搭配 L2）、Culture Corner 法國人親臉頰打招呼</p></div>`;
   const steps=[
-    {label:'① 1888 年',imgs:[{img:'r1_dryer',tag:'A vintage electric hair dryer'}],poem:'<b>In 1888</b>, a French hairdresser named Alexandre Godefroy <b>made</b> the first hair-drying machine. It <b>was</b> very big, and people <b>had to</b> sit under it in his salon.',key:'明確的過去年份 <b>In 1888</b> → 過去式 made / was / had to。'},
-    {label:'② 從那時起',imgs:[{img:'r1_dryer2',tag:'Hairdryers have become lighter.'}],poem:'<b>In the 1920s</b>, smaller hairdryers <b>appeared</b>.<br><b>Since then</b>, hairdryers <b>have changed</b> a lot. They <b>have become</b> lighter, safer, and quieter <b>over the past hundred years</b>.',key:'<b>Since then／over the past＋時間</b> → 現在完成式。'},
-    {label:'③ 奶奶的吹風機',imgs:[{img:'r1_dryer2',tag:'Grandma has used it for twenty years.'}],poem:'My grandma <b>has used</b> the same hairdryer <b>for twenty years</b>!<br>She <b>bought</b> it <b>twenty years ago</b>, and it still works well.',key:'同一件事兩種說法：has used … <b>for</b> twenty years ＝ bought it twenty years <b>ago</b>。buy 不能接 for → 改 <b>has had it for</b> twenty years。'},
-    {label:'④ 還沒改變心意',imgs:[{img:'r1_dryer',tag:'She hasn\'t changed her mind yet.'}],poem:'I <b>have already asked</b> her to buy a new one, but she <b>hasn\'t changed</b> her mind <b>yet</b>.',key:'<b>already</b> 放 have 和 p.p. 中間；<b>yet</b> 放否定句句尾。change one\'s mind＝改變心意。'},
-    {label:'⑤ When 陷阱',imgs:[{img:'l1_order',tag:'When did you come back?'}],poem:'A: <b>Have</b> you <b>finished</b> your report?<br>B: Yes, I <b>finished</b> it <b>last night</b>.<br>A: <b>When did</b> you <b>come</b> back from Japan? B: Last Monday.',key:'問句用完成式，答句有明確過去時間就改<b>過去式</b>；<b>When</b> 問句只能用過去式（台中向上、自強陷阱）。'},
+    {label:'① 餅乾怪獸',imgs:[{img:'r1_cookies',tag:'The monster eats a cookie every day.'}],poem:'The monster <b>eats</b> a cookie <b>every day</b>. The monster <b>is eating</b> a cookie <b>now</b>.<br>The monster <b>ate</b> many cookies <b>last week</b>. The monster <b>was eating</b> a cookie <b>then</b>.<br>The monster <b>will eat</b> seven cookies <b>next week</b>. The monster <b>has eaten</b> a cookie.',key:'先找<b>時間線索</b>再選時態：every day / now / last week / then / next week。'},
+    {label:'② 讀過小說嗎？',imgs:[{img:'r1_cookies',tag:'Have you ever read an English novel?'}],poem:'Q: <b>Have</b> you <b>ever read</b> an English novel? A: Yes, I <b>have</b>.<br>Q: What <b>did</b> you <b>read</b>? A: My Sister\'s Keeper. I <b>read</b> it <b>last summer</b>.',key:'問經驗用完成式；追問細節、有 <b>last summer</b> → 改<b>過去式</b>（自強、基隆銘傳陷阱）。'},
+    {label:'③ When 陷阱',imgs:[{img:'l1_order',tag:'When did you come back?'}],poem:'A: I <b>have</b> already <b>had</b> lunch. B: Oh? <b>When did</b> you eat?<br>Andy <b>lived</b> in Kaohsiung three years <b>ago</b>, but now he <b>has moved</b> to Taipei.<br>My cat <b>has been dead</b> for three years.',key:'<b>When</b> 問句只能用過去式（台中向上）；die 是瞬間動詞 → <b>be dead</b> 才能接 for。'},
+    {label:'④ A NEW COLOR',imgs:[{img:'r1_bucket',tag:'The more common orange Halloween bucket'}],poem:'Chloe: Nelson, <b>have</b> you <b>seen</b> this article about Halloween? It\'s very <b>surprising</b>.<br>Nelson: No, but I\'m <b>interested in</b> finding out more.<br>Chloe: It seems that <b>since 2018</b>, blue <b>has become</b> a new color for Halloween buckets.',key:'Have you seen…?（經驗）；surprising（事物）／interested in（人）；<b>since 2018＋has become</b>。高雄七賢段考把這篇出成克漏字。'},
+    {label:'⑤ 藍色桶子的故事',imgs:[{img:'r1_bucket',tag:'Instead of the orange one, a blue bucket'}],poem:'Alicia\'s 21-year-old son is autistic and has problems <b>getting along with</b> people. Alicia <b>knew that</b> some people <b>would</b> have problems with that, so she <b>came up with</b> the idea of a blue Halloween bucket.<br>She posted it on Facebook, and people were deeply <b>touched</b> and shared it over 28,000 times.',key:'knew that … <b>would</b>（時態一致）；come up with＝想出；人被感動 → <b>touched</b>。'},
+    {label:'⑥ K-pop 練習生',imgs:[{img:'r1_kpop',tag:'Many teenagers dream of being a K-pop star.'}],poem:'Many teenagers in South Korea <b>dream of being</b> a K-pop star. That is <b>not as easy as</b> it may sound.<br><b>First</b>, they have to <b>spend years training</b> hard. <b>Third</b>, they don\'t have much <b>freedom</b>. <b>Finally</b>, training is expensive, and they may <b>owe</b> their company a lot of money.<br>Many of them <b>give up</b> their dreams because of the <b>pressure</b>.',key:'dream of＋V-ing；spend 時間＋V-ing；not as…as；give up＝放棄。'},
+    {label:'⑦ Culture Corner',imgs:[{img:'r1_airport',tag:'At the airport in Paris'}],poem:'Jenny, over here! — Hi, Mike. — Wow! I can\'t believe you\'re finally here.<br>Wait here <b>while</b> I get us a taxi.<br>Why did Jenny <b>kiss</b> you on the <b>cheeks</b>? — It\'s just the way French people <b>greet</b> each other, dear.',key:'while＝當…時；kiss sb on the cheek(s)；greet each other＝互相打招呼。'},
   ];
   stepper(p,steps,i=>showPhoto(steps[i]),8000);
 }

@@ -213,6 +213,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:20px}
 .ps.en{letter-spacing:0;font-size:1.35rem;line-height:1.7}
 .ps.pop{animation:pop .45s ease}
 @keyframes pop{0%{transform:scale(.9);opacity:.3}100%{transform:scale(1);opacity:1}}
+.bk{min-width:0;overflow-wrap:anywhere}
 </style>
 </head>
 <body>
@@ -228,10 +229,10 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:20px}
 <main><div class="wrap" id="app"></div></main>
 <footer><div class="wrap">
   <b>全民補習班 英文科</b>｜考點依據：台南復興（114）、嘉義太保（114）、新北新莊（114）、新北桃子腳（114）、高雄光華（114）、高雄三民（113）、高雄中庄（113）七校南一版第一次段考試卷，另比對全臺 59 校 114 上九年級英文段考的共通文法。<br>
-  <b>課文為依段考卷考點原創改寫，非課本原文。</b>模擬題、克漏字與閱讀文章皆為原創，不照抄考卷原題。英文發音使用微軟 Neural 語音（en-US-Aria）預錄。練習時可以開聲音，答對、答錯都有音效。背景音樂只在「動畫導覽」播放，可按右下角按鈕關閉。<br>
+  <b>課文依南一版 B5 課本；模擬題與閱讀文章為原創</b>，不照抄考卷原題。英文發音使用微軟 Neural 語音（en-US-Aria）預錄。練習時可以開聲音，答對、答錯都有音效。背景音樂只在「動畫導覽」播放，可按右下角按鈕關閉。<br>
   交卷時會把你的姓名、分數與錯題傳給老師，只有老師看得到。左下角 ✏️ 可以手寫、兩指縮放。<br>
   <details style="margin-top:8px"><summary>圖片來源與授權</summary>
-  照片與插畫皆來自 Wikimedia Commons：Manhattan Bridge Construction 1909：Irving Underhill（公有領域）；5 francs or, Napoléon III, 1857, pile：Jacques-Jean Barre（CC0）；A Christmas carol (1900) (14593231638)：Internet Archive Book Images（無已知著作權限制）；Caritas donation box in Kaunas cathedral：Bdx（CC0）；A Christmas Carol, Mr Fezziwig's Ball, by John Leech：John Leech（公有領域）；Marley's Ghost-John Leech, 1843 (DYK crop)：John Leech（公有領域）；Stave One Marley's Ghost：Fred Barnard（公有領域）；A Christmas Carol, Scrooge and Bob Cratchit after Scrooge's redemption, by John Leech：John Leech（公有領域）；Julaftonen av Carl Larsson 1904：Carl Larsson（公有領域）；Runners participate in a race in a busy street during a city event with spectators cheering on the sidelines：Shixart1985（CC BY 2.0）；Halloween Costume Fun Run 2014 141028-F-EO463-525：Staff Sgt. Jonathan Fowler（公有領域）；Brilliant fireworks over the Cinderella castle, Magic Kingdom：Ethically Yours（CC BY-SA 3.0）；NN Wins 2016 Intramural Flag Football Championship (2947310)：U.S. Air Force photo by Tech. Sgt. Sarah（公有領域）；2022 Taipei Freeway Marathon Half-marathon finisher medal：SUNSmania41（CC BY-SA 4.0）；WPAFB Hosts 2016 Air Force Marathon 160917-F-AV193-1011：Wesley Farnsworth（公有領域）；USMC-120415-M-GU618-036：作者不詳（公有領域）；Waterpoint 131027-M-DE426-016：Sgt. Bobby Yarbrough（公有領域）；Zombie Run 2018 (4974360)：U.S. Army USAG-V by Laura Kreider（公有領域）。</details>
+  照片與插畫皆來自 Wikimedia Commons：Manhattan Bridge Construction 1909：Irving Underhill（公有領域）；240722 (G)I-DLE (여자)아이들 at Just Me ( )I-dle World Tour in San Francisco 28：Waddlingtwice（CC BY-SA 4.0）；Key chains：Gausanchennai（CC BY-SA 4.0）；Piggy-bank-968302：stevepb（CC0）；Yeh Shuhua of (G)I-DLE in 2020 01：사진기자머길（CC BY 3.0）；220618 (G)I-dle (여자)아이들 at Just Me ( )I-dle World Tour in Seoul 01：lilGB_2（CC BY-SA 4.0）；Runners participate in a race in a busy street during a city event with spectators cheering on the sidelines：Shixart1985（CC BY 2.0）；Halloween Costume Fun Run 2014 141028-F-EO463-525：Staff Sgt. Jonathan Fowler（公有領域）；Brilliant fireworks over the Cinderella castle, Magic Kingdom：Ethically Yours（CC BY-SA 3.0）；NN Wins 2016 Intramural Flag Football Championship (2947310)：U.S. Air Force photo by Tech. Sgt. Sarah（公有領域）；2022 Taipei Freeway Marathon Half-marathon finisher medal：SUNSmania41（CC BY-SA 4.0）；WPAFB Hosts 2016 Air Force Marathon 160917-F-AV193-1011：Wesley Farnsworth（公有領域）；USMC-120415-M-GU618-036：作者不詳（公有領域）；Waterpoint 131027-M-DE426-016：Sgt. Bobby Yarbrough（公有領域）；Zombie Run 2018 (4974360)：U.S. Army USAG-V by Laura Kreider（公有領域）。</details>
 </div></footer>
 
 <script>
@@ -263,95 +264,112 @@ const isZY=s=>/[ㄅ-ㄩ]/.test(s);
 const ASK={e:'選出正確的中文意思',c:'選出正確的英文',s:'選出正確的拼字',p:'選出正確的過去分詞（p.p.）',t:'選出正確的動詞形式'};
 const L = {
 l1:{
-  no:'Lesson 1', code:1, title:'A Christmas Carol', short:'小氣財神', color:'linear-gradient(135deg,#18525a,#2a8a7e)',
-  desc:'Scrooge 與 Marley 的鬼魂｜加薪、捐款｜現在完成式 since / for',
+  no:'Lesson 1', code:1, title:'Have You Ever Been to a Concert?', short:'追星與追夢', color:'linear-gradient(135deg,#18525a,#2a8a7e)',
+  desc:'Sandy & Mina 聊演唱會｜舒華的練習生故事｜現在完成式 since / for',
   quick:[
-    ['cheat','欺騙',['捐贈','出現','對待'],1,'e'],
-    ['donate','捐贈',['欺騙','邀請','借出'],1,'e'],
-    ['appear','出現',['消失','發生','出發'],1,'e'],
-    ['charity','慈善機構',['聖誕節','祕書','辦公室'],1,'e'],
-    ['raise','加薪',['獎品','謊言','禮物'],1,'e'],
-    ['lie','謊言；說謊',['燈光','生命','獎品'],1,'e'],
-    ['honest','誠實的',['刻薄的','明智的','活著的'],1,'e'],
-    ['mean','刻薄的；小氣的',['誠實的','有錢的','明智的'],1,'e'],
+    ['cheat','欺騙；作弊',['捐贈','出現','對待'],1,'e'],
+    ['appear','出現',['消失','發生','表演'],1,'e'],
+    ['treat','對待',['欺騙','帶領','表演'],1,'e'],
+    ['raise','舉起；加薪',['獎品','謊言','禮物'],1,'e'],
+    ['lie','說謊；謊話',['燈光','生命','獎品'],1,'e'],
     ['wise','明智的',['富有的','刻薄的','虛弱的'],1,'e'],
-    ['alive','活著的',['死的','孤單的','醒著的'],1,'e'],
-    ['treat','對待',['欺騙','帶領','捐贈'],1,'e'],
+    ['mean','刻薄的；小氣的',['誠實的','有錢的','明智的'],1,'e'],
     ['secretary','祕書',['商人','律師','店主'],1,'e'],
-    ['eve','（節日的）前夕',['夜晚','早晨','假日'],0,'e'],
+    ['perform','表演',['出現','允許','保護'],0,'e'],
+    ['concert','演唱會',['比賽','會議','節目'],0,'e'],
+    ['challenge','挑戰',['改變','機會','頻道'],0,'e'],
+    ['comment','評論',['商業','共同的','承諾'],0,'e'],
+    ['trainee','練習生',['教練','火車','乘客'],0,'e'],
+    ['lovely','愉快的；可愛的',['孤單的','好笑的','有禮貌的'],0,'e'],
+    ['polite','有禮貌的',['懶惰的','嚴肅的','明智的'],0,'e'],
+    ['lazy','懶惰的',['虛弱的','狂怒的','有禮貌的'],0,'e'],
+    ['eve','（重大事件的）前夕',['夜晚','早晨','假日'],0,'e'],
+    ['donate','捐贈',['欺騙','邀請','借出'],1,'e'],
+    ['charity','慈善機構',['聖誕節','祕書','辦公室'],1,'e'],
     ['商人','businessman',['secretary','shopkeeper','lawyer'],0,'c'],
-    ['鬼；鬼魂','ghost',['guest','goat','host'],0,'c'],
-    ['帶領（過去式 led）','lead',['lend','leave','load'],1,'c'],
-    ['禮物；現在','present',['prize','presence','pleasant'],1,'c'],
-    ['死的（形容詞）','dead',['die','death','deed'],0,'c'],
+    ['樂團','band',['bend','bang','hand'],0,'c'],
+    ['節目','program',['problem','progress','project'],0,'c'],
+    ['舞臺','stage',['state','stair','stamp'],0,'c'],
+    ['領路；引導（過去式 led）','lead',['lend','leave','load'],1,'c'],
+    ['現在；禮物','present',['prize','presence','pleasant'],1,'c'],
     ['卡車','truck',['track','trunk','trick'],0,'c'],
-    ['牙醫','dentist',['doctor','lawyer','driver'],0,'c'],
+    ['牙科醫生','dentist',['doctor','lawyer','driver'],0,'c'],
+    ['直到……','until',['unless','since','while'],0,'c'],
+    ['自從……','since',['until','for','ago'],1,'c'],
+    ['放棄','give up',['give in','take up','get up'],0,'c'],
+    ['實現；成真','come true',['come back','come out','come over'],0,'c'],
     ['騙走某人的錢','cheat sb out of money',['cheat sb into money','cheat sb from money','cheat sb off money'],1,'c'],
-    ['只有；除了…什麼都不','nothing but',['anything but','not only','but also'],0,'c'],
     ['捐錢給慈善機構','donate to charity',['donate charity to','donate with charity','donate by charity'],1,'c'],
+    ['write','written',['wrote','writed','writen'],0,'p'],
+    ['become','become',['became','becomed','becamed'],1,'p'],
+    ['win','won',['wan','winned','wun'],0,'p'],
     ['c h _ _ t（欺騙）','cheat',['cheet','chaet','cheate'],1,'s'],
-    ['d _ n _ t e（捐贈）','donate',['donote','denate','donat'],1,'s'],
     ['a p p _ _ r（出現）','appear',['apear','appare','appeer'],1,'s'],
-    ['c h _ r _ t y（慈善機構）','charity',['cherity','charaty','charitty'],1,'s'],
+    ['c o n c _ r t（演唱會）','concert',['consert','concret','concurt'],0,'s'],
+    ['c h _ l l _ n g e（挑戰）','challenge',['chalenge','challange','chellenge'],0,'s'],
+    ['p e r f _ r m（表演）','perform',['preform','perfrom','perfom'],0,'s'],
     ['s _ c r _ t _ r y（祕書）','secretary',['secretery','secratary','secertary'],1,'s'],
-    ['h _ n _ s t（誠實的）','honest',['honist','onest','honast'],1,'s'],
     ['b u s _ n _ s s m _ n（商人）','businessman',['busnessman','bussinessman','businesman'],0,'s'],
     ['C h r _ s t m _ s（聖誕節）','Christmas',['Chrismas','Christmes','Cristmas'],0,'s'],
+    ['d _ n _ t e（捐贈）','donate',['donote','denate','donat'],1,'s'],
   ],
   words:[
-    ['love nothing but money','只愛錢'],['a pay raise','加薪'],['ask for a raise','要求加薪'],['cheat sb out of …','騙走某人的…'],
-    ['donate … to charity','捐…給慈善機構'],['Christmas Eve','聖誕夜'],['be led into …','被帶進…'],['become a new man','脫胎換骨、重新做人'],
-    ['has been dead for years','已經死了好幾年'],['treat … well','善待…'],
+    ['be a fan of …','是…的粉絲'],['appear on TV','上電視'],['save money','存錢'],['treat … well','善待…'],['do one\'s best to …','盡全力…'],
+    ['dream of V-ing','夢想做…'],['come true','實現；成真'],['give up','放棄'],['ups and downs','起起落落'],['believe in oneself','相信自己'],
+    ['wake … up','使醒來；使醒悟'],['Christmas Eve','聖誕夜'],['a pay raise','加薪'],['donate … to charity','捐…給慈善機構'],['cheat sb out of …','騙走某人的…'],
   ],
   sorts:[
     {title:'since 還是 for？',tip:'since＋過去的「時間點」或過去式子句；for＋一段「時間長度」',buckets:['since','for'],items:[
-      ['___ seven years',1],['___ last Christmas',0],['___ 2019',0],['___ a long time',1],['___ he was a boy',0,'since 後面可接過去式子句。'],
-      ['___ two weeks',1],['___ this morning',0],['___ three days',1],['___ he met Marley',0],['___ yesterday',0],['___ years',1],['___ ten minutes',1]]},
-    {title:'這是誰？Scrooge、Marley 還是 Cratchit？',tip:'依本站原創改寫的故事：Scrooge 吝嗇老闆、Marley 已過世的老友、Cratchit 祕書',buckets:['Scrooge','Marley','Cratchit'],items:[
-      ['He loves nothing but money.',0],['He says Christmas is just a lie.',0],['He has been dead for seven years.',1],['He appears on Christmas Eve.',1],
-      ['He is a secretary.',2],['He gets a pay raise.',2],['He was once Scrooge\'s partner.',1],['He is led into a dark room.',0],
-      ['He has a poor but happy family.',2],['He becomes a new man.',0],['He tells his old friend to change.',1]]},
+      ['___ more than three years',1],['___ last Christmas',0],['___ 2018',0],['___ a long time',1],['___ she was a child',0,'since 後面可接過去式子句。'],
+      ['___ two weeks',1],['___ this morning',0],['___ months',1],['___ she moved to South Korea',0],['___ yesterday',0],['___ years',1],['___ ten minutes',1]]},
+    {title:'這是誰？Sandy、Mina 還是 Shuhua？',tip:'依南一課本 L1：Sandy 與 Mina 是對話裡的兩位同學；Shuhua（舒華）是閱讀的主角',buckets:['Sandy','Mina','Shuhua'],items:[
+      ['She watched i-dle\'s concert in Taipei last October.',0],['She saved money for months to go to a concert.',0],['Her favorite member is the leader of i-dle.',0],
+      ['She has been a CARAT for more than three years.',1],['She bought a SEVENTEEN key chain for herself.',1],['She will start saving money.',1],
+      ['She has watched the live streams many times.',1],['She moved to South Korea to be a trainee.',2],['She became a member of a girl group in 2018.',2],
+      ['She faces mean comments on the Internet.',2],['She practiced singing and dancing every day.',2]]},
     {title:'already、yet、ever 還是 never？',tip:'already 肯定句（have 與 p.p. 中間）；yet 否定句／疑問句句尾；ever 疑問句「曾經」；never「從未」本身就是否定',buckets:['already','yet','ever','never'],items:[
-      ['Scrooge has ___ given Cratchit a raise. Cratchit is so happy.',0],['Has Scrooge donated any money ___?',1],
-      ['Have you ___ seen a ghost?',2],['I have ___ seen a ghost. I don\'t believe in them.',3],
-      ['Cratchit hasn\'t got his raise ___.',1],['We have ___ finished the Christmas dinner.',0],
-      ['Is this the scariest story you have ___ read?',2,'最高級＋you have ever p.p.＝你看過最…的。'],['The ghost hasn\'t appeared ___.',1],
-      ['Scrooge has ___ helped anyone before that night.',3]]},
+      ['Sandy has ___ been to i-dle\'s concert. She went last October.',0],['Has Mina been to a fan meeting ___?',1],
+      ['Have you ___ been to a concert?',2],['Mina has ___ seen SEVENTEEN live. She really wants to.',3],
+      ['Mina hasn\'t had the chance ___.',1],['I\'ve ___ bought the ticket. Let\'s go!',0],
+      ['Is this the best song you have ___ heard?',2,'最高級＋you have ever p.p.＝你聽過最…的。'],['The leader hasn\'t written a new song ___.',1],
+      ['Shuhua has ___ given up. She keeps trying.',3]]},
   ],
-  hunt:{label:'🔍 完成式抓抓樂',title:'找出故事中的「現在完成式」（have / has＋p.p.）',tip:'appeared、said 是過去式；was led 是過去式被動，都不算！點一下你認為是現在完成式的詞組。',lines:[
-    'It is Christmas Eve, and the office is cold and dark.',
-    'Cratchit [has worked] for Scrooge for ten years.',
-    'But Scrooge [has never given] him a pay raise.',
-    '"Christmas is just a lie," Scrooge said to two men from a charity.',
-    'That night, Marley appeared. He [has been] dead for seven years.',
-    '"I [have carried] these heavy chains since I died," Marley said.',
-    'Scrooge was led into a dark room and saw an old man lying in bed.',
-    'Since that night, Scrooge [has become] a new man.',
-    'He [has donated] money to charity every Christmas since then.',
+  hunt:{label:'🔍 完成式抓抓樂',title:'找出課文中的「現在完成式」（have / has＋p.p.）',tip:'watched、became、gave up 是過去式；has to、can come true 不是完成式！點一下你認為是現在完成式的詞組。',lines:[
+    'Mina: Not yet. I [haven\'t had] the chance.',
+    'Sandy: I [haven\'t seen] SEVENTEEN live, but I watched i-dle\'s concert in Taipei last October.',
+    'Sandy: The leader. She [has written] many songs for the band.',
+    'To make her dream come true, she moved to South Korea to be a trainee.',
+    'She often felt lonely, yet she never gave up.',
+    'Shuhua became a member of the girl group (G)I-DLE in 2018.',
+    'Since 2018, she [has performed] in many shows and concerts and [has won] fans from all over the world.',
+    'Even though i-dle [has become] famous, Shuhua\'s challenges never end.',
+    'She has to improve her Korean, perform better on stage, and practice until late at night.',
   ]},
   mcq:[
-    {q:'Marley ___ dead for seven years.',o:['has been','has died','died','was'],a:0,src:'台南復興 同類題',ex:'die 是瞬間動詞，不能接一段時間（for seven years）；要改成 be dead → has been dead for…。'},
-    {q:'Cratchit has worked for Scrooge ___ ten years.',o:['for','since','in','ago'],a:0,src:'六校考 since/for',ex:'ten years 是一段時間 → for。since 要接時間點。'},
-    {q:'Scrooge has been kind to everyone ___ he met the three ghosts.',o:['since','for','before','until'],a:0,src:'高雄三民 同類題',ex:'since＋過去式子句（he met…），主要子句用現在完成式。'},
+    {q:'Mina has been a CARAT ___ more than three years.',o:['for','since','in','ago'],a:0,src:'六校考 since/for（課文句）',ex:'more than three years 是一段時間 → for。since 要接時間點。'},
+    {q:'Shuhua has performed in many shows and concerts ___ 2018.',o:['since','for','in','ago'],a:0,src:'六校考 since/for（課文句）',ex:'2018 是時間起點 → since。'},
+    {q:'Shuhua ___ a member of the girl group in 2018.',o:['became','has become','becomes','has became'],a:0,src:'R1 時態判斷（課文句）',ex:'in 2018 是明確過去時間 → 過去式 became；has became 文法錯（p.p. 是 become）。'},
+    {q:'Shuhua has worked hard ___ she was a child.',o:['since','for','before','until'],a:0,src:'高雄三民 同類題',ex:'since＋過去式子句（she was a child），主要子句用現在完成式。'},
     {q:'A: How long have you worked in this office? B: ___',o:['Since 2020.','Two years ago.','In 2020.','For 2020.'],a:0,src:'台南復興、高雄中庄',ex:'How long 問「多久」→ Since＋時間點 或 For＋一段時間。ago、in 2020 是答 When。for 不能接年份。'},
-    {q:'Scrooge is a businessman. He loves nothing ___ money.',o:['but','and','or','so'],a:0,src:'台南復興',ex:'nothing but＝只有，love nothing but money＝只愛錢。'},
+    {q:'My fish ___ dead for two days.',o:['has been','has died','died','was'],a:0,src:'台南復興 同類題',ex:'die 是瞬間動詞，不能接一段時間（for two days）；要改成 be dead → has been dead for…。'},
+    {q:'They have ___ on many TV programs.',o:['appeared','been appeared','appearing','appear'],a:0,src:'台南復興、高雄光華 陷阱（課文句）',ex:'have＋p.p.；appear（出現）是不及物動詞，不能用被動。'},
+    {q:'They ___ fans so well. They always give gifts to fans.',o:['treat','cheat','lead','appear'],a:0,src:'嘉義太保、新北新莊（課文句）',ex:'treat sb well＝善待某人。'},
+    {q:'My boss loves nothing ___ money. He never gives us a raise.',o:['but','and','or','so'],a:0,src:'台南復興',ex:'nothing but＝只有，love nothing but money＝只愛錢。'},
     {q:'My friend cheated me ___ my money, so I don\'t trust him anymore.',o:['out of','into','from','away'],a:0,src:'新北新莊、桃子腳',ex:'cheat sb out of sth＝騙走某人的某物。'},
     {q:'Mr. Lin is very kind. He has donated a lot of money ___ charity.',o:['to','for','at','with'],a:0,src:'六校考 donate',ex:'donate sth to charity＝把某物捐給慈善機構。'},
-    {q:'At midnight, the ghost ___ in Scrooge\'s bedroom.',o:['appeared','was appeared','appearing','was appear'],a:0,src:'台南復興、高雄光華 陷阱',ex:'appear（出現）是不及物動詞，不能用被動。'},
     {q:'Kelly works very hard, so she asked her boss for a ___.',o:['raise','prize','lie','charity'],a:0,src:'五校考 raise',ex:'ask for a raise＝要求加薪。prize 是比賽的獎品。'},
     {q:'Don\'t tell a ___. You should always be honest.',o:['lie','raise','present','charity'],a:0,src:'四校考 lie',ex:'tell a lie＝說謊，和後句 be honest（誠實）相反。'},
-    {q:'A: Have you ever been to London? B: ___',o:['Yes, I have.','Yes, I did.','Yes, I was.','Yes, I had.'],a:0,src:'高雄三民 同類題',ex:'Have you…? 用 have / haven\'t 回答。'},
+    {q:'A: Have you ever been to a concert? B: ___',o:['Yes, I have.','Yes, I did.','Yes, I was.','Yes, I had.'],a:0,src:'高雄三民 同類題',ex:'Have you…? 用 have / haven\'t 回答。'},
     {q:'My brother isn\'t home now. He ___ to the post office.',o:['has gone','has been','has been in','goes'],a:0,src:'四校考 been to / gone to',ex:'人不在這裡、已經去了還沒回來 → has gone to。has been to 是「去過、已回來」。'},
-    {q:'I ___ this Christmas story three times.',o:['have read','have readed','has read','reading'],a:0,src:'原創',ex:'主詞 I → have；read 的 p.p. 還是 read。three times＝經驗次數，用現在完成式。'},
-    {q:'Which is TRUE about the story on this website?',o:['Cratchit has worked for Scrooge for ten years.','Marley gave Cratchit a raise.','Scrooge appeared as a ghost.','Cratchit is a rich businessman.'],a:0,src:'課文理解（原創改寫）',ex:'加薪的是 Scrooge、以鬼魂出現的是 Marley、有錢商人是 Scrooge。段考很愛把人物事實互換！'},
-    {q:'"Since that night, Scrooge has become a new man." 這句話的意思是？',o:['他從那晚起改過自新了','他從那晚起變年輕了','他從那晚起換了新工作','他從那晚起交了新朋友'],a:0,src:'高雄三民',ex:'become a new man＝脫胎換骨、重新做人，不是字面上的「新的人」。'},
-    {q:'A good boss ___ his workers well and gives them a raise every year.',o:['treats','cheats','leads','appears'],a:0,src:'嘉義太保、新北新莊',ex:'treat sb well＝善待某人。'},
-    {q:'A: Has Cratchit got his raise ___? B: No, not ___.',o:['yet; yet','already; yet','ever; already','yet; already'],a:0,src:'新北新莊、高雄中庄',ex:'疑問句、否定句用 yet；not yet＝還沒。'},
+    {q:'I ___ their live streams many times!',o:['have watched','have watch','has watched','watching'],a:0,src:'課文句',ex:'主詞 I → have；many times＝經驗次數，用現在完成式 have＋p.p.。'},
+    {q:'Which is TRUE about the dialogue in Lesson 1?',o:['Mina has been a CARAT for more than three years.','Mina watched i-dle\'s concert last October.','Sandy bought a SEVENTEEN key chain.','Mina has been to a SEVENTEEN concert.'],a:0,src:'課文理解（南一課本）',ex:'看 i-dle 演唱會的是 Sandy；買 SEVENTEEN 鑰匙圈、還沒去過演唱會的是 Mina。段考很愛把人物事實互換！'},
+    {q:'"Shuhua\'s life has a lot of ups and downs." 這句話的意思是？',o:['她的人生起起落落','她常常上樓下樓','她的生活很無聊','她每天都很開心'],a:0,src:'課文理解（南一課本）',ex:'ups and downs＝起起落落、有好有壞。'},
+    {q:'A: Has Sara eaten the cake ___? B: No, not ___.',o:['yet; yet','already; yet','ever; already','yet; already'],a:0,src:'新北新莊、高雄中庄（課本 Grammar A）',ex:'疑問句、否定句用 yet；not yet＝還沒。'},
   ]
 },
 l2:{
-  no:'Lesson 2', code:2, title:'Fun Runs', short:'趣味路跑', color:'linear-gradient(135deg,#7a3e65,#c0607a)',
-  desc:'Disney 馬拉松｜Zombie Run 的 life flags｜被動語態 be＋p.p.',
+  no:'Lesson 2', code:2, title:'Fun Runs Are Held All Around the World', short:'趣味路跑', color:'linear-gradient(135deg,#7a3e65,#c0607a)',
+  desc:'Henry & Lucy 聊路跑｜runDisney 與 Zombie Run｜被動語態 be＋p.p.',
   quick:[
     ['prize','獎品',['獎牌','旗子','禮物'],1,'e'],
     ['sidewalk','人行道',['馬路','側邊','走廊'],1,'e'],
@@ -368,6 +386,12 @@ l2:{
     ['weak','虛弱的',['一週','強壯的','醒著的'],1,'e'],
     ['marathon','馬拉松',['賽車','運動會','派對'],1,'e'],
     ['zombie','殭屍',['鬼魂','怪物','巫婆'],1,'e'],
+    ['alive','活著的',['死的','孤單的','醒著的'],1,'e'],
+    ['honest','誠實的',['刻薄的','明智的','活著的'],1,'e'],
+    ['above','在……上面',['在……下面','在……旁邊','在……之間'],0,'e'],
+    ['exciting','令人興奮的',['感到興奮的','無聊的','疲倦的'],0,'e'],
+    ['參加','take part in',['take care of','take off','take after'],0,'c'],
+    ['老實說','to be honest',['to be sure','to be free','to be true'],0,'c'],
     ['出發；（煙火）施放','set off',['set up','take off','pull off'],1,'c'],
     ['扯下','pull off',['pull down','put off','take on'],1,'c'],
     ['送飛吻','blow kisses',['blow up','give kisses up','fly kisses'],1,'c'],
@@ -388,58 +412,62 @@ l2:{
   ],
   words:[
     ['set off','出發；施放（煙火）'],['pull off','扯下'],['blow kisses to …','向…送飛吻'],['take away','拿走'],['as a prize','作為獎品'],
-    ['dress up as …','裝扮成…'],['fun run','趣味路跑'],['need a rest','需要休息'],['cheer for …','為…歡呼加油'],['all along the way','一路上'],
+    ['dress up in …','穿上…（服裝）'],['fun run','趣味路跑'],['take part in','參加'],['to be honest','老實說'],['all along the way','一路上'],['stay alive','活下來'],['for fun','為了好玩'],
   ],
   sorts:[
     {title:'主動還是被動？',tip:'主詞「自己做」→ 主動；主詞「被…」→ 被動 be＋p.p.。happen、appear 不及物，連綴動詞 feel、taste 都不用被動！',buckets:['主動','被動（be＋p.p.）'],items:[
       ['Fireworks ___ when the race starts. (set off)',1,'煙火是「被施放」→ are set off。'],['The runners ___ at six a.m. (set off)',0,'跑者自己出發 → set off。'],
-      ['Medals ___ to all the runners. (give)',1],['Disney characters ___ kisses to the runners. (blow)',0],
+      ['Medals ___ to all the runners. (give)',1],['Disney characters ___ them kisses. (blow)',0],
       ['Screams can ___ all along the way. (hear)',1,'can be heard。'],['The zombies ___ the runners. (chase)',0],
       ['Some runners\' flags ___ off. (pull)',1],['Something funny ___ during the race. (happen)',0,'happen 不及物，不能被動。'],
       ['My legs ___ very sore. (feel)',0,'feel 是連綴動詞，不用被動。'],['The lost wallet ___ on the sidewalk. (find)',1],
       ['English ___ all over the world. (speak)',1]]},
-    {title:'Disney 馬拉松？Zombie Run？還是兩個都有？',tip:'依本站原創改寫的路跑文章',buckets:['Disney Marathon','Zombie Run','兩者都有'],items:[
-      ['Fireworks are set off at the start.',0],['Characters stand on the sidewalk and cheer.',0],['Runners take photos with famous characters.',0],
-      ['Each runner wears three life flags.',1],['People dressed as zombies chase the runners.',1],['Screams can be heard all along the way.',1],
-      ['A runner is out if all the flags are pulled off.',1],['Every runner who finishes gets a medal as a prize.',2],['Many runners dress up in costumes.',2]]},
+    {title:'runDisney？Zombie Run？還是兩個都有？',tip:'依南一課本 L2 閱讀〈Fun Runs〉',buckets:['runDisney','Zombie Run','兩者都有'],items:[
+      ['Runners can wear their favorite Disney costumes.',0],['Colorful fireworks can be seen in the sky.',0],['Characters cheer and blow kisses from the sidewalk.',0],
+      ['A lovely Disney medal is given as a prize.',0],['It is usually held around Halloween.',1],['Hungry zombies hunt for the runners.',1],
+      ['Cries and screams can be heard all along the way.',1],['If a runner\'s flags are all taken away, the runner is out.',1],
+      ['Runners can get a medal at the end.',2],['It is one of the most popular fun runs.',2]]},
   ],
-  hunt:{label:'🔍 被動語態抓抓樂',title:'找出文章中的「被動語態」（be／助動詞＋be＋p.p.）',tip:'dressed as zombies 是「穿成…的」，修飾 people，不是句子的動詞；set off（跑者出發）是主動。點一下你認為是被動語態的詞組！',lines:[
-    'The Disney Marathon [is held] every January in Florida.',
-    'When the runners set off, fireworks [are set off] in the sky.',
-    'Disney characters stand on the sidewalk and cheer for the runners.',
-    'Some of them blow kisses, and many photos [are taken] along the way.',
-    'The Zombie Run is very different. Every runner wears three life flags.',
-    'Runners [can be killed] by people dressed as zombies.',
-    'If all of a runner\'s flags [are pulled] off, the runner is out.',
-    'Screams [can be heard] all along the way.',
-    'At the finish line, a medal [is given] to every runner as a prize.',
+  hunt:{label:'🔍 被動語態抓抓樂',title:'找出課文中的「被動語態」（be／助動詞＋be＋p.p.）',tip:'set off（跑者出發）、see 是主動；are exciting 是 be＋形容詞，不是被動！副詞 also、usually、all 夾在中間時，be 動詞和 p.p. 要分開點。',lines:[
+    'Henry: My aunt ran in a Costume Run in Japan. It [was called] the Sumo Run.',
+    'Henry: Sumo Runs [are] also [held] in Taiwan.',
+    'Fun runs [have been held] all around the world.',
+    'After the runners set off, they see colorful fireworks above them in the sky.',
+    'When the runners finish the race, a lovely Disney medal [is given] to them as a prize.',
+    'Zombie Runs [are] usually [held] around Halloween.',
+    'They are exciting because runners [can be killed] by zombies.',
+    'Cries and screams [can be heard] all along the way.',
+    'If a runner\'s flags [are] all [taken] away, the runner is out.',
   ]},
   mcq:[
     {q:'When the runners set off, fireworks ___ in the sky.',o:['are set off','set off','is set off','setting off'],a:0,src:'四校考 set off',ex:'煙火「被施放」→ 被動；fireworks 複數 → are set off。'},
-    {q:'In a Zombie Run, runners can ___ by people dressed as zombies.',o:['be killed','kill','be kill','killed'],a:0,src:'新北新莊 同類題',ex:'助動詞被動：can be＋p.p.。'},
+    {q:'They are exciting because runners can ___ by zombies.',o:['be killed','kill','be kill','killed'],a:0,src:'新北新莊 同類題（課文句）',ex:'助動詞被動：can be＋p.p.。'},
     {q:'If all your flags are pulled ___, you are out of the game.',o:['off','on','up','down'],a:0,src:'台南復興 陷阱',ex:'pull off＝扯下（旗子從腰帶上被扯離），不是 pull down（往下拉）。'},
-    {q:'The characters blew kisses to the runners ___ the sidewalk.',o:['from','into','under','through'],a:0,src:'台南復興 陷阱',ex:'角色站在人行道上「從那裡」送飛吻 → from the sidewalk。'},
-    {q:'Every runner who finishes the race gets a medal ___ a prize.',o:['as','by','of','at'],a:0,src:'台南復興',ex:'as a prize＝作為獎品。'},
+    {q:'Disney characters cheer and blow them kisses ___ the sidewalk.',o:['from','into','under','through'],a:0,src:'台南復興 陷阱（課文句）',ex:'角色站在人行道上「從那裡」送飛吻 → from the sidewalk。'},
+    {q:'When the runners finish the race, a lovely Disney medal is given to them ___ a prize.',o:['as','by','of','at'],a:0,src:'台南復興（課文句）',ex:'as a prize＝作為獎品。'},
     {q:'After the race, I was so ___ that I drank three bottles of water.',o:['thirsty','sore','weak','honest'],a:0,src:'五校考 thirsty',ex:'喝了三瓶水 → 口渴的 thirsty。'},
     {q:'My legs are burning and ___. I really need a rest.',o:['sore','thirsty','wise','alive'],a:0,src:'嘉義太保、台南復興',ex:'腿「痠痛」→ sore。'},
-    {q:'Hank lost his ___ on the way, so he had no money to buy a drink.',o:['wallet','medal','flag','costume'],a:0,src:'五校考 wallet',ex:'沒有錢 → 皮夾不見了。'},
+    {q:'Henry lost his ___ on the way, so he had no money to buy a drink.',o:['wallet','medal','flag','costume'],a:0,src:'五校考 wallet',ex:'沒有錢 → 皮夾不見了。'},
     {q:'Something terrible ___ during the race last year.',o:['happened','was happened','is happened','happen'],a:0,src:'高雄光華 陷阱',ex:'happen 是不及物動詞，不能用被動；last year → 過去式。'},
     {q:'A: Who ___ the race last year? B: It ___ by a girl from Taiwan.',o:['won; was won','was won; won','won; won','was won; was won'],a:0,src:'原創',ex:'第一句 Who 是主詞，主動 won；第二句 It（比賽）被贏 → was won。'},
-    {q:'The Disney Marathon ___ every January.',o:['is held','holds','is holding','held'],a:0,src:'嘉義太保 同類題',ex:'比賽「被舉辦」→ is held；every January 是習慣 → 現在式被動。'},
-    {q:'"Screams can be heard all along the way." 這句話的意思是？',o:['一路上都聽得到尖叫聲','大家沿路大聲唱歌','路上不准尖叫','只有終點聽得到尖叫'],a:0,src:'課文理解（原創改寫）',ex:'can be heard＝能被聽到；all along the way＝一路上。'},
-    {q:'Naomi: Why are you dressed as a zombie? Hank: ___',o:['I\'m going to a Zombie Run this weekend.','I have never seen a zombie.','Zombies are very scary.','I was born in October.'],a:0,src:'台南復興 同類題',ex:'問「為什麼扮成殭屍」→ 回答原因：要去參加殭屍路跑。'},
+    {q:'Zombie Runs ___ usually ___ around Halloween.',o:['are; held','are; holding','have; held','do; hold'],a:0,src:'嘉義太保 同類題（課文句）',ex:'路跑「被舉辦」→ are held；頻率副詞 usually 放在 be 動詞後面。'},
+    {q:'"Cries and screams can be heard all along the way." 這句話的意思是？',o:['一路上都聽得到哭喊和尖叫聲','大家沿路大聲唱歌','路上不准尖叫','只有終點聽得到尖叫'],a:0,src:'課文理解（南一課本）',ex:'can be heard＝能被聽到；all along the way＝一路上。'},
+    {q:'Henry: Would you like to join me? Lucy: ___ I\'m not a great runner. Let me think about it.',o:['To be honest,','Deal!','Same here.','Congratulations!'],a:0,src:'課文句',ex:'下一句說自己不太會跑 → 先說 To be honest（老實說）。Deal! 是答應；Same here. 是我也是。'},
     {q:'Mickey and Minnie are famous Disney ___.',o:['characters','insects','sidewalks','medals'],a:0,src:'四校考 character',ex:'character＝（卡通、故事裡的）角色。'},
     {q:'The ___ were so loud that the baby woke up and cried.',o:['fireworks','wallets','medals','prizes'],a:0,src:'四校考 firework',ex:'很大聲 → 煙火。'},
-    {q:'Which is TRUE about the Zombie Run on this website?',o:['A runner is out if all the flags are pulled off.','Fireworks are set off at the start.','Disney characters cheer on the sidewalk.','Runners have to dress up as Mickey.'],a:0,src:'課文理解（原創改寫）',ex:'煙火、Disney 角色都是 Disney 馬拉松的內容。'},
+    {q:'According to the reading, which is TRUE about the Zombie Run?',o:['A runner is out if all the flags are taken away.','Colorful fireworks are seen above the runners.','Disney characters cheer from the sidewalk.','A lovely Disney medal is given as a prize.'],a:0,src:'課文理解（南一課本）',ex:'煙火、迪士尼角色、迪士尼獎牌都是 runDisney 的內容。課本理解題：runners can be killed＝出局（out of the game）。'},
   ]
 },
 r1:{
   no:'Review 1', code:4, title:'Past or Present Perfect?', short:'時態總複習', color:'linear-gradient(135deg,#3a4f7a,#6b86b8)',
-  desc:'過去式 vs 現在完成式｜been to / gone to / been in｜瞬間動詞',
+  desc:'Tim 想進田徑隊｜瘟疫醫生｜過去式 vs 現在完成式、被動總複習',
   subs:[['anim','🎬 時態判斷秀'],['quick','⚡ 時態快問快答'],['match','🔗 片語總複習'],['sort','🎯 分類挑戰'],['mcq','📝 段考模擬題']],
   quick:[
-    ['Marley ___ seven years ago. (die)','died',['has died','has been dead','dies'],1,'t'],
-    ['Marley ___ dead for seven years. (be)','has been',['was','is','has died'],1,'t'],
+    ['The team ___ first in different races many times. (finish)','has finished',['finished','finishes','have finished'],1,'t'],
+    ['A: Have you ever trained before? B: Yes, I ___.','have',['did','do','was'],1,'t'],
+    ['I fell down, and my left leg ___. (break)','was broken',['broke','has broken','is broken'],1,'t'],
+    ['I ___ to give up running. (tell)','was told',['told','have told','am telling'],1,'t'],
+    ['My fish died two days ago. My fish ___ dead for two days. (be)','has been',['was','is','has died'],1,'t'],
     ['I ___ this story last week. (read)','read',['have read','reads','readed'],0,'t'],
     ['We ___ here since 2020. (live)','have lived',['lived','live','are living'],1,'t'],
     ['She ___ to Japan twice. She loves it. (be)','has been',['has gone','is','have been'],1,'t'],
@@ -448,14 +476,14 @@ r1:{
     ['A: When ___ you ___ the medal? B: Yesterday.','did; get',['have; got','did; got','have; get'],0,'t'],
     ['Kelly ___ her boss for a raise two days ago. (ask)','asked',['has asked','asks','has been asked'],0,'t'],
     ['___ you ever ___ a fun run?','Have; joined',['Did; join','Have; join','Do; joined'],1,'t'],
-    ['They ___ the Christmas dinner yet.','haven\'t finished',['didn\'t finish','don\'t finish','haven\'t finish'],1,'t'],
+    ['They ___ the homework yet.','haven\'t finished',['didn\'t finish','don\'t finish','haven\'t finish'],1,'t'],
     ['It ___ for two days. Everything is wet. (rain)','has been raining',['rained','rains','was rain'],0,'t'],
     ['My sister ___ to the UK in 2022. (go)','went',['has gone','has been','goes'],0,'t'],
     ['He ___ already ___ the race.','has; finished',['did; finish','is; finished','has; finish'],0,'t'],
-    ['A: How long ___ you known Hank? B: For ten years.','have',['did','do','are'],0,'t'],
+    ['A: How long ___ you known Henry? B: For ten years.','have',['did','do','are'],0,'t'],
     ['It ___ three years since we last met.','has been',['was','have been','has'],0,'t'],
-    ['Scrooge ___ a new man since that night.','has become',['became','becomes','has became'],1,'t'],
-    ['The ghost ___ at midnight last night. (appear)','appeared',['has appeared','was appeared','appears'],1,'t'],
+    ['i-dle ___ famous since 2018.','has become',['became','becomes','has became'],1,'t'],
+    ['Shuhua ___ a member of i-dle in 2018. (become)','became',['has become','becomes','has became'],1,'t'],
     ['I ___ my homework. Now I can play. (finish)','have finished',['finish','am finished','had finish'],0,'t'],
     ['Ben ___ a cold since Monday. (have)','has had',['had','has','have had'],0,'t'],
     ['We ___ a movie and had dinner last night. (watch)','watched',['have watched','watch','has watched'],1,'t'],
@@ -475,9 +503,9 @@ r1:{
     {title:'been to、gone to 還是 been in？',tip:'been to＝去過（已回來）；gone to＝去了（還沒回來）；been in＝一直待在某地（常接 for / since）',buckets:['been to','gone to','been in'],items:[
       ['Amy has ___ Japan three times. She loves it.',0],['Amy isn\'t here. She has ___ Japan. She\'ll be back next week.',1],
       ['Amy has ___ Japan since May. She still lives there.',2],['I have ___ the zoo many times.',0],['Where is Dad? He has ___ the bank.',1],
-      ['Naomi has ___ the hospital for two days.',2],['Have you ever ___ a Disney park?',0],['Hank has ___ Kaohsiung for a month.',2]]},
+      ['Lucy has ___ the hospital for two days.',2],['Have you ever ___ a Disney park?',0],['Henry has ___ Taichung for a month.',2]]},
     {title:'瞬間動詞要換成「持續」的說法',tip:'die、buy、begin、leave 是一瞬間的動作，不能接 for / since；要換成 be dead、have、be on、be away',buckets:['die → be dead','buy → have','begin → be on','leave → be away'],items:[
-      ['Marley ___ for seven years.',0],['I ___ this medal for a year.',1],['The movie ___ for ten minutes.',2],['Dad ___ from home for a week.',3],
+      ['My fish ___ for two days.',0],['I ___ this medal for a year.',1],['The movie ___ for ten minutes.',2],['Dad ___ from home for a week.',3],
       ['Her cat ___ since last winter.',0],['We ___ this truck since 2020.',1],['The race ___ for an hour.',2],['He ___ since Monday.',3]]},
   ],
   mcq:[
@@ -492,7 +520,7 @@ r1:{
     {q:'Peter has been to the USA, but his sisters ___.',o:['haven\'t','didn\'t','aren\'t','hasn\'t'],a:0,src:'高雄中庄',ex:'前句用 has been，省略句也用完成式助動詞；sisters 複數 → haven\'t。'},
     {q:'The movie began ten minutes ago. = The movie has ___ for ten minutes.',o:['been on','begun','began','been begin'],a:0,src:'瞬間動詞 陷阱',ex:'begin 是瞬間動詞，改成 be on（上演中）→ has been on for ten minutes。'},
     {q:'When ___ you ___ your first medal?',o:['did; win','have; won','did; won','have; win'],a:0,src:'原創',ex:'When 問明確時間點 → 過去式；did 後接原形 win。'},
-    {q:'Since that Christmas, Scrooge ___ money to charity every year.',o:['has donated','donated','was donated','donate'],a:0,src:'高雄三民 同類題',ex:'Since that Christmas → 現在完成式；主詞 Scrooge 自己捐 → 主動 has donated。'},
+    {q:'Since 2018, the band ___ money to charity every year.',o:['has donated','donated','was donated','donate'],a:0,src:'高雄三民 同類題',ex:'Since 2018 → 現在完成式；主詞 the band 自己捐 → 主動 has donated。'},
     {q:'We ___ dinner yet. Let\'s eat now.',o:['haven\'t had','didn\'t have','don\'t have','haven\'t have'],a:0,src:'新北新莊、高雄中庄',ex:'yet 用在現在完成式否定句；have 的 p.p. 是 had。'},
     {q:'My grandma ___ sick for a week, so she is in the hospital now.',o:['has been','was','is','has'],a:0,src:'高雄光華 同類題',ex:'for a week 持續到現在（she is in the hospital now）→ has been sick。'},
     {q:'Ken: I\'ve watched this movie before. Mia: Really? When ___ it?',o:['did you watch','have you watched','do you watch','had you watched'],a:0,src:'原創',ex:'When 問「什麼時候」→ 過去式；現在完成式不能和 When 連用。'},
@@ -541,7 +569,7 @@ gram:{
     {title:'看時間線索，選被動語態的時態',tip:'every…／always → is/are p.p.；last…／ago／in 1909 → was/were p.p.；next…／tomorrow／can → will/can be p.p.；since／for／yet → has/have been p.p.',
      buckets:['is / are p.p.','was / were p.p.','will / can be p.p.','has / have been p.p.'],items:[
       ['The race ___ every December. (hold)',0],['English ___ in many countries. (speak)',0],['The windows ___ every morning. (clean)',0],
-      ['The bridge ___ in 1909. (build)',1],['My wallet ___ last night. (steal)',1],['Scrooge ___ into a dark room by the ghost last night. (lead)',1],
+      ['The bridge ___ in 1909. (build)',1],['My wallet ___ last night. (steal)',1],['The blind man ___ across the road by Lucy yesterday. (lead)',1],
       ['A new library ___ next year. (build)',2],['Screams ___ all along the way. (can / hear)',2],['The medals ___ to the runners tomorrow. (give)',2],
       ['This song ___ for over fifty years. (sing)',3],['The flowers ___ yet. (not / water)',3],['Many photos ___ since the race started. (take)',3]]},
     {title:'抓錯大作戰：這句文法對不對？',tip:'happen、appear 不能被動；taste、feel 是連綴動詞；listen to 被動要保留 to；die、buy 是瞬間動詞',buckets:['正確 ✅','錯誤 ❌'],items:[
@@ -549,9 +577,9 @@ gram:{
       ['The cake tasted delicious.',0],['The cake was tasted delicious.',1,'taste（嚐起來）是連綴動詞，不用被動。'],
       ['English is spoken in many countries.',0],['My flags were pulled off by a zombie.',0],
       ['Her music is listened by millions of people.',1,'片語動詞 listen to 改被動要保留 to：is listened to by…'],
-      ['The ghost was appeared at midnight.',1,'appear 不及物 → The ghost appeared.'],['The flowers haven\'t been watered yet.',0],
+      ['They were appeared on many TV programs.',1,'appear 不及物 → They appeared on many TV programs.'],['The flowers haven\'t been watered yet.',0],
       ['A new bridge is going to build.',1,'橋「被蓋」→ is going to be built。'],['All the runners will be given a T-shirt.',0],
-      ['Marley has died for seven years.',1,'die 是瞬間動詞 → has been dead for seven years。'],
+      ['My fish has died for two days.',1,'die 是瞬間動詞 → has been dead for two days。'],
       ['I have bought this wallet for two years.',1,'buy 是瞬間動詞 → have had this wallet for two years。'],['I have had this wallet for two years.',0]]},
   ],
   mcq:[
@@ -571,17 +599,17 @@ gram:{
     {q:'The meeting is going to ___ in the gym.',o:['be held','hold','held','be holding'],a:0,src:'嘉義太保、新北新莊',ex:'be going to be＋p.p.＝將要被…。'},
     {q:'The window ___ by Tom this morning. He said sorry to his mom.',o:['was broken','broke','is breaking','has broke'],a:0,src:'原創',ex:'窗戶「被打破」＋this morning（已過去）→ was broken。'},
     {q:'They give every runner a medal. 改成被動語態，何者正確？',o:['Every runner is given a medal.','Every runner gives a medal.','Every runner was given a medal.','A medal gives every runner.'],a:0,src:'嘉義太保（被動改寫）',ex:'原句現在式 give → 被動 is given；人當主詞：Every runner is given a medal.'},
-    {q:'Scrooge was ___ into a dark room by Marley\'s ghost.',o:['led','lead','leading','leaded'],a:0,src:'台南復興 同類題',ex:'lead 的過去分詞是 led，沒有 leaded。'},
+    {q:'The blind man was ___ across the road by Lucy.',o:['led','lead','leading','leaded'],a:0,src:'台南復興 同類題（R1 課本句）',ex:'lead 的過去分詞是 led，沒有 leaded。'},
     {q:'A: Has the homework been finished? B: No, it ___.',o:['hasn\'t','isn\'t','didn\'t','wasn\'t'],a:0,src:'原創',ex:'Has…been p.p.? → 用 has / hasn\'t 回答。'},
     {q:'Many photos ___ since the race started.',o:['have been taken','have taken','were taken','are taken'],a:0,src:'嘉義太保 同類題',ex:'since＋過去式子句 → 完成式；照片「被拍」→ have been taken。'},
-    {q:'Hank heard his name ___ at the finish line.',o:['called','calling','to call','calls'],a:0,src:'台南復興 同類題',ex:'名字是「被叫」→ 感官動詞 hear＋受詞＋p.p.。'},
+    {q:'Henry heard his name ___ at the finish line.',o:['called','calling','to call','calls'],a:0,src:'台南復興 同類題',ex:'名字是「被叫」→ 感官動詞 hear＋受詞＋p.p.。'},
     {q:'The runner got to the finish line without ___ by any zombies.',o:['being caught','catching','caught','be caught'],a:0,src:'新北新莊 同類題',ex:'without 是介系詞，後接動名詞；「被抓」→ being＋p.p.。'},
     {q:'Which sentence is correct?',o:['A lot of money has been paid for the tickets.','A lot of money has paid for the tickets.','A lot of money has been pay for the tickets.','A lot of money is been paid for the tickets.'],a:0,src:'台南復興 同類題',ex:'錢「被付」→ 完成式被動 has been＋p.p.（pay → paid）。'},
   ]
 },
 };
 
-/* 綜合頁：克漏字＋閱讀＋翻譯（全部原創改寫） */
+/* 綜合頁：克漏字＋閱讀為原創；翻譯優先用南一課本原句 */
 const CLOZE=[
   {title:'克漏字 A｜A Gift on Christmas Eve',text:'Mr. Green __1__ a farmer for forty years. He is not rich, but he is kind. Last Christmas Eve, a thin boy __2__ at his door. The boy\'s wallet __3__ in the city, so he had no money. Mr. Green let him in and gave him hot soup. "Have you ever had a Christmas dinner?" he asked. "No, __4__," the boy said. Since that night, the boy __5__ on the farm with Mr. Green. Now everyone in town says the boy __6__ a good home.',
    qs:[
@@ -623,18 +651,20 @@ const READ=[
    ]},
 ];
 const TRANS=[
-  ['Marley 已經死了七年了。','Marley has been dead for seven years.','die 是瞬間動詞 → has been dead for…'],
+  ['我當 CARAT 已經超過三年了。','I have been a CARAT for more than three years.','have been＋for＋一段時間（L1 課文）'],
   ['我的老闆只愛錢。','My boss loves nothing but money.','love nothing but…＝只愛…'],
   ['他把那個老人的錢騙走了。','He cheated the old man out of his money.','cheat sb out of sth'],
-  ['從那晚起，Scrooge 就變成了一個新的人。','Scrooge has become a new man since that night.','since＋過去時間點 → 現在完成式'],
+  ['從 2018 年起，她已經在許多表演中演出。','Since 2018, she has performed in many shows.','since＋時間點 → 現在完成式（L1 課文）'],
+  ['他們總是盡全力表演。','They always do their best to perform.','do one\'s best to V（L1 課文）'],
   ['我們應該捐錢給慈善機構。','We should donate money to charity.','donate … to charity'],
-  ['跑者一出發，煙火就在空中施放。','When the runners set off, fireworks are set off in the sky.','set off＝出發／施放（被動 are set off）'],
-  ['角色們從人行道上向跑者送飛吻。','The characters blow kisses to the runners from the sidewalk.','blow kisses to sb；from the sidewalk'],
-  ['如果你的旗子都被扯下來，你就出局了。','If all your flags are pulled off, you are out.','be pulled off 被動'],
-  ['每位完賽的跑者都會得到一面獎牌當作獎品。','Every runner who finishes gets a medal as a prize.','as a prize 作為獎品'],
-  ['我的腿又燙又痠，我真的需要休息。','My legs are burning and sore. I really need a rest.','burning、sore；need a rest'],
+  ['跑者出發後，會看到頭頂天空中繽紛的煙火。','After the runners set off, they see colorful fireworks above them in the sky.','set off＝出發；above＝在…上面（L2 課文）'],
+  ['迪士尼角色們在人行道上歡呼，並對他們送飛吻。','Disney characters cheer and blow them kisses from the sidewalk.','blow sb kisses；from the sidewalk（L2 課文）'],
+  ['如果跑者的旗子全被拿走，他就出局了。','If a runner\'s flags are all taken away, the runner is out.','be taken away 被動（L2 課文）'],
+  ['跑者跑完比賽時，一面漂亮的迪士尼獎牌會被當作獎品頒給他們。','When the runners finish the race, a lovely Disney medal is given to them as a prize.','is given＋as a prize（L2 課文）'],
+  ['我好累。我的腿又燙又痠。','I\'m so tired. My legs are burning and sore.','burning、sore（L2 課文）'],
   ['英語在世界各地被使用。','English is spoken all over the world.','現在式被動 is＋p.p.'],
-  ['你曾經參加過趣味路跑嗎？','Have you ever joined a fun run?','Have you ever＋p.p.?'],
+  ['我參加過好幾次趣味路跑。','I have been to several fun runs.','have been to＝去過（L2 課文）'],
+  ['臺灣也有舉辦相撲路跑。','Sumo Runs are also held in Taiwan.','現在式被動 are held（L2 課文）'],
 ];
 
 /* 考點雷達（依 7 校南一版九上第一次段考卷統計） */
@@ -649,9 +679,9 @@ const RADAR={
 };
 
 /* ================= 導覽 ================= */
-const TABS=[['home','🏠 考點雷達'],['l1','🎄 L1 小氣財神'],['l2','🏃 L2 趣味路跑'],['r1','🔁 Review 1'],['gram','⚙️ 文法特訓'],['mix','🧩 克漏字＋閱讀']];
+const TABS=[['home','🏠 考點雷達'],['l1','🎤 L1 追星與追夢'],['l2','🏃 L2 趣味路跑'],['r1','🔁 Review 1'],['gram','⚙️ 文法特訓'],['mix','🧩 克漏字＋閱讀']];
 
-const AUDIO=new Set(["0018612a", "099635f5", "0a05d023", "0a339056", "0b9cf04b", "0ca22853", "0d0a9f60", "0e2e085f", "110302df", "121d98ba", "124aec70", "132be06e", "14d01ca9", "15d2601e", "1755a12f", "1757dbad", "18cfdec7", "1e801cec", "1f62aaae", "212d3672", "218d6502", "231af847", "2386309d", "2448ca2f", "2471847e", "26c81604", "26f38071", "28693c05", "286f3675", "308f8bce", "314cbe19", "31ac0419", "32af800a", "333cb273", "3a1dc832", "3a3c1b9c", "3ac03922", "3db94be9", "3f14f4e4", "406aeaca", "4220774b", "4288e94c", "464bc5aa", "46ff9c40", "472c0828", "48b931c2", "49075557", "49f57491", "4a84a888", "4c6df761", "4c770186", "4c845806", "4caf3a0b", "4d4697ce", "517b5f8a", "53c1635e", "5473c0c0", "554bda15", "58333eef", "5a45cc6a", "5b55aa06", "5ba1e5c5", "5c0afbc6", "5e227625", "5e2a3de0", "5e560689", "5e5b9905", "5ef9ed23", "6098da3f", "621cd814", "64ca1ea7", "64ff7b9f", "652f2c70", "65c813e7", "65d5776b", "686236e5", "697299ee", "6c6e2525", "6d48538c", "6ef6e45e", "70bcc521", "70e20f7e", "72baec5c", "73c212db", "75ab2d6e", "763967f5", "772343ef", "77b56b86", "77c01663", "784003d0", "786dd8a0", "791d71dc", "79760344", "7a78762f", "7cfb88e6", "812d107e", "815883f4", "835af36d", "88efc3c3", "8954670e", "8a8e7dc8", "8ae33022", "8b3aa710", "8cb983d7", "8e447707", "8f2fbdac", "946adb4c", "9580b830", "9628ecdd", "9766c891", "994c2d1c", "9c8305d0", "9cbb19e3", "9cd51b40", "9cdc37ca", "9ede2954", "a1450322", "a2780a89", "a2ffda33", "a3de57b8", "a4757b85", "a591f4bb", "a65b72c3", "a70c6e10", "a7f785e4", "a87f8823", "a9bd7d9b", "aa758b4a", "adc649b8", "ae390e73", "af6daaea", "b13fb8c0", "b39bd973", "b3d6b687", "b526ec40", "b5df2b27", "b81143d4", "bbeaffa9", "bdeaa8d7", "bdf0855a", "be269f5c", "c364d2b9", "c39bf2a3", "c4eb8a76", "c5be5569", "c6270703", "c66a2b0c", "c82a9b5d", "c9648178", "caef60ae", "ccce80a1", "cedfa3c5", "d38ee8be", "d71c946a", "d8b9cf23", "dcb86ee5", "de8d82e7", "de9a27f2", "e0633d1f", "e14ef996", "e39d4621", "e4bc209e", "e5ca00c5", "e689c0fd", "e7ae45ac", "e91d911a", "e982f26c", "edbc2ec9", "f1790fd4", "f542bdc8", "f5ce03fb", "f6a635a4", "f732b2bf", "f8a38453", "fa20169f", "fb5f167f", "fbae2847", "fc405305", "fc731510", "fca5a066", "fde1f938", "feaa0cb3", "ffc4c653"]);
+const AUDIO=new Set(["0018612a", "00e7903e", "0a05d023", "0a339056", "0ae293c2", "0b9cf04b", "0bf7cb59", "0ca22853", "0d0a9f60", "0e2e085f", "110302df", "124aec70", "132be06e", "1460f124", "14d01ca9", "15d2601e", "1755a12f", "1757dbad", "18cfdec7", "1bbd0ffa", "1e801cec", "1f62aaae", "212d3672", "218d6502", "231af847", "2386309d", "2448ca2f", "2471847e", "24d93a55", "256a8eec", "25a1eea4", "26f38071", "28693c05", "286f3675", "2ba1a0a8", "2be8f32f", "308f8bce", "30951d46", "314cbe19", "32af800a", "333cb273", "3a3c1b9c", "3d8466cb", "3e88eec3", "3f14f4e4", "406aeaca", "406f344d", "4220774b", "4288e94c", "464bc5aa", "46ff9c40", "472c0828", "48b931c2", "49075557", "49f57491", "4a84a888", "4c6df761", "4c770186", "4c845806", "4caf3a0b", "4d4697ce", "4d9e6d13", "50edaacc", "517b5f8a", "5473c0c0", "5a45cc6a", "5aff2401", "5b55aa06", "5ba1e5c5", "5c0afbc6", "5e227625", "5e560689", "5e5b9905", "5ef9ed23", "5fa7df77", "6098da3f", "621cd814", "64ca1ea7", "64ff7b9f", "652f2c70", "65c813e7", "65d5776b", "668142ce", "67a6c45e", "697299ee", "6acc1ccf", "6c6e2525", "6d48538c", "6ef6e45e", "6f6cb569", "70bcc521", "70e20f7e", "72baec5c", "73c212db", "75ab2d6e", "763967f5", "772343ef", "77ab3c74", "77c01663", "786dd8a0", "7a78762f", "7cfb88e6", "80a5fffa", "812d107e", "815883f4", "835af36d", "8655f48b", "878f61db", "885a9a2d", "88efc3c3", "8a8e7dc8", "8ae33022", "8b3aa710", "8d9904ab", "8e081204", "8e447707", "8f2fbdac", "92b1fb33", "946adb4c", "9580b830", "95a80cbf", "95bdb559", "96252c3e", "9628ecdd", "9766c891", "9903affb", "994c2d1c", "9c0cdc8e", "9c8305d0", "9cbb19e3", "9cdc37ca", "9ede2954", "a05d7453", "a1450322", "a2780a89", "a4213c0a", "a554f03e", "a591f4bb", "a65b72c3", "a7f785e4", "a87f8823", "a9339d84", "a9bd7d9b", "aa758b4a", "adc649b8", "ae390e73", "af6daaea", "b13fb8c0", "b39bd973", "b3d6b687", "b526ec40", "b536a99d", "b55471e7", "b733df61", "b773b5b4", "bab5214f", "bbeaffa9", "bdeaa8d7", "bdf0855a", "be269f5c", "bf055208", "c0080b36", "c39bf2a3", "c4eb8a76", "c6270703", "c82a9b5d", "c9648178", "caef60ae", "ccce80a1", "cedfa3c5", "d416182f", "d71c946a", "d8b9cf23", "dcb86ee5", "dcf97516", "de8d82e7", "de9a27f2", "e0633d1f", "e1393207", "e29638f4", "e39d4621", "e4bc209e", "e5ca00c5", "e689c0fd", "e7ae45ac", "e91d911a", "e982f26c", "ec5e6849", "edbc2ec9", "f0d34721", "f0fd0d47", "f3a3fcda", "f542bdc8", "f5ce03fb", "f6a635a4", "f8a38453", "f95ef718", "fa05910f", "fa20169f", "fb5f167f", "fbae2847", "fc731510", "fca5a066", "fd3ea291", "fde1f938", "feaa0cb3", "ffc4c653"]);
 /* ================= 注釋配對 ================= */
 function renderMatch(el,pairs){
   const rounds=[];const sp=shuf(pairs);for(let k=0;k<sp.length;k+=5)rounds.push(sp.slice(k,k+5));
@@ -1088,15 +1118,15 @@ function renderHome(app){
     <div class="card"><h3>文法必考點</h3><div class="chips">${RADAR.basics.map(([w,n])=>`<span>${w} <b>×${n}</b></span>`).join('')}</div>
     <p class="muted" style="margin-top:12px">六校都考：<b>since / for</b>、<b>has been p.p.</b>、<b>can / will be p.p.</b>、<b>過去式 vs 完成式</b>（看到 ago、last、When 就用過去式）。</p></div>
     <div class="card"><h3>高頻單字片語</h3><div class="chips">${RADAR.words.map(([w,n])=>`<span>${w} <b>×${n}</b></span>`).join('')}</div>
-    <p class="muted" style="margin-top:12px">文意字彙會給首字母：d____e（donate）、s______k（sidewalk）。拼字一定要會！raise 在這課是名詞「加薪」。</p></div>
+    <p class="muted" style="margin-top:12px">文意字彙會給首字母：d____e（donate）、s______k（sidewalk）。拼字一定要會！raise 段考多考名詞「加薪」（a pay raise）。</p></div>
   </div>
   <div class="card"><h3>🌏 不分版本都考！（${RADAR.cross.n} 校九上第一次段考，含翰林、康軒）</h3>${bar2(RADAR.cross.items,RADAR.cross.n)}
   <p class="muted" style="margin-top:10px">翻遍全臺 ${RADAR.cross.n} 校 114 上九年級第一次段考（翰林 22、康軒 30、南一 7）：<b>現在完成式 since / for</b> 幾乎每校都考，<b>過去式 vs 完成式</b>也超過八成。被動語態是南一這次獨有的重點，到「⚙️ 文法特訓」練熟最划算！</p></div>
   <div class="card"><h3>✍️ 非選題考什麼？</h3><div class="chips">${RADAR.nonmcq.map(([w,n])=>`<span>${w} <b>×${n}</b></span>`).join('')}</div>
-  <p class="muted" style="margin-top:12px">六校有翻譯題，多半考<b>課文句</b>的關鍵片語：cheat … out of、donate to charity、set off、blow kisses、as a prize → 到「🧩 克漏字＋閱讀」用翻譯翻翻卡練。</p></div>
+  <p class="muted" style="margin-top:12px">六校有翻譯題，多半考<b>課文句</b>的關鍵片語：set off、blow kisses、as a prize、burning and sore、have been to、cheat … out of → 到「🧩 克漏字＋閱讀」用翻譯翻翻卡練。</p></div>
   <div class="card"><h3>🧭 建議闖關順序</h3>
   <p>① 每課先看 <b>🎬 動畫導覽</b>，弄懂故事 → ② <b>⚡ 單字快問快答</b>、<b>🔗 片語配對</b>，練熟基本分 → ③ <b>🔁 Review 1</b> 時態判斷、<b>⚙️ 文法特訓</b> 被動語態，練到反射 → ④ <b>📝 段考模擬題</b>與 <b>🧩 克漏字＋閱讀</b>，檢查自己的程度。</p>
-  <p class="muted">段考範圍各校略有不同：有的學校加考 2000 單字或課外閱讀，請依自己學校的公告準備。本站課文為依段考卷考點原創改寫，非課本原文。</p></div>`;
+  <p class="muted">段考範圍各校略有不同：有的學校加考 2000 單字或課外閱讀，請依自己學校的公告準備。本站課文依南一版 B5 課本；模擬題與閱讀文章為原創。注意：七校考卷出自舊版課本，L1 常考的 cheat、donate、charity、a pay raise 等字仍收在單字快問快答。</p></div>`;
   app.querySelectorAll('.lc').forEach(c=>c.onclick=()=>go(c.dataset.k,c.dataset.k==='mix'?undefined:'anim'));
   requestAnimationFrame(()=>setTimeout(()=>app.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%'),60));
 }
@@ -1183,7 +1213,7 @@ function renderMix(app){
   const s=curSub.mix||'cloze';
   const subs=[['cloze','🧩 課文改寫克漏字'],['read','📖 閱讀測驗'],['trans','🃏 翻譯翻翻卡']];
   app.innerHTML=`<h2>🧩 克漏字＋閱讀＋翻譯</h2>
-  <p class="muted">七校都考克漏字與閱讀，克漏字常用來考被動語態與時態（例如艾菲爾鐵塔、潑水節、海龜）；六校有翻譯題，考課文關鍵片語。以下文章、題目皆為原創改寫。</p>
+  <p class="muted">七校都考克漏字與閱讀，克漏字常用來考被動語態與時態（例如艾菲爾鐵塔、潑水節、海龜）；六校有翻譯題，考課文關鍵片語。以下克漏字與閱讀文章、題目皆為原創；翻譯翻翻卡優先使用南一課本原句。</p>
   <div class="subtabs">${subs.map(([k,t])=>`<button class="sub ${k===s?'on':''}" data-s="${k}">${t}</button>`).join('')}</div><div id="panel"></div>`;
   app.querySelectorAll('.sub').forEach(b=>b.onclick=()=>{curSub.mix=b.dataset.s;render()});
   const p=$('#panel');
@@ -1198,40 +1228,40 @@ function renderMix(app){
   set.forEach((c,k)=>{const nm=c.title.split('｜')[1]||c.title;renderMCQ($('#cq'+k),c.qs.map(q=>({...q,src:'',q:/^__\d__$/.test(q.q)?`${nm} 第 ${q.q.replace(/_/g,'')} 格`:q.q})),7,`綜合 ${c.title.replace(/｜/g,' ')}`)});
 }
 
-/* ================= L1 動畫（課文為原創改寫，非課本原文） ================= */
+/* ================= L1 動畫（課文依南一 B5 課本） ================= */
 function animL1(p){
   p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
-  <div class="card"><h3>🗺️ 故事一張圖</h3>
-  <p><span class="pill">起</span>聖誕夜，有錢商人 Scrooge <b>只愛錢</b>（loves nothing but money），祕書 Cratchit 做了十年<b>從沒加過薪</b></p>
-  <p><span class="pill">承</span>有人來請他<b>捐錢給慈善機構</b>，他說聖誕節只是<b>騙人錢</b>的謊言（cheat people out of their money）</p>
-  <p><span class="pill">轉</span>死了七年的老友 Marley 的鬼魂<b>出現</b>，Scrooge <b>被帶進</b>黑暗的房間，看到孤單死去的老人</p>
-  <p><span class="pill">合</span>從那晚起 Scrooge <b>改過自新</b>（has become a new man）：幫 Cratchit 加薪、每年捐款</p>
-  <p><span class="pill">文法</span>現在完成式 have / has＋p.p.：since / for、already / yet、ever / never、been to / gone to</p></div>`;
+  <div class="grid2">
+    <div class="card"><h3>💬 對話：Sandy ＆ Mina（In a classroom）</h3><p><span class="pill">起</span>Mina 有 SEVENTEEN 鑰匙圈，當 CARAT <b>已經超過三年</b>（for more than three years）</p><p><span class="pill">承</span>Mina <b>還沒</b>去過演唱會（Not yet）；Sandy <b>去年十月</b>看過 i-dle 演唱會（watched）</p><p><span class="pill">轉</span>Sandy <b>存了好幾個月</b>的錢（saved for months）才去成；Mina 決定也開始存錢</p><p><span class="pill">合</span>偶像對粉絲很好（treat fans well），再來臺灣就一起去：Deal!</p></div>
+    <div class="card"><h3>📖 閱讀：舒華的追夢故事</h3><p><span class="pill">一</span>臺灣女孩舒華夢想當巨星，到南韓當<b>練習生</b>（trainee）</p><p><span class="pill">二</span>常覺得寂寞，<b>然而</b>（yet）從不放棄；<b>2018 年</b>成為 (G)I-DLE 成員（became）</p><p><span class="pill">三</span><b>從 2018 年起</b>已在許多表演中演出（has performed）、贏得全球粉絲</p><p><span class="pill">四</span>面對挑戰與<b>刻薄的評論</b>（mean comments），仍相信「每個挑戰都讓我更堅強」</p></div>
+  </div>`;
   const steps=[
-    {label:'① 只愛錢的老闆',imgs:[{img:'l1_office',tag:'Scrooge loves nothing but money.'},{img:'l1_coins',tag:'Money, money, money!'}],poem:'It is Christmas Eve. Scrooge is a rich businessman, but he <b>loves nothing but money</b>.<br>His secretary, Cratchit, <b>has worked</b> for him <b>for</b> ten years, but Scrooge <b>has never given</b> him a pay <b>raise</b>.',key:'<b>nothing but</b>＝只有；<b>for＋一段時間</b>；raise 當名詞＝<b>加薪</b>（五校考）。has never given＝從來沒給過。'},
-    {label:'② 聖誕節是謊言？',imgs:[{img:'l1_donate',tag:'Would you like to donate to charity?'}],poem:'Two men come to the office. "Would you like to <b>donate</b> some money <b>to charity</b>?"<br>"Christmas is just a <b>lie</b>!" Scrooge shouts. "It only <b>cheats</b> people <b>out of</b> their money. Go away!"',key:'<b>donate … to charity</b>（六校考 donate）；<b>cheat sb out of sth</b>＝騙走某人的…（新莊、桃子腳、光華）；lie＝謊言。'},
-    {label:'③ Marley 的鬼魂',imgs:[{img:'l1_marley',tag:'Marley\'s ghost appears.'}],poem:'That night, a ghost <b>appears</b> in Scrooge\'s bedroom. It is Marley, his old partner.<br>Marley <b>has been dead for</b> seven years. "I was mean, and now I carry these heavy chains. Change before it is too late!"',key:'<b>appear</b> 不及物，不能寫 was appeared；die 是瞬間動詞 → <b>has been dead for</b> seven years（台南復興考）。'},
-    {label:'④ 被帶進黑暗的房間',imgs:[{img:'l1_fezziwig',tag:'Happy Christmases in the past…'},{img:'l1_cratchit',tag:'The Cratchits: poor but happy.'}],poem:'Scrooge <b>is led into</b> a dark room. He sees an old man lying in bed. Nobody cries for him.<br>Then he sees Cratchit\'s family. They are poor, but they are happy together.',key:'<b>be led into</b>＝被帶進（lead → led → led，被動）；see sb V-ing＝看到某人正在…。'},
-    {label:'⑤ 變成新的人',imgs:[{img:'l1_scrooge',tag:'Scrooge gives Cratchit a pay raise.'},{img:'l1_xmas',tag:'A warm Christmas dinner'}],poem:'The next morning, Scrooge is a different person. He gives Cratchit a pay raise and sends his family a big Christmas dinner.<br><b>Since</b> that Christmas, Scrooge <b>has become</b> a new man. He <b>has donated</b> money to charity every year.',key:'<b>since＋過去時間點</b> → 現在完成式；<b>become a new man</b>＝改過自新（三民考）。'},
-    {label:'⑥ 對話：要加薪',imgs:[{img:'l1_coins',tag:'I asked for a raise.'}],poem:'Brian: You look upset, Kelly. What\'s wrong?<br>Kelly: I <b>asked for a raise</b> yesterday, but my boss said no. I <b>have worked</b> there <b>since</b> 2020!<br>Brian: <b>Have</b> you <b>ever</b> thought about a new job?<br>Kelly: Not <b>yet</b>. But I will.',key:'yesterday → 過去式 asked；since 2020 → have worked；<b>ever</b> 用於疑問句、<b>yet</b> 用於否定句（not yet）。'},
+    {label:'① SEVENTEEN 鑰匙圈',imgs:[{img:'l1_keychain',tag:'Is that a SEVENTEEN key chain?'}],poem:'Sandy: Hey, is that a SEVENTEEN key chain? Are you a CARAT?<br>Mina: Yes! I<b>’ve been</b> a CARAT <b>for</b> more than three years. I <b>bought</b> this as a <b>Christmas</b> gift for myself.',key:'have been＋<b>for</b>＋一段時間（持續）；bought 是過去某時買的 → 過去式。CARAT 是 SEVENTEEN 的粉絲名稱。'},
+    {label:'② 去過演唱會嗎？',imgs:[{img:'l1_concert',tag:'A live concert'}],poem:'Sandy: That’s so cute! <b>Have</b> you <b>been to</b> their <b>concert</b> or a fan meeting before?<br>Mina: Not <b>yet</b>. I <b>haven’t had</b> the chance, but they<b>’ve appeared</b> on many TV <b>programs</b>.',key:'Have you been to…before? 問經驗；<b>Not yet</b>＝還沒；<b>appear</b> 不及物，不能被動（五校考 appear）。'},
+    {label:'③ 我是 Neverland！',imgs:[{img:'l1_tour',tag:'i-dle on stage'}],poem:'Sandy: I <b>haven’t seen</b> SEVENTEEN live, but I <b>watched</b> i-dle’s concert in Taipei <b>last October</b>. I’m a Neverland!<br>Mina: Same here. Who’s your favorite member?<br>Sandy: The leader. She <b>has written</b> many songs for the <b>band</b>.',key:'沒說時間的經驗 → haven’t seen；<b>last October</b> → 過去式 watched（R1 時態判斷）；write–wrote–<b>written</b>。'},
+    {label:'④ 存錢買票',imgs:[{img:'l1_piggy',tag:'Save money to get a ticket.'}],poem:'Sandy: You can <b>save money</b> to get a ticket. I <b>saved for months</b>, and my parents agreed that I could go to i-dle’s concert.<br>Mina: Then I’ll start saving money, too!<br>Sandy: Or you can watch their live <b>streams</b>.<br>Mina: I<b>’ve watched</b> their live streams <b>many times</b>!',key:'陷阱：saved <b>for months</b> 但存錢已結束 → 過去式；<b>many times</b>（次數）→ 現在完成式。'},
+    {label:'⑤ Deal!',imgs:[{img:'l1_concert',tag:'Let’s go together!'}],poem:'Sandy: They <b>treat</b> fans so well. They always do their best to <b>perform</b> and give gifts to fans. I hope they come to Taiwan again. If they do, let’s go together!<br>Mina: <b>Deal!</b>',key:'<b>treat sb well</b>＝善待某人（三校考 treat）；do one’s best to V；<b>Deal!</b>＝說定了。'},
+    {label:'⑥ 舒華的大夢想',imgs:[{img:'l1_shuhua',tag:'Shuhua, a girl from Taiwan'}],poem:'Shuhua is a girl from Taiwan with a big dream: to become a superstar.<br>To make her dream <b>come true</b>, she moved to South Korea to be a <b>trainee</b>. She practiced singing and dancing every day. She often felt lonely, <b>yet</b> she never <b>gave up</b>.',key:'make＋O＋原形 V（make her dream come true）；<b>yet</b> 當連接詞＝然而（一字多義）；give up＝放棄。'},
+    {label:'⑦ in 2018 vs. since 2018',imgs:[{img:'l1_tour',tag:'i-dle World Tour'}],poem:'After years of effort, Shuhua <b>became</b> a member of the girl group (G)I-DLE <b>in 2018</b>, later called i-dle.<br><b>Since</b> 2018, she <b>has performed</b> in many shows and concerts and <b>has won</b> fans from all over the world.',key:'<b>in 2018</b> → 過去式 became；<b>since 2018</b> → 現在完成式 has performed——課文最佳時態對照組（六校考 since / for）。'},
+    {label:'⑧ 挑戰與希望',imgs:[{img:'l1_shuhua',tag:'Every challenge will make me stronger.'}],poem:'Even though i-dle <b>has become</b> famous, Shuhua’s <b>challenges</b> never end. She also faces <b>mean comments</b> on the Internet.<br>She keeps telling herself, “Every challenge will make me stronger.”<br>Her story tells us that if we stay brave and keep trying, our dreams can <b>come true</b>.',key:'become–became–<b>become</b>；<b>mean</b> (adj.) 刻薄的（新莊、中庄考）；make＋O＋形容詞；keep＋V-ing。'},
   ];
   stepper(p,steps,i=>showPhoto(steps[i]),8000);
 }
 
-/* ================= L2 動畫（課文為原創改寫，非課本原文） ================= */
+/* ================= L2 動畫（課文依南一 B5 課本） ================= */
 function animL2(p){
   p.innerHTML=`<div class="card">${photoStage()}<div class="steps"></div><div class="caption"></div></div>
   <div class="grid2">
-    <div class="card"><h3>💬 對話：Naomi ＆ Hank</h3><p><span class="pill">起</span>Hank 扮成殭屍，要去參加 Zombie Run</p><p><span class="pill">承</span>Naomi 想跑變裝路跑，兩人比較各種趣味路跑</p><p><span class="pill">轉</span>跑完腿又燙又痠（burning and sore）、超口渴</p><p><span class="pill">合</span>拿到獎牌當獎品（a medal as a prize）</p></div>
-    <div class="card"><h3>📖 閱讀：Fun Runs</h3><p><span class="pill">一</span>Disney 馬拉松：跑者出發時<b>放煙火</b>（fireworks are set off）</p><p><span class="pill">二</span>Disney 角色在<b>人行道</b>上歡呼、送飛吻</p><p><span class="pill">三</span>Zombie Run：三面 life flags 都<b>被扯下</b>就出局</p><p><span class="pill">四</span>一路上都<b>聽得到</b>尖叫聲（can be heard）</p></div>
+    <div class="card"><h3>💬 對話：Henry ＆ Lucy（PE class）</h3><p><span class="pill">起</span>剛跑完 800 公尺：Lucy 腿又燙又痠（burning and sore），Henry 有點口渴</p><p><span class="pill">承</span>Henry 最愛變裝路跑；阿姨在日本跑過 Sumo Run（It was called…）</p><p><span class="pill">轉</span>臺灣也有舉辦 Sumo Run（are held）；Henry 不久要參加臺中的 Zombie Run</p><p><span class="pill">合</span>Lucy：To be honest, I’m not a great runner. Let me think about it.</p></div>
+    <div class="card"><h3>📖 閱讀：Fun Runs</h3><p><span class="pill">一</span>趣味路跑在世界各地都有舉辦（have been held），多半不到 5 公里</p><p><span class="pill">二</span>runDisney：出發（set off）後頭頂有煙火，角色在人行道上歡呼、送飛吻</p><p><span class="pill">三</span>完賽頒獎牌當獎品（is given … as a prize）</p><p><span class="pill">四</span>Zombie Run：跑者可能被「殺死」（can be killed），旗子全被拿走就出局</p></div>
   </div>`;
   const steps=[
-    {label:'① 你為什麼扮成殭屍？',imgs:[{img:'l2_costume',tag:'Many runners dress up in costumes.'}],poem:'Naomi: Hank, why are you <b>dressed as</b> a zombie?<br>Hank: I\'m going to a Zombie Run this weekend! <b>Have</b> you <b>ever</b> joined a fun run?<br>Naomi: Not yet. I want to try a Costume Run. Running is more fun in a <b>costume</b>!',key:'<b>dress as / dress up in</b>＝裝扮成；<b>costume</b>＝扮裝服（三校考）；Have you ever…? 經驗。'},
-    {label:'② Disney 馬拉松出發',imgs:[{img:'l2_start',tag:'The runners set off.'},{img:'l2_fireworks',tag:'Fireworks are set off in the sky.'}],poem:'The Disney Marathon <b>is held</b> every January in Florida.<br>When the runners <b>set off</b>, fireworks <b>are set off</b> in the sky.',key:'同一個片語兩種用法：跑者 <b>set off</b>（出發，主動）、煙火 <b>are set off</b>（被施放，被動）。四校考 set off！'},
-    {label:'③ 人行道上的角色',imgs:[{img:'l2_cheer',tag:'Characters cheer for the runners.'}],poem:'Disney <b>characters</b> stand on the <b>sidewalk</b> and <b>cheer for</b> the runners.<br>Some of them <b>blow kisses</b> to the runners, and many photos <b>are taken</b> along the way.',key:'<b>sidewalk</b>（五校考）、<b>character</b>（四校考）；blow kisses to sb＝送飛吻（復興考 from the sidewalk）。'},
-    {label:'④ Zombie Run',imgs:[{img:'l2_zombie',tag:'Runners can be killed by zombies!'},{img:'l2_flag',tag:'Life flags on a belt'}],poem:'In a Zombie Run, every runner wears three life <b>flags</b>. Runners <b>can be killed</b> by people dressed as zombies.<br>If all of a runner\'s flags <b>are pulled off</b>, the runner is out. <b>Screams can be heard</b> all along the way!',key:'助動詞被動 <b>can be＋p.p.</b>；<b>pull off</b>＝扯下（不是 pull down）；flags 被扯下＝<b>are taken away</b> 也可以。'},
-    {label:'⑤ 獎牌當獎品',imgs:[{img:'l2_medal',tag:'A medal as a prize'}],poem:'At the finish line, a <b>medal is given</b> to every runner <b>as a prize</b>.<br>Since the first Zombie Run, thousands of medals <b>have been given</b> to happy runners.',key:'<b>as a prize</b>＝作為獎品（prize 五校考、medal 四校考）；完成式被動 <b>have been given</b>（六校考）。'},
-    {label:'⑥ 跑完了！',imgs:[{img:'l2_water',tag:'I\'m so thirsty!'},{img:'l2_tired',tag:'My legs are burning and sore.'}],poem:'Hank: Water, please! I\'m so <b>thirsty</b>.<br>Naomi: Are you OK?<br>Hank: My legs are <b>burning</b> and <b>sore</b>. I really <b>need a rest</b>. But look, I got a medal!',key:'<b>thirsty</b>、<b>sore</b>、<b>burning</b> 都是四～五校考的單字；need a rest＝需要休息（太保翻譯考）。'},
+    {label:'① 體育課跑完了',imgs:[{img:'l2_tired',tag:'My legs are burning and sore.'},{img:'l2_water',tag:'I’m a little thirsty.'}],poem:'Lucy: I’m so tired. My legs are <b>burning</b> and <b>sore</b>. How about you?<br>Henry: I’m OK but just a little <b>thirsty</b>. Running is my favorite sport. I<b>’ve been to</b> several fun runs.',key:'<b>burning</b>、<b>sore</b>、<b>thirsty</b> 都是四～五校考的字；have been to＝去過（L1 文法）。'},
+    {label:'② 變裝路跑',imgs:[{img:'l2_costume',tag:'Runners dress up in funny costumes.'}],poem:'Henry: There are different kinds of fun runs, but I love Costume Runs the most. Runners <b>dress up in</b> funny <b>costumes</b>, like a giraffe, an <b>airplane</b>, or even a giant <b>bug</b>.<br>My aunt ran in a Costume Run in Japan. It <b>was called</b> the Sumo Run.',key:'dress up in＋服裝；<b>was called</b>＝被稱為（過去式被動）；costume 三校考。'},
+    {label:'③ 一起去跑嗎？',imgs:[{img:'l2_zombie',tag:'The Zombie Run'}],poem:'Henry: Sumo Runs <b>are</b> also <b>held</b> in Taiwan. … I’ll <b>take part in</b> the Zombie Run soon in Taichung. Would you like to join me?<br>Lucy: <b>To be honest</b>, I’m not a great runner. Let me think about it.',key:'<b>are held</b>＝被舉辦（現在式被動）；take part in＝參加；to be honest＝老實說（honest 三校考）。'},
+    {label:'④ runDisney 出發',imgs:[{img:'l2_start',tag:'After the runners set off…'},{img:'l2_fireworks',tag:'Colorful fireworks above them'}],poem:'Fun runs <b>have been held</b> all around the world. Most of them are less than 5 kilometers (3 <b>miles</b>) long.<br>After the runners <b>set off</b>, they see colorful <b>fireworks</b> above them in the sky.',key:'現在完成式被動 <b>have been held</b>（六校考）；<b>set off</b>＝出發（四校考）；firework 四校考。'},
+    {label:'⑤ 角色與獎牌',imgs:[{img:'l2_cheer',tag:'People cheer from the sidewalk.'},{img:'l2_medal',tag:'A medal as a prize'}],poem:'As they go happily through the Disney parks, Disney <b>characters</b> cheer and <b>blow</b> them <b>kisses</b> from the <b>sidewalk</b>.<br>When the runners finish the race, a lovely Disney <b>medal is given</b> to them <b>as a prize</b>.',key:'<b>sidewalk</b>（五校考）、<b>character</b>（四校考）；blow sb kisses＝送飛吻；<b>is given … as a prize</b>（prize 五校考）。'},
+    {label:'⑥ Zombie Run',imgs:[{img:'l2_zombie',tag:'Runners can be killed by zombies!'},{img:'l2_flag',tag:'Life flags on a belt'}],poem:'Zombie Runs <b>are</b> usually <b>held</b> around Halloween. They are exciting because runners <b>can be killed</b> by zombies. Cries and <b>screams can be heard</b> all along the way.<br>To stay <b>alive</b>, the runners have to keep their life <b>flags</b>. If a runner’s flags <b>are</b> all <b>taken away</b>, the runner is out.',key:'助動詞被動 <b>can be＋p.p.</b>；<b>pull off</b>／<b>take away</b>；alive 只放 be 動詞後（stay alive）。'},
   ];
   stepper(p,steps,i=>showPhoto(steps[i]),8000);
 }
@@ -1268,11 +1298,11 @@ function animG(p){
       {n:'被動',t:'English <b>is spoken</b> all over the world.',m:'受詞 English 變主詞；is＋p.p.（speak → <b>spoken</b>）；by people 可省略'},
       {n:'否定',t:'English <b>isn\'t spoken</b> in this village.',m:'be 動詞後加 not'},
       {n:'疑問',t:'<b>Is</b> English <b>spoken</b> in Taiwan?',m:'be 動詞搬到句首'}]},
-    {raw:'The ghost led Scrooge into a dark room.',tag:'過去式被動',v:[
-      {n:'主動',t:'The ghost <b>led</b> Scrooge into a dark room.',m:'lead → led → <b>led</b>'},
-      {n:'被動',t:'Scrooge <b>was led</b> into a dark room by the ghost.',m:'過去式被動 was / were＋p.p.'},
-      {n:'疑問',t:'<b>Was</b> Scrooge <b>led</b> into a dark room?',m:'Was 放句首'},
-      {n:'By whom',t:'<b>By whom was</b> Scrooge <b>led</b> into the room?',m:'問「被誰」：By whom＋be＋主詞＋p.p.?'}]},
+    {raw:'Lucy led the blind man across the road.',tag:'過去式被動',v:[
+      {n:'主動',t:'Lucy <b>led</b> the blind man across the road.',m:'lead → led → <b>led</b>（R1 課本句）'},
+      {n:'被動',t:'The blind man <b>was led</b> across the road by Lucy.',m:'過去式被動 was / were＋p.p.'},
+      {n:'疑問',t:'<b>Was</b> the blind man <b>led</b> across the road?',m:'Was 放句首'},
+      {n:'By whom',t:'<b>By whom was</b> the blind man <b>led</b> across the road?',m:'問「被誰」：By whom＋be＋主詞＋p.p.?'}]},
     {raw:'Zombies can kill the runners.',tag:'助動詞被動',v:[
       {n:'主動',t:'Zombies <b>can kill</b> the runners.',m:'助動詞 can＋原形'},
       {n:'can be p.p.',t:'The runners <b>can be killed</b> by zombies.',m:'助動詞＋<b>be</b>＋p.p.（不能漏 be）'},
@@ -1285,7 +1315,7 @@ function animG(p){
       {n:'since',t:'Many photos <b>have been taken since</b> the race started.',m:'since＋過去式子句 → 完成式被動'}]},
     {raw:'Something strange happened.',tag:'不能被動！',v:[
       {n:'happen',t:'Something strange <b>happened</b>.',m:'happen 不及物 → <s>was happened</s>'},
-      {n:'appear',t:'A ghost <b>appeared</b> at midnight.',m:'appear 不及物 → <s>was appeared</s>'},
+      {n:'appear',t:'They <b>appeared</b> on many TV programs.',m:'appear 不及物 → <s>were appeared</s>（L1 課文）'},
       {n:'taste',t:'The cake <b>tasted</b> delicious.',m:'連綴動詞＋形容詞 → <s>was tasted</s>'},
       {n:'listen to',t:'Her songs <b>are listened to</b> by millions.',m:'片語動詞改被動，介系詞 <b>to</b> 要保留'}]},
   ];
@@ -1301,21 +1331,21 @@ function animG(p){
 /* ================= Review 1：時態判斷秀 ================= */
 function animR1(p){
   const S=[
-    {raw:'Marley died seven years ago.',tag:'since / for',v:[
-      {n:'過去式',t:'Marley <b>died</b> seven years <b>ago</b>.',m:'ago 是明確過去時間 → 過去式'},
-      {n:'for',t:'Marley <b>has been dead for</b> seven years.',m:'die 是瞬間動詞 → 改 be dead；for＋一段時間'},
-      {n:'since',t:'Marley <b>has been dead since</b> 2018.',m:'since＋時間點（年份）'},
-      {n:'It has been',t:'<b>It has been</b> seven years <b>since</b> Marley died.',m:'It has been＋時間＋since＋過去式'}]},
+    {raw:'Shuhua became a member of i-dle in 2018.',tag:'since / for',v:[
+      {n:'過去式',t:'Shuhua <b>became</b> a member of i-dle <b>in 2018</b>.',m:'in 2018 是明確過去時間 → 過去式（L1 課文）'},
+      {n:'since',t:'Shuhua <b>has been</b> a member of i-dle <b>since</b> 2018.',m:'become 是瞬間動詞 → 改 be a member；since＋時間點'},
+      {n:'for',t:'Shuhua <b>has been</b> a member of i-dle <b>for</b> years.',m:'for＋一段時間'},
+      {n:'It has been',t:'<b>It has been</b> years <b>since</b> Shuhua <b>became</b> a member.',m:'It has been＋時間＋since＋過去式'}]},
     {raw:'Amy went to Japan.',tag:'been to / gone to',v:[
       {n:'been to',t:'Amy <b>has been to</b> Japan three times.',m:'去過、已經回來；常接次數'},
       {n:'gone to',t:'Amy <b>has gone to</b> Japan. She isn\'t here.',m:'去了、還沒回來'},
       {n:'been in',t:'Amy <b>has been in</b> Japan for a month.',m:'一直待在某地；接 for / since'},
       {n:'How many',t:'<b>How many times have</b> you <b>been to</b> Japan?',m:'問次數 How many times'}]},
-    {raw:'Cratchit got a raise.',tag:'already / yet / ever',v:[
-      {n:'already',t:'Cratchit <b>has already got</b> a raise.',m:'already 放 have 和 p.p. 中間（肯定句）'},
-      {n:'yet',t:'Kelly <b>hasn\'t got</b> a raise <b>yet</b>.',m:'yet 放句尾（否定句、疑問句）'},
-      {n:'ever',t:'<b>Have</b> you <b>ever</b> asked for a raise?',m:'ever＝曾經（疑問句）'},
-      {n:'never',t:'Scrooge <b>has never</b> given anyone a raise before.',m:'never＝從未（本身就是否定）'}]},
+    {raw:'Mina went to a concert.',tag:'already / yet / ever',v:[
+      {n:'already',t:'Sandy <b>has already been</b> to i-dle\'s concert.',m:'already 放 have 和 p.p. 中間（肯定句）'},
+      {n:'yet',t:'Mina <b>hasn\'t been</b> to a concert <b>yet</b>.',m:'yet 放句尾（否定句、疑問句）；Not yet.'},
+      {n:'ever',t:'<b>Have</b> you <b>ever been</b> to a concert?',m:'ever＝曾經（疑問句；L1 課名）'},
+      {n:'never',t:'Mina <b>has never seen</b> SEVENTEEN live.',m:'never＝從未（本身就是否定）'}]},
     {raw:'I joined a fun run.',tag:'過去式 vs 完成式',v:[
       {n:'last year',t:'I <b>joined</b> a fun run <b>last year</b>.',m:'last year 明確過去 → 過去式'},
       {n:'twice',t:'I <b>have joined</b> fun runs <b>twice</b>.',m:'經驗次數 → 現在完成式'},
